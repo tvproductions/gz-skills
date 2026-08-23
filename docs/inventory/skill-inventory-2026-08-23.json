@@ -1,0 +1,3680 @@
+{
+  "schema_version": 1,
+  "captured_on": "2026-08-23",
+  "scan_root": "C:\\Users\\Jeff\\source\\repos",
+  "excluded_projects": [
+    "gz-skills"
+  ],
+  "total_installations": 1010,
+  "unique_skill_names": 198,
+  "distinct_project_names": 18,
+  "projects": [
+    "CIDM6330-Spring2026-Alan-Kennon",
+    "CIDM6330-Spring2026-Oscar-Martinez",
+    "Ortho4XP",
+    "airlineops",
+    "caprock-web",
+    "cohort-004-project",
+    "fdr-toolkit",
+    "flightops",
+    "gzkit",
+    "q4xpcc",
+    "rhea",
+    "session-handoffs",
+    "superpowers",
+    "superpowers-backplane",
+    "xplane-fdau",
+    "xplane-health",
+    "xplane-webapi",
+    "xplane-webapi-version-lf"
+  ],
+  "skills": [
+    {
+      "name": "airlineops-parity-scan",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Run a repeatable governance parity scan between ../airlineops (canon) and gzkit (extraction)."
+      ]
+    },
+    {
+      "name": "ask-matt",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Ask which skill or flow fits your situation. A router over the skills in this repo."
+      ]
+    },
+    {
+      "name": "backlog-status",
+      "projects": [
+        "q4xpcc"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Use when the user asks where q4xpcc work stands, what remains from the project spec phases, how to resume, or whether Superpowers plans/specs cover the backlog."
+      ]
+    },
+    {
+      "name": "bdd",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run behave BDD tests with coverage. Use to validate external behavior contracts (CLI, API, schemas) when changes to user-facing interfaces occur."
+      ]
+    },
+    {
+      "name": "bench-fleet",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run tiny Fleet benchmark harness. Use to measure fleet optimization performance with a minimal dataset."
+      ]
+    },
+    {
+      "name": "better-sqlite3-rebuild",
+      "projects": [
+        "cohort-004-project"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".claude"
+      ],
+      "descriptions": [
+        "Use when seeing errors about better-sqlite3 native module, NODE_MODULE_VERSION mismatch, \"was compiled against a different Node.js version\", or similar native binding errors."
+      ]
+    },
+    {
+      "name": "book-em-danno",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Fun alias for git-sync ritual. Runs sync via `uv run -m opsdev git-sync --apply`. Use when ready to ship after completing work."
+      ]
+    },
+    {
+      "name": "brainstorming",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 3,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+      ]
+    },
+    {
+      "name": "chores-core",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Reference for six core chore operations (list, plan, run, audit, advise, complete). Use alongside chore-runner to understand each operation's purpose, inputs, and expected outputs."
+      ]
+    },
+    {
+      "name": "chores-lanes",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Reference for three chore validation lanes (Lite, Medium, Heavy) governing scope, verification requirements, and sign-off rigor. Use to determine what validation a chore requires before completion."
+      ]
+    },
+    {
+      "name": "ci",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run lite lane validation in CI-friendly mode via `uv run -m opsdev ci`. Executes ruff lint, type check, and unittest for fast non-blocking smoke testing in CI/CD pipelines."
+      ]
+    },
+    {
+      "name": "ci-cov",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "CI with coverage.xml output. Use in CI/CD pipelines to generate coverage.xml reports for external processing."
+      ]
+    },
+    {
+      "name": "claude-handoff",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Hand the current conversation off to a fresh background agent that picks up the work immediately."
+      ]
+    },
+    {
+      "name": "cli-governance",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Generate CLI governance report and clig.dev compliance matrix. Use to audit CLI contract compliance and generate governance documentation."
+      ]
+    },
+    {
+      "name": "code-quality",
+      "projects": [
+        "fdr-toolkit",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 4,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Repo-local xplane-webapi quality workflow. Use when the user asks to run quality checks, lint, format, typecheck, test, coverage, security scans, docstring coverage, dead-code checks, metrics, pre-commit, complexity, CI-equivalent checks, or to fix failures from this repository's quality gate.",
+        "Use when changing xplane-fdau code or tooling, checking lint, formatting, types, tests, coverage, security, complexity, pre-commit, or CI-equivalent quality gates."
+      ]
+    },
+    {
+      "name": "code-review",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".",
+        "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \\\"review since X\\\"."
+      ]
+    },
+    {
+      "name": "codebase-design",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary."
+      ]
+    },
+    {
+      "name": "complexity-check",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run xenon complexity check with configured thresholds. Use to validate code maintainability and catch overly complex functions."
+      ]
+    },
+    {
+      "name": "config",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Display all Claude Code customizations (subagents, skills, hooks, commands, memory files) in one unified view."
+      ]
+    },
+    {
+      "name": "cov",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Generate HTML coverage report from unit and BDD tests. Use to visualize code coverage and identify untested code paths before submitting work."
+      ]
+    },
+    {
+      "name": "cross-platform",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Apply the binding cross-platform rules (Path, UTF-8, temp files, subprocess, test cleanup) to all Python and opsdev work. Use as a reference when writing code for Windows, macOS, and Linux compatibility."
+      ]
+    },
+    {
+      "name": "dataset-audit",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Verify dataset configuration internal consistency and drift risks. Use to validate dataset matrix configuration and identify inconsistencies."
+      ]
+    },
+    {
+      "name": "demand-smoke",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run demand demo smoke test. Use to validate the demand forecasting module works end-to-end with minimal test data."
+      ]
+    },
+    {
+      "name": "diagnosing-bugs",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow."
+      ]
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies"
+      ]
+    },
+    {
+      "name": "docs",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Composite docs utility running proof, lint, spec, and ADR generation. Use for comprehensive documentation validation before committing."
+      ]
+    },
+    {
+      "name": "docs-lint",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Validate documentation links. Use to check that all internal links in documentation files are valid before committing docs changes."
+      ]
+    },
+    {
+      "name": "docs-proof",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Build docs with mkdocs in strict mode. Use to validate documentation compiles cleanly and all links/references are correct before committing."
+      ]
+    },
+    {
+      "name": "docs-spec",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run docs contract BDD scenarios. Use to validate documentation behavior contracts via behave feature files in features/docs."
+      ]
+    },
+    {
+      "name": "docstring-sync",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Check/sync manpage one-liners with docstring first lines. Use to keep manpage documentation synchronized with source code docstrings."
+      ]
+    },
+    {
+      "name": "documentation",
+      "projects": [
+        "xplane-fdau"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Use when creating or updating xplane-fdau user guidance, MkDocs pages, native FDR API reference, configuration examples, or documentation verification."
+      ]
+    },
+    {
+      "name": "domain-modeling",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR."
+      ]
+    },
+    {
+      "name": "executing-plans",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when you have a written implementation plan to execute in a separate session with review checkpoints"
+      ]
+    },
+    {
+      "name": "fastapi-patterns",
+      "projects": [
+        "flightops"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".claude"
+      ],
+      "descriptions": [
+        "FastAPI + SQLAlchemy + Alembic patterns for FlightOps. Use when implementing API endpoints, database models, or migrations."
+      ]
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 4,
+      "tree_variants": 4,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
+        "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup"
+      ]
+    },
+    {
+      "name": "fleet-smoke",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run fleet demo smoke test. Use to validate the fleet optimization module works end-to-end with minimal test data."
+      ]
+    },
+    {
+      "name": "forecasting-template",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Create a deterministic forecasting brief template (repo-local, no external services). Use to generate brief templates for forecasting work items."
+      ]
+    },
+    {
+      "name": "format",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "airlineops",
+        "rhea"
+      ],
+      "installations": 15,
+      "instruction_variants": 4,
+      "tree_variants": 4,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit"
+      ],
+      "descriptions": [
+        "Auto-format code with Ruff.",
+        "Composite code formatting using ruff format and check. Use to ensure consistent code style and formatting across the codebase."
+      ]
+    },
+    {
+      "name": "ghi-author",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Author a GitHub Issue (GHI) for a defect, enhancement, or investigation surfaced in flight. Use when a defect cannot be fixed in the current patch, when scope expansion would violate the active brief's boundaries, or when a finding deserves a trackable home before routing."
+      ]
+    },
+    {
+      "name": "ghi-close",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Do the work described in a GHI, then close it with verifiable evidence. Use to execute and resolve an open defect, enhancement, or investigation — the skill performs the fix, verifies artifacts, and closes the issue in one sweep."
+      ]
+    },
+    {
+      "name": "ghi-triage",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Triage every open GHI — read each body, classify severity, and produce a deterministic rank-ordered deliverable. The bundled script handles fetch + routing + final rendering; the agent does the body-reading judgment pass between them. Use when reviewing the open-issue queue, before a planning session, or when deciding what to actually pull next."
+      ]
+    },
+    {
+      "name": "git-guardrails-claude-code",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code."
+      ]
+    },
+    {
+      "name": "git-sync",
+      "projects": [
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "Ortho4XP",
+        "airlineops",
+        "fdr-toolkit",
+        "gzkit",
+        "q4xpcc",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 19,
+      "instruction_variants": 8,
+      "tree_variants": 8,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".codex",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Full repository synchronization ritual with lint, test, and governance guards. Use after completing work to safely fetch, validate, and push changes to remote.",
+        "Repo-local workflow for safely syncing xplane-webapi changes with git. Use when the user asks to git add, commit, push, publish, sync, or otherwise send current repository changes to origin; includes scope review, unittest and ruff validation, commit creation, push, and final remote sync verification.",
+        "Run the guarded Ortho4XP repository sync ritual. Use when the user says \"git sync\", asks to sync local work with origin, wants local/origin branch reconciliation, or needs a gzkit-style commit/pull/push routine for this repo.",
+        "Run the guarded repository sync ritual; pre-commit hooks enforce lint/test automatically.",
+        "Use when staging, committing, or inspecting synchronization state for xplane-fdau changes, including scope review and local validation.",
+        "Use when the user says \"git sync\", invokes \"$git-sync\", asks to push q4xpcc work, sync local work with origin, or run the guarded q4xpcc commit/pull/push routine."
+      ]
+    },
+    {
+      "name": "grill-me",
+      "projects": [
+        "caprock-web",
+        "cohort-004-project",
+        "xplane-health"
+      ],
+      "installations": 3,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude"
+      ],
+      "descriptions": [
+        "A relentless interview to sharpen a plan or design.",
+        "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions \"grill me\"."
+      ]
+    },
+    {
+      "name": "grill-with-docs",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go."
+      ]
+    },
+    {
+      "name": "grilling",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases."
+      ]
+    },
+    {
+      "name": "guard-terminology",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Scan for forbidden terminology in codebase. Use to enforce terminology standards and detect deprecated or forbidden terms."
+      ]
+    },
+    {
+      "name": "gz-adr-audit",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "airlineops",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 20,
+      "instruction_variants": 5,
+      "tree_variants": 6,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Audit ADR evidence and verify gate completion.",
+        "Gate-5 audit templates and procedure for ADR verification. GovZero v6 skill.",
+        "Gate-5 audit templates and procedure for ADR verification. Use when moving an ADR from Completed to Validated, executing the Phase 2 audit pass, or running reproducible ADR verification."
+      ]
+    },
+    {
+      "name": "gz-adr-autolink",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Auto-map ADRs to tests via @covers decorators; optionally write Verification sections. Use when discovering which tests cover which ADRs, updating ADR Verification sections, or ensuring traceability before an audit."
+      ]
+    },
+    {
+      "name": "gz-adr-check",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Blocking ADR evidence audit — fails if any ADR has insufficient evidence. Use when running CI gates before merging, verifying all ADRs have required evidence, or before marking an ADR as Completed."
+      ]
+    },
+    {
+      "name": "gz-adr-closeout-ceremony",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "airlineops",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 20,
+      "instruction_variants": 5,
+      "tree_variants": 6,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Execute the ADR closeout ceremony protocol for human attestation. GovZero v6 skill.",
+        "Execute the ADR closeout ceremony protocol for human attestation. Use when the user says \"ADR closeout ceremony\", all OBPIs are complete and ready for human attestation, or performing the final ADR sign-off.",
+        "Execute the full closeout ceremony with human attestation protocol."
+      ]
+    },
+    {
+      "name": "gz-adr-create",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 17,
+      "instruction_variants": 4,
+      "tree_variants": 5,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Create ADRs with OBPI briefs.",
+        "Create and book a GovZero ADR with its OBPI briefs. Enforces next-free-integer nominal allocation for foundation IDs and five-gate compliance. Portable skill for GovZero-compliant repositories."
+      ]
+    },
+    {
+      "name": "gz-adr-creator",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Create and book a GovZero ADR with its OBPI briefs. Enforces minor-version odometer and five-gate compliance. Use when creating a new ADR, booking an ADR with OBPI briefs, or setting up a GovZero-compliant decision record."
+      ]
+    },
+    {
+      "name": "gz-adr-emit-receipt",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Emit ADR receipt events with scoped evidence payloads. Use when recording completed or validated accounting events."
+      ]
+    },
+    {
+      "name": "gz-adr-eval",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Post-authoring quality evaluation for ADRs and OBPIs. Scores ADRs on 8 weighted dimensions, OBPIs on 5 dimensions, and runs 10 structured red team challenges. Use after drafting an ADR and before ADR Defense attestation."
+      ]
+    },
+    {
+      "name": "gz-adr-evaluate",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Post-authoring quality evaluation for ADRs and OBPIs. Scores ADRs on 8 weighted dimensions, OBPIs on 5 dimensions, and can run 10 structured red-team challenges before proposal/defense."
+      ]
+    },
+    {
+      "name": "gz-adr-map",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 3,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Build ADR-to-artifact traceability using gz state and repository search.",
+        "Generate ADR→artifact traceability map via keyword/semantic matching. Use when tracing ADR impact across the codebase, identifying orphan code without ADR coverage, or verifying ADR scope matches implementation."
+      ]
+    },
+    {
+      "name": "gz-adr-promote",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Promote a pool ADR into canonical ADR package structure. Use when moving a backlog item (ADR-pool.*) into an active, versioned ADR."
+      ]
+    },
+    {
+      "name": "gz-adr-recon",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "ADR OBPI table reconciliation — read ledger entries and sync ADR OBPI table status. Use when the ADR OBPI table is stale, after running gz-obpi-reconcile, or before an ADR closeout ceremony."
+      ]
+    },
+    {
+      "name": "gz-adr-status",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Generate ADR status table or display terminal summary. Use when checking the current status of all ADRs, identifying ADRs needing attention, or reviewing governance state before starting work.",
+        "Show the ADR table for summary requests, or show focused lifecycle and OBPI detail for one ADR."
+      ]
+    },
+    {
+      "name": "gz-adr-sync",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "End-to-end ADR governance sync — discover @covers evidence, reconcile OBPI ledger state, and register ADR files. Accepts an optional ADR-ID for scoped reconciliation.",
+        "Sync ADR index and status tables from ADR source files. Detects drift and reconciles. Use when ADR index or status tables are out of date, after adding or updating ADRs, or after ADR status changes."
+      ]
+    },
+    {
+      "name": "gz-adr-verification",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Generate ADR→tests verification report using @covers mappings. Use when verifying ADR test coverage, after adding tests with @covers decorators, or during governance audits."
+      ]
+    },
+    {
+      "name": "gz-advisor-qc",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Judge the information-retained-per-byte of a candidate rendition and record the verdict via gz content advise-rendition — advisory, never gating. Use after composing a candidate (gz content compose) and before operator attestation, to produce the advisor-QC receipt the operator cites at Gate 5."
+      ]
+    },
+    {
+      "name": "gz-agent-sync",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Synchronize generated control surfaces and skill mirrors. Use after skill or governance-surface updates."
+      ]
+    },
+    {
+      "name": "gz-airlock",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        ">"
+      ]
+    },
+    {
+      "name": "gz-arb",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "ARB (Agent Self-Reporting) middleware for wrapping QA steps, generating structured receipts, and filing issues with deterministic evidence. Use when debugging QA failures with structured receipts, auditing compliance against schemas, or analyzing recurring QA trends.",
+        "Wrap QA commands in ARB receipts for attestation evidence. Use when producing Heavy-lane attestation evidence, diagnosing recurring lint patterns, or auditing QA compliance via receipts."
+      ]
+    },
+    {
+      "name": "gz-check",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Run full quality checks in one pass. Use for pre-merge or pre-attestation quality verification."
+      ]
+    },
+    {
+      "name": "gz-check-config-paths",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Validate configured and manifest path coherence. Use when diagnosing control-surface or path drift."
+      ]
+    },
+    {
+      "name": "gz-chore-runner",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 4,
+      "tree_variants": 4,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        ">-",
+        "Run a gzkit chore end-to-end (show, plan, advise, execute, validate). Use when executing scheduled maintenance, refactoring, or code quality work items from the chores registry.",
+        "Run an opsdev chore end-to-end (plan, advise, execute) with Lite-lane validation. Use to execute scheduled maintenance and refactoring work items."
+      ]
+    },
+    {
+      "name": "gz-chores",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → maintenance and code-quality chore skills. Use to pick the chore intent before invoking the matched concrete skill directly."
+      ]
+    },
+    {
+      "name": "gz-cli-audit",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Audit CLI documentation coverage and headings. Use when verifying command manpage and index parity."
+      ]
+    },
+    {
+      "name": "gz-competitor-radar",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Run a monthly B+ competitor-discovery radar for spec-driven and agent-workflow tools, render JSON-governed reports, grill suggested gzkit moves, and route approved opportunities without unattended governance mutation."
+      ]
+    },
+    {
+      "name": "gz-complexity-advisor",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Preview complexity advisor diagnosis, understand auto-chain context, or check intrinsic complexity attestation guidance. Use when the operator says \"preview complexity advisor\", \"complexity diagnosis\", \"advisor recommendation\", \"what does the advisor say\", or \"intrinsic complexity attestation\"."
+      ]
+    },
+    {
+      "name": "gz-complexity-distill",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Run a complexity distillation pass against the exemplar corpus to refresh distilled-characteristics doctrine. Use when the operator says \"run distillation\", \"refresh complexity corpus\", or \"distill complexity\" — and at the cadence triggers below (annual calendar, advisor verdict-frequency drift > 25% from baseline, or operator judgment for a ground-breaking project)."
+      ]
+    },
+    {
+      "name": "gz-complexity-guide",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Preview authoring-time complexity hints before committing. Use when the operator says \"authoring-time complexity hint\", \"complexity guide preview\", \"preview before commit\", or \"advise-band hints\"."
+      ]
+    },
+    {
+      "name": "gz-constitute",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 17,
+      "instruction_variants": 4,
+      "tree_variants": 5,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Create constitution artifacts. Use when governance constitutions must be created or refreshed.",
+        "Create governance constitution artifacts."
+      ]
+    },
+    {
+      "name": "gz-content-compose",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Validate and stage a candidate rendition from the corpus via gz content compose. Use when the agent has made compression decisions (drop/combine/rewrite of compressible corpus entries toward the declared setpoint) and wants the tool to validate invariant-floor compliance, compute byte evidence, write the candidate artifact, and emit a ledger event."
+      ]
+    },
+    {
+      "name": "gz-content-remember",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Capture an addressed entry into a surface's append-only corpus via gz content remember, never editing a rendered surface. Use when an operator says \"remember X\" for a control surface (AGENTS.md, CLAUDE.md) or an agent course-correction should persist to the corpus source of truth."
+      ]
+    },
+    {
+      "name": "gz-context",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → context preservation and orientation skills, plus the focused-context loader `gz context <ADR-ID>`. Use to pick the context/handoff intent or to load one ADR's full context bundle (body + OBPI briefs + covering tests + governance rules) before invoking the matched concrete skill or piping payload to an agent harness."
+      ]
+    },
+    {
+      "name": "gz-context-diet",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Trim per-turn agent context weight by lifting pedagogical narrative from AGENTS.md, CLAUDE.md, and .claude/rules/** to docs/governance/, leaving binding bullets and one-line pointers behind. Use when the per-turn contract surface has accreted multi-paragraph rationale and \"Why this is canon\" codas, when an operator asks for a \"diet\" or \"progressive disclosure\" pass on the agent contract, or when the advisory scorecard surfaces Judgment-class duplicates that can be folded into Mechanical neighbors. Thin trigger-discovery wrapper for the `instructions-files-diet` chore — the chore's `CHORE.md` carries the procedure."
+      ]
+    },
+    {
+      "name": "gz-deps-upgrade",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Refresh the uv binary itself, global uv tools, Python 3.13.x runtime, pyproject.toml pins/floors, and uv.lock to current PyPI latest in one disciplined pass. Use this skill whenever the operator asks to \"update deps\", \"upgrade dependencies\", \"refresh uv.lock\", \"bump python\", \"update python 3.13\", \"deps to latest\", \"update pyproject\", \"update uv\", or any phrasing that asks for the project's dependency surface or toolchain to move forward to current upstream — even if they don't name uv or pyproject explicitly. Default tool when \"update\" / \"upgrade\" lands on Python tooling for this repo."
+      ]
+    },
+    {
+      "name": "gz-design",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Collaborative design dialogue that produces GovZero ADR artifacts. Use when exploring a new feature, capability, or architectural change before implementation — replaces superpowers brainstorming for this project. Triggers on \"design X\", \"let's design\", \"brainstorm X\", \"I want to build X\", \"gz-design\"."
+      ]
+    },
+    {
+      "name": "gz-flighttest",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Drive one flight-test sortie against a target substrate to prove a gzkit workflow end-to-end. Use when running the flight-test program, when the user says \"fly sortie S<N>\", \"run a flight test\", \"prove gzkit against <target>\", or to advance a flight-test campaign. Executes one sortie per run — author card, obtain human Go/No-Go, fly the governed-path chain, collect black-box evidence, dispatch an independent Chase, debrief, and route squawks."
+      ]
+    },
+    {
+      "name": "gz-foundation-triage",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Rank the in-flight foundation backlog by priority — cross-references"
+      ]
+    },
+    {
+      "name": "gz-gates",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "rhea"
+      ],
+      "installations": 12,
+      "instruction_variants": 3,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit"
+      ],
+      "descriptions": [
+        "Run lane-required gate checks for an ADR."
+      ]
+    },
+    {
+      "name": "gz-git-sync",
+      "projects": [
+        "xplane-health"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Create and publish a guarded Git save point. Invoke explicitly when the user asks for git sync, wants committed work pushed so it can be continued elsewhere, or requests a remote save point."
+      ]
+    },
+    {
+      "name": "gz-go-review",
+      "projects": [
+        "xplane-health"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Review Go changes for idiomatic Go and teach the reasoning. Invoke explicitly when the user asks for a Go review, wants to learn Go from current project work, or wants accepted Go lessons recorded as project standards."
+      ]
+    },
+    {
+      "name": "gz-gov-insights",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Governance drift analysis — synthesize insights from gzkit alignment, ARB receipts, agent-insights ledgers, and instruction surfaces into a unified governance health overview. Use when assessing overall governance health, investigating recurring agent compliance issues, or preparing for governance reviews."
+      ]
+    },
+    {
+      "name": "gz-governance",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → ADR/OBPI/ledger governance skills. Use to pick the governance intent before invoking the matched skill directly."
+      ]
+    },
+    {
+      "name": "gz-health-audit",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → the four-axis health and integrity audit. Use when the operator reports that gzkit feels \"wobbly\", misaligned, or that governance is not holding — or before a release, to check that declared mechanisms still fire. Routes to the concrete axis surfaces in a fixed cheapest-first order; owns the ordering rationale and the budget rule, not the analyses themselves."
+      ]
+    },
+    {
+      "name": "gz-implement",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 17,
+      "instruction_variants": 4,
+      "tree_variants": 5,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Run Gate 2 verification and record result events.",
+        "Run Gate 2 verification and record result events. Use when validating implementation progress for an ADR."
+      ]
+    },
+    {
+      "name": "gz-init",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Initialize gzkit governance scaffolding and project skeleton for a repository. Use when bootstrapping, reinitializing, or repairing project governance surfaces."
+      ]
+    },
+    {
+      "name": "gz-insights-remember",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Record a course-correction, defect, defect-resolution, or discovery insight via the governed gz insights remember verb. Use when an operator course-corrects in flight (Behavior Rule #11), an agent surfaces a defect/discovery, or a defect-resolution outcome needs recording — never hand-append a line to .gzkit/insights/agent-insights.jsonl."
+      ]
+    },
+    {
+      "name": "gz-intent-trace",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Trace a sampled set of ADRs from declared intent to shipped surface, and route every gap as a correction under its owning ADR. Use when asking whether what shipped actually fulfils what was decided — after an inertness audit surfaces candidates, before a release, or when the operator reports that a capability \"exists but doesn't really work\". Diagnosis and routing only; never authors a new ADR and never widens scope beyond the sampled set."
+      ]
+    },
+    {
+      "name": "gz-issue-file",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Cross-repo defect/enhancement filing wrapper for gzkit-owned surfaces. Use from inside any consuming repository when surfacing a defect or enhancement against the `gz` CLI, schemas under `src/gzkit/schemas/`, validator scopes, ledger event semantics, files under `.gzkit/**` or `src/gzkit/**`, or rules under `.gzkit/rules/**`. Routes the issue at `tvproductions/gzkit` regardless of the consuming repo's `git remote`, auto-stamps a provenance trailer naming the consumer slug and gz version, and hard-rejects bodies that reference no gzkit-owned surface."
+      ]
+    },
+    {
+      "name": "gz-justify",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Pre-execution reasoning walkthrough for GHIs, OBPIs, and drafts. Invoke before implementation when confidence is <90%, when a gz-adr-evaluate score lands below 3.0, or when scope boundaries feel ambiguous. The CLI renders an 8-section markdown scaffold pre-populated with anchor evidence; you fill each `_[To be filled]_` block with grounded reasoning cited from the gathered evidence, then commit or attach the filled artifact to downstream governance."
+      ]
+    },
+    {
+      "name": "gz-manage",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → repo and release management skills (git-sync, issues, releases, tidy, mx hangar). Use to pick the management intent before invoking the matched concrete skill directly."
+      ]
+    },
+    {
+      "name": "gz-migrate-semver",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Record semver identifier migration events. Use when applying canonical ADR or OBPI renaming migrations."
+      ]
+    },
+    {
+      "name": "gz-mx",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        ">"
+      ]
+    },
+    {
+      "name": "gz-obpi-audit",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Audit OBPI brief status against actual code/test evidence. Records proof in JSONL ledger. Use when auditing a single OBPI brief against its evidence, recording proof after completing OBPI work, or as part of a reconciliation workflow."
+      ]
+    },
+    {
+      "name": "gz-obpi-brief",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Generate a new OBPI brief file with correct headers, constraints, and evidence stubs. Use when creating a new OBPI brief, adding a brief for an ADR checklist item, or scaffolding evidence and acceptance criteria for a work unit."
+      ]
+    },
+    {
+      "name": "gz-obpi-brief-drift",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Reconcile an OBPI brief against current project state and optionally write operator-attested amendments. Use when a brief's allowlist, discovery checklist, verification verbs, REQ count, or citation tuples may have drifted from reality."
+      ]
+    },
+    {
+      "name": "gz-obpi-lock",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 3,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Claim or release OBPI-level work locks for multi-agent coordination. Use when claiming an OBPI before starting work, releasing a lock after completing or abandoning work, or checking which OBPIs are currently claimed by agents."
+      ]
+    },
+    {
+      "name": "gz-obpi-pipeline",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "airlineops",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 20,
+      "instruction_variants": 7,
+      "tree_variants": 8,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "End-to-end OBPI execution pipeline — plan, implement, verify, present evidence, and sync. Use when the user says \"work on OBPI-X.Y.Z-NN\", \"execute OBPI-X.Y.Z-NN\", or to enforce governance on already-implemented work via --from=verify or --from=ceremony.",
+        "Execute the staged OBPI pipeline end-to-end.",
+        "Post-plan OBPI execution pipeline — implement, verify, present evidence, and sync after a plan is approved. Use after exiting plan mode for an OBPI, when the user says \"execute OBPI-X.Y.Z-NN\", or to enforce governance on already-implemented work via --from=verify or --from=ceremony."
+      ]
+    },
+    {
+      "name": "gz-obpi-reconcile",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "OBPI brief reconciliation — audit briefs against evidence, fix stale metadata, write ledger proof. Use when fixing stale OBPI metadata, before an ADR closeout ceremony, or after completing work to ensure briefs match evidence."
+      ]
+    },
+    {
+      "name": "gz-obpi-simplify",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "OBPI-scoped code review for reuse, quality, and efficiency. Resolves scope from the brief's Allowed Paths, reviews across three dimensions, and applies fixes. Use after implementation, before reconcile."
+      ]
+    },
+    {
+      "name": "gz-obpi-specify",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Create and semantically author OBPI briefs linked to parent ADR items. Use when decomposing implementation into OBPI increments."
+      ]
+    },
+    {
+      "name": "gz-obpi-sync",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 2,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "OBPI brief reconciliation — Audit briefs against evidence, fix stale metadata, sync ADR table, write ledger proof.",
+        "Sync OBPI status in ADR table from brief source files. Detects drift and reconciles. Use when propagating OBPI status changes to the ADR table, bootstrapping a new ADR with no ledger, or running a quick status sync without full audit overhead."
+      ]
+    },
+    {
+      "name": "gz-ontology",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Image the governance shape with the read-only ontology sonar. Use to sweep the current structural shape, trace a node's lineage, diff versus the last sweep (the airlock re-sense gate), or read a node's downstream blast-radius before reasoning about lineage."
+      ]
+    },
+    {
+      "name": "gz-patch-release",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Orchestrate the GHI-driven patch release ceremony: draft narrative release notes, operator approval, RELEASE_NOTES update, git-sync, and GitHub release."
+      ]
+    },
+    {
+      "name": "gz-plan",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 17,
+      "instruction_variants": 4,
+      "tree_variants": 5,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Create ADR artifacts for planned change. Use when recording architecture intent and lane-specific scope.",
+        "Create ADR artifacts with 20+ design forcing-function questions."
+      ]
+    },
+    {
+      "name": "gz-plan-audit",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 2,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Pre-flight alignment audit — verify ADR intent, OBPI brief scope, and Claude Code plan are aligned before implementation begins. Use when exiting plan mode, before starting implementation, or to catch scope misalignment between ADR intent and OBPI brief.",
+        "Pre-flight alignment audit — verify ADR intent, OBPI brief scope, and plan are aligned before implementation begins. Use when exiting plan mode, before starting implementation, or to catch scope drift between ADR intent and the active OBPI brief."
+      ]
+    },
+    {
+      "name": "gz-pr-closeout",
+      "projects": [
+        "xplane-health"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Deliver a reviewed implementation pull request and verify its originating GitHub ticket closes. Use after Matt Pocock's `implement` and `code-review` flow, plus `gz-review-followup` when findings existed, when asked to mark a PR ready, merge it, close its ticket, or report the remaining delivery frontier."
+      ]
+    },
+    {
+      "name": "gz-prd",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 17,
+      "instruction_variants": 4,
+      "tree_variants": 5,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Create product requirement artifacts. Use when defining or revising project-level intent before ADR planning.",
+        "Guided product requirements declaration with interview logic."
+      ]
+    },
+    {
+      "name": "gz-project",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → project lifecycle skills (init, requirements, constitution, status). Use to pick the project-level intent before invoking the matched concrete skill directly."
+      ]
+    },
+    {
+      "name": "gz-pythonic-pattern-apply",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Capture before/after evidence with mechanical-delta proof when a Pythonic-pattern rewrite is applied. Use after `gz-pythonic-pattern-detect` flagged a candidate marked `applied` — the rewrite must be backed by a semantics-pinning test, a TDD GREEN receipt, and non-regressing xenon/radon deltas, written to `.gzkit/chores/pythonic-design-pattern-application/proofs/`."
+      ]
+    },
+    {
+      "name": "gz-pythonic-pattern-detect",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Surface Pythonic-design-pattern refactor candidates after ADR closeout. Use when ruff/ty are zeroed and complexity gates are green but the code shape still looks Java-flavored — Strategy classes that should be functions, Singletons that should be module-level constants, Visitor ladders that should be `match`. Wields the `pythonic-design-pattern-detection` chore. Pair with `gz-pythonic-pattern-apply` for the evidence side."
+      ]
+    },
+    {
+      "name": "gz-quality",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → quality and complexity skills. Use to pick the quality-check intent before invoking the matched concrete skill directly."
+      ]
+    },
+    {
+      "name": "gz-review-followup",
+      "projects": [
+        "xplane-health"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Publish the findings from a completed two-axis code review to a GitHub pull request, track an explicit disposition for every finding, and leave durable repair, test, re-review, and resolution receipts. Use after `code-review`, or when asked to capture, discuss, defer, address, or resolve PR review findings consistently."
+      ]
+    },
+    {
+      "name": "gz-session-handoff",
+      "projects": [
+        "airlineops",
+        "gzkit"
+      ],
+      "installations": 8,
+      "instruction_variants": 2,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Create and resume session handoff documents for agent context preservation across engineering sessions.",
+        "Create and resume session handoff documents for agent context preservation across sessions. Use when ending a session with incomplete work, switching ADR scope mid-session, or resuming work from a previous agent session."
+      ]
+    },
+    {
+      "name": "gz-skill-router",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Route agents to the correct skill for a given task type. Use when starting a session, when unsure which skill applies, or when an agent needs to discover the right workflow for a task."
+      ]
+    },
+    {
+      "name": "gz-state",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Query artifact relationships and readiness state. Use when reporting lineage or artifact graph status."
+      ]
+    },
+    {
+      "name": "gz-status",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "gzkit",
+        "rhea"
+      ],
+      "installations": 17,
+      "instruction_variants": 4,
+      "tree_variants": 5,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Report gate and lifecycle status across ADRs.",
+        "Report gate and lifecycle status across ADRs. Use when checking blockers and next governance actions."
+      ]
+    },
+    {
+      "name": "gz-tech-debt-review",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Survey scoped technical debt across existing gzkit probes and render a prioritized, line-grounded report with route recommendations. Use for tech-debt review requests across touched files, paths, ADRs, OBPIs, or the whole repo. Produces diagnosis only; findings route to chores, in-flight fixes, or at most one GHI per run, never directly to OBPI."
+      ]
+    },
+    {
+      "name": "gz-tidy",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Run maintenance checks and cleanup routines. Use for repository hygiene and governance maintenance operations."
+      ]
+    },
+    {
+      "name": "gz-validate",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Validate governance artifacts against schema rules. Use when checking manifest, ledger, document, or surface validity."
+      ]
+    },
+    {
+      "name": "gz-workflow",
+      "projects": [
+        "gzkit"
+      ],
+      "installations": 5,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit",
+        "package"
+      ],
+      "descriptions": [
+        "Namespace router → end-to-end workflow skills (design through release). Use to pick the next workflow stage before invoking the matched concrete skill directly."
+      ]
+    },
+    {
+      "name": "handoff",
+      "projects": [
+        "caprock-web",
+        "cohort-004-project",
+        "xplane-health"
+      ],
+      "installations": 3,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude"
+      ],
+      "descriptions": [
+        "Compact the current conversation into a handoff document for another agent to pick up."
+      ]
+    },
+    {
+      "name": "hygiene",
+      "projects": [
+        "fdr-toolkit",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 4,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Run the full-strength xplane-webapi repository hygiene contract for workspace state, lockfile validity, quality gates, pre-commit verification, and optional direct-dependency freshness. Use for hygiene, cleanup, tidy, dependency chores, maintenance checks, or pre-handoff verification.",
+        "Use when performing xplane-fdau cleanup, maintenance, lockfile checks, dependency chores, pre-handoff verification, or an offline repository hygiene pass."
+      ]
+    },
+    {
+      "name": "implement",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Implement a piece of work based on a spec or set of tickets."
+      ]
+    },
+    {
+      "name": "implement-spec",
+      "projects": [
+        "caprock-web"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Implement a specification in code."
+      ]
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick."
+      ]
+    },
+    {
+      "name": "layout-audit",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Verify repository filesystem structure matches `config/tree_layout.json` via `uv run -m opsdev layout-verify`. Reports missing and extra directories. Use after restructuring or to validate layout compliance."
+      ]
+    },
+    {
+      "name": "lint",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "airlineops",
+        "rhea"
+      ],
+      "installations": 15,
+      "instruction_variants": 4,
+      "tree_variants": 4,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit"
+      ],
+      "descriptions": [
+        "Run code linting with Ruff and PyMarkdown.",
+        "Run ruff linter and markdown lint on codebase. Use before committing to check for style violations without auto-fixing."
+      ]
+    },
+    {
+      "name": "lint-fix",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run ruff linter with auto-fix and markdown auto-fix. Use when you want to automatically resolve style violations without manual review."
+      ]
+    },
+    {
+      "name": "lite-lane",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Fast validation workflow for day-to-day development (<60s). Use as the default for internal changes to get rapid feedback on lint, type checks, and unit tests."
+      ]
+    },
+    {
+      "name": "loop-me",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Grill me about specs for the workflows I want to build, within this workspace."
+      ]
+    },
+    {
+      "name": "maintenance-qa",
+      "projects": [
+        "Ortho4XP"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Use when reviewing code quality, security, test coverage, dead code, or docstring coverage. Run before merging, before releases, or when auditing repository health."
+      ]
+    },
+    {
+      "name": "managing-superpowers-backlog",
+      "projects": [
+        "session-handoffs",
+        "superpowers-backplane"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        "other"
+      ],
+      "descriptions": [
+        "Use when a Superpowers project needs GitHub backlog intake, product-arc status, work-item selection, spec or plan linkage, lifecycle transitions, dependency checks, submission, or verified issue closure."
+      ]
+    },
+    {
+      "name": "managing-superpowers-handoffs",
+      "projects": [
+        "session-handoffs"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        "other"
+      ],
+      "descriptions": [
+        "Use when work in a Superpowers project must cross a session, model, harness, interruption, context-risk boundary, or resume after one."
+      ]
+    },
+    {
+      "name": "manpage-validation",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Validate manpage IMPLEMENTATION TRACE references exist in code. Use to ensure manpage call-stack documentation aligns with actual code."
+      ]
+    },
+    {
+      "name": "markdown-covenant",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Enforces strict compliance with PyMarkdown rules and .pymarkdown.json configuration for all markdown files in AirlineOps. Use when authoring or modifying any .md file to ensure zero-violation compliance, consistent formatting, and successful pre-commit validation."
+      ]
+    },
+    {
+      "name": "md-fix",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Auto-fix markdown issues with pymarkdown. Use when you want to automatically resolve markdown formatting violations."
+      ]
+    },
+    {
+      "name": "md-lint",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run pymarkdown linter on markdown files. Use to check markdown syntax and style compliance before committing documentation."
+      ]
+    },
+    {
+      "name": "migrate-to-shoehorn",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data."
+      ]
+    },
+    {
+      "name": "operational-attestation-ceremony",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".github"
+      ],
+      "descriptions": [
+        "Execute human-verified attestation ceremony for AIRAC cycle data state before mirror sync. Verifies dataset signatures and world state hash. Use during operational governance data verification workflows."
+      ]
+    },
+    {
+      "name": "opt-info",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Show optimizer backend availability. Use to check which optimization solver backends are available in your environment."
+      ]
+    },
+    {
+      "name": "opt-smoke",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Smoke test optimizer import. Use to validate that the optimization solver can be successfully imported in your environment."
+      ]
+    },
+    {
+      "name": "placement-permission-check",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Check if a file placement is allowed per ADR-0.0.13 canonicalization rules. Use before creating or moving files to ensure they comply with repository structure rules."
+      ]
+    },
+    {
+      "name": "pnpm-not-found",
+      "projects": [
+        "cohort-004-project"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".claude"
+      ],
+      "descriptions": [
+        "Fix \"pnpm command not found\" errors by enabling corepack. Use when pnpm cannot be found, corepack errors appear, or package manager is missing."
+      ]
+    },
+    {
+      "name": "pre",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Composite pre-commit helper combining pre-loop normalizer and prepare-format script via `uv run -m opsdev pre`. Normalizes code and prepares for ruff formatting before committing."
+      ]
+    },
+    {
+      "name": "pre-loop",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run pre-loop normalizer via `uv run -m opsdev pre-loop`. Normalizes project state before formatting. Part of composite pre-commit workflow invoked by the `pre` skill."
+      ]
+    },
+    {
+      "name": "prepare-format",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run pre-format helper via `uv run -m opsdev prepare-format`. Applies pre-format normalization before `ruff format`. Part of composite pre-commit workflow invoked by the `pre` skill."
+      ]
+    },
+    {
+      "name": "prior-art",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Pre-planning codebase inventory — search for existing patterns, adapters, strategies, and test coverage before proposing new implementations. Use before planning any OBPI, when proposing new modules or adapters, or when unsure if a capability already exists."
+      ]
+    },
+    {
+      "name": "promotion-ceremony",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".github"
+      ],
+      "descriptions": [
+        "Promote work from agent/ staging to canonical directories with permission and receipt. Use when moving completed work from staging into production directories."
+      ]
+    },
+    {
+      "name": "prototype",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like."
+      ]
+    },
+    {
+      "name": "quality-check",
+      "projects": [
+        "Ortho4XP"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Run Ortho4XP's full repository quality verification. Use when the user asks to check, validate, verify, run quality checks, pre-merge, pre-push, prepare to commit, or confirm quality for current changes."
+      ]
+    },
+    {
+      "name": "quality-gate",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Heavy lane quality enforcement for external contract changes. Use when CLI, API, schemas, or error messages change to validate docs, BDD, and full test coverage."
+      ]
+    },
+    {
+      "name": "receiving-code-review",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation"
+      ]
+    },
+    {
+      "name": "refresh-dependencies",
+      "projects": [
+        "q4xpcc"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Use when q4xpcc dependencies, Python 3.12, uv tooling, lock freshness, published vulnerabilities, or the ignored Superpowers installation need to be audited or refreshed."
+      ]
+    },
+    {
+      "name": "release",
+      "projects": [
+        "xplane-fdau"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Use when validating local readiness for the unreleased xplane-fdau distribution, including wheel artifacts, installed smoke tests, and release-readiness checks."
+      ]
+    },
+    {
+      "name": "repo-hygiene",
+      "projects": [
+        "Ortho4XP",
+        "q4xpcc"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".codex"
+      ],
+      "descriptions": [
+        "Run repository hygiene workflows for Ortho4XP build readiness, workspace tidiness, and modern-toolchain validation. Use when asked to clean up, prepare, audit generated artifacts, check TODO/ROADMAP sequencing, or validate Python, CMake, CI, or native utility changes.",
+        "Use when q4xpcc work needs repository hygiene, build or packaging checks, deployment validation, runtime artifact inspection, or generated artifact verification."
+      ]
+    },
+    {
+      "name": "requesting-code-review",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when completing tasks, implementing major features, or before merging to verify work meets requirements"
+      ]
+    },
+    {
+      "name": "research",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent."
+      ]
+    },
+    {
+      "name": "resolving-merge-conflicts",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Use when you need to resolve an in-progress git merge/rebase conflict."
+      ]
+    },
+    {
+      "name": "rhea-build-log",
+      "projects": [
+        "rhea"
+      ],
+      "installations": 4,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit"
+      ],
+      "descriptions": [
+        "Maintain the RHEA bootstrap/build log at governance and session boundaries."
+      ]
+    },
+    {
+      "name": "scaffold-exercises",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section."
+      ]
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+        "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills."
+      ]
+    },
+    {
+      "name": "setup-pre-commit",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing."
+      ]
+    },
+    {
+      "name": "setup-ts-deep-modules",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Wire dependency-cruiser into a TypeScript repo so each package is a deep module — implementation hidden in subfolders, reachable only through its entry-point files. User-invoked.",
+        "Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-invoked."
+      ]
+    },
+    {
+      "name": "start",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Surface relevant architectural constraints at the beginning of a work session. Use when starting an implementation session, beginning work on an OBPI brief, switching domains mid-session, or resuming existing work in a new agent session."
+      ]
+    },
+    {
+      "name": "subagent-driven-development",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 3,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when executing implementation plans with independent tasks in the current session"
+      ]
+    },
+    {
+      "name": "sync-agents-skills",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Auto-bidirectional sync between .claude/skills and .agents/skills using tracked state. Use when skills have been added or modified, after OBPI work that changes skill files, or to ensure agent-vendor and Claude Code skill mirrors are aligned."
+      ]
+    },
+    {
+      "name": "systematic-debugging",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
+      ]
+    },
+    {
+      "name": "tdd",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests."
+      ]
+    },
+    {
+      "name": "teach",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Teach the user a new skill or concept, within this workspace."
+      ]
+    },
+    {
+      "name": "test",
+      "projects": [
+        "CIDM6330-Spring2026-Alan-Kennon",
+        "CIDM6330-Spring2026-Oscar-Martinez",
+        "airlineops",
+        "rhea"
+      ],
+      "installations": 15,
+      "instruction_variants": 4,
+      "tree_variants": 4,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github",
+        ".gzkit"
+      ],
+      "descriptions": [
+        "Composite test runner (unit + optional BDD). Use for full test suite execution when you need both unit and integration coverage validation.",
+        "Run unit tests with unittest."
+      ]
+    },
+    {
+      "name": "test-driven-development",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when implementing any feature or bugfix, before writing implementation code"
+      ]
+    },
+    {
+      "name": "test-fast",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run fast unit test subset matching test_unit_*.py pattern. Use for quick feedback during development to validate core unit logic only."
+      ]
+    },
+    {
+      "name": "to-questionnaire",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Turn a decision you can't fully answer into a questionnaire for someone else to fill in."
+      ]
+    },
+    {
+      "name": "to-spec",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.",
+        "Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed."
+      ]
+    },
+    {
+      "name": "to-tickets",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).",
+        "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in one file per ticket locally, or native blocking links on a real tracker."
+      ]
+    },
+    {
+      "name": "triage",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.",
+        "Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs."
+      ]
+    },
+    {
+      "name": "ty",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run ty type checker in advisory mode (exit zero). Use during development for type hint validation and feedback without blocking workflows."
+      ]
+    },
+    {
+      "name": "using-git-worktrees",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 3,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback"
+      ]
+    },
+    {
+      "name": "using-superpowers",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 3,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions"
+      ]
+    },
+    {
+      "name": "verification-before-completion",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always"
+      ]
+    },
+    {
+      "name": "vfdm-foqa",
+      "projects": [
+        "flightops"
+      ],
+      "installations": 1,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".claude"
+      ],
+      "descriptions": [
+        "Flight Data Monitoring domain expertise. Use when implementing telemetry ingest, scoring logic, event detection, or analysis features for the VFDM/FOQA subsystem."
+      ]
+    },
+    {
+      "name": "wait-what",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Stop. That last message did not land — re-pitch it.",
+        "Stop. That last message did not land: re-pitch it."
+      ]
+    },
+    {
+      "name": "wayfinder",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+        "Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear."
+      ]
+    },
+    {
+      "name": "wizard",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself."
+      ]
+    },
+    {
+      "name": "writing-beats",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Writing, exploit — assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
+        "Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it."
+      ]
+    },
+    {
+      "name": "writing-for-agents",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md."
+      ]
+    },
+    {
+      "name": "writing-fragments",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Writing, explore — mine raw fragments, no structure yet.",
+        "Writing, explore: mine raw fragments, no structure yet."
+      ]
+    },
+    {
+      "name": "writing-plans",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 4,
+      "tree_variants": 4,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when you have a spec or requirements for a multi-step task, before touching code"
+      ]
+    },
+    {
+      "name": "writing-shape",
+      "projects": [
+        "caprock-web",
+        "xplane-health"
+      ],
+      "installations": 2,
+      "instruction_variants": 2,
+      "tree_variants": 2,
+      "surfaces": [
+        ".agents"
+      ],
+      "descriptions": [
+        "Writing, exploit — shape raw material into an article, paragraph by paragraph.",
+        "Writing, exploit: shape raw material into an article, paragraph by paragraph."
+      ]
+    },
+    {
+      "name": "writing-skills",
+      "projects": [
+        "Ortho4XP",
+        "fdr-toolkit",
+        "q4xpcc",
+        "superpowers",
+        "superpowers-backplane",
+        "xplane-fdau",
+        "xplane-webapi",
+        "xplane-webapi-version-lf"
+      ],
+      "installations": 13,
+      "instruction_variants": 2,
+      "tree_variants": 3,
+      "surfaces": [
+        ".agents",
+        ".codex",
+        "other"
+      ],
+      "descriptions": [
+        "Use when creating new skills, editing existing skills, or verifying skills work before deployment"
+      ]
+    },
+    {
+      "name": "yaml-lint",
+      "projects": [
+        "airlineops"
+      ],
+      "installations": 3,
+      "instruction_variants": 1,
+      "tree_variants": 1,
+      "surfaces": [
+        ".agents",
+        ".claude",
+        ".github"
+      ],
+      "descriptions": [
+        "Run yamllint on canonical YAML files. Use to validate YAML syntax and style before committing configuration changes."
+      ]
+    }
+  ]
+}

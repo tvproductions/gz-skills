@@ -1,0 +1,31 @@
+{
+  "name": "gz-skills",
+  "version": "0.1.0",
+  "description": "Portable GovZero engineering skills with a curator for choosing the right workflow.",
+  "author": {
+    "name": "GovZero",
+    "url": "https://github.com/tvproductions"
+  },
+  "homepage": "https://github.com/tvproductions/gz-skills",
+  "repository": "https://github.com/tvproductions/gz-skills",
+  "keywords": [
+    "agent-skills",
+    "engineering",
+    "maintenance",
+    "quality",
+    "govzero"
+  ],
+  "skills": [
+    "./skills/gz-agent-context-diet",
+    "./skills/gz-cross-platform-python",
+    "./skills/gz-git-sync",
+    "./skills/gz-intent-audit",
+    "./skills/gz-plan-audit",
+    "./skills/gz-quality-gate",
+    "./skills/gz-repository-hygiene",
+    "./skills/gz-session-handoff",
+    "./skills/gz-skill-router",
+    "./skills/gz-tech-debt-review",
+    "./skills/gz-update-dependencies"
+  ]
+}
