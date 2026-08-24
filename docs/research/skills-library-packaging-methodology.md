@@ -345,8 +345,9 @@ model will never suggest.
 5. Publish stable and experimental maturity clearly.
 6. Version and document the catalog as one released product even when users can
    install a subset.
-7. Reuse the open universal installer for ordinary cross-harness copies instead
-   of rebuilding its agent-detection matrix.
+7. Reuse an existing installer when its runtime contract fits. GovZero later
+   chose a Python-only vendoring contract, so this particular Node-based route
+   remains comparative evidence rather than an adopted channel.
 8. Keep the useful editorial buckets, but do not let them force duplicated
    plugin payloads or prevent a stable-only native package.
 
@@ -388,20 +389,16 @@ maturity discipline and Superpowers' flat-package compatibility.
 
 ### Distribution model
 
-Adopt three explicit channels rather than asking one installer to satisfy all
-use cases:
+The subsequent GovZero packaging decision narrows the supported product to two
+channels:
 
-1. **Universal editable install:** make
-   `npx skills@latest add tvproductions/gz-skills` the primary portable copy
-   path. The current repository already passes its discovery probe.
-2. **Native managed bundle:** add native plugin manifests where a harness can
+1. **Native managed bundle:** add native plugin manifests where a harness can
    expose the canonical `skills/` tree without copies. The plugin is a
    subscription: update as one release and do not locally edit it.
-3. **GovZero fleet administration:** retain the Python `gz-skills` CLI for the
-   requirement neither upstream library solves—pinned snapshots, exact tree
-   hashes, local-edit detection, and controlled propagation across all of the
-   user's repositories. Present it as an advanced administration path, not as a
-   universal agent installer.
+2. **Python vendoring and fleet administration:** use the `gz-skills` CLI through
+   `uvx` for pinned snapshots, exact tree hashes, local-edit detection, and
+   controlled propagation across repositories. Node is not part of the
+   supported consumer toolchain.
 
 These modes must be mutually intelligible. Documentation should warn against
 installing the same skill through two channels into one discovery scope.
@@ -436,7 +433,7 @@ Before a `1.0.0` release, give each skill:
 - fresh-context repetitions where wording or trigger reliability is uncertain.
 
 Remote-mutating skills need additional authorization and refusal scenarios.
-`gz-git-sync`, for example, must not activate from an ordinary request to edit a
+`gzs-git-sync`, for example, must not activate from an ordinary request to edit a
 file and must refuse destructive reconciliation pressure.
 
 Descriptions should be reviewed as dispatch predicates. Prefer a leading “Use
@@ -446,8 +443,7 @@ summary, skips loading the body, and improvises the workflow.
 
 ### What not to copy
 
-- Do not make the Python CLI replicate the universal installer's large and
-  changing harness matrix.
+- Keep the Python CLI focused on the small, declared destination-surface matrix.
 - Do not rely on floating branches, live consumer symlinks, or silent replacement
   for fleet propagation.
 - Do not put promoted and draft `SKILL.md` files under one recursively
@@ -461,15 +457,15 @@ summary, skips loading the body, and improvises the workflow.
 
 ### Recommended sequence
 
-1. Reframe the README around the three install contracts and make the universal
-   installer the ordinary editable path.
+1. Reframe the README around native plugins first and Python `uvx` vendoring
+   second.
 2. Add bundle release metadata, changelog discipline, version-drift checks, and
    CI for the validation already present.
 3. Add matching explicit-invocation metadata for Claude and Codex.
 4. Create one human catalog page per promoted skill and a concise catalog index.
 5. Build behavior evaluations, starting with the two motivating skills and the
    highest-risk implicit triggers.
-6. Add native managed-plugin adapters from the canonical flat tree.
+6. Publish the native managed-plugin adapters from the canonical flat tree.
 7. Publish `0.x` releases while evaluations mature; call the catalog `1.0.0`
    only when every promoted skill has behavioral evidence.
 

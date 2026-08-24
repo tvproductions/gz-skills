@@ -5,22 +5,22 @@ Date: 2026-08-23
 ## Result
 
 The initial portable GovZero catalog contains eleven skills. Nine additional
-skills were extracted after the two motivating examples, `gz-git-sync` and
-`gz-update-dependencies`.
+skills were extracted after the two motivating examples, `gzs-git-sync` and
+`gzs-update-dependencies`.
 
 | Portable skill | Primary mature source | Why it crosses projects |
 | --- | --- | --- |
-| `gz-agent-context-diet` | `gzkit/gz-context-diet` | Persistent agent context needs periodic evidence-based pruning in any repository. |
-| `gz-cross-platform-python` | `airlineops/cross-platform` | Python path, process, encoding, and shell assumptions recur independently of domain. |
-| `gz-git-sync` | `gzkit/git-sync` | A guarded, verified save-and-publish workflow is repository-independent. |
-| `gz-intent-audit` | `gzkit/gz-intent-trace` | Intent can be traced through decisions, code, tests, and docs in any project. |
-| `gz-plan-audit` | `gzkit/gz-plan-audit` | Plans need checking against current repository evidence before execution. |
-| `gz-quality-gate` | `gzkit/gz-check` | Every repository has authoritative checks even though the commands differ. |
-| `gz-repository-hygiene` | `gzkit/gz-tidy` | Safe cleanup and artifact classification are broadly useful. |
-| `gz-session-handoff` | `gzkit/gz-session-handoff` | Durable state transfer is independent of language, domain, and harness. |
-| `gz-skill-router` | `gzkit/gz-skill-router` | A curator reduces the human cognitive load of choosing among explicit skills. |
-| `gz-tech-debt-review` | `gzkit/gz-tech-debt-review` | Evidence-based maintainability review is general engineering work. |
-| `gz-update-dependencies` | `gzkit/gz-deps-upgrade` | Dependency and toolchain refreshes share one invariant across ecosystems. |
+| `gzs-agent-context-diet` | `gzkit/gz-context-diet` | Persistent agent context needs periodic evidence-based pruning in any repository. |
+| `gzs-cross-platform-python` | `airlineops/cross-platform` | Python path, process, encoding, and shell assumptions recur independently of domain. |
+| `gzs-git-sync` | `gzkit/git-sync` | A guarded, verified save-and-publish workflow is repository-independent. |
+| `gzs-intent-audit` | `gzkit/gz-intent-trace` | Intent can be traced through decisions, code, tests, and docs in any project. |
+| `gzs-plan-audit` | `gzkit/gz-plan-audit` | Plans need checking against current repository evidence before execution. |
+| `gzs-quality-gate` | `gzkit/gz-check` | Every repository has authoritative checks even though the commands differ. |
+| `gzs-repository-hygiene` | `gzkit/gz-tidy` | Safe cleanup and artifact classification are broadly useful. |
+| `gzs-session-handoff` | `gzkit/gz-session-handoff` | Durable state transfer is independent of language, domain, and harness. |
+| `gzs-router` | `gzkit/gz-skill-router` | A curator reduces the human cognitive load of choosing among explicit skills. |
+| `gzs-tech-debt-review` | `gzkit/gz-tech-debt-review` | Evidence-based maintainability review is general engineering work. |
+| `gzs-update-dependencies` | `gzkit/gz-deps-upgrade` | Dependency and toolchain refreshes share one invariant across ecosystems. |
 
 `gzkit` was treated as the principal authority because it is the most mature
 implementation. Other user-owned repositories were used to corroborate
@@ -82,7 +82,7 @@ question—their objective is simply not general.
 
 Skills such as `format`, `lint`, `test`, `cov`, `docs-proof`, and similar
 project command wrappers were not copied one-for-one. Their useful invariant is
-represented by `gz-quality-gate`; the exact commands remain consumer policy.
+represented by `gzs-quality-gate`; the exact commands remain consumer policy.
 
 ### Vendor or harness integrations
 

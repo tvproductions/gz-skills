@@ -7,17 +7,17 @@ one project's architecture, runtime, vendor, or agent harness.
 The first catalog contains eleven workflows distilled primarily from `gzkit`, with
 corroborating implementations from other `tvproductions` repositories:
 
-- `gz-agent-context-diet`
-- `gz-cross-platform-python`
-- `gz-git-sync`
-- `gz-intent-audit`
-- `gz-plan-audit`
-- `gz-quality-gate`
-- `gz-repository-hygiene`
-- `gz-session-handoff`
-- `gz-skill-router`
-- `gz-tech-debt-review`
-- `gz-update-dependencies`
+- `gzs-agent-context-diet`
+- `gzs-cross-platform-python`
+- `gzs-git-sync`
+- `gzs-intent-audit`
+- `gzs-plan-audit`
+- `gzs-quality-gate`
+- `gzs-repository-hygiene`
+- `gzs-session-handoff`
+- `gzs-router`
+- `gzs-tech-debt-review`
+- `gzs-update-dependencies`
 
 The extraction evidence and the broader review are in
 [`docs/origins.md`](docs/origins.md) and
@@ -35,6 +35,10 @@ invariants, optional references, and deterministic helpers that travel with a
 skill. It does not own a consuming project's commands, quality policy, branch
 policy, or generated harness mirrors.
 
+The `gzs-` prefix identifies skills whose canonical source and release contract
+belong to this repository. Project-local skills use a project or domain prefix;
+third-party skills retain their upstream names.
+
 - `gzkit` continues to own `gz` commands, governance events, attestation, and
   control-surface synchronization.
 - A consuming project owns its `AGENTS.md`, verification commands, and any local
@@ -44,90 +48,88 @@ policy, or generated harness mirrors.
 
 ## Install
 
-Choose one installation contract for a given agent scope. Installing the same
-skill through more than one channel creates duplicate discovery. See
-[`docs/packaging.md`](docs/packaging.md) for ownership, update, and publication
-details.
+Choose one of the two supported contracts for a given agent scope. Installing
+the same skill through both creates duplicate discovery. See
+[`docs/packaging.md`](docs/packaging.md) for ownership and release details.
 
-### Editable universal install
+### 1. Native managed plugins (preferred)
 
-After the repository is published, use the same open installer as Matt Pocock's
-skills:
+The repository contains native Codex, Claude Code, and OpenCode plugin adapters
+over the same canonical `skills/` tree.
 
-```powershell
-npx skills@latest add tvproductions/gz-skills
-```
-
-The installer discovers all eleven skills and lets the user select skills,
-scope, and supported agents. The resulting copies belong to the consumer and
-update only when the consumer runs `npx skills update`.
-
-Preview the local checkout without installing:
-
-```powershell
-npx skills@latest add . --list
-```
-
-### Managed plugins
-
-The repository contains native Codex and Claude plugin manifests over the same
-canonical `skills/` tree. The Codex manifest is ready for marketplace packaging.
-After publication, Claude Code can use the repository marketplace fallback:
+- Codex installs the managed bundle from its plugin marketplace after the
+  `gz-skills` package is published there.
+- Claude Code can use the repository marketplace:
 
 ```text
 /plugin marketplace add tvproductions/gz-skills
 /plugin install gz-skills@gz-skills
 ```
 
+- OpenCode can install the git-backed package through its own plugin manager:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.1.0"
+  ]
+}
+```
+
+Restart OpenCode after changing its configuration. OpenCode's managed runtime
+loads the package-local adapter and registers the canonical `skills/` tree; no
+Node command or project dependency is required.
+
 A managed plugin is a read-only subscription to the released bundle. Do not
 edit its installed cache; update it through the harness's plugin manager.
 
-### GovZero fleet administration
+### 2. Python vendoring and fleet administration
 
-The Python CLI is the advanced path for pinned snapshots, local-edit detection,
-and controlled propagation across a repository collection.
+Use the Python CLI when a repository must carry pinned, reviewable skill
+snapshots. The consumer needs `uv`, not Node.js. Install directly from an
+immutable release tag:
 
-List the catalog:
+```powershell
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+  gz-skills install `
+  --project C:\path\to\project `
+  gzs-git-sync gzs-quality-gate
+```
+
+The default `agents` surface writes to `.agents/skills`. Use `--all` for the
+complete catalog. Every install writes `gz-skills.lock.json` with source
+identity, independent skill version, complete tree hash, and installed path.
+
+For development from this checkout, run the same CLI through `uv`:
+
 
 ```powershell
 uv run gz-skills list
-```
-
-Install selected skills into a project's standard agent surface:
-
-```powershell
 uv run gz-skills install `
   --project C:\path\to\project `
-  --surface agents `
-  gz-git-sync gz-quality-gate
+  gzs-git-sync gzs-quality-gate
 ```
 
-Use `--all` for the complete catalog. Other supported surfaces are `claude`,
-`codex`, `github`, and `gzkit`; `--target` accepts an exact skills directory.
-
-After this repository is published, the fleet command can run without a local
-checkout:
-
-```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git `
-  gz-skills install --project C:\path\to\project gz-git-sync
-```
-
-Every install writes a consumer-owned `gz-skills.lock.json` with the source
-identity, independent skill version, complete tree hash, and installed path.
+Other supported surfaces are `claude`, `codex`, `github`, and `gzkit`;
+`--target` accepts an exact skills directory. Prefer native plugins for Codex,
+Claude Code, and OpenCode unless the repository specifically requires
+checked-in snapshots.
 
 ## Update and propagate
 
 Preview one consumer:
 
 ```powershell
-uv run gz-skills update --lock C:\path\to\project\gz-skills.lock.json
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+  gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uv run gz-skills update `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+  gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
 ```
@@ -135,11 +137,15 @@ uv run gz-skills update `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uv run gz-skills propagate C:\Users\Jeff\source\repos
-uv run gz-skills propagate C:\Users\Jeff\source\repos --apply
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+  gz-skills propagate C:\Users\Jeff\source\repos
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+  gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 
 An update replaces only an installed tree that still matches its prior lock.
+Select the release tag whose snapshots should become available before applying
+an update.
 Missing or locally edited copies block propagation and require reconciliation;
 they are never silently overwritten. See
 [`docs/provenance.md`](docs/provenance.md) for the full contract.

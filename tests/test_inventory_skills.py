@@ -16,11 +16,11 @@ class InventorySkillsTests(unittest.TestCase):
             repository = root / "sample"
             (repository / ".git").mkdir(parents=True)
             for surface in (".agents", ".claude"):
-                skill = repository / surface / "skills" / "gz-example"
+                skill = repository / surface / "skills" / "gzs-example"
                 skill.mkdir(parents=True)
                 (skill / "SKILL.md").write_text(
                     "---\n"
-                    "name: gz-example\n"
+                    "name: gzs-example\n"
                     "description: Example workflow.\n"
                     "---\n\n"
                     "Do the work.\n",
@@ -31,7 +31,7 @@ class InventorySkillsTests(unittest.TestCase):
             summary = summarize(records)
 
             self.assertEqual(len(records), 2)
-            self.assertEqual(summary[0]["name"], "gz-example")
+            self.assertEqual(summary[0]["name"], "gzs-example")
             self.assertEqual(summary[0]["projects"], ["sample"])
             self.assertEqual(summary[0]["installations"], 2)
             self.assertEqual(summary[0]["instruction_variants"], 1)

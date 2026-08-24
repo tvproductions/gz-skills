@@ -12,6 +12,7 @@ import uuid
 from collections.abc import Iterable
 from dataclasses import dataclass
 from importlib import resources
+from importlib.metadata import PackageNotFoundError, distribution
 from pathlib import Path
 from typing import TypedDict, cast
 
@@ -185,21 +186,58 @@ def load_catalog(source_root: Path | None = None) -> dict[str, CatalogSkill]:
     return catalog
 
 
+def _distribution_vcs_revision() -> str | None:
+    """Read the immutable VCS commit recorded by a PEP 610 installation."""
+
+    try:
+        direct_url = distribution("govzero-skills").read_text("direct_url.json")
+    except PackageNotFoundError:
+        return None
+    if not direct_url:
+        return None
+    try:
+        document = json.loads(direct_url)
+    except json.JSONDecodeError:
+        return None
+    vcs_info = document.get("vcs_info")
+    if not isinstance(vcs_info, dict) or vcs_info.get("vcs") != "git":
+        return None
+    revision = vcs_info.get("commit_id")
+    return revision if isinstance(revision, str) and revision else None
+
+
 def source_revision(source_root: Path | None = None) -> str:
-    """Return a Git identity when available, otherwise the package version."""
+    """Return an immutable source identity or identify a dirty checkout."""
 
     root = (source_root or catalog_root()).resolve()
     try:
-        result = subprocess.run(
+        head = subprocess.run(
             ["git", "-C", str(root), "rev-parse", "HEAD"],
             check=True,
             capture_output=True,
             text=True,
         )
+        status = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(root),
+                "status",
+                "--porcelain",
+                "--untracked-files=normal",
+                "--",
+                ".",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
     except (OSError, subprocess.CalledProcessError):
-        return f"package:{__version__}"
-    revision = result.stdout.strip()
-    return revision or f"package:{__version__}"
+        return _distribution_vcs_revision() or f"package:{__version__}"
+    revision = head.stdout.strip()
+    if not revision:
+        return _distribution_vcs_revision() or f"package:{__version__}"
+    return f"working-tree:{revision}" if status.stdout.strip() else revision
 
 
 def resolve_destination(

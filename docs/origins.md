@@ -5,7 +5,7 @@ skill surfaces in the following repositories. Revisions are full Git object
 identities so later work can distinguish the observed implementation from a
 newer edit.
 
-## `gz-git-sync`
+## `gzs-git-sync`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -28,7 +28,7 @@ gates, guarded commit, non-destructive remote reconciliation, push, and final
 ahead/behind verification. Project commands, branch defaults, test frameworks,
 and governance ceremonies were left local.
 
-## `gz-update-dependencies`
+## `gzs-update-dependencies`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -46,7 +46,7 @@ updates, full project verification, and precise reporting of constrained or
 unverifiable results. Python versions, package lists, artifact inventories, and
 project-specific acceptance commands were left local.
 
-## `gz-quality-gate`
+## `gzs-quality-gate`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -62,7 +62,7 @@ Shared behavior retained: discover the repository's authoritative gates, run
 them at the right scope, distinguish failures from unavailable checks, and
 report evidence without inventing success.
 
-## `gz-repository-hygiene`
+## `gzs-repository-hygiene`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -78,7 +78,7 @@ Shared behavior retained: inspect before cleanup, classify generated and
 tracked artifacts from repository policy, use recoverable actions, and verify
 that cleanup did not damage the working tree.
 
-## `gz-session-handoff`
+## `gzs-session-handoff`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -90,7 +90,7 @@ that cleanup did not damage the working tree.
 Shared behavior retained: capture objective, state, evidence, decisions,
 constraints, and the next executable action while avoiding stale narrative.
 
-## `gz-agent-context-diet`
+## `gzs-agent-context-diet`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -100,7 +100,7 @@ The portable invariant is to measure persistent agent context, remove
 duplication and stale detail, preserve authority and routing, and validate that
 shorter context still enables correct work.
 
-## `gz-plan-audit`
+## `gzs-plan-audit`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -113,7 +113,7 @@ Shared behavior retained: audit a plan against current repository evidence,
 surface hidden assumptions and missing verification, and amend only when the
 plan's authority permits it.
 
-## `gz-intent-audit`
+## `gzs-intent-audit`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -123,7 +123,7 @@ The portable invariant is to trace stated intent through decisions,
 implementation, tests, and documentation, distinguishing divergence from
 deliberate evolution.
 
-## `gz-tech-debt-review`
+## `gzs-tech-debt-review`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
@@ -132,7 +132,7 @@ deliberate evolution.
 The portable invariant is an evidence-based debt review that distinguishes
 maintainability risk from preference and prioritizes findings by consequence.
 
-## `gz-cross-platform-python`
+## `gzs-cross-platform-python`
 
 - `tvproductions/airlineops` at
   `a972f08bc0f4f6d6a05178362529b50cc0798583`:
@@ -142,7 +142,7 @@ The portable invariant is to audit Python and project automation for operating
 system assumptions, replace accidental platform coupling with standard-library
 or repository-owned seams, and test representative path and process behavior.
 
-## `gz-skill-router`
+## `gzs-router`
 
 - `tvproductions/gzkit` at
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:

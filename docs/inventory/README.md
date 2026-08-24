@@ -20,17 +20,17 @@ vendor, harness, thin-wrapper, and GovZero-runtime classification still applies.
 
 | Portable skill | Source names represented |
 | --- | --- |
-| `gz-agent-context-diet` | `gz-context-diet` |
-| `gz-cross-platform-python` | `cross-platform` |
-| `gz-git-sync` | `git-sync`, `gz-git-sync` |
-| `gz-intent-audit` | `gz-intent-trace` |
-| `gz-plan-audit` | `gz-plan-audit` |
-| `gz-quality-gate` | `gz-check`, `quality-gate`, `quality-check` |
-| `gz-repository-hygiene` | `gz-tidy`, `repo-hygiene`, `maintenance-qa` |
-| `gz-session-handoff` | `gz-session-handoff` |
-| `gz-skill-router` | `gz-skill-router` |
-| `gz-tech-debt-review` | `gz-tech-debt-review` |
-| `gz-update-dependencies` | `gz-deps-upgrade`, `refresh-dependencies`, `hygiene` |
+| `gzs-agent-context-diet` | `gz-context-diet` |
+| `gzs-cross-platform-python` | `cross-platform` |
+| `gzs-git-sync` | `git-sync`, `gz-git-sync` |
+| `gzs-intent-audit` | `gz-intent-trace` |
+| `gzs-plan-audit` | `gz-plan-audit` |
+| `gzs-quality-gate` | `gz-check`, `quality-gate`, `quality-check` |
+| `gzs-repository-hygiene` | `gz-tidy`, `repo-hygiene`, `maintenance-qa` |
+| `gzs-session-handoff` | `gz-session-handoff` |
+| `gzs-router` | `gz-skill-router` |
+| `gzs-tech-debt-review` | `gz-tech-debt-review` |
+| `gzs-update-dependencies` | `gz-deps-upgrade`, `refresh-dependencies`, `hygiene` |
 
 See [`../origins.md`](../origins.md) for source revisions and
 [`../catalog-audit-2026-08-23.md`](../catalog-audit-2026-08-23.md) for the

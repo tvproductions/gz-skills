@@ -16,16 +16,16 @@
     "govzero"
   ],
   "skills": [
-    "./skills/gz-agent-context-diet",
-    "./skills/gz-cross-platform-python",
-    "./skills/gz-git-sync",
-    "./skills/gz-intent-audit",
-    "./skills/gz-plan-audit",
-    "./skills/gz-quality-gate",
-    "./skills/gz-repository-hygiene",
-    "./skills/gz-session-handoff",
-    "./skills/gz-skill-router",
-    "./skills/gz-tech-debt-review",
-    "./skills/gz-update-dependencies"
+    "./skills/gzs-agent-context-diet",
+    "./skills/gzs-cross-platform-python",
+    "./skills/gzs-git-sync",
+    "./skills/gzs-intent-audit",
+    "./skills/gzs-plan-audit",
+    "./skills/gzs-quality-gate",
+    "./skills/gzs-repository-hygiene",
+    "./skills/gzs-session-handoff",
+    "./skills/gzs-router",
+    "./skills/gzs-tech-debt-review",
+    "./skills/gzs-update-dependencies"
   ]
 }

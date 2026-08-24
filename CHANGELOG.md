@@ -8,11 +8,14 @@ fleet updates.
 
 ### Added
 
-- Eleven portable GovZero skills, including the `gz-skill-router` curator.
+- Eleven portable GovZero skills under the collision-resistant `gzs-`
+  namespace, including the `gzs-router` curator.
 - Universal Agent Skills discovery through the canonical flat `skills/` tree.
-- Native Codex and Claude plugin manifests.
+- Native Codex, Claude Code, and OpenCode plugin adapters.
 - A Python fleet CLI for pinned installation, status, safe update, and
   collection-wide propagation.
+- Native plugins as the preferred consumer channel and Python `uvx` as the only
+  supported project-vendoring toolchain.
 - Full-tree provenance locks that block replacement of locally modified skills.
 - Preserved all-project and candidate-user-authored inventory snapshots.
 - Structural, installer, manifest, link, formatting, lint, and type validation.
@@ -23,4 +26,3 @@ fleet updates.
 - Decide whether the Claude managed artifact should transform explicit-only
   invocation metadata while retaining the Codex-valid canonical tree.
 - Choose and add the repository license.
-- Create and publish the `tvproductions/gz-skills` remote.

@@ -13,23 +13,26 @@ Record one entry per installed skill in a consumer-owned lock file validated by
   "schema_version": 1,
   "skills": [
     {
-      "name": "gz-git-sync",
+      "name": "gzs-git-sync",
       "version": "0.1.0",
       "source": {
         "repository": "https://github.com/<owner>/gz-skills.git",
         "revision": "<full-git-commit-sha>",
-        "path": "skills/gz-git-sync"
+        "path": "skills/gzs-git-sync"
       },
       "sha256": "<sha256-of-the-installed-skill-tree>",
-      "installed_path": ".gzkit/skills/gz-git-sync"
+      "installed_path": ".agents/skills/gzs-git-sync"
     }
   ]
 }
 ```
 
-Use a full Git commit SHA for a Git checkout. A packaged distribution may use
-its immutable distribution identity, such as `package:0.1.0`. Tags and branches
-are discovery aids, not immutable identities.
+An `uvx` installation from Git records the full PEP 610 commit identity. A
+released wheel may use its immutable distribution identity, such as
+`package:0.1.0`. Tags and branches are discovery aids, not immutable identities.
+A development install from a dirty checkout records
+`working-tree:<current-HEAD>`; treat that as test provenance and replace it with
+a released Git-backed snapshot before committing a consumer lock.
 
 ## Tree hash
 

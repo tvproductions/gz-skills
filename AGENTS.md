@@ -18,8 +18,8 @@ GovZero skills.
 ## Skill contract
 
 - Follow the open Agent Skills directory and frontmatter specification.
-- Prefix public skill names with `gz-` to avoid collisions in user-level skill
-  catalogs.
+- Prefix public skill names with `gzs-` to identify the `gz-skills` release
+  contract and avoid collisions with project-local `gz-*` skills.
 - Keep each skill focused on one user goal.
 - Put branch-specific detail in `references/` and deterministic repeated logic in
   `scripts/` only after real usage proves it useful.
@@ -40,6 +40,10 @@ GovZero skills.
 - An updater may replace an installed skill only when its current hash still
   matches the prior lock. Treat a mismatch as a local modification and stop for
   reconciliation.
+- Support exactly two consumer channels: native managed Codex, Claude Code, and
+  OpenCode plugins, then Python `uvx` snapshots when repository vendoring is
+  required. Keep Node tooling outside the supported install and update contract;
+  OpenCode owns the runtime for its bundled adapter.
 
 ## Validation
 

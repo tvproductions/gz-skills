@@ -1,0 +1,25 @@
+{
+  "name": "gz-skills",
+  "version": "0.1.0",
+  "description": "Portable GovZero engineering skills with a curator for choosing the right workflow.",
+  "type": "module",
+  "main": ".opencode/plugins/gz-skills.js",
+  "files": [
+    ".opencode/INSTALL.md",
+    ".opencode/plugins/gz-skills.js",
+    "skills/"
+  ],
+  "keywords": [
+    "agent-skills",
+    "opencode",
+    "engineering",
+    "maintenance",
+    "govzero"
+  ],
+  "homepage": "https://github.com/tvproductions/gz-skills",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tvproductions/gz-skills.git"
+  },
+  "license": "UNLICENSED"
+}
