@@ -3,12 +3,12 @@ name: gzs-session-handoff
 description: Create or resume a durable engineering-session handoff that preserves state, decisions, evidence, and next actions without duplicating existing artifacts. Use when the user explicitly asks to hand off, checkpoint, resume, or preserve work for another session or agent.
 compatibility: Works in any repository that can store or reference a Markdown handoff document.
 metadata:
-  govzero-version: "0.1.1"
+  govzero-version: "0.1.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# gzs-session-handoff
+# GovZero Session Handoff
 
 A handoff is an evidence-backed continuity artifact. It advises the next session;
 it does not authorize the next action.

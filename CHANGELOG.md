@@ -4,7 +4,15 @@ All notable changes to the released GovZero skills bundle are recorded here.
 Each skill also carries an independent `metadata.govzero-version` for selective
 fleet updates.
 
-## 0.1.0 - Unreleased
+## Unreleased
+
+### Changed
+
+- Clarified that `gzs-` namespaces canonical skill identifiers and invocation
+  tokens, while skill headings and UI display names retain human-readable
+  `GovZero ...` labels.
+- Defined Semantic Versioning rules for the bundle and independently versioned
+  skills, including changelog maintenance and unreleased-version handling.
 
 ### Added
 

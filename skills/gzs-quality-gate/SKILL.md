@@ -3,12 +3,12 @@ name: gzs-quality-gate
 description: Run and evidence the repository's complete required quality gate for the current change. Use for pre-handoff, pre-merge, pre-release, or explicit full-verification requests; use the project's declared commands rather than assuming a language or toolchain.
 compatibility: Requires the target repository's documented verification tools.
 metadata:
-  govzero-version: "0.1.1"
+  govzero-version: "0.1.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# gzs-quality-gate
+# GovZero Quality Gate
 
 Prove the current tree satisfies the repository's own completion contract. The
 portable invariant is complete, observed verification; the project supplies the

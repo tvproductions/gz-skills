@@ -27,6 +27,7 @@ The packaging comparison with Superpowers and Matt Pocock is in
 The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
+Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Boundary
 

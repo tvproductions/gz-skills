@@ -1,5 +1,5 @@
 interface:
-  display_name: "gzs-tech-debt-review"
+  display_name: "GovZero Technical Debt Review"
   short_description: "Survey and prioritize evidenced technical debt"
   default_prompt: "Use $gzs-tech-debt-review to survey this scope and produce an evidence-grounded debt report."
 policy:

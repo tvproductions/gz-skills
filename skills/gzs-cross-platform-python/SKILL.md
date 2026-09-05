@@ -3,12 +3,12 @@ name: gzs-cross-platform-python
 description: Review or implement Python filesystem, text, subprocess, temporary-resource, and test behavior for Windows, macOS, and Linux portability. Use when Python code handles paths, files, encodings, processes, cleanup, platform branches, or failures seen on only one operating system.
 compatibility: Requires Python and the target repository's supported platform and version policy.
 metadata:
-  govzero-version: "0.1.1"
+  govzero-version: "0.1.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# gzs-cross-platform-python
+# GovZero Cross-Platform Python
 
 Make portability explicit at the operating-system seams. Preserve the project's
 supported Python floor and verification tools; these rules do not require a

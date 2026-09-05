@@ -3,12 +3,12 @@ name: gzs-intent-audit
 description: Trace declared intent to observed shipped behavior and classify gaps as corrections rather than new design. Use when a capability exists but may not fulfill its specification, during a pre-release integrity review, or when checking whether completed work actually delivered what was decided.
 compatibility: Requires a durable source of intent and an observable implemented or shipped surface.
 metadata:
-  govzero-version: "0.1.1"
+  govzero-version: "0.1.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# gzs-intent-audit
+# GovZero Intent Audit
 
 Answer one question per sampled capability: does the observed surface fulfill
 the intent that authorized it?

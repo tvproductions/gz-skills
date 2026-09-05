@@ -3,12 +3,12 @@ name: gzs-git-sync
 description: Create and publish a guarded Git save point after reviewing scope and passing the repository's own quality gates. Use only when the user explicitly asks to git sync, commit and push, publish the current work, or create a remote save point.
 compatibility: Requires Git, a configured repository remote, and permission to commit and push.
 metadata:
-  govzero-version: "0.1.1"
+  govzero-version: "0.1.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# gzs-git-sync
+# GovZero Git Sync
 
 Own the complete save-point ritual: review the work, validate it through the
 repository's declared gates, commit the intended unit, reconcile safely with the

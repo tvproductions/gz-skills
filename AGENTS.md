@@ -20,6 +20,9 @@ GovZero skills.
 - Follow the open Agent Skills directory and frontmatter specification.
 - Prefix public skill names with `gzs-` to identify the `gz-skills` release
   contract and avoid collisions with project-local `gz-*` skills.
+- Apply `gzs-` to the skill directory, frontmatter `name`, and invocation token.
+  Keep headings and UI display names human-readable; prefer the established
+  `GovZero ...` labels rather than exposing a raw identifier as display copy.
 - Keep each skill focused on one user goal.
 - Put branch-specific detail in `references/` and deterministic repeated logic in
   `scripts/` only after real usage proves it useful.
@@ -32,9 +35,23 @@ GovZero skills.
 
 ## Versioning and provenance
 
-- Version each skill independently with `metadata.govzero-version`.
-- Increment the skill version when its observable workflow, safety boundary, or
-  completion criteria change.
+- Follow Semantic Versioning 2.0.0 for both the bundle and each skill. Versions
+  advance from released state; an unreleased correction may amend its pending
+  version, but never decrement or reuse a published version.
+- Keep the bundle version synchronized across `pyproject.toml`,
+  `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json`, and `package.json`.
+  Use major for an incompatible installer, lock, or bundle contract; minor for
+  backward-compatible catalog or installer capability; and patch for compatible
+  fixes or packaging and metadata corrections.
+- Version each skill independently with `metadata.govzero-version`. Use major
+  for an incompatible invocation, workflow, safety, or authorization change;
+  minor for backward-compatible new capability or expanded scope; and patch for
+  compatible fixes, clarifications, activation metadata, prompts, or packaged
+  supporting-resource changes. Repository-only tests and documentation do not
+  change a skill version.
+- Record every user-visible bundle or skill change under `Unreleased` in
+  `CHANGELOG.md`. At release, rename that section to the released bundle version
+  and ISO date, then create a fresh `Unreleased` section.
 - Consumers install immutable snapshots and record the fields defined by
   `schemas/skill-lock.schema.json`.
 - An updater may replace an installed skill only when its current hash still

@@ -10,6 +10,11 @@ from gz_skills.core import load_catalog
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^]]*]\(([^)]+)\)")
+SEMVER = re.compile(
+    r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
+    r"(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?"
+    r"(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?"
+)
 
 
 class RepositoryContractTests(unittest.TestCase):
@@ -19,10 +24,10 @@ class RepositoryContractTests(unittest.TestCase):
         for name, skill in catalog.items():
             self.assertTrue(name.startswith("gzs-"), name)
             self.assertEqual(name, skill.path.name)
+            self.assertIsNotNone(SEMVER.fullmatch(skill.version), skill.version)
             metadata = skill.path / "agents" / "openai.yaml"
             self.assertTrue(metadata.is_file(), metadata)
             interface = metadata.read_text(encoding="utf-8")
-            self.assertIn(f'display_name: "{name}"', interface)
             self.assertIn(f"${name}", interface)
 
     def test_relative_markdown_links_resolve(self) -> None:
@@ -54,6 +59,7 @@ class RepositoryContractTests(unittest.TestCase):
     def test_bundle_versions_and_plugin_catalogs_are_synchronized(self) -> None:
         with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as stream:
             bundle_version = tomllib.load(stream)["project"]["version"]
+        self.assertIsNotNone(SEMVER.fullmatch(bundle_version), bundle_version)
         codex = json.loads(
             (REPOSITORY_ROOT / ".codex-plugin" / "plugin.json").read_text(
                 encoding="utf-8"
