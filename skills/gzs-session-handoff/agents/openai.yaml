@@ -1,5 +1,5 @@
 interface:
-  display_name: "GovZero Session Handoff"
+  display_name: "gzs-session-handoff"
   short_description: "Preserve and resume engineering context"
   default_prompt: "Use $gzs-session-handoff to preserve the current engineering state for a fresh session."
 policy:

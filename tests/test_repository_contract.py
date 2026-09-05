@@ -17,10 +17,13 @@ class RepositoryContractTests(unittest.TestCase):
         catalog = load_catalog(REPOSITORY_ROOT / "skills")
 
         for name, skill in catalog.items():
+            self.assertTrue(name.startswith("gzs-"), name)
             self.assertEqual(name, skill.path.name)
             metadata = skill.path / "agents" / "openai.yaml"
             self.assertTrue(metadata.is_file(), metadata)
-            self.assertIn(f"${name}", metadata.read_text(encoding="utf-8"))
+            interface = metadata.read_text(encoding="utf-8")
+            self.assertIn(f'display_name: "{name}"', interface)
+            self.assertIn(f"${name}", interface)
 
     def test_relative_markdown_links_resolve(self) -> None:
         markdown_files = [REPOSITORY_ROOT / "README.md"]

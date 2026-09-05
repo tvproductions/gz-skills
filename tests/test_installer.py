@@ -7,7 +7,14 @@ import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from gz_skills.core import SkillInstallError, install, source_revision, states, update
+from gz_skills.core import (
+    SkillInstallError,
+    install,
+    load_catalog,
+    source_revision,
+    states,
+    update,
+)
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_SKILLS = REPOSITORY_ROOT / "skills"
@@ -57,7 +64,10 @@ class InstallerTests(unittest.TestCase):
             self.assertEqual(installed, ["gzs-git-sync"])
             self.assertTrue((destination / "gzs-git-sync" / "SKILL.md").is_file())
             document = json.loads(lock.read_text(encoding="utf-8"))
-            self.assertEqual(document["skills"][0]["version"], "0.1.0")
+            self.assertEqual(
+                document["skills"][0]["version"],
+                load_catalog(SOURCE_SKILLS)["gzs-git-sync"].version,
+            )
             self.assertEqual(
                 document["skills"][0]["source"]["revision"], "test-revision"
             )

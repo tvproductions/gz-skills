@@ -3,12 +3,12 @@ name: gzs-tech-debt-review
 description: Survey scoped technical debt using the repository's existing analyzers and render a prioritized, evidence-grounded report without implementing fixes. Use for technical-debt reviews of changed files, a component, a work item, or the whole repository.
 compatibility: Uses whichever static analysis, test, documentation, dependency, and repository tools the target project already declares.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# GovZero Technical-Debt Review
+# gzs-tech-debt-review
 
 Survey debt; do not patch it. Wield existing project probes, preserve their raw
 evidence, and recommend a concrete fix shape and route for every retained

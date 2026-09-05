@@ -3,12 +3,12 @@ name: gzs-router
 description: Orient a user to the GovZero portable skill catalog and recommend the smallest useful skill or sequence for their current goal.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# GovZero Skill Router
+# gzs-router
 
 Act as the curator for this catalog. Translate the user's goal into the smallest
 useful skill or sequence, explain why it fits, and name the exact invocation.

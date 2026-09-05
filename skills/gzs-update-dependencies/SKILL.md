@@ -3,12 +3,12 @@ name: gzs-update-dependencies
 description: Refresh all project-managed dependencies, runtime pins, package-manager tooling, lockfiles, and version-pinned development tools to current supported releases, then run the repository's full verification. Use when the user asks to update all dependencies and tools, upgrade packages, refresh lockfiles, bump runtimes, or bring a project's toolchain current.
 compatibility: Requires network access to authoritative package and tool sources plus the package managers used by the target repository.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# GovZero Update Dependencies
+# gzs-update-dependencies
 
 Refresh the complete project-managed dependency and toolchain surface as one
 reviewable maintenance change. Discover the repository's actual ecosystems and

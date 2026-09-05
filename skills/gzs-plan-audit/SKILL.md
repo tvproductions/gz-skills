@@ -3,12 +3,12 @@ name: gzs-plan-audit
 description: Audit alignment among declared intent, scoped requirements, and an execution plan before implementation begins. Use when reviewing a plan, leaving plan mode, starting a planned change, or checking for missing requirements, forbidden paths, scope creep, or inadequate verification.
 compatibility: Requires readable intent, scope, and plan artifacts in any repository-defined format.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# GovZero Plan Audit
+# gzs-plan-audit
 
 Compare three claims before code is written:
 

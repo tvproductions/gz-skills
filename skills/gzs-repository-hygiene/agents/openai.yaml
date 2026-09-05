@@ -1,5 +1,5 @@
 interface:
-  display_name: "GovZero Repository Hygiene"
+  display_name: "gzs-repository-hygiene"
   short_description: "Audit and repair repository drift"
   default_prompt: "Use $gzs-repository-hygiene to audit this repository's generated, packaged, and version-control state."
 policy:

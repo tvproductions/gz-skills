@@ -3,12 +3,12 @@ name: gzs-agent-context-diet
 description: Reduce always-loaded agent instruction weight while preserving every binding invariant through progressive disclosure and precise context pointers. Use when AGENTS.md, CLAUDE.md, repository rules, or skill descriptions have accumulated duplicated rationale or exceed an enforced context budget.
 compatibility: Works with repositories that maintain durable agent guidance or generated instruction mirrors.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
-# GovZero Agent Context Diet
+# gzs-agent-context-diet
 
 Reduce per-turn context load without relaxing policy. The operation is a
 delivery refactor: binding decisions remain reachable and generated surfaces
