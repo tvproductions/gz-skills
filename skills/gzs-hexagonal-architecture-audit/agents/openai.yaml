@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Hexagonal Architecture Audit"
+  short_description: "Audit and coach hexagonal boundaries"
+  default_prompt: "Use $gzs-hexagonal-architecture-audit to analyze this project's architectural boundaries and suggest a right-sized path toward hexagonal architecture."
+policy:
+  allow_implicit_invocation: true

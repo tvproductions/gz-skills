@@ -18,6 +18,20 @@ SEMVER = re.compile(
 
 
 class RepositoryContractTests(unittest.TestCase):
+    def test_repository_uses_mit_license(self) -> None:
+        license_text = (REPOSITORY_ROOT / "LICENSE").read_text(encoding="utf-8")
+        self.assertTrue(license_text.startswith("MIT License\n"))
+        self.assertIn("Copyright (c) 2026 GovZero", license_text)
+
+        with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as stream:
+            python_metadata = tomllib.load(stream)["project"]
+        opencode_metadata = json.loads(
+            (REPOSITORY_ROOT / "package.json").read_text(encoding="utf-8")
+        )
+
+        self.assertEqual(python_metadata["license"], "MIT")
+        self.assertEqual(opencode_metadata["license"], "MIT")
+
     def test_skill_names_and_openai_prompts_match_directories(self) -> None:
         catalog = load_catalog(REPOSITORY_ROOT / "skills")
 
@@ -106,6 +120,24 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertNotIn("devDependencies", package)
         self.assertNotIn("scripts", package)
 
+    def test_python_sdist_excludes_opencode_development_dependencies(self) -> None:
+        with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as stream:
+            configuration = tomllib.load(stream)
+
+        excluded = set(
+            configuration["tool"]["hatch"]["build"]["targets"]["sdist"][
+                "exclude"
+            ]
+        )
+        self.assertTrue(
+            {
+                "/.opencode/.gitignore",
+                "/.opencode/node_modules",
+                "/.opencode/package-lock.json",
+                "/.opencode/package.json",
+            }.issubset(excluded)
+        )
+
     def test_opencode_adapter_registers_the_canonical_skill_tree(self) -> None:
         adapter = (
             REPOSITORY_ROOT / ".opencode" / "plugins" / "gz-skills.js"
@@ -115,6 +147,18 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("config.skills.paths", adapter)
         self.assertIn("skillsPath", adapter)
 
+    def test_read_only_catalog_guides_have_implicit_codex_policy(self) -> None:
+        catalog = load_catalog(REPOSITORY_ROOT / "skills")
+
+        for name in (
+            "gzs-hexagonal-architecture-audit",
+            "gzs-router",
+        ):
+            metadata = (catalog[name].path / "agents" / "openai.yaml").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("allow_implicit_invocation: true", metadata)
+
     def test_router_covers_catalog_and_explicit_skills_have_codex_policy(self) -> None:
         catalog = load_catalog(REPOSITORY_ROOT / "skills")
         router = (catalog["gzs-router"].path / "SKILL.md").read_text(encoding="utf-8")
@@ -123,7 +167,7 @@ class RepositoryContractTests(unittest.TestCase):
             if name != "gzs-router":
                 self.assertIn(f"`{name}`", router)
 
-        for name in ("gzs-git-sync", "gzs-session-handoff", "gzs-router"):
+        for name in ("gzs-git-sync", "gzs-session-handoff"):
             metadata = (catalog[name].path / "agents" / "openai.yaml").read_text(
                 encoding="utf-8"
             )

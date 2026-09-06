@@ -6,8 +6,26 @@ fleet updates.
 
 ## Unreleased
 
+No changes yet.
+
+## 0.2.0 - 2026-09-06
+
 ### Changed
 
+- Advanced the synchronized bundle manifests to 0.2.0 for the accumulated
+  backward-compatible catalog and router expansion.
+- Adopted the MIT License across the repository and package metadata.
+- Defined the first 0.x release contract: immutable `v0.2.0` installs, clean
+  build checksums, and unchanged canonical skills in the Claude package while
+  behavioral reviews continue toward 1.0.0.
+- Excluded local OpenCode development dependencies from Python source
+  distributions and added a repository contract test for that boundary.
+- Established a one-way composition boundary: `gz-skills` supplies standalone
+  portable primitives beneath, and without duplicating, project-owned lifecycle
+  orchestrators such as `gzkit`.
+- Extended `gzs-router` 0.2.0 with guidance for discovering, invoking,
+  installing, updating, and troubleshooting the GovZero skill catalog, with
+  narrow implicit activation for catalog-specific questions.
 - Clarified that `gzs-` namespaces canonical skill identifiers and invocation
   tokens, while skill headings and UI display names retain human-readable
   `GovZero ...` labels.
@@ -16,7 +34,15 @@ fleet updates.
 
 ### Added
 
-- Eleven portable GovZero skills under the collision-resistant `gzs-`
+- Added `gzs-hexagonal-architecture-audit` 0.1.0 as a read-only analyzer,
+  design consultant, and refactor coach for right-sized hexagonal architecture,
+  cross-project interoperability, and Pareto-selected supporting principles.
+- Added `gzs-root-cause-debugging` 0.1.0 for evidence-led diagnosis that yields
+  to active project-owned incident, execution, and governance workflows.
+- Documented `gzs-change-review`, `gzs-dependency-risk-audit`, and
+  `gzs-test-driven-change` as the next planned portable primitives, including
+  their proposed boundaries and promotion criteria.
+- The initial eleven portable GovZero skills under the collision-resistant `gzs-`
   namespace, including the `gzs-router` curator.
 - Universal Agent Skills discovery through the canonical flat `skills/` tree.
 - Native Codex, Claude Code, and OpenCode plugin adapters.
@@ -27,10 +53,3 @@ fleet updates.
 - Full-tree provenance locks that block replacement of locally modified skills.
 - Preserved all-project and candidate-user-authored inventory snapshots.
 - Structural, installer, manifest, link, formatting, lint, and type validation.
-
-### Release blockers
-
-- Complete the one-by-one skill review and behavioral scenarios.
-- Decide whether the Claude managed artifact should transform explicit-only
-  invocation metadata while retaining the Codex-valid canonical tree.
-- Choose and add the repository license.

@@ -14,6 +14,13 @@ GovZero skills.
   as consumer installation surfaces. Do not add generated mirrors here.
 - Keep `gzkit` runtime behavior in `gzkit`; a portable skill may use a documented
   `gz` command when present but must state a safe discovery or fallback path.
+- Prefer portable primitives beneath project orchestrators. This repository owns
+  standalone horizontal disciplines; consuming systems such as `gzkit` own
+  lifecycle stages, governance state, gates, receipts, locks, and attestation.
+- Keep composition one-way: a `gzs-*` skill must remain useful without `gzkit`,
+  while `gzkit` or another project workflow may invoke or wrap it. When such a
+  workflow is active, the portable skill must yield to it rather than duplicate,
+  bypass, or create parallel lifecycle state.
 
 ## Skill contract
 

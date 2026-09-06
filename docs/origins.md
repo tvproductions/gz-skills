@@ -153,3 +153,36 @@ the smallest useful skill or sequence without executing the selected workflow.
 The source router's decision-tree pattern credits `using-agent-skills` from
 `addyosmani/agent-skills` under MIT; the portable catalog and routing text here
 were rewritten for GovZero's independently authored skills.
+
+## `gzs-root-cause-debugging`
+
+- `tvproductions/gzkit` at
+  `6bfa8d5cf852de45c479947b8f9db794e4bdcfc8`:
+  `AGENTS.md` and `src/gzkit/skills/gz-obpi-pipeline/SKILL.md`
+
+The portable invariant is to reproduce and localize an observed failure, test
+one falsifiable causal hypothesis at a time, and distinguish a demonstrated
+root cause from a bounded diagnosis. When a fix is authorized, the workflow
+adds an assertion-level regression witness and verifies the original
+reproduction. The source project's OBPI stages, personas, ledger, locks,
+receipts, review gates, and attestation remain in `gzkit`.
+
+## `gzs-hexagonal-architecture-audit`
+
+- `tvproductions/xplane-fdau` at
+  `66e31bc3e5d730869bf1dfb5aa4b2c736cb76803`:
+  `docs/architecture/xplane_fdau_core_scope_amendment.md` and
+  `docs/superpowers/specs/2026-08-23-xplane-fdau-acquisition-recording-projection-pinning-contracts-design.md`
+- `tvproductions/q4xpcc` at
+  `a7cc2682ca4289f498fffc409a091e28f528fe9a`:
+  `docs/superpowers/specs/2026-05-17-q4xpcc-project-spec.md`,
+  `src/q4xpcc_dev/xplane_read_port.py`,
+  `src/q4xpcc_dev/xpwebapi_adapter.py`, and
+  `tests/test_supervisor_dependency_boundary.py`
+
+Shared behavior retained: infer architectural responsibilities rather than
+folder names, keep policy dependent on application-owned ports, translate
+provider and peer-project mechanisms in adapters, centralize composition,
+preserve strict semantic contracts, and require observable boundary evidence.
+Project packages, paths, commands, schemas, delivery gates, and specialized
+dependency-enforcement implementations remain local.

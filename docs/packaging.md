@@ -23,11 +23,14 @@ contracts. Choose one contract per agent scope.
 
 Claude's `disable-model-invocation` frontmatter and Codex's explicit-invocation
 metadata are not mutually accepted by the Codex plugin validator. The canonical
-tree therefore uses `agents/openai.yaml` for Codex policy. Before the first
-managed Claude release, decide whether to build a generated Claude artifact
-that adds its frontmatter policy to explicit-only skills. Such an artifact must
-be generated from the canonical tree and tested for drift; it must not become a
-second authored copy.
+tree therefore uses `agents/openai.yaml` for Codex policy.
+
+The `v0.2.0` Claude package deliberately ships that canonical Agent Skills tree
+unchanged. It does not build a Claude-specific transformed copy. Explicit-only
+intent remains part of each affected skill's activation description and
+authority boundary, while Codex additionally enforces its invocation policy
+through `agents/openai.yaml`. This is a documented 0.x harness limitation, not
+permission for an implicitly selected skill to perform a remote mutation.
 
 ## 2. Python vendored snapshots
 
@@ -45,7 +48,7 @@ Install from a tagged Git revision with `uvx`; Node is not part of the supported
 consumer toolchain:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
   gz-skills install --project C:\path\to\project gzs-git-sync
 ```
 
@@ -60,9 +63,11 @@ manifest, the Claude manifest, and the OpenCode package manifest. An immutable
 Git tag identifies a released catalog. Individual skill versions identify the
 changed subset for fleet administration.
 
-Publication still requires:
+Every publication requires a clean, validated release commit, synchronized
+bundle manifests, reproducible artifacts with recorded SHA-256 values, and an
+immutable Git tag. The repository is licensed under the
+[MIT License](../LICENSE).
 
-1. Complete the one-by-one review and behavioral evidence.
-2. Select a license.
-3. Build from the clean release commit and record artifact SHA-256 values.
-4. Tag the release and publish or submit the native marketplace entries.
+The one-by-one skill review and behavioral evidence in
+[`docs/review/README.md`](review/README.md) gate the stable `1.0.0` release.
+They remain intentionally in progress during the 0.x development series.

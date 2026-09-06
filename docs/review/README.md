@@ -5,6 +5,9 @@ stable release. Review the skill body, activation boundary, provenance,
 portability, side effects, and behavioral scenarios; do not batch-approve the
 catalog from structural validation alone.
 
+This table contains only implemented skills. Planned additions remain in
+[`docs/roadmap.md`](../roadmap.md) until they satisfy their promotion criteria.
+
 | Order | Skill | Review status | Why this position |
 | ---: | --- | --- | --- |
 | 1 | [`gzs-router`](../../skills/gzs-router/SKILL.md) | Pending | Establishes the catalog map and review vocabulary. |
@@ -18,6 +21,8 @@ catalog from structural validation alone.
 | 9 | [`gzs-intent-audit`](../../skills/gzs-intent-audit/SKILL.md) | Pending | Defines post-delivery fulfillment evidence. |
 | 10 | [`gzs-tech-debt-review`](../../skills/gzs-tech-debt-review/SKILL.md) | Pending | Must distinguish evidenced risk from preference. |
 | 11 | [`gzs-cross-platform-python`](../../skills/gzs-cross-platform-python/SKILL.md) | Pending | Narrower Python-specific portability discipline. |
+| 12 | [`gzs-root-cause-debugging`](../../skills/gzs-root-cause-debugging/SKILL.md) | Pending | First horizontal primitive explicitly composed beneath project-owned workflows. |
+| 13 | [`gzs-hexagonal-architecture-audit`](../../skills/gzs-hexagonal-architecture-audit/SKILL.md) | Pending | Read-only architecture analysis must remain helpful, language-aware, and distinct from plan and intent audits. |
 
 For each review, record:
 

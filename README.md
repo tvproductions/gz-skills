@@ -4,18 +4,20 @@
 workflows that should behave consistently across projects without belonging to
 one project's architecture, runtime, vendor, or agent harness.
 
-The first catalog contains eleven workflows distilled primarily from `gzkit`, with
+The catalog contains thirteen workflows distilled primarily from `gzkit`, with
 corroborating implementations from other `tvproductions` repositories:
 
 - `gzs-agent-context-diet`
 - `gzs-cross-platform-python`
 - `gzs-git-sync`
+- `gzs-hexagonal-architecture-audit`
 - `gzs-intent-audit`
 - `gzs-plan-audit`
 - `gzs-quality-gate`
 - `gzs-repository-hygiene`
-- `gzs-session-handoff`
+- `gzs-root-cause-debugging`
 - `gzs-router`
+- `gzs-session-handoff`
 - `gzs-tech-debt-review`
 - `gzs-update-dependencies`
 
@@ -28,6 +30,21 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
+The first immutable bundle release is `v0.2.0`. The catalog remains in the
+SemVer 0.x development series while the one-by-one behavioral review matures
+toward 1.0.0.
+
+## Near-term roadmap
+
+The next planned portable primitives are `gzs-change-review`,
+`gzs-dependency-risk-audit`, and `gzs-test-driven-change`. They are deliberately
+horizontal disciplines beneath project-owned workflows, not replacements for
+`gzkit` lifecycle orchestration. Their proposed contracts, boundaries, and
+promotion criteria are described in [`docs/roadmap.md`](docs/roadmap.md).
+
+Roadmap entries are not yet installable skills and must not be offered by
+`gzs-router` until their canonical directories, metadata, provenance, and
+behavioral reviews are complete.
 
 ## Boundary
 
@@ -42,6 +59,11 @@ third-party skills retain their upstream names.
 
 - `gzkit` continues to own `gz` commands, governance events, attestation, and
   control-surface synchronization.
+- `gz-skills` owns portable horizontal disciplines that remain useful without
+  `gzkit`; it does not provide a competing project lifecycle.
+- An active project-owned workflow takes precedence. It may compose a `gzs-*`
+  primitive, but the primitive must not bypass its stages, gates, state, locks,
+  receipts, or human decisions.
 - A consuming project owns its `AGENTS.md`, verification commands, and any local
   adaptation of a skill.
 - `.agents/skills`, `.claude/skills`, `.codex/skills`, `.github/skills`, and
@@ -73,7 +95,7 @@ over the same canonical `skills/` tree.
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.1.0"
+    "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.2.0"
   ]
 }
 ```
@@ -92,7 +114,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -122,14 +144,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -138,9 +160,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.1.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 
@@ -185,3 +207,7 @@ Get-ChildItem .\skills -Directory | ForEach-Object {
 
 uv build
 ```
+
+## License
+
+`gz-skills` is available under the [MIT License](LICENSE).
