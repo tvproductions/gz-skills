@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Test-Driven Change"
+  short_description: "Implement one change through red-green-refactor"
+  default_prompt: "Use $gzs-test-driven-change to implement this behavior test-first with a verified red-green-refactor loop."
+policy:
+  allow_implicit_invocation: true

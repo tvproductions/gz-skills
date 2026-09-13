@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Dependency Risk Audit"
+  short_description: "Assess dependency and supply-chain risk"
+  default_prompt: "Use $gzs-dependency-risk-audit to assess this project's dependency risks without changing its dependency state."
+policy:
+  allow_implicit_invocation: true

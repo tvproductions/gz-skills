@@ -5,8 +5,9 @@ stable release. Review the skill body, activation boundary, provenance,
 portability, side effects, and behavioral scenarios; do not batch-approve the
 catalog from structural validation alone.
 
-This table contains only implemented skills. Planned additions remain in
-[`docs/roadmap.md`](../roadmap.md) until they satisfy their promotion criteria.
+This table contains only implemented skills. The promotion record for the
+latest additions is in [`docs/roadmap.md`](../roadmap.md); no further near-term
+additions are currently planned.
 
 | Order | Skill | Review status | Why this position |
 | ---: | --- | --- | --- |
@@ -23,6 +24,9 @@ This table contains only implemented skills. Planned additions remain in
 | 11 | [`gzs-cross-platform-python`](../../skills/gzs-cross-platform-python/SKILL.md) | Pending | Narrower Python-specific portability discipline. |
 | 12 | [`gzs-root-cause-debugging`](../../skills/gzs-root-cause-debugging/SKILL.md) | Pending | First horizontal primitive explicitly composed beneath project-owned workflows. |
 | 13 | [`gzs-hexagonal-architecture-audit`](../../skills/gzs-hexagonal-architecture-audit/SKILL.md) | Pending | Read-only architecture analysis must remain helpful, language-aware, and distinct from plan and intent audits. |
+| 14 | [`gzs-change-review`](../../skills/gzs-change-review/SKILL.md) | Pending | Must prioritize concrete defects without duplicating intent audit, debt review, or project-owned approval. |
+| 15 | [`gzs-dependency-risk-audit`](../../skills/gzs-dependency-risk-audit/SKILL.md) | Pending | Current external evidence, private-package handling, and ecosystem differences need realistic review. |
+| 16 | [`gzs-test-driven-change`](../../skills/gzs-test-driven-change/SKILL.md) | Pending | Explicit activation must preserve a meaningful red while adapting to difficult behavioral seams. |
 
 For each review, record:
 

@@ -186,3 +186,55 @@ provider and peer-project mechanisms in adapters, centralize composition,
 preserve strict semantic contracts, and require observable boundary evidence.
 Project packages, paths, commands, schemas, delivery gates, and specialized
 dependency-enforcement implementations remain local.
+
+## `gzs-change-review`
+
+- `tvproductions/xplane-health` at
+  `739164786700a64bd9c5af7495bade30abd54ef8`:
+  `.agents/skills/code-review/SKILL.md`
+- `tvproductions/caprock-web` at
+  `258588827391a23fb249106bda0a0ba9655c9444`:
+  `.agents/skills/code-review/SKILL.md`
+
+Shared behavior retained: pin a stable comparison base, inspect the full diff
+against repository standards and stated intent, read affected code in context,
+and report concrete review findings without implementing them. Mandatory
+parallel reviewers, issue-tracker setup, a fixed smell catalog, repository
+paths, and approval ceremonies were left local.
+
+## `gzs-dependency-risk-audit`
+
+- `tvproductions/q4xpcc` at
+  `a7cc2682ca4289f498fffc409a091e28f528fe9a`:
+  `.codex/skills/refresh-dependencies/SKILL.md`, `pyproject.toml`, and
+  `uv.lock`
+- `tvproductions/xplane-webapi` at
+  `a855b8d885c75f8dda54daec1f54eb48f111b105`:
+  `.codex/skills/hygiene/SKILL.md`
+- `tvproductions/xplane-health` at
+  `739164786700a64bd9c5af7495bade30abd54ef8`:
+  `go.mod` and `go.sum`
+
+Shared behavior retained: inventory the resolved dependency surface, query
+current authoritative metadata, separate direct from transitive constraints,
+classify vulnerable or unverifiable results honestly, and assess evidence in
+the project's runtime context. Python, uv, and Go commands, pinned versions,
+artifact rules, project gates, and automatic mutation were left local. The
+Python lock and Go module surfaces supplied the cross-ecosystem check without
+flattening their different resolution and advisory semantics.
+
+## `gzs-test-driven-change`
+
+- `tvproductions/xplane-health` at
+  `739164786700a64bd9c5af7495bade30abd54ef8`:
+  `.agents/skills/tdd/SKILL.md`
+- `tvproductions/caprock-web` at
+  `258588827391a23fb249106bda0a0ba9655c9444`:
+  `.agents/skills/tdd/SKILL.md`
+
+Shared behavior retained: test an observable seam, obtain a behavior-specific
+red before production changes, implement one minimal vertical slice, and avoid
+implementation-coupled or tautological tests. Project vocabulary, required
+human seam confirmation, framework choices, and cross-skill assumptions were
+left local; refactoring was restored as the final green-preserving phase of the
+portable red-green-refactor contract.

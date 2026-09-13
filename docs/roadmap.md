@@ -1,14 +1,13 @@
-# Near-term skill roadmap
+# Skill roadmap
 
-This roadmap records the next planned additions to `gz-skills`. They extend the
-portable-primitives layer established by `gzs-root-cause-debugging`; they do not
-introduce an alternate planning, execution, review, or closeout lifecycle.
+This roadmap records the three additions promoted into the unreleased `0.3.0`
+catalog. They extend the portable-primitives layer established by
+`gzs-root-cause-debugging`; they do not introduce an alternate planning,
+execution, review, or closeout lifecycle. No further near-term additions are
+currently planned.
 
-These names describe intended public contracts, but the skills are not yet
-installable, versioned, or available through `gzs-router`. Promotion requires a
-canonical `skills/<name>/` implementation, provenance evidence, activation and
-negative-trigger review, behavioral scenarios, and the full repository
-validation suite.
+These contracts are now installable, independently versioned, represented in
+provenance and review records, and available through `gzs-router`.
 
 ## Shared architecture
 
@@ -24,7 +23,7 @@ Every roadmap skill must satisfy the same composition rules:
 - Diagnosis or review does not silently expand into implementation. External or
   remote mutation requires authority from the request or governing workflow.
 
-## Planned order
+## Promotion order
 
 1. `gzs-change-review`
 2. `gzs-dependency-risk-audit`
@@ -35,7 +34,7 @@ forward first if its portable contract and provenance become clearer sooner.
 
 ## `gzs-change-review`
 
-### Intended goal
+### Promoted goal
 
 Review a bounded implementation change for defects, regressions, unsafe
 assumptions, and maintainability risks, then return prioritized findings backed
@@ -49,7 +48,7 @@ review, or an independent assessment of a completed change. Do not activate for
 a request that merely asks to run tests, compare delivery with an owning
 specification, survey repository-wide technical debt, or implement a feature.
 
-### Proposed workflow
+### Workflow contract
 
 1. Resolve the review base, changed-file set, stated intent, and repository
    rules before judging the patch.
@@ -77,20 +76,21 @@ specification, survey repository-wide technical debt, or implement a feature.
 - A gzkit review stage may compose this discipline, but gzkit continues to own
   reviewer roles, independence requirements, receipts, verdicts, and gates.
 
-### Promotion criteria
+### Promotion basis
 
-- Establish consistent severity and evidence rules from proven user-owned
-  review implementations.
-- Test positive triggers such as “review this diff” and negative triggers such
-  as “run the full test suite” or “fix these findings.”
-- Demonstrate that the skill finds substantive defects without generating
-  speculative, stylistic, or scope-expanding noise.
-- Decide whether ordinary review requests justify implicit activation while
-  keeping remediation separately authorized.
+- Severity and evidence rules were reconciled from proven user-owned review
+  implementations.
+- Positive triggers such as “review this diff” and negative triggers such as
+  “run the full test suite” or “fix these findings” are separated in the
+  activation description and workflow boundaries.
+- Findings require a reachable scenario, violated invariant, failing check, or
+  precise code path, which filters speculative and stylistic noise.
+- Ordinary review requests allow implicit activation while remediation remains
+  separately authorized.
 
 ## `gzs-dependency-risk-audit`
 
-### Intended goal
+### Promoted goal
 
 Assess the risk carried by a project's direct and transitive dependencies
 without automatically upgrading them. The audit should turn manifests,
@@ -112,7 +112,7 @@ dependency remains safe to retain. Do not activate for a straightforward “brin
 all dependencies current” request, a machine-wide software audit, or a general
 application security review.
 
-### Proposed workflow
+### Workflow contract
 
 1. Inventory every owning manifest, lockfile, runtime pin, package source, and
    generated dependency surface within the requested scope.
@@ -141,19 +141,19 @@ application security review.
 - A consuming security or release workflow owns its risk thresholds, exception
   policy, remediation deadlines, and attestations.
 
-### Promotion criteria
+### Promotion basis
 
-- Prove a vendor-neutral core across at least two package ecosystems without
-  pretending their advisory, licensing, and lock semantics are identical.
-- Define an authoritative-source hierarchy and honest offline fallback.
-- Specify how to handle conflicting advisories, withdrawn vulnerabilities,
-  unreachable registries, private packages, and incomplete transitive graphs.
-- Validate negative triggers against dependency updating, general security
+- The contract was checked against Python/uv and Go module surfaces while
+  preserving ecosystem-specific graph, lock, advisory, and license semantics.
+- It defines an authoritative-source hierarchy and an honest offline fallback.
+- It handles conflicting and withdrawn advisories, unreachable registries,
+  private packages, and incomplete transitive graphs explicitly.
+- Its activation boundary excludes dependency updating, general security
   auditing, and machine or infrastructure patch management.
 
 ## `gzs-test-driven-change`
 
-### Intended goal
+### Promoted goal
 
 Apply a tight red-green-refactor loop to one authorized behavior change. The
 skill should make the failing test a meaningful negative control, implement the
@@ -168,7 +168,7 @@ any implementation request could benefit from tests. Skip or adapt when the
 work has no executable behavioral surface, and never invent a low-value test
 solely to perform the ceremony.
 
-### Proposed workflow
+### Workflow contract
 
 1. Confirm the authorized behavior, its observable seam, and the smallest next
    example before editing production code.
@@ -198,28 +198,27 @@ solely to perform the ceremony.
 - gzkit continues to own task dispatch, allowed paths, stage transitions,
   independent review, receipts, attestation, and closeout around the loop.
 
-### Promotion criteria
+### Promotion basis
 
-- Extract a framework-neutral contract that works beyond Python and does not
-  prescribe test file layout, commands, or mocking libraries.
-- Define useful handling for legacy code, characterization tests, nondeterminism,
-  migrations, generated artifacts, and changes whose first valid red requires a
-  minimal importable scaffold.
-- Test that activation remains narrow enough not to hijack ordinary
-  implementation or project-owned execution workflows.
-- Demonstrate behavioral improvement over a no-skill baseline without turning
-  red-green-refactor into evidence-free ceremony.
+- The contract is framework-neutral and prescribes no test layout, command, or
+  mocking library.
+- It covers legacy code, characterization tests, nondeterminism, migrations,
+  generated artifacts, and a minimal importable scaffold.
+- Activation is limited to explicit TDD, test-first, or red-green-refactor
+  requests so ordinary implementation and project-owned execution retain
+  control.
+- Assertion-level red evidence remains mandatory, preventing an evidence-free
+  ceremony.
 
-## Promotion process
+## Promotion record
 
-For each planned skill:
+Each promoted skill:
 
-1. Confirm provenance and the portable invariant from real implementations.
-2. Draft the skill and its OpenAI metadata under the canonical `skills/` tree.
-3. Review intended and unintended activation, mutation authority, and project
+1. Has provenance and a portable invariant recorded from real repository use.
+2. Lives with OpenAI metadata under the canonical `skills/` tree.
+3. Encodes intended and unintended activation, mutation authority, and project
    workflow precedence.
-4. Run a no-skill baseline and with-skill behavioral scenarios.
-5. Add the promoted skill to plugin manifests, `gzs-router`, provenance,
-   changelog, and the one-by-one review queue.
-6. Assign independent skill version `0.1.0` only when the installable contract
-   enters the catalog.
+4. Was compared with its source behavior and negative-trigger baseline.
+5. Is present in plugin manifests, `gzs-router`, provenance, changelog, and the
+   one-by-one review queue.
+6. Enters the catalog at independent skill version `0.1.0`.

@@ -3,7 +3,7 @@ name: gzs-router
 description: Orient users to the GovZero portable skill catalog. Use when they need the right skill or sequence, ask how to discover, invoke, install, or update GovZero skills, or need help diagnosing skill availability or invocation behavior.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.2.0"
+  govzero-version: "0.3.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -71,7 +71,9 @@ answer is enough.
 | Goal | Skill | Boundary |
 | --- | --- | --- |
 | Reduce persistent agent-instruction weight | `gzs-agent-context-diet` | Preserves binding rules while pruning or disclosing context. |
+| Review a bounded implementation change | `gzs-change-review` | Reports prioritized, evidenced defects without implementing fixes or owning approval. |
 | Review Python for operating-system assumptions | `gzs-cross-platform-python` | Applies to Python portability, not general cross-platform product design. |
+| Assess dependency and supply-chain risk | `gzs-dependency-risk-audit` | Read-first portfolio evidence; does not update packages or own risk acceptance. |
 | Commit and publish a guarded save point | `gzs-git-sync` | Explicit-only; commits and pushes after repository gates pass. |
 | Analyze and improve hexagonal architecture boundaries | `gzs-hexagonal-architecture-audit` | Read-only design and implementation coaching; does not replace general plan, intent, or code review. |
 | Compare delivered behavior with its owning intent | `gzs-intent-audit` | Diagnoses and routes gaps; does not implement corrections unless separately requested. |
@@ -81,10 +83,13 @@ answer is enough.
 | Diagnose a bug, failing test, regression, or unexplained slowness | `gzs-root-cause-debugging` | Establishes root cause from reproducible evidence and yields to active project-owned workflows. |
 | Preserve or resume engineering state | `gzs-session-handoff` | Explicit-only; creates or consumes a durable continuity artifact. |
 | Survey and prioritize technical debt | `gzs-tech-debt-review` | Produces an evidenced report without fixing findings. |
+| Implement an explicitly test-first behavior change | `gzs-test-driven-change` | Runs a verified red-green-refactor loop inside the owning project workflow. |
 | Refresh project dependencies and pinned tools | `gzs-update-dependencies` | Covers project-managed versions, not machine-wide or deployed infrastructure. |
 
 ## Common sequences
 
+- Dependency risk response: `gzs-dependency-risk-audit` →
+  `gzs-update-dependencies` only when an upgrade is the authorized response.
 - Dependency maintenance: `gzs-update-dependencies` → `gzs-git-sync` when the
   verified update should be published.
 - Failure resolution: `gzs-root-cause-debugging` → `gzs-quality-gate` after an
@@ -94,6 +99,8 @@ answer is enough.
   plan also needs intent, scope, and completeness review.
 - Pre-publication confidence: `gzs-quality-gate` → `gzs-git-sync` when no broader
   maintenance workflow already ran the complete gate.
+- Test-first delivery: `gzs-test-driven-change` → `gzs-change-review` when the
+  completed implementation needs an independent semantic review.
 - Plan integrity: `gzs-plan-audit` before implementation; `gzs-intent-audit` after
   delivery when fulfillment is uncertain.
 - Repository maintenance: `gzs-repository-hygiene` → `gzs-quality-gate` when the

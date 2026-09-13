@@ -6,7 +6,22 @@ fleet updates.
 
 ## Unreleased
 
-No changes yet.
+### Changed
+
+- Advanced the synchronized bundle manifests to 0.3.0 for the backward-
+  compatible catalog expansion.
+- Extended `gzs-router` to 0.3.0 with routing and composition guidance for the
+  three promoted workflows.
+
+### Added
+
+- Added `gzs-change-review` 0.1.0 for prioritized, evidence-backed review of a
+  bounded implementation change without silently implementing fixes.
+- Added `gzs-dependency-risk-audit` 0.1.0 for read-first assessment of
+  vulnerability, support, license, provenance, privilege, and supply-chain
+  exposure across direct and transitive dependencies.
+- Added `gzs-test-driven-change` 0.1.0 for explicitly requested test-first
+  behavior changes using a verified red-green-refactor loop.
 
 ## 0.2.0 - 2026-09-06
 

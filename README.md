@@ -4,11 +4,13 @@
 workflows that should behave consistently across projects without belonging to
 one project's architecture, runtime, vendor, or agent harness.
 
-The catalog contains thirteen workflows distilled primarily from `gzkit`, with
+The catalog contains sixteen workflows distilled primarily from `gzkit`, with
 corroborating implementations from other `tvproductions` repositories:
 
 - `gzs-agent-context-diet`
+- `gzs-change-review`
 - `gzs-cross-platform-python`
+- `gzs-dependency-risk-audit`
 - `gzs-git-sync`
 - `gzs-hexagonal-architecture-audit`
 - `gzs-intent-audit`
@@ -19,6 +21,7 @@ corroborating implementations from other `tvproductions` repositories:
 - `gzs-router`
 - `gzs-session-handoff`
 - `gzs-tech-debt-review`
+- `gzs-test-driven-change`
 - `gzs-update-dependencies`
 
 The extraction evidence and the broader review are in
@@ -30,21 +33,17 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The first immutable bundle release is `v0.2.0`. The catalog remains in the
-SemVer 0.x development series while the one-by-one behavioral review matures
-toward 1.0.0.
+The first immutable bundle release is `v0.2.0`; the synchronized manifests now
+describe the unreleased `0.3.0` catalog. The catalog remains in the SemVer 0.x
+development series while the one-by-one behavioral review matures toward 1.0.0.
 
-## Near-term roadmap
+## Latest catalog expansion
 
-The next planned portable primitives are `gzs-change-review`,
-`gzs-dependency-risk-audit`, and `gzs-test-driven-change`. They are deliberately
+The `0.3.0` development line promotes `gzs-change-review`,
+`gzs-dependency-risk-audit`, and `gzs-test-driven-change`. They remain
 horizontal disciplines beneath project-owned workflows, not replacements for
-`gzkit` lifecycle orchestration. Their proposed contracts, boundaries, and
-promotion criteria are described in [`docs/roadmap.md`](docs/roadmap.md).
-
-Roadmap entries are not yet installable skills and must not be offered by
-`gzs-router` until their canonical directories, metadata, provenance, and
-behavioral reviews are complete.
+`gzkit` lifecycle orchestration. Their contracts, boundaries, and promotion
+record are described in [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Boundary
 

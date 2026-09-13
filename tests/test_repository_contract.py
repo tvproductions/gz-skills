@@ -88,10 +88,14 @@ class RepositoryContractTests(unittest.TestCase):
             (REPOSITORY_ROOT / "package.json").read_text(encoding="utf-8")
         )
         catalog = load_catalog(REPOSITORY_ROOT / "skills")
+        source_fallback = (
+            REPOSITORY_ROOT / "src" / "gz_skills" / "__init__.py"
+        ).read_text(encoding="utf-8")
 
         self.assertEqual(codex["version"], bundle_version)
         self.assertEqual(claude["version"], bundle_version)
         self.assertEqual(opencode["version"], bundle_version)
+        self.assertIn(f'__version__ = "{bundle_version}"', source_fallback)
         self.assertEqual(codex["skills"], "./skills/")
         self.assertEqual(
             set(claude["skills"]), {f"./skills/{name}" for name in catalog}
@@ -151,6 +155,8 @@ class RepositoryContractTests(unittest.TestCase):
         catalog = load_catalog(REPOSITORY_ROOT / "skills")
 
         for name in (
+            "gzs-change-review",
+            "gzs-dependency-risk-audit",
             "gzs-hexagonal-architecture-audit",
             "gzs-router",
         ):

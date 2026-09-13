@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Change Review"
+  short_description: "Review changes for concrete defects and regressions"
+  default_prompt: "Use $gzs-change-review to review this change and report prioritized, evidence-backed findings."
+policy:
+  allow_implicit_invocation: true
