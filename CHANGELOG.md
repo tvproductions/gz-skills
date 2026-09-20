@@ -6,11 +6,16 @@ fleet updates.
 
 ## Unreleased
 
+## 0.3.0 - 2026-09-20
+
 ### Changed
 
-- Advanced gzs-session-handoff to 1.0.0 with a testable resume point, a
-  discoverable location fallback, next-session focus, and authorization
-  handling that preserves verified standing decisions across sessions.
+- Advanced gzs-session-handoff from the released 0.1.0 to 0.2.0. The new
+  resume point, durable fallback, and standing-authorization handling expand its
+  0.x workflow; its individual stable-contract review remains pending.
+- Pinned the shared Codex and Claude repository marketplace to the released
+  bundle tag; corrected the OpenCode install example and documented version
+  and release decisions.
 - Advanced the synchronized bundle manifests to 0.3.0 for the backward-
   compatible catalog expansion.
 - Extended `gzs-router` to 0.3.0 with routing and composition guidance for the

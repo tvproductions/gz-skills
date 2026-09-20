@@ -1,6 +1,6 @@
 # Skill roadmap
 
-This roadmap records the three additions promoted into the unreleased `0.3.0`
+This roadmap records the three additions promoted into the `0.3.0`
 catalog. They extend the portable-primitives layer established by
 `gzs-root-cause-debugging`; they do not introduce an alternate planning,
 execution, review, or closeout lifecycle. No further near-term additions are

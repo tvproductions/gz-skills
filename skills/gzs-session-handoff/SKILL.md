@@ -3,7 +3,7 @@ name: gzs-session-handoff
 description: Create or resume a durable engineering-session handoff that preserves state, decisions, evidence, and next actions without duplicating existing artifacts. Use when the user explicitly asks to hand off, checkpoint, resume, or preserve work for another session or agent.
 compatibility: Designed for Git repositories that can store or reference a Markdown handoff; adapt GitHub issue and PR checks when another tracker is used.
 metadata:
-  govzero-version: "1.0.0"
+  govzero-version: "0.2.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---

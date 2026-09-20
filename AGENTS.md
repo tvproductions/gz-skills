@@ -42,20 +42,32 @@ GovZero skills.
 
 ## Versioning and provenance
 
-- Follow Semantic Versioning 2.0.0 for both the bundle and each skill. Versions
-  advance from released state; an unreleased correction may amend its pending
-  version, but never decrement or reuse a published version.
+- Follow Semantic Versioning 2.0.0 for both the bundle and each skill. With
+  every shipped skill or bundle change, compare against the last released tag,
+  maintain the correct pending version and `CHANGELOG.md` entry in the same
+  change, and record the reason.
+  Follow the release gates in `docs/packaging.md`. An unreleased version may be
+  corrected; never decrement, change, or reuse a published version.
 - Keep the bundle version synchronized across `pyproject.toml`,
   `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json`, and `package.json`.
-  Use major for an incompatible installer, lock, or bundle contract; minor for
-  backward-compatible catalog or installer capability; and patch for compatible
-  fixes or packaging and metadata corrections.
-- Version each skill independently with `metadata.govzero-version`. Use major
-  for an incompatible invocation, workflow, safety, or authorization change;
-  minor for backward-compatible new capability or expanded scope; and patch for
-  compatible fixes, clarifications, activation metadata, prompts, or packaged
-  supporting-resource changes. Repository-only tests and documentation do not
-  change a skill version.
+  During 0.x development, use minor for new or incompatible bundle capability
+  and patch for compatible corrections. Promote the bundle to 1.0.0 only after
+  the catalog review. Thereafter use major for incompatible installer, lock, or
+  bundle contracts; minor for compatible capability; and patch for fixes.
+  Any changed released skill tree also advances the bundle version.
+- Version each skill independently with `metadata.govzero-version`. During 0.x
+  development, use minor for new or incompatible skill capability and patch for
+  compatible corrections. Promote a skill to 1.0.0 only after its individual
+  review accepts a stable contract. Thereafter use major for incompatible
+  invocation, workflow, safety, or authorization changes; minor for compatible
+  capability; and patch for fixes, prompts, activation metadata, or resources.
+  Repository-only tests and documentation do not change a skill version.
+- Classify every addition, removal, or edit under `skills/`, including
+  behavior-preserving refactors and packaged resources. Start a new skill at
+  0.1.0. Raise the version of a changed released skill by at least a patch;
+  multiple pending edits may share one version if it covers the highest change
+  since release. Record skill removals and migration in the changelog and
+  advance the bundle version.
 - Record every user-visible bundle or skill change under `Unreleased` in
   `CHANGELOG.md`. At release, rename that section to the released bundle version
   and ISO date, then create a fresh `Unreleased` section.
@@ -64,10 +76,17 @@ GovZero skills.
 - An updater may replace an installed skill only when its current hash still
   matches the prior lock. Treat a mismatch as a local modification and stop for
   reconciliation.
-- Support exactly two consumer channels: native managed Codex, Claude Code, and
-  OpenCode plugins, then Python `uvx` snapshots when repository vendoring is
-  required. Keep Node tooling outside the supported install and update contract;
-  OpenCode owns the runtime for its bundled adapter.
+- Issue the catalog as a managed plugin first. Codex, Claude Code, and OpenCode
+  are harness adapters over one tagged skill tree, not separate authored copies.
+  Support one additional contract: Python `uvx` snapshots when a repository must
+  vendor skills. Do not add other distribution channels or Node tooling to the
+  supported install and update contract; OpenCode owns its bundled runtime.
+- Treat versions on `main` as candidates. A release requires the validated
+  immutable tag and channel-specific publication and install evidence. Keep the
+  shared Codex and Claude marketplace source pinned to a released tag. Do not
+  call a Codex,
+  Claude Code, or OpenCode plugin published based on a manifest or local cache.
+  Do not install both a managed plugin and vendored copy into one discovery scope.
 
 ## Validation
 

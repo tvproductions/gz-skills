@@ -33,13 +33,13 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The first immutable bundle release is `v0.2.0`; the synchronized manifests now
-describe the unreleased `0.3.0` catalog. The catalog remains in the SemVer 0.x
-development series while the one-by-one behavioral review matures toward 1.0.0.
+The latest immutable bundle release is `v0.3.0`; `v0.2.0` was the first. The
+catalog remains in the SemVer 0.x development series while the one-by-one
+behavioral review matures toward 1.0.0.
 
 ## Latest catalog expansion
 
-The `0.3.0` development line promotes `gzs-change-review`,
+The `0.3.0` release promotes `gzs-change-review`,
 `gzs-dependency-risk-audit`, and `gzs-test-driven-change`. They remain
 horizontal disciplines beneath project-owned workflows, not replacements for
 `gzkit` lifecycle orchestration. Their contracts, boundaries, and promotion
@@ -72,32 +72,42 @@ third-party skills retain their upstream names.
 
 Choose one of the two supported contracts for a given agent scope. Installing
 the same skill through both creates duplicate discovery. See
-[`docs/packaging.md`](docs/packaging.md) for ownership and release details.
+[`docs/packaging.md`](docs/packaging.md) for ownership, version decisions,
+and publication gates.
 
 ### 1. Native managed plugins (preferred)
 
 The repository contains native Codex, Claude Code, and OpenCode plugin adapters
 over the same canonical `skills/` tree.
 
-- Codex installs the managed bundle from its plugin marketplace after the
-  `gz-skills` package is published there.
-- Claude Code can use the repository marketplace:
+- Codex can install the released bundle from this repository marketplace:
 
-```text
-/plugin marketplace add tvproductions/gz-skills
-/plugin install gz-skills@gz-skills
-```
+  ```text
+  codex plugin marketplace add tvproductions/gz-skills@v0.3.0
+  codex plugin add gz-skills@gz-skills
+  ```
+
+  A listing in the universal public Plugins Directory requires separate review
+  and publication.
+
+- Claude Code can use the repository marketplace, whose plugin source is pinned
+  to the latest released Git tag:
+
+  ```text
+  /plugin marketplace add tvproductions/gz-skills
+  /plugin install gz-skills@gz-skills
+  ```
 
 - OpenCode can install the git-backed package through its own plugin manager:
 
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.2.0"
-  ]
-}
-```
+  ```json
+  {
+    "$schema": "https://opencode.ai/config.json",
+    "plugin": [
+      "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.3.0"
+    ]
+  }
+  ```
 
 Restart OpenCode after changing its configuration. OpenCode's managed runtime
 loads the package-local adapter and registers the canonical `skills/` tree; no
@@ -113,7 +123,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -143,14 +153,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -159,9 +169,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.2.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 

@@ -8,7 +8,11 @@
   "plugins": [
     {
       "name": "gz-skills",
-      "source": "./",
+      "source": {
+        "source": "github",
+        "repo": "tvproductions/gz-skills",
+        "ref": "v0.3.0"
+      },
       "description": "Curated portable workflows for maintenance, verification, audits, continuity, and safe publication.",
       "category": "development",
       "keywords": [
