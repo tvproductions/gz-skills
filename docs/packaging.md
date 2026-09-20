@@ -13,8 +13,8 @@ agent scope.
 The plugin contract has three harness adapters over the same tagged source.
 Codex reads [its marketplace manifest](../.agents/plugins/marketplace.json)
 and Claude Code reads [its marketplace manifest](../.claude-plugin/marketplace.json).
-Both entries point to the same immutable release tag, using their respective
-[source formats](https://developers.openai.com/plugins/build/plugins#marketplace-metadata).
+Both entries use HTTPS Git sources pinned to the same immutable release tag.
+Each manifest also carries its harness-specific marketplace metadata.
 
 | Harness | Distribution mechanism | Evidence before claiming availability |
 | --- | --- | --- |
@@ -66,7 +66,7 @@ Install from a tagged Git revision with `uvx`; Node is not part of the supported
 consumer toolchain:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.1 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.2 `
   gz-skills install --project C:\path\to\project gzs-git-sync
 ```
 
@@ -129,11 +129,11 @@ released versions and tags are immutable.
    proposed tag, and advance both marketplace source refs to that tag. Confirm
    all examples and refs name the same candidate version.
 3. On that clean commit, run the repository validation commands in the README,
-   native plugin validators, and package-content checks. Smoke-test the Codex
-   marketplace source format against the preceding immutable tag before tagging
-   the candidate. Build the Python wheel and source archive from the release
-   commit, check their contents, and record their SHA-256 digests. Resolve
-   failures before tagging.
+   native plugin validators, and package-content checks. Smoke-test Codex and
+   Claude marketplace installation over HTTPS against the preceding immutable
+   tag before tagging the candidate. Build the Python wheel and source archive
+   from the release commit, check their contents, and record their SHA-256
+   digests. Resolve failures before tagging.
 4. Create an annotated, immutable `vX.Y.Z` tag on the validated commit with the
    artifact digests. When publication is authorized, push the commit and tag so
    the marketplace never points at a missing ref. Starting with `0.3.0`, create

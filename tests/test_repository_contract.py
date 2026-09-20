@@ -138,7 +138,11 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual(codex_entry["category"], "Developer Tools")
         self.assertEqual(
             claude_entry["source"],
-            {"source": "github", "repo": "tvproductions/gz-skills", "ref": tag},
+            {
+                "source": "url",
+                "url": "https://github.com/tvproductions/gz-skills.git",
+                "ref": tag,
+            },
         )
 
     def test_supported_installation_contract_has_no_node_commands_or_dependencies(

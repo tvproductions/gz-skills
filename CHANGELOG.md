@@ -6,6 +6,18 @@ fleet updates.
 
 ## Unreleased
 
+## 0.3.2 - 2026-09-20
+
+### Fixed
+
+- Switched the Claude marketplace plugin source to a pinned HTTPS Git URL.
+  The `github` source in 0.3.1 attempted an SSH clone, so public installs
+  failed on machines without a GitHub SSH key. Verified HTTPS installation
+  with Claude Code against the 0.3.1 tag before this release.
+- Advanced both marketplace refs, installation examples, and synchronized
+  bundle metadata to 0.3.2. Skill trees and independent skill versions remain
+  unchanged.
+
 ## 0.3.1 - 2026-09-20
 
 ### Fixed

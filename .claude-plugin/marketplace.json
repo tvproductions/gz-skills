@@ -9,9 +9,9 @@
     {
       "name": "gz-skills",
       "source": {
-        "source": "github",
-        "repo": "tvproductions/gz-skills",
-        "ref": "v0.3.1"
+        "source": "url",
+        "url": "https://github.com/tvproductions/gz-skills.git",
+        "ref": "v0.3.2"
       },
       "description": "Curated portable workflows for maintenance, verification, audits, continuity, and safe publication.",
       "category": "development",
