@@ -201,6 +201,93 @@ def summarize(records: Iterable[SkillRecord]) -> list[dict[str, object]]:
     ]
 
 
+FLOOR_SECTION = "## Discovery and fallback"
+
+#: Skills authored before the floor contract gained a mechanical witness.
+#:
+#: This set may only SHRINK. Removing a name is the repair; adding one is a
+#: regression. A skill that gains the section while still listed here fails
+#: the check, which is what makes this a countdown rather than a standing
+#: exemption.
+FLOOR_PENDING: frozenset[str] = frozenset(
+    {
+        "gzs-agent-context-diet",
+        "gzs-change-review",
+        "gzs-dependency-risk-audit",
+        "gzs-hexagonal-architecture-audit",
+        "gzs-intent-audit",
+        "gzs-plan-audit",
+        "gzs-quality-gate",
+        "gzs-repository-hygiene",
+        "gzs-root-cause-debugging",
+        "gzs-router",
+        "gzs-session-handoff",
+        "gzs-tech-debt-review",
+        "gzs-test-driven-change",
+        "gzs-update-dependencies",
+    }
+)
+
+
+def _declares_floor(text: str) -> bool:
+    """Return True when the skill carries a non-empty floor section.
+
+    Witnesses that the section exists and says something, never that what it
+    says is a good fallback. Whether a named rung is actually universal is a
+    reading, not a state this script can model. The check is still worth
+    having: the catalog's failure was not bad floors, it was absent ones.
+    """
+    _, marker, rest = text.partition(f"\n{FLOOR_SECTION}")
+    if not marker:
+        return False
+    body = rest.split("\n## ", 1)[0]
+    return bool(body.strip())
+
+
+def _authored_skill_paths(records: Iterable[SkillRecord]) -> dict[str, Path]:
+    """Map each authored skill name to its SKILL.md, ignoring consumer mirrors."""
+    authored: dict[str, Path] = {}
+    for record in records:
+        relative = record.relative_path.replace(os.sep, "/")
+        if not relative.startswith("skills/"):
+            continue
+        authored.setdefault(record.name, Path(record.path))
+    return authored
+
+
+def floor_violations(
+    records: Iterable[SkillRecord],
+    pending: Iterable[str] = FLOOR_PENDING,
+) -> list[str]:
+    """Report authored skills whose floor declaration disagrees with the ledger.
+
+    Two arms, and the second is what makes this a ratchet. A skill missing the
+    section and absent from *pending* fails, which stops new drift. A skill
+    carrying the section while still listed in *pending* also fails, which
+    forces the list down as skills are repaired.
+    """
+    pending = frozenset(pending)
+    messages: list[str] = []
+    for name, path in sorted(_authored_skill_paths(records).items()):
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except OSError as error:  # pragma: no cover - unreadable source tree
+            messages.append(f"{name}: SKILL.md could not be read ({error}).")
+            continue
+        declares = _declares_floor(text)
+        if declares and name in pending:
+            messages.append(
+                f"{name} no longer needs its exemption: it declares a floor, so "
+                "remove it from FLOOR_PENDING."
+            )
+        elif not declares and name not in pending:
+            messages.append(
+                f"{name} states no floor: add a non-empty '{FLOOR_SECTION}' section "
+                "naming what to run when no project surface is found."
+            )
+    return messages
+
+
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path, help="Directory tree to scan")
@@ -215,12 +302,26 @@ def _parse_args() -> argparse.Namespace:
         action="store_true",
         help="Emit every installation instead of the per-name summary",
     )
+    parser.add_argument(
+        "--check-floor",
+        action="store_true",
+        help=(
+            "Verify every authored skill declares a discovery-and-fallback "
+            "floor; exit 1 when any does not"
+        ),
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = _parse_args()
     records = discover_skills(args.root, args.exclude_project)
+    if args.check_floor:
+        violations = floor_violations(records)
+        for message in violations:
+            print(message, file=sys.stderr)
+        print(f"{len(violations)} floor violation(s).", file=sys.stderr)
+        return 1 if violations else 0
     payload = (
         [asdict(record) for record in records] if args.records else summarize(records)
     )

@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 from gz_skills.core import load_catalog
+from scripts.inventory_skills import discover_skills, floor_violations
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^]]*]\(([^)]+)\)")
@@ -220,6 +221,18 @@ class RepositoryContractTests(unittest.TestCase):
                 encoding="utf-8"
             )
             self.assertIn("allow_implicit_invocation: false", metadata)
+
+    def test_every_authored_skill_declares_a_discovery_floor(self) -> None:
+        """AGENTS.md requires discovery-or-fallback; this is its witness.
+
+        The contract predates the check, and the catalog drifted to one
+        compliant skill in sixteen with nothing reporting it. FLOOR_PENDING
+        carries the skills authored before the witness existed and may only
+        shrink: a skill that gains the section while still listed there fails
+        this test too, so the exemption is a countdown, not a standing waiver.
+        """
+        violations = floor_violations(discover_skills(REPOSITORY_ROOT))
+        self.assertEqual(violations, [], "\n".join(violations))
 
 
 if __name__ == "__main__":

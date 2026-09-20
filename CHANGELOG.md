@@ -27,6 +27,17 @@ fleet updates.
   asserts exact bytes must not build its fixture with a text-mode write, which
   translates the newline to the platform separator.
 
+- `scripts/inventory_skills.py --check-floor` verifies that every authored
+  skill declares a non-empty discovery-and-fallback section, and the repository
+  contract suite runs it. `AGENTS.md` has required discovery-or-fallback since
+  it was authored, and the catalog still drifted to one compliant skill in
+  sixteen because nothing reported it. `FLOOR_PENDING` carries the fourteen
+  skills authored before the witness existed and may only shrink: a skill that
+  gains the section while still listed there also fails, so the exemption is a
+  countdown rather than a standing waiver. Both arms were verified to fire
+  against real catalog entries. The check witnesses that a floor is declared,
+  never that the floor named is a good one.
+
 ### Changed
 
 - `gzs-cross-platform-python` states a discovery and fallback order, as the

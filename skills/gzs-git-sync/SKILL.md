@@ -27,14 +27,9 @@ unrelated cleanup, or bypassing repository safeguards.
    unrelated user work. If the tree contains changes that cannot truthfully ship
    together and the intended subset cannot be established from context, stop
    and name the boundary.
-3. Discover the repository's canonical sync command. Prefer, in order:
-
-   - A repo-local `gzs-git-sync` or `git-sync` skill with a deterministic helper.
-   - A documented `gz git-sync` or equivalent project command.
-   - The repository's documented quality commands followed by ordinary Git.
-
-   Treat the portable skill as the invariant and the project surface as the
-   adapter. Do not substitute remembered commands for documented ones.
+3. Discover the repository's canonical sync command per the order in
+   § Discovery and fallback. Do not substitute remembered commands for
+   documented ones.
 4. Preview mutations when the selected adapter supports a dry run. Fetch current
    remote state before trusting ahead/behind counts. Completion means the plan
    identifies the branch, remote, changed-file scope, validation, commit, remote
@@ -53,6 +48,19 @@ unrelated cleanup, or bypassing repository safeguards.
 9. Fetch once more and verify the final state. Completion requires the intended
    commit to exist locally and remotely, `ahead=0`, `behind=0`, and no unintended
    staged or unstaged changes.
+
+## Discovery and fallback
+
+Treat the portable skill as the invariant and the project surface as the
+adapter. Prefer, in order:
+
+1. A repo-local `gzs-git-sync` or `git-sync` skill with a deterministic helper.
+2. A documented `gz git-sync` or equivalent project command.
+3. The repository's documented quality commands followed by ordinary Git.
+
+The third rung is the floor, and it always exists: any repository with a remote
+can be synced with Git alone. A project surface above it is enrichment, never a
+prerequisite, so this workflow never degrades into having nothing to run.
 
 ## Safety invariants
 
