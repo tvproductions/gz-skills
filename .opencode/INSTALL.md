@@ -7,7 +7,7 @@ Add the released git package to the `plugin` array in the applicable
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.3.2"
+    "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.4.0"
   ]
 }
 ```

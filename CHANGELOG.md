@@ -6,6 +6,32 @@ fleet updates.
 
 ## Unreleased
 
+### Added
+
+- `gzs-cross-platform-python` now carries `scripts/audit_portability.py`, the
+  first deterministic helper in the catalog. Two static checks, standard
+  library only, runnable on any platform: `line-endings` reads the git index
+  for surfaces committed with CRLF and for a missing normalization directive,
+  and `subprocess-errors` walks the syntax tree for text-mode captures that
+  decode child output without an errors argument. Neither check needs the
+  defect to reproduce locally, which is what makes them useful: both failure
+  classes are invisible on whichever platform continuous integration runs.
+  Ported from a proven gzkit implementation and verified to report the same
+  result at the same scope. The bundled script is a fallback, never a
+  dependency for a project that already gates these seams.
+- `gzs-cross-platform-python` gained a byte-exact fixture rule. A test that
+  asserts exact bytes must not build its fixture with a text-mode write, which
+  translates the newline to the platform separator.
+
+### Changed
+
+- `gzs-cross-platform-python` states a discovery and fallback order, as the
+  skill contract in `AGENTS.md` requires. It prefers a repository-local check,
+  then a documented project command, then the bundled script, and records that
+  a fail-closed project gate keeps its implementation in the repository it
+  guards.
+- Skill version advanced to 0.2.0 for new capability; bundle advanced to 0.4.0.
+
 ## 0.3.2 - 2026-09-20
 
 ### Fixed
