@@ -1,0 +1,21 @@
+{
+  "name": "gz-skills",
+  "interface": {
+    "displayName": "GovZero Skills"
+  },
+  "plugins": [
+    {
+      "name": "gz-skills",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/tvproductions/gz-skills.git",
+        "ref": "v0.3.1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

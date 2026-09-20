@@ -6,6 +6,17 @@ fleet updates.
 
 ## Unreleased
 
+## 0.3.1 - 2026-09-20
+
+### Fixed
+
+- Added a Codex-specific repository marketplace manifest with the supported
+  Git URL source format. The 0.3.0 Claude marketplace entry was skipped by
+  Codex, so Codex marketplace installation failed.
+- Pinned both Codex and Claude marketplace entries and all installation
+  examples to the 0.3.1 release tag; advanced synchronized bundle metadata.
+  No skill tree changed, so individual skill versions remain unchanged.
+
 ## 0.3.0 - 2026-09-20
 
 ### Changed

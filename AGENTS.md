@@ -83,9 +83,10 @@ GovZero skills.
   supported install and update contract; OpenCode owns its bundled runtime.
 - Treat versions on `main` as candidates. A release requires the validated
   immutable tag and channel-specific publication and install evidence. Keep the
-  shared Codex and Claude marketplace source pinned to a released tag. Do not
-  call a Codex,
-  Claude Code, or OpenCode plugin published based on a manifest or local cache.
+  Codex and Claude marketplace manifests separately pinned to the same
+  released tag. Validate each harness schema and install from that tag before
+  claiming availability. Do not call a Codex, Claude Code, or OpenCode plugin
+  published based on a manifest or local cache.
   Do not install both a managed plugin and vendored copy into one discovery scope.
 
 ## Validation

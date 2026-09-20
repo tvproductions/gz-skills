@@ -103,6 +103,44 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual(opencode["main"], ".opencode/plugins/gz-skills.js")
         self.assertEqual(opencode["type"], "module")
 
+    def test_marketplace_entries_pin_each_harness_to_bundle_tag(self) -> None:
+        with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as stream:
+            tag = "v" + tomllib.load(stream)["project"]["version"]
+        codex = json.loads(
+            (REPOSITORY_ROOT / ".agents" / "plugins" / "marketplace.json")
+            .read_text(encoding="utf-8")
+        )
+        claude = json.loads(
+            (REPOSITORY_ROOT / ".claude-plugin" / "marketplace.json")
+            .read_text(encoding="utf-8")
+        )
+
+        self.assertEqual(codex["name"], "gz-skills")
+        self.assertEqual(claude["name"], "gz-skills")
+        self.assertEqual(len(codex["plugins"]), 1)
+        self.assertEqual(len(claude["plugins"]), 1)
+        codex_entry = codex["plugins"][0]
+        claude_entry = claude["plugins"][0]
+        self.assertEqual(codex_entry["name"], "gz-skills")
+        self.assertEqual(claude_entry["name"], "gz-skills")
+        self.assertEqual(
+            codex_entry["source"],
+            {
+                "source": "url",
+                "url": "https://github.com/tvproductions/gz-skills.git",
+                "ref": tag,
+            },
+        )
+        self.assertEqual(
+            codex_entry["policy"],
+            {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+        )
+        self.assertEqual(codex_entry["category"], "Developer Tools")
+        self.assertEqual(
+            claude_entry["source"],
+            {"source": "github", "repo": "tvproductions/gz-skills", "ref": tag},
+        )
+
     def test_supported_installation_contract_has_no_node_commands_or_dependencies(
         self,
     ) -> None:

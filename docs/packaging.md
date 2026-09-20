@@ -11,9 +11,10 @@ agent scope.
 | Python vendored snapshot | Consumer with upstream provenance | `uvx ... gz-skills update` or `propagate` | Detected by complete tree hash and blocks replacement. |
 
 The plugin contract has three harness adapters over the same tagged source.
-Codex and Claude Code can both read the repository's
-[marketplace manifest](../.claude-plugin/marketplace.json); Codex supports this
-[legacy-compatible location](https://developers.openai.com/plugins/build/plugins#how-local-marketplaces-work).
+Codex reads [its marketplace manifest](../.agents/plugins/marketplace.json)
+and Claude Code reads [its marketplace manifest](../.claude-plugin/marketplace.json).
+Both entries point to the same immutable release tag, using their respective
+[source formats](https://developers.openai.com/plugins/build/plugins#marketplace-metadata).
 
 | Harness | Distribution mechanism | Evidence before claiming availability |
 | --- | --- | --- |
@@ -65,7 +66,7 @@ Install from a tagged Git revision with `uvx`; Node is not part of the supported
 consumer toolchain:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.3.1 `
   gz-skills install --project C:\path\to\project gzs-git-sync
 ```
 
@@ -125,12 +126,14 @@ released versions and tags are immutable.
    every user-visible change.
 2. Prepare one release commit: move `Unreleased` to the bundle version and ISO
    date, add a fresh `Unreleased` section, update installation examples to the
-   proposed tag, and advance the Claude marketplace source ref to that tag.
-   Confirm all examples and refs name the same candidate version.
+   proposed tag, and advance both marketplace source refs to that tag. Confirm
+   all examples and refs name the same candidate version.
 3. On that clean commit, run the repository validation commands in the README,
-   native plugin validators, and package-content checks. Build the Python wheel
-   and source archive from the release commit, check their contents, and record
-   their SHA-256 digests. Resolve failures before tagging.
+   native plugin validators, and package-content checks. Smoke-test the Codex
+   marketplace source format against the preceding immutable tag before tagging
+   the candidate. Build the Python wheel and source archive from the release
+   commit, check their contents, and record their SHA-256 digests. Resolve
+   failures before tagging.
 4. Create an annotated, immutable `vX.Y.Z` tag on the validated commit with the
    artifact digests. When publication is authorized, push the commit and tag so
    the marketplace never points at a missing ref. Starting with `0.3.0`, create
@@ -144,7 +147,8 @@ released versions and tags are immutable.
    [Codex publication flow](https://developers.openai.com/plugins/deploy/submission#public-publishing-flow)
    and [Claude Git ref support](https://code.claude.com/docs/en/plugin-marketplaces#github-repositories).
 
-The shared Codex and Claude marketplace uses a GitHub source pinned to the
+The Codex and Claude marketplace manifests each pin their Git source to the
 latest released tag. Advancing `main` alone therefore does not promote
-development skills to marketplace adopters. Consumer propagation is a separate action after release; never change
-consumer locks or installed trees as part of publisher-side tagging.
+development skills to marketplace adopters. Consumer propagation is a separate
+action after release; never change consumer locks or installed trees as part of
+publisher-side tagging.

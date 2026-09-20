@@ -11,7 +11,7 @@
       "source": {
         "source": "github",
         "repo": "tvproductions/gz-skills",
-        "ref": "v0.3.0"
+        "ref": "v0.3.1"
       },
       "description": "Curated portable workflows for maintenance, verification, audits, continuity, and safe publication.",
       "category": "development",
