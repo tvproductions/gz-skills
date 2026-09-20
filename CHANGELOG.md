@@ -6,6 +6,8 @@ fleet updates.
 
 ## Unreleased
 
+## 0.4.0 - 2026-09-20
+
 ### Added
 
 - `gzs-cross-platform-python` now carries `scripts/audit_portability.py`, the
