@@ -182,6 +182,36 @@ Missing or locally edited copies block propagation and require reconciliation;
 they are never silently overwritten. See
 [`docs/provenance.md`](docs/provenance.md) for the full contract.
 
+## Future public directory listings
+
+The GitHub repository marketplace and tagged Git package above are available
+now. A platform's public directory is a separate discovery channel: adding
+this repository as a marketplace does not submit it for a public listing.
+
+- **ChatGPT and Codex:** Follow the [OpenAI plugin submission process](https://developers.openai.com/plugins/deploy/submission).
+  Verify the publisher identity and Apps Management access; prepare the public
+  listing, support, privacy, and terms URLs; create a **Skills only** draft;
+  upload the final skill bundle; add starter prompts and at least five positive
+  and three negative test cases. Submit for review, then publish after approval.
+  The resulting listing appears in the shared ChatGPT and Codex Plugins
+  Directory. Each later directory version also requires review and publication.
+- **Claude Code:** Validate the released plugin with
+  `claude plugin validate . --strict`, then use the [Claude community marketplace
+  submission form](https://code.claude.com/docs/en/plugins#submit-your-plugin-to-the-community-marketplace).
+  After review and catalog sync, users can discover it through `claude-community`.
+  Anthropic curates `claude-plugins-official` separately; the submission form
+  does not apply for that marketplace.
+- **OpenCode:** The tagged Git package remains the supported install path.
+  For discovery, propose it for the [OpenCode ecosystem list](https://opencode.ai/docs/ecosystem/)
+  by pull request; a listing does not change the install command. Publishing
+  to the `npm` registry would add a distribution channel and requires an
+  explicit change to this repository's release contract before doing so.
+
+Public listings can shorten discovery and personal plugin installation. They
+do not replace pinned, reviewable copies in repositories that choose vendoring.
+Track each directory's acceptance and published version separately from the
+GitHub release; do not claim a listing from a submission or local install.
+
 ## Layout
 
 ```text
