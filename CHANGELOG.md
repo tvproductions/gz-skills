@@ -8,6 +8,9 @@ fleet updates.
 
 ### Changed
 
+- Advanced gzs-session-handoff to 1.0.0 with a testable resume point, a
+  discoverable location fallback, next-session focus, and authorization
+  handling that preserves verified standing decisions across sessions.
 - Advanced the synchronized bundle manifests to 0.3.0 for the backward-
   compatible catalog expansion.
 - Extended `gzs-router` to 0.3.0 with routing and composition guidance for the
