@@ -1,0 +1,29 @@
+# Line-ending normalization.
+#
+# Normalize every text file to LF in the repository on all platforms,
+# regardless of a clone's local `core.autocrlf`. Without this, a Windows
+# checkout can commit CRLF blobs that every other platform then reads back
+# differently, and byte-exact comparisons start failing on one platform only.
+#
+# This is the git-layer half of the discipline. The runtime half ships with
+# the cross-platform skill: `skills/gzs-cross-platform-python/scripts/
+# audit_portability.py --check line-endings` fails closed on any committed
+# text surface still carrying CRLF, and on the absence of this directive.
+* text=auto eol=lf
+
+# Binary files git must never line-ending-normalize. `text=auto` already
+# detects most of these, but naming them keeps detection out of the loop for
+# the formats this repository actually ships.
+*.whl binary
+*.gz binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary

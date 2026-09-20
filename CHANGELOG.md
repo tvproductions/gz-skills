@@ -19,6 +19,10 @@ fleet updates.
   Ported from a proven gzkit implementation and verified to report the same
   result at the same scope. The bundled script is a fallback, never a
   dependency for a project that already gates these seams.
+- A repository `.gitattributes` normalizing every text file to LF, which this
+  repository had been missing entirely. Its own new `line-endings` check found
+  the gap. All 70 tracked files were already LF in the index, so the directive
+  locks in the current state rather than renormalizing anything.
 - `gzs-cross-platform-python` gained a byte-exact fixture rule. A test that
   asserts exact bytes must not build its fixture with a text-mode write, which
   translates the newline to the platform separator.
