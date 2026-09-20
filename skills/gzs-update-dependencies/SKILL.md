@@ -3,7 +3,7 @@ name: gzs-update-dependencies
 description: Refresh all project-managed dependencies, runtime pins, package-manager tooling, lockfiles, and version-pinned development tools to current supported releases, then run the repository's full verification. Use when the user asks to update all dependencies and tools, upgrade packages, refresh lockfiles, bump runtimes, or bring a project's toolchain current.
 compatibility: Requires network access to authoritative package and tool sources plus the package managers used by the target repository.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -18,6 +18,22 @@ particular quality command.
 This skill covers versions recorded by the project. Updating unrelated global
 machine tools, operating-system packages, editor extensions, cloud resources, or
 deployed environments requires separate explicit authorization.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. The repository's documented upgrade command, which already encodes its
+   floors and intentional pins.
+2. The project's package manager, used for resolution, lock regeneration, and
+   its own current-version query.
+3. The declared manifests and lockfiles read directly, with target versions
+   resolved from the authoritative registry for each ecosystem present.
+
+The third rung is the floor and needs only the manifest and network access to
+the registry. Offline, it degrades honestly: inventory and current constraints
+remain establishable, target versions do not. Record the unavailable evidence
+rather than guessing a version.
 
 ## Workflow
 

@@ -3,7 +3,7 @@ name: gzs-tech-debt-review
 description: Survey scoped technical debt using the repository's existing analyzers and render a prioritized, evidence-grounded report without implementing fixes. Use for technical-debt reviews of changed files, a component, a work item, or the whole repository.
 compatibility: Uses whichever static analysis, test, documentation, dependency, and repository tools the target project already declares.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -13,6 +13,20 @@ metadata:
 Survey debt; do not patch it. Wield existing project probes, preserve their raw
 evidence, and recommend a concrete fix shape and route for every retained
 finding.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. The repository's own probe wrappers, which already encode its thresholds.
+2. The underlying analyzers the repository configures, invoked directly.
+3. Direct reading of the resolved file set, plus repository history for churn
+   and staleness signals.
+
+The third rung is the floor and needs only the source and its history. It
+yields fewer categories, so name the ones it cannot reach instead of dropping
+them silently. A selected category with no available probe is itself a finding,
+not an omission.
 
 ## Workflow
 

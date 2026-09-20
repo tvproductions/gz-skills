@@ -38,6 +38,19 @@ fleet updates.
   against real catalog entries. The check witnesses that a floor is declared,
   never that the floor named is a good one.
 
+- All fourteen remaining skills now declare a discovery-and-fallback floor, so
+  `FLOOR_PENDING` is empty and the countdown it existed for is finished. Each
+  floor is written to that skill's own terminal action rather than stamped from
+  a template: the review skill falls back to the diff, the architecture audit to
+  reading imports, the router to the catalog that ships with it, the handoff to
+  the response itself. Three floors state a limit rather than a command,
+  because the honest floor for those skills is a narrowed claim: an offline
+  dependency audit can establish exposure but not current safety, a context diet
+  with no owning tool cannot regenerate mirrors, and a debt review without
+  probes reaches fewer categories. Each skill advances a patch version.
+- `gzs-session-handoff` and `gzs-git-sync` move their existing inline ladders
+  into the canonical section. Neither changed what it does.
+
 ### Changed
 
 - `gzs-cross-platform-python` states a discovery and fallback order, as the

@@ -3,7 +3,7 @@ name: gzs-dependency-risk-audit
 description: Assess a project's direct and transitive dependency risks using manifests, lockfiles, authoritative advisories, compatibility constraints, maintenance signals, licenses, provenance, and actual repository usage. Use for dependency-risk, supply-chain, vulnerability, abandonment, or license audits; not for automatically upgrading packages or performing a general security review.
 compatibility: Uses local dependency metadata and, when available, current authoritative registry, advisory, license, and maintainer sources; offline results must remain explicitly limited.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -27,6 +27,22 @@ authorized.
 3. Record the audit time and evidence access. Current risk claims require live
    sources; an offline audit may establish local exposure and identify evidence
    to fetch, but cannot claim that dependencies are currently safe.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. An active security or release workflow, which keeps thresholds, exceptions,
+   and remediation deadlines.
+2. The ecosystem's own advisory and resolution tooling, plus any generated
+   dependency surface the project publishes.
+3. The manifests, lockfiles, and pins themselves, read directly.
+
+The third rung is the floor and establishes the dependency graph and local
+exposure from the repository alone. Its limit is a claim, not an inconvenience:
+without live advisory sources this rung can show what a project depends on and
+where it is reachable, and it cannot establish that any of it is currently
+safe. Say which of the two you produced.
 
 ## Evidence workflow
 

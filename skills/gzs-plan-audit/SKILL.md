@@ -3,7 +3,7 @@ name: gzs-plan-audit
 description: Audit alignment among declared intent, scoped requirements, and an execution plan before implementation begins. Use when reviewing a plan, leaving plan mode, starting a planned change, or checking for missing requirements, forbidden paths, scope creep, or inadequate verification.
 compatibility: Requires readable intent, scope, and plan artifacts in any repository-defined format.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -19,6 +19,19 @@ declared intent <-> scoped requirements <-> execution plan
 The repository decides whether those artifacts are ADRs, issues, briefs, specs,
 or plan files. The audit diagnoses alignment; it does not silently rewrite any
 of them.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. The project's own plan-audit command and its receipt, when one exists.
+2. Repository tooling that resolves the intent, the scoped work item, and the
+   plan as linked artifacts.
+3. The three documents read directly, compared against the current tree.
+
+The third rung is the floor and needs only a file reader. Missing or ambiguous
+authority is recorded as a finding at every rung; it is never resolved by
+substituting a more convenient document.
 
 ## Workflow
 

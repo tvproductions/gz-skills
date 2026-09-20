@@ -3,7 +3,7 @@ name: gzs-hexagonal-architecture-audit
 description: Analyze greenfield designs and brownfield implementations against right-sized hexagonal architecture, then coach boundary-preserving design or refactoring. Use for explicit hexagonal or ports-and-adapters audits, architecture work involving dependency direction or cross-project interoperability, or projects that declare these guardrails; do not use for ordinary code review, generic SOLID questions, or structurally simple projects.
 compatibility: Inspectable code or design documentation in any language/ecosystem.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -29,6 +29,19 @@ separately authorized project-owned design or implementation route.
 
 Discover and respect local test conventions. Do not prescribe a test runner or
 library, and never recommend pytest.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. An active project-owned design or architecture workflow, which receives the
+   findings and owns every correction.
+2. Dependency or import analyzers the repository already configures.
+3. The import statements and module boundaries read directly from source.
+
+The third rung is the floor and is sufficient for the core question, because
+dependency direction is visible in the imports themselves. An analyzer reports
+it faster; it does not report anything the source does not already say.
 
 ## Population and mode
 

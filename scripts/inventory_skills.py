@@ -203,30 +203,18 @@ def summarize(records: Iterable[SkillRecord]) -> list[dict[str, object]]:
 
 FLOOR_SECTION = "## Discovery and fallback"
 
-#: Skills authored before the floor contract gained a mechanical witness.
+#: Skills exempt from the floor contract. Empty, and it should stay that way.
+#:
+#: It briefly held the fourteen skills authored before the contract gained a
+#: mechanical witness. All fourteen were repaired in the same change that
+#: introduced the check, so the countdown reached zero immediately and the set
+#: now exists only to be audited against.
 #:
 #: This set may only SHRINK. Removing a name is the repair; adding one is a
-#: regression. A skill that gains the section while still listed here fails
-#: the check, which is what makes this a countdown rather than a standing
-#: exemption.
-FLOOR_PENDING: frozenset[str] = frozenset(
-    {
-        "gzs-agent-context-diet",
-        "gzs-change-review",
-        "gzs-dependency-risk-audit",
-        "gzs-hexagonal-architecture-audit",
-        "gzs-intent-audit",
-        "gzs-plan-audit",
-        "gzs-quality-gate",
-        "gzs-repository-hygiene",
-        "gzs-root-cause-debugging",
-        "gzs-router",
-        "gzs-session-handoff",
-        "gzs-tech-debt-review",
-        "gzs-test-driven-change",
-        "gzs-update-dependencies",
-    }
-)
+#: regression that needs a stated reason. A skill that gains the section while
+#: still listed here fails the check, which is what keeps an exemption a
+#: countdown rather than a standing waiver.
+FLOOR_PENDING: frozenset[str] = frozenset()
 
 
 def _declares_floor(text: str) -> bool:

@@ -3,7 +3,7 @@ name: gzs-root-cause-debugging
 description: Diagnose technical failures through reproducible evidence and falsifiable hypotheses. Use when diagnosing or fixing a bug, failing test, regression, intermittent failure, or unexplained performance problem whose cause is not yet demonstrated; yield to any active project-owned incident, execution, or governance workflow.
 compatibility: Works where a failure can be observed directly or through safe diagnostic instrumentation.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -27,6 +27,20 @@ or a patch that merely hides the symptom.
    demonstrated. Do not manufacture diagnostic ceremony around known facts.
 5. Do not expose secrets, personal data, or sensitive payloads in logs or
    evidence. Redact while preserving the facts needed to distinguish hypotheses.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. An active project-owned incident or execution workflow, whose stages and
+   gates stay in control.
+2. The narrowest existing test or repository probe that exhibits the failure.
+3. A minimal reproduction written for the occasion and run directly with the
+   language's own interpreter or runtime.
+
+The third rung is the floor and cannot be taken away: a reproduction you wrote
+needs no project surface. Prefer the higher rungs anyway, because an existing
+test names the seam the project already considers meaningful.
 
 ## Workflow
 

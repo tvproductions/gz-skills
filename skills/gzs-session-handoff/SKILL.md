@@ -3,7 +3,7 @@ name: gzs-session-handoff
 description: Create or resume a durable engineering-session handoff that preserves state, decisions, evidence, and next actions without duplicating existing artifacts. Use when the user explicitly asks to hand off, checkpoint, resume, or preserve work for another session or agent.
 compatibility: Designed for Git repositories that can store or reference a Markdown handoff; adapt GitHub issue and PR checks when another tracker is used.
 metadata:
-  govzero-version: "0.2.0"
+  govzero-version: "0.2.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -13,14 +13,24 @@ metadata:
 A handoff is an evidence-backed continuity artifact. It records where to resume;
 the artifact itself does not authorize an action.
 
+## Discovery and fallback
+
+Prefer, in order:
+
+1. The repository's handoff command, template, and canonical storage location,
+   when a project workflow owns handoff.
+2. The location the user names, or a predictable Markdown path in the
+   repository that replaces no unrelated content.
+3. The complete handoff in the response itself.
+
+The third rung is the floor and cannot fail, because it needs no filesystem at
+all. State where the handoff lives whichever rung produced it, and never leave
+a temporary file as its only copy.
+
 ## Create
 
-1. Discover the repository's handoff command, template, and canonical storage
-   location. Follow the active project workflow when one owns handoff. Otherwise
-   use the user's requested location or a predictable Markdown path in the
-   repository without replacing unrelated content. If no repository file is
-   appropriate, use a user-designated durable location or put the complete
-   handoff in the response. State where it is available; never leave a
+1. Select the destination per the order in § Discovery and fallback, replacing
+   no unrelated content. State where the handoff is available; never leave a
    temporary file as its only copy.
 2. Capture observed state before summarizing: observation time, Git branch,
    HEAD, worktree, verification already run, active plan or work item, and

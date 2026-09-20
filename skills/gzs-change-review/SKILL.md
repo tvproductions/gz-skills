@@ -3,7 +3,7 @@ name: gzs-change-review
 description: Review a bounded implementation change for defects, regressions, unsafe assumptions, and maintainability risks, then report prioritized evidence-backed findings. Use for code review, diff review, pre-merge review, or independent assessment of a completed change; not for running only automated checks, auditing broad technical debt, or implementing fixes.
 compatibility: Requires a readable change set and enough repository context to trace its affected behavior.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -29,6 +29,20 @@ the review into an approval ceremony, style rewrite, or implementation pass.
    specification.
 4. Review is read-only. Do not edit code, publish comments, approve, merge, or
    create issues unless separately authorized.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. An active project-owned review workflow, whose reviewer roles, gates, and
+   verdicts stay in control.
+2. Repository review tooling or pull-request metadata that resolves the
+   comparison base.
+3. The diff against the resolved base, read directly from version control.
+
+The third rung is the floor and is always available: the diff is the review's
+actual subject, and every other rung only organizes how it is read. This skill
+therefore needs no project surface to function, only a base it can name.
 
 ## Review workflow
 

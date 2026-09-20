@@ -3,7 +3,7 @@ name: gzs-router
 description: Orient users to the GovZero portable skill catalog. Use when they need the right skill or sequence, ask how to discover, invoke, install, or update GovZero skills, or need help diagnosing skill availability or invocation behavior.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.3.0"
+  govzero-version: "0.3.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -25,6 +25,19 @@ packages, or change configuration.
 
 Answer only the mode asked for. Do not reproduce the full catalog when a focused
 answer is enough.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. An active project-owned workflow that governs the task, which stays in
+   control while a portable skill serves as a supporting primitive.
+2. A project-local skill that already covers the goal.
+3. The catalog in this bundle.
+
+The third rung is the floor and ships with the router itself, so this skill is
+never unable to answer. Routing to a portable skill is always possible; what
+varies is whether a project surface should take precedence over it.
 
 ## Route a task
 

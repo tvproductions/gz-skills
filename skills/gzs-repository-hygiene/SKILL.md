@@ -3,7 +3,7 @@ name: gzs-repository-hygiene
 description: Audit and, when requested, repair repository hygiene across workspace state, generated artifacts, packaging boundaries, lockfiles, caches, and control-surface drift. Use for maintenance, cleanup, tidy, repository-health, or generated-artifact verification requests; use project-owned hygiene commands when present.
 compatibility: Requires Git and any hygiene or build tools declared by the target repository.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -13,6 +13,21 @@ metadata:
 Inspect the repository as a delivered system, not only as source code. Hygiene
 finds drift between authored inputs, generated surfaces, build outputs, package
 contents, and version-control state.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. A project-owned hygiene script in check or dry-run mode.
+2. The repository's documented maintenance commands for the categories it
+   declares.
+3. Read-only inspection with the version control system itself: tracked and
+   untracked inventory, ignored-file status, and a dry-run clean that reports
+   without deleting, alongside a direct read of the manifest and lockfile.
+
+The third rung is the floor and needs nothing but the repository. It can
+establish drift; it cannot repair. Keep it read-only, and never treat an
+untracked path as safe to delete on its evidence alone.
 
 ## Workflow
 

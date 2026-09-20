@@ -3,7 +3,7 @@ name: gzs-agent-context-diet
 description: Reduce always-loaded agent instruction weight while preserving every binding invariant through progressive disclosure and precise context pointers. Use when AGENTS.md, CLAUDE.md, repository rules, or skill descriptions have accumulated duplicated rationale or exceed an enforced context budget.
 compatibility: Works with repositories that maintain durable agent guidance or generated instruction mirrors.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -13,6 +13,21 @@ metadata:
 Reduce per-turn context load without relaxing policy. The operation is a
 delivery refactor: binding decisions remain reachable and generated surfaces
 remain coherent.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. The repository's own context-budget check and the tool that owns mirror
+   regeneration.
+2. A documented synchronization command, run after editing authored sources.
+3. Direct measurement of each always-loaded file in bytes and lines, with edits
+   confined to authored sources.
+
+The third rung is the floor and needs only a file reader. Its limit is real and
+must be stated rather than worked around: with no owning tool, generated
+mirrors cannot be regenerated. Report them as unsynchronized and name the
+command a maintainer must run. Never hand-edit a mirror to close the gap.
 
 ## Workflow
 

@@ -3,7 +3,7 @@ name: gzs-quality-gate
 description: Run and evidence the repository's complete required quality gate for the current change. Use for pre-handoff, pre-merge, pre-release, or explicit full-verification requests; use the project's declared commands rather than assuming a language or toolchain.
 compatibility: Requires the target repository's documented verification tools.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -13,6 +13,23 @@ metadata:
 Prove the current tree satisfies the repository's own completion contract. The
 portable invariant is complete, observed verification; the project supplies the
 commands, thresholds, and required evidence.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. A documented aggregate gate the repository already owns. Read its
+   implementation or help before assuming which dimensions it covers.
+2. The per-dimension commands the repository declares, assembled into the
+   smallest complete sequence.
+3. The tools actually configured in the tree, discovered from the build or
+   project manifest, the task runner, and the continuous-integration
+   definition, then invoked one dimension at a time.
+
+The third rung is the floor and it always exists: a repository that configures
+a linter or a test runner can be verified through those tools directly, even
+with no aggregate to call. Record which dimensions had no owning command rather
+than reporting a pass that covered fewer of them.
 
 ## Workflow
 

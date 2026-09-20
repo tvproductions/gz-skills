@@ -3,7 +3,7 @@ name: gzs-test-driven-change
 description: Implement one authorized behavior change through a tight red-green-refactor loop with an assertion-level failing test as the negative control. Use when the user explicitly requests test-driven development, test-first work, or red-green-refactor; do not activate merely because an ordinary implementation should include tests.
 compatibility: Requires an executable behavioral surface or a repository-approved way to create the smallest runnable test scaffold.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -27,6 +27,21 @@ missing behavior; the loop is not a ceremony for maximizing test count.
    surface. Generated artifacts, prose, and purely declarative metadata should
    be verified through their owning source or validator rather than forced into
    a low-value unit test.
+
+## Discovery and fallback
+
+Prefer, in order:
+
+1. An active project-owned execution workflow, whose allowed paths, ordering,
+   and gates stay in control.
+2. The repository's own test command, and the test style already present beside
+   the code under change.
+3. The runner the project configures, discovered from its manifest or task
+   definition, invoked on the single test being driven.
+
+The third rung is the floor. Discover the runner rather than assuming one, and
+follow the surrounding tests' style: the loop depends on running one test
+quickly, not on any particular framework.
 
 ## Red-green-refactor loop
 
