@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
+import subprocess
 import tomllib
 import unittest
 from pathlib import Path
@@ -101,10 +103,13 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual(
             set(claude["skills"]), {f"./skills/{name}" for name in catalog}
         )
-        self.assertEqual(opencode["main"], ".opencode/plugins/gz-skills.js")
+        self.assertEqual(opencode["main"], "./index.js")
+        self.assertEqual(opencode["exports"], {".": "./index.js"})
+        self.assertIn(opencode["main"].removeprefix("./"), opencode["files"])
+        self.assertFalse((REPOSITORY_ROOT / ".opencode" / "plugins" / "gz-skills.js").exists())
         self.assertEqual(opencode["type"], "module")
 
-    def test_marketplace_entries_pin_each_harness_to_bundle_tag(self) -> None:
+    def test_marketplace_entries_pin_each_harness_to_same_released_tag(self) -> None:
         with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as stream:
             tag = "v" + tomllib.load(stream)["project"]["version"]
         codex = json.loads(
@@ -185,14 +190,21 @@ class RepositoryContractTests(unittest.TestCase):
             }.issubset(excluded)
         )
 
-    def test_opencode_adapter_registers_the_canonical_skill_tree(self) -> None:
-        adapter = (
-            REPOSITORY_ROOT / ".opencode" / "plugins" / "gz-skills.js"
-        ).read_text(encoding="utf-8")
+    def test_opencode_v2_adapter_registers_the_canonical_skill_tree(self) -> None:
+        node = shutil.which("node")
+        if node is None:
+            self.skipTest("Node is unavailable for the OpenCode adapter check")
 
-        self.assertIn("../../skills", adapter)
-        self.assertIn("config.skills.paths", adapter)
-        self.assertIn("skillsPath", adapter)
+        result = subprocess.run(
+            [node, "--test", str(REPOSITORY_ROOT / "tests" / "opencode_adapter.test.mjs")],
+            cwd=REPOSITORY_ROOT,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_read_only_catalog_guides_have_implicit_codex_policy(self) -> None:
         catalog = load_catalog(REPOSITORY_ROOT / "skills")

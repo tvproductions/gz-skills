@@ -1,26 +1,28 @@
-# Install gz-skills for OpenCode
+# Install gz-skills for OpenCode v2
 
-Add the released git package to the `plugin` array in the applicable
-`opencode.json`:
+The OpenCode v2 adapter is included in the v0.5.0 bundle. Install the
+immutable Git tag in each adopting repository.
 
-```json
+In each adopting repository, add the package to that repository's
+`opencode.jsonc`:
+
+```jsonc
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.4.0"
+  "plugins": [
+    "git+https://github.com/tvproductions/gz-skills.git#v0.5.0"
   ]
 }
 ```
 
-Restart OpenCode. Its managed plugin runtime loads the bundled adapter, which
-registers the package's canonical `skills/` directory with OpenCode's native
-skill tool.
+OpenCode loads the package's adapter and registers the canonical `skills/`
+tree. Invoke `gzs-router` to choose a workflow. `gzs-git-sync` and
+`gzs-session-handoff` require explicit selection.
 
-Use `gzs-router` when you want help choosing a GovZero workflow.
+OpenCode owns installation and updates for this project. Change the pinned
+tag in that repository when deliberately updating. Avoid installing a
+second vendored copy of the same skills in its discovery scope.
 
-OpenCode owns installation and updates for this channel. Do not edit the
-managed package cache. Pin a release tag for reproducible use and change that
-tag deliberately when updating.
-
-This installation does not require a Node command or add a Node dependency to
-the consuming project.
+The package entry point lives outside this publisher repository's local
+OpenCode plugin directory. The published v0.4.0 package uses the earlier
+OpenCode adapter and does not support v2.

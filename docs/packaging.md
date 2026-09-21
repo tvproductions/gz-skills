@@ -20,7 +20,7 @@ Each manifest also carries its harness-specific marketplace metadata.
 | --- | --- | --- |
 | Codex | Git-backed repository marketplace pinned to a tag; public directory is separate | Installation from the tagged marketplace; directory listing only after separate publication. |
 | Claude Code | Repository marketplace entry pinned to a Git tag | Marketplace validation and installation of that tag. |
-| OpenCode | Git-backed package pinned to a Git tag | Plugin-manager installation of that tag. |
+| OpenCode v2 | Per-project Git-backed package pinned to a Git tag | Installation and skill loading from that tag in a consumer project. |
 
 The Python contract uses the same Git tag through `uvx` and records each
 installed skill in the consumer lock. Registry publication to `npm` or
@@ -34,10 +34,10 @@ PyPI is outside the supported release contract.
   all promoted skills and its repository marketplace passes
   `claude plugin validate . --strict`.
 - [`package.json`](../package.json) exposes the package-local
-  [OpenCode adapter](../.opencode/plugins/gz-skills.js). OpenCode's own managed
-  runtime loads the adapter, which registers the canonical `skills/` directory
-  through the native skill loader. This adds no Node command, dependency, or
-  project toolchain to the supported contract.
+  [OpenCode v2 adapter](../adapters/opencode/gz-skills.js). OpenCode's managed
+  runtime loads the adapter, which registers every canonical `SKILL.md` through
+  its skill transform. The package has no Node dependency or project toolchain
+  requirement.
 
 Claude's `disable-model-invocation` frontmatter and Codex's explicit-invocation
 metadata are not mutually accepted by the Codex plugin validator. The canonical
@@ -66,7 +66,7 @@ Install from a tagged Git revision with `uvx`; Node is not part of the supported
 consumer toolchain:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.4.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
   gz-skills install --project C:\path\to\project gzs-git-sync
 ```
 
@@ -140,8 +140,8 @@ released versions and tags are immutable.
    a GitHub Release from that tag with notes, artifacts, and checksums. Verify
    the remote tag resolves to the validated commit.
 5. Verify Codex and Claude Code installation from the tagged repository
-   marketplace, OpenCode installation from its Git package, and `uvx` snapshot
-   installation. A universal public Plugins Directory listing is separate:
+   marketplace, OpenCode v2 per-project installation from its Git
+   package, and `uvx` snapshot installation. A universal public Plugins Directory listing is separate:
    submit the tagged Codex package for review, then publish it after approval.
    Record each channel's actual availability. See the official
    [Codex publication flow](https://developers.openai.com/plugins/deploy/submission#public-publishing-flow)

@@ -6,6 +6,19 @@ fleet updates.
 
 ## Unreleased
 
+## 0.5.0 - 2026-09-20
+
+### Changed
+
+- The OpenCode package now targets v2: its adapter registers the canonical skill
+  files through the v2 skill transform, with `gzs-git-sync` and
+  `gzs-session-handoff` available only by explicit selection. Installation can
+  be pinned in an adopting repository's `plugins` config. The adapter is
+  outside this publisher repository's local plugin discovery path. The
+  earlier v1 plugin contract is removed; v1 users remain on the immutable
+  v0.4.0 bundle. This new bundle capability advances the pending version to
+  0.5.0. Skill trees and their independent versions are unchanged.
+
 ## 0.4.0 - 2026-09-20
 
 ### Added

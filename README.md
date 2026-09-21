@@ -33,7 +33,7 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The latest immutable bundle release is `v0.4.0`; `v0.2.0` was the first. The
+The latest immutable bundle release is `v0.5.0`; `v0.2.0` was the first. The
 catalog remains in the SemVer 0.x development series while the one-by-one
 behavioral review matures toward 1.0.0.
 
@@ -83,7 +83,7 @@ over the same canonical `skills/` tree.
 - Codex can install the released bundle from this repository marketplace:
 
   ```text
-  codex plugin marketplace add tvproductions/gz-skills@v0.4.0
+  codex plugin marketplace add tvproductions/gz-skills@v0.5.0
   codex plugin add gz-skills@gz-skills
   ```
 
@@ -98,20 +98,23 @@ over the same canonical `skills/` tree.
   /plugin install gz-skills@gz-skills
   ```
 
-- OpenCode can install the git-backed package through its own plugin manager:
+- OpenCode v2 can install the `v0.5.0` Git package per project. The
+  earlier `v0.4.0` package uses the OpenCode v1 adapter.
 
-  ```json
+  In each adopting repository, add this to its `opencode.jsonc`:
+
+  ```jsonc
   {
     "$schema": "https://opencode.ai/config.json",
-    "plugin": [
-      "gz-skills@git+https://github.com/tvproductions/gz-skills.git#v0.4.0"
+    "plugins": [
+      "git+https://github.com/tvproductions/gz-skills.git#v0.5.0"
     ]
   }
   ```
 
-Restart OpenCode after changing its configuration. OpenCode's managed runtime
-loads the package-local adapter and registers the canonical `skills/` tree; no
-Node command or project dependency is required.
+  OpenCode registers the canonical `skills/` tree through its v2 skill
+  transform. See [the OpenCode install guide](.opencode/INSTALL.md) for
+  verification and update notes.
 
 A managed plugin is a read-only subscription to the released bundle. Do not
 edit its installed cache; update it through the harness's plugin manager.
@@ -123,7 +126,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.4.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -153,14 +156,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.4.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.4.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -169,9 +172,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.4.0 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.4.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.4.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 
