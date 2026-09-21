@@ -222,3 +222,9 @@ Each promoted skill:
 5. Is present in plugin manifests, `gzs-router`, provenance, changelog, and the
    one-by-one review queue.
 6. Enters the catalog at independent skill version `0.1.0`.
+
+## Candidate under discussion
+
+An [opt-in repository baseline handoff](proposals/repository-baseline-bootstrap.md)
+records maintainer direction and cross-project evidence from 2026-09-20.
+It is a proposal, not an approved implementation specification or catalog addition.
