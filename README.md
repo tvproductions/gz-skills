@@ -76,11 +76,31 @@ for the project. The skill's Python helper checks for `.gzkit/`, then creates
 `.gz-skills/settings.json` with `schema_version: 1` and a pending `profile`.
 The skill asks whether the project uses `lite` or `heavy`; it never guesses.
 Lite uses the portable skills without project-wide feature, requirements,
-backlog, or release management. Heavy is the intended integration with
-Superpowers, Superpowers Backplane, and curated Matt Pocock skills. Selecting
-heavy records intent; installation and alignment of those plugins require
-separate native-harness checks. A user may promote lite to heavy; reversal is
-not yet supported. The settings file contains no installed-plugin inventory.
+backlog, or release management. Heavy records intent to integrate this catalog,
+Superpowers, and Superpowers Backplane. Selecting heavy does not establish that
+integration; installation and alignment still require native-harness checks.
+A user may promote lite to heavy; reversal is not yet supported. The settings
+file contains no installed-plugin inventory.
+
+## Candidate adopting-project ecosystem
+
+The [lightweight SDD ecosystem proposal](docs/proposals/lightweight-sdd-ecosystem.md)
+records the agreed design direction and remaining proof work. It is a candidate,
+not a shipped heavy workflow. In that design, `gz-skills` owns project setup,
+portable disciplines, and four attributed Matt Pocock skill adaptations within
+this catalog. Superpowers owns feature design and implementation workflows;
+Superpowers Backplane owns the issue-backed catalog, traceability, derived
+roadmap and backlog views, V&V, and releases. Adopting projects own approved
+constitution, PRD, architecture, and material ADRs. Existing project documents
+are mapped into those shapes and approved, not silently replaced.
+
+The proposal favors proportionate TDD, BDD, DDD, and hexagonal architecture in
+adopting heavy projects. It calls for incremental refactoring guidance rather
+than a blanket rewrite. Its first-use routing, compatible plugin set, MPAS
+curations, and SP-BP delivery model still need implementation and cross-harness
+proof. The supported harnesses are Codex, Claude Code, and OpenCode; each
+adopting project verifies only the harnesses it uses. The present setup helper
+records only `schema_version` and `profile`.
 
 Python 3.11 or newer is needed to run this setup helper. A missing interpreter
 is reported without changing the repository. The plugin managers own plugin

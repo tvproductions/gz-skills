@@ -22,6 +22,21 @@ GovZero skills.
   workflow is active, the portable skill must yield to it rather than duplicate,
   bypass, or create parallel lifecycle state.
 
+## Adopting-project ecosystem direction
+
+- Read `docs/proposals/lightweight-sdd-ecosystem.md` before work on the lite or
+  heavy project profiles or their integration. It records the candidate design,
+  ownership boundaries, and unresolved proof work; do not describe it as shipped.
+- Keep Superpowers feature workflows and Superpowers Backplane's issue graph,
+  traceability, derived views, and releases in their owning repositories. Curate
+  the four proposed MPAS adaptations here with attribution, not as a required
+  fourth installed plugin.
+- Carry the heavy profile's constitution, PRD, architecture, ADR, TDD, BDD, DDD,
+  and proportionate hexagonal preferences into adopting-project guidance. Do not
+  impose them on this skill library or require blanket rewrites of existing code.
+- Preserve the implemented setup helper's narrow `schema_version` and `profile`
+  contract until a schema extension and migration are designed and tested.
+
 ## Skill contract
 
 - Follow the open Agent Skills directory and frontmatter specification.
