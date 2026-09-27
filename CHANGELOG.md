@@ -23,6 +23,9 @@ fleet updates.
   raise the Python package compatibility floor from 3.11 to 3.13. This
   incompatible 0.x packaging change is covered by the pending 0.6.0 minor
   bundle version; standalone skill helper compatibility is unchanged.
+- Document a candidate Python environment baseline for adopting heavy projects;
+  interpreter support, dependency management, and verification remain
+  project-owned choices.
 
 ## 0.5.0 - 2026-09-20
 

@@ -104,6 +104,9 @@ curations, and SP-BP delivery model still need implementation and cross-harness
 proof. The supported harnesses are Codex, Claude Code, and OpenCode; each
 adopting project verifies only the harnesses it uses. The present setup helper
 records only `schema_version` and `profile`.
+Python adopting projects can use the [candidate environment baseline](docs/guides/heavy-python-environment.md)
+to declare their own interpreter range, isolated and locked dependencies, and
+verification commands.
 
 The standalone setup helper supports Python 3.11 or newer. Installing this
 bundle's Python CLI requires Python 3.13 or newer. A missing interpreter is

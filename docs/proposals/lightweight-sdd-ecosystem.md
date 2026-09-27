@@ -30,6 +30,12 @@ behavior and tests as migration input, then replace that implementation with
 Python rather than maintaining parallel cores. SP-BP owns its exact Python
 runtime and packaging policy.
 
+For Python adopting heavy projects, use the [Python environment baseline](../guides/heavy-python-environment.md)
+to declare interpreter support, isolate and lock dependencies, and make the
+project's verification commands reproducible. The adopting project selects
+its exact versions and tools during adoption rather than inheriting this
+repository's local interpreter pin.
+
 ## Profiles and adoption
 
 On first use of any `gzs-*` skill in a repository without settings, route through
