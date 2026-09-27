@@ -36,8 +36,9 @@ Do not use the bundle's vendoring installer for this workflow.
    reported for reconciliation, never replaced.
 3. If the profile is pending, ask **one question**: lite or heavy? Lite uses
    the portable `gzs-*` skills without project-wide feature, requirements,
-   backlog, or release management. Heavy also calls for Superpowers,
-   Superpowers Backplane, and a curated Matt Pocock skill set. Record the
+   backlog, or release management. Heavy also calls for Superpowers and the
+   Python-based Superpowers Backplane. The planned attributed Matt Pocock
+   adaptations belong in this `gz-skills` catalog, not a fourth plugin. Record the
    answer with `python scripts/project_settings.py select --project <root> --profile lite`
    or the same command with `heavy`.
    Do not infer a choice from

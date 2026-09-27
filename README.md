@@ -90,7 +90,10 @@ not a shipped heavy workflow. In that design, `gz-skills` owns project setup,
 portable disciplines, and four attributed Matt Pocock skill adaptations within
 this catalog. Superpowers owns feature design and implementation workflows;
 Superpowers Backplane owns the issue-backed catalog, traceability, derived
-roadmap and backlog views, V&V, and releases. Adopting projects own approved
+roadmap and backlog views, V&V, and releases. Its core logic, CLI/helpers, and
+tests are Python. Thin host-specific adapters may use their required language
+and delegate to that core; Go is not an implementation language for SP-BP.
+Adopting projects own approved
 constitution, PRD, architecture, and material ADRs. Existing project documents
 are mapped into those shapes and approved, not silently replaced.
 
@@ -102,8 +105,9 @@ proof. The supported harnesses are Codex, Claude Code, and OpenCode; each
 adopting project verifies only the harnesses it uses. The present setup helper
 records only `schema_version` and `profile`.
 
-Python 3.11 or newer is needed to run this setup helper. A missing interpreter
-is reported without changing the repository. The plugin managers own plugin
+The standalone setup helper supports Python 3.11 or newer. Installing this
+bundle's Python CLI requires Python 3.13 or newer. A missing interpreter is
+reported without changing the repository. The plugin managers own plugin
 installation; the project profile is not a request to copy skill trees.
 
 ## Install
@@ -282,6 +286,9 @@ seams. A tool wrapper, domain workflow, or harness-specific integration does not
 become portable merely because several projects copied it.
 
 ## Validate
+
+Local development uses Python 3.13.15 from `.python-version`. The pending Python
+package requires Python 3.13 or newer.
 
 ```powershell
 uv run python -m unittest discover -s tests -v

@@ -14,13 +14,21 @@ itself. A repository with `.gzkit/` remains incompatible with this profile.
 | --- | --- |
 | `gz-skills` | Portable disciplines, project profile setup, attributed MPAS adaptations, and guidance for checking the complement. No central project lifecycle CLI. |
 | Superpowers (SP) | Design discussion, approved feature specifications, implementation plans, execution, test-first work, and review. |
-| Superpowers Backplane (SP-BP) | GitHub Issue-backed catalog and delivery graph, FDAU-inspired taxonomy, traceability, derived views, and release records. |
+| Superpowers Backplane (SP-BP) | Python implementation of the GitHub Issue-backed catalog and delivery graph, FDAU-inspired taxonomy, traceability, derived views, and release records. |
 | Adopting project | Governing documents, approvers, public compatibility contract, verification commands, supported harnesses, and native plugin configuration. |
 
 The target supported harnesses are Claude Code, Codex, and OpenCode. A project verifies
 only the harnesses it uses. Prefer repository-scoped native plugin enablement;
 do not copy physical skill trees into the adopting repository. The released
 Python snapshot installer remains a separate existing contract until reviewed.
+SP-BP is a Python project. Implement its catalog, issue reconciliation, trace
+and V&V logic, view generation, release logic, CLI/helpers, and tests in
+Python. Harness-specific adapters may use the minimal code required by a host,
+but they must delegate to the Python core. Do not introduce a Go core, service,
+module, or toolchain. If a prototype was written in Go, preserve its useful
+behavior and tests as migration input, then replace that implementation with
+Python rather than maintaining parallel cores. SP-BP owns its exact Python
+runtime and packaging policy.
 
 ## Profiles and adoption
 
@@ -203,8 +211,10 @@ serves as a requirement, outcome, ADR, or issue ID.
    the shared settings schema extension and a tested compatibility set without
    storing machine-local installation state.
 2. Write the SP-BP issue-kind and relationship schema, reconciliation rules,
-   snapshot algorithm, view formats, and release gate. Explicitly supersede
-   conflicting issue-only decisions only after review in the SP-BP repository.
+   snapshot algorithm, view formats, and release gate. State the Python core
+   decision in SP-BP's ADR and plan, including migration of any Go prototype.
+   Explicitly supersede conflicting issue-only decisions only after review in
+   the SP-BP repository.
 3. Pilot migration on representative existing documents and FDAU-like nodes.
    Test family moves, splits, requirement changes, multi-outcome traces,
    stale evidence, changing issues during snapshot collection, and a release

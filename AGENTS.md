@@ -31,6 +31,10 @@ GovZero skills.
   traceability, derived views, and releases in their owning repositories. Curate
   the four proposed MPAS adaptations here with attribution, not as a required
   fourth installed plugin.
+- SP-BP is a Python project: its catalog, reconciliation, trace and V&V, views,
+  release logic, CLI/helpers, and tests belong in Python. Keep host adapters
+  minimal and delegated to that core. Do not infer Go from the vendor-neutral
+  skill boundary. SP-BP owns its exact Python runtime and packaging policy.
 - Carry the heavy profile's constitution, PRD, architecture, ADR, TDD, BDD, DDD,
   and proportionate hexagonal preferences into adopting-project guidance. Do not
   impose them on this skill library or require blanket rewrites of existing code.

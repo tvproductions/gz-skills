@@ -11,12 +11,18 @@ fleet updates.
 - `gzs-project-setup` 0.1.0 creates minimal `.gz-skills/settings.json` on
   first project setup, asks for lite or heavy, blocks projects with `.gzkit/`,
   and supports lite-to-heavy promotion without claiming that other plugins are
-  installed. Its Python helper lives inside the skill. The new capability
-  advances the pending bundle version to 0.6.0.
+  installed. Its Python helper lives inside the skill. Its heavy-profile
+  guidance names the Python SP-BP project and keeps attributed MPAS adaptations
+  inside this catalog. The new capability advances the pending bundle version
+  to 0.6.0.
 
 ### Changed
 
 - `gzs-router` 0.3.2 routes project-profile setup to the new skill.
+- Pin this repository's local development interpreter to Python 3.13.15 and
+  raise the Python package compatibility floor from 3.11 to 3.13. This
+  incompatible 0.x packaging change is covered by the pending 0.6.0 minor
+  bundle version; standalone skill helper compatibility is unchanged.
 
 ## 0.5.0 - 2026-09-20
 

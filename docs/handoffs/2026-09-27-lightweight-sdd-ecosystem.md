@@ -1,5 +1,11 @@
 # Lightweight SDD ecosystem: session handoff
 
+**Superseded context:** This is a historical handoff, not current implementation
+guidance. Continue from the [candidate ecosystem design](../proposals/lightweight-sdd-ecosystem.md)
+and current `README.md`/`AGENTS.md` instead of the unanswered questions below.
+The settled design requires a Python SP-BP project and curates MPAS adaptations
+inside `gz-skills`; it does not require a Go core or fourth installed plugin.
+
 Observed 2026-09-27 20:58 UTC in `gz-skills` on `main`. The pre-sync HEAD was
 `27e0a58746b5b18b149ba5609d2e739cd1a8cba2` (`origin/main` at the time of
 observation). This handoff and the candidate changes below were uncommitted at
