@@ -3,7 +3,7 @@ name: gzs-router
 description: Orient users to the GovZero portable skill catalog. Use when they need the right skill or sequence, ask how to discover, invoke, install, or update GovZero skills, or need help diagnosing skill availability or invocation behavior.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.3.1"
+  govzero-version: "0.3.2"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -91,6 +91,7 @@ varies is whether a project surface should take precedence over it.
 | Analyze and improve hexagonal architecture boundaries | `gzs-hexagonal-architecture-audit` | Read-only design and implementation coaching; does not replace general plan, intent, or code review. |
 | Compare delivered behavior with its owning intent | `gzs-intent-audit` | Diagnoses and routes gaps; does not implement corrections unless separately requested. |
 | Check intent, scope, and plan alignment | `gzs-plan-audit` | Runs before implementation and audits existing artifacts. |
+| Initialize or promote a project's GovZero profile | `gzs-project-setup` | Creates minimal project settings after checking for gzkit; does not install other plugins. |
 | Run the repository's complete verification | `gzs-quality-gate` | Uses project-owned commands and reports unavailable dimensions honestly. |
 | Audit or repair repository hygiene | `gzs-repository-hygiene` | Begins read-only; cleanup requires authorization from the request or project workflow. |
 | Diagnose a bug, failing test, regression, or unexplained slowness | `gzs-root-cause-debugging` | Establishes root cause from reproducible evidence and yields to active project-owned workflows. |

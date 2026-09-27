@@ -110,8 +110,10 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual(opencode["type"], "module")
 
     def test_marketplace_entries_pin_each_harness_to_same_released_tag(self) -> None:
-        with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as stream:
-            tag = "v" + tomllib.load(stream)["project"]["version"]
+        changelog = (REPOSITORY_ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+        released = re.search(r"^## (\d+\.\d+\.\d+) - \d{4}-\d{2}-\d{2}$", changelog, re.M)
+        self.assertIsNotNone(released, "CHANGELOG.md has no released bundle section")
+        tag = "v" + released.group(1)
         codex = json.loads(
             (REPOSITORY_ROOT / ".agents" / "plugins" / "marketplace.json")
             .read_text(encoding="utf-8")

@@ -4,7 +4,7 @@
 workflows that should behave consistently across projects without belonging to
 one project's architecture, runtime, vendor, or agent harness.
 
-The catalog contains sixteen workflows distilled primarily from `gzkit`, with
+The catalog contains seventeen workflows distilled primarily from `gzkit`, with
 corroborating implementations from other `tvproductions` repositories:
 
 - `gzs-agent-context-diet`
@@ -15,6 +15,7 @@ corroborating implementations from other `tvproductions` repositories:
 - `gzs-hexagonal-architecture-audit`
 - `gzs-intent-audit`
 - `gzs-plan-audit`
+- `gzs-project-setup`
 - `gzs-quality-gate`
 - `gzs-repository-hygiene`
 - `gzs-root-cause-debugging`
@@ -56,10 +57,10 @@ The `gzs-` prefix identifies skills whose canonical source and release contract
 belong to this repository. Project-local skills use a project or domain prefix;
 third-party skills retain their upstream names.
 
-- `gzkit` continues to own `gz` commands, governance events, attestation, and
-  control-surface synchronization.
-- `gz-skills` owns portable horizontal disciplines that remain useful without
-  `gzkit`; it does not provide a competing project lifecycle.
+- `gzkit` owns its own project lifecycle and control surfaces. A project with
+  `.gzkit/` must not initialize `.gz-skills/`; choose one ecosystem.
+- `gz-skills` owns portable horizontal disciplines and project profile setup;
+  it does not provide a central project lifecycle.
 - An active project-owned workflow takes precedence. It may compose a `gzs-*`
   primitive, but the primitive must not bypass its stages, gates, state, locks,
   receipts, or human decisions.
@@ -68,14 +69,36 @@ third-party skills retain their upstream names.
 - `.agents/skills`, `.claude/skills`, `.codex/skills`, `.github/skills`, and
   `.gzkit/skills` are installation surfaces, not authored copies here.
 
+## Project profile
+
+For an adopting repository, use `$gzs-project-setup` after enabling this plugin
+for the project. The skill's Python helper checks for `.gzkit/`, then creates
+`.gz-skills/settings.json` with `schema_version: 1` and a pending `profile`.
+The skill asks whether the project uses `lite` or `heavy`; it never guesses.
+Lite uses the portable skills without project-wide feature, requirements,
+backlog, or release management. Heavy is the intended integration with
+Superpowers, Superpowers Backplane, and curated Matt Pocock skills. Selecting
+heavy records intent; installation and alignment of those plugins require
+separate native-harness checks. A user may promote lite to heavy; reversal is
+not yet supported. The settings file contains no installed-plugin inventory.
+
+Python 3.11 or newer is needed to run this setup helper. A missing interpreter
+is reported without changing the repository. The plugin managers own plugin
+installation; the project profile is not a request to copy skill trees.
+
 ## Install
 
 Choose one of the two supported contracts for a given agent scope. Installing
 the same skill through both creates duplicate discovery. See
 [`docs/packaging.md`](docs/packaging.md) for ownership, version decisions,
 and publication gates.
+For new lite/heavy profile adoption, use repo-scoped native plugin enablement:
+Claude Code project scope, a Codex repository marketplace and project config, or an
+OpenCode project `opencode.jsonc`. These settings live in the project while the
+harness manages plugin files in its own cache. The Python snapshot installer
+below is an existing alternate contract; it is not used by project setup.
 
-### 1. Native managed plugins (preferred)
+### 1. Native managed plugins (preferred for adopting projects)
 
 The repository contains native Codex, Claude Code, and OpenCode plugin adapters
 over the same canonical `skills/` tree.

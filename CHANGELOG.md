@@ -6,6 +6,18 @@ fleet updates.
 
 ## Unreleased
 
+### Added
+
+- `gzs-project-setup` 0.1.0 creates minimal `.gz-skills/settings.json` on
+  first project setup, asks for lite or heavy, blocks projects with `.gzkit/`,
+  and supports lite-to-heavy promotion without claiming that other plugins are
+  installed. Its Python helper lives inside the skill. The new capability
+  advances the pending bundle version to 0.6.0.
+
+### Changed
+
+- `gzs-router` 0.3.2 routes project-profile setup to the new skill.
+
 ## 0.5.0 - 2026-09-20
 
 ### Changed
