@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Pythonic Pattern Application"
+  short_description: "Apply one verified Pythonic pattern refactor"
+  default_prompt: "Use $gzs-pythonic-pattern-apply to refactor this selected Python pattern while preserving behavior."
+policy:
+  allow_implicit_invocation: true

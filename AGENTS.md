@@ -38,9 +38,11 @@ GovZero skills.
 - Carry the heavy profile's constitution, PRD, architecture, ADR, TDD, BDD, DDD,
   and proportionate hexagonal preferences into adopting-project guidance. Do not
   impose them on this skill library or require blanket rewrites of existing code.
-- Use `docs/guides/heavy-python-environment.md` as the candidate environment
-  baseline for Python adopting heavy projects. Their supported interpreter,
-  lock, tools, and verification commands remain project-owned decisions.
+- Use `docs/guides/heavy-python-environment.md` for the reviewed normal
+  Python 3.13 and XPPython3-oriented 3.12 heavy-project profiles. Provide
+  the common tool assortment through `gzs-project-setup` and reconcile it on
+  later `gzs-update-dependencies` runs; each adopter owns exact versions, host
+  compatibility, and verification.
 - Preserve the implemented setup helper's narrow `schema_version` and `profile`
   contract until a schema extension and migration are designed and tested.
 

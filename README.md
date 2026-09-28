@@ -4,7 +4,7 @@
 workflows that should behave consistently across projects without belonging to
 one project's architecture, runtime, vendor, or agent harness.
 
-The catalog contains seventeen workflows distilled primarily from `gzkit`, with
+The catalog contains nineteen workflows distilled primarily from `gzkit`, with
 corroborating implementations from other `tvproductions` repositories:
 
 - `gzs-agent-context-diet`
@@ -16,6 +16,8 @@ corroborating implementations from other `tvproductions` repositories:
 - `gzs-intent-audit`
 - `gzs-plan-audit`
 - `gzs-project-setup`
+- `gzs-pythonic-pattern-apply`
+- `gzs-pythonic-pattern-detect`
 - `gzs-quality-gate`
 - `gzs-repository-hygiene`
 - `gzs-root-cause-debugging`
@@ -96,6 +98,11 @@ and delegate to that core; Go is not an implementation language for SP-BP.
 Adopting projects own approved
 constitution, PRD, architecture, and material ADRs. Existing project documents
 are mapped into those shapes and approved, not silently replaced.
+The [heavy Python environment standard](docs/guides/heavy-python-environment.md)
+uses the same reviewed development assortment with Python 3.13 for ordinary
+projects and Python 3.12 for code oriented to XPPython3. The
+[cross-repository inventory](docs/research/python-install-profile-evidence-2026-09-27.md)
+records the evidence; each adopter approves its exact environment and gate.
 
 The proposal favors proportionate TDD, BDD, DDD, and hexagonal architecture in
 adopting heavy projects. It calls for incremental refactoring guidance rather
@@ -104,9 +111,6 @@ curations, and SP-BP delivery model still need implementation and cross-harness
 proof. The supported harnesses are Codex, Claude Code, and OpenCode; each
 adopting project verifies only the harnesses it uses. The present setup helper
 records only `schema_version` and `profile`.
-Python adopting projects can use the [candidate environment baseline](docs/guides/heavy-python-environment.md)
-to declare their own interpreter range, isolated and locked dependencies, and
-verification commands.
 
 The standalone setup helper supports Python 3.11 or newer. Installing this
 bundle's Python CLI requires Python 3.13 or newer. A missing interpreter is

@@ -238,3 +238,19 @@ implementation-coupled or tautological tests. Project vocabulary, required
 human seam confirmation, framework choices, and cross-skill assumptions were
 left local; refactoring was restored as the final green-preserving phase of the
 portable red-green-refactor contract.
+
+## `gzs-pythonic-pattern-detect` and `gzs-pythonic-pattern-apply`
+
+- `tvproductions/gzkit` at
+  `3960c214e1c35f7d55810ed65fced9da3b351894`:
+  `src/gzkit/skills/gz-pythonic-pattern-detect/SKILL.md` and
+  `src/gzkit/skills/gz-pythonic-pattern-apply/SKILL.md`
+
+The detect skill retains candidate-by-candidate role mapping, a concrete
+Python alternative, and reasoned disposition rather than treating an AST hit
+as a required rewrite. The apply skill retains one-candidate scope, a test
+that passes against the original and final forms without changed assertions,
+and before/after evidence. The scanner, local third-party example corpus,
+chore runner, ARB receipts, hardcoded paths, and numeric gates remain in
+`gzkit`. The portable pair falls back to source inspection and the adopting
+project's own verification commands.

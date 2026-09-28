@@ -100,13 +100,17 @@ source until a cleaner portable seam is proven:
 | `gz-design` | Strong workflow, but currently coupled to GovZero decisions and overlaps external brainstorming/design skills. |
 | `gz-flighttest` | Mature evidence-driven validation, but the current campaign and substrate model is GovZero-specific. |
 | `gz-health-audit` | Broad objective, but its layers, chores, and governance evidence assume `gzkit`. |
-| `gz-pythonic-pattern-detect` / `apply` | General to Python, but current corpus, receipts, and apply protocol are `gzkit` machinery. |
 | `gz-competitor-radar` | Potentially portable research cadence, but current routing and records are governance-specific. |
 | `gz-cli-audit` | Broadly useful for CLI projects, but not broad across projects and currently assumes a specific documentation contract. |
 
 These are the best candidates for a second review. They should be extracted
 only after deciding whether “broadly applicable” means every software project
 or permits narrower catalogs such as Python projects and CLI projects.
+
+The later Python-focused catalog decision resolved that scope question for
+`gz-pythonic-pattern-detect` and `gz-pythonic-pattern-apply`. Their portable
+curations are `gzs-pythonic-pattern-detect` and
+`gzs-pythonic-pattern-apply`; see [extraction evidence](origins.md).
 
 ## Distribution decision
 

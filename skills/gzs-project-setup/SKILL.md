@@ -3,7 +3,7 @@ name: gzs-project-setup
 description: Initialize or inspect a repository's GovZero skills profile. Use on first GovZero skill use in a project, when choosing lite or heavy, or when promoting an existing lite project to heavy; stop if the project uses gzkit.
 compatibility: Requires Python 3.11 or newer for the setup helper.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.2.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -47,6 +47,39 @@ Do not use the bundle's vendoring installer for this workflow.
    harness's installed plugins through its native facilities before claiming
    the complement is ready. Guide missing installs using that harness's
    project-scope plugin instructions; do not copy skill trees into the project.
+
+## Heavy Python environment guidance
+
+When a heavy adopter implements in Python, inspect its `pyproject.toml`,
+`.python-version`, lockfile, CI, and actual host runtime before recommending
+changes. A 3.12.x pin hints at XPPython3 orientation; confirm whether code
+loads in XPPython3 or is shared with it. Recommend the latest supported
+3.12.x patch for that profile and 3.13.x for ordinary Python. Keep the exact
+development patch in `.python-version` and the tested support range in
+`requires-python`; update CI and the committed lock together.
+
+Guide both profiles toward one development assortment: uv, Ruff, ty; Bandit,
+Vulture, Interrogate, detect-secrets; standard-library unittest, Coverage,
+Behave, unittest-parallel, Cosmic Ray; Radon, Xenon, Lizard, Cohesion; MkDocs
+and MkDocs Material. Prefer uv_build for pure-Python distributions, verifying
+wheel/sdist content and installed resources during migration. PyInstaller is
+available when a project ships a standalone executable. The project's
+quality gate defines scan scopes, thresholds, mutation targets, and commands;
+do not copy gzkit's numeric floors. Refresh current compatible versions through
+the project's update workflow or `gzs-update-dependencies` when available.
+
+Start shipped code with the standard library. Pydantic is an approved runtime
+option for the ordinary Python profile, not for the XPPython3-oriented profile.
+Other runtime packages need a product capability and verification under the
+actual interpreter. Keep development tools out of the shipped runtime unless
+the product explicitly uses one as a library. For XPPython3-loaded code,
+test plugin startup against the real host and do not mistake the development
+environment for the host's site-packages. After the user selects `heavy`,
+reconcile missing or stale standard tools, interpreter pin, development group,
+lock, and CI through the project's own update workflow or
+`gzs-update-dependencies` when installed. A profile selection does not prove
+the checks run: report completed work and any unresolved compatibility or
+packaging migration before claiming environment readiness.
 
 On demand, a user may promote `lite` to `heavy` with `select`. The helper
 rejects `heavy` to `lite`; reversal is not part of this version. Never edit

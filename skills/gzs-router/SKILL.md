@@ -3,7 +3,7 @@ name: gzs-router
 description: Orient users to the GovZero portable skill catalog. Use when they need the right skill or sequence, ask how to discover, invoke, install, or update GovZero skills, or need help diagnosing skill availability or invocation behavior.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.3.2"
+  govzero-version: "0.4.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -92,6 +92,8 @@ varies is whether a project surface should take precedence over it.
 | Compare delivered behavior with its owning intent | `gzs-intent-audit` | Diagnoses and routes gaps; does not implement corrections unless separately requested. |
 | Check intent, scope, and plan alignment | `gzs-plan-audit` | Runs before implementation and audits existing artifacts. |
 | Initialize or promote a project's GovZero profile | `gzs-project-setup` | Creates minimal project settings after checking for gzkit; does not install other plugins. |
+| Review Python design-pattern refactor candidates | `gzs-pythonic-pattern-detect` | Read-only review of concrete code shapes; scanner hits are leads, not findings. |
+| Apply one Pythonic pattern refactor | `gzs-pythonic-pattern-apply` | Requires an authorized candidate and passing before/after behavior evidence. |
 | Run the repository's complete verification | `gzs-quality-gate` | Uses project-owned commands and reports unavailable dimensions honestly. |
 | Audit or repair repository hygiene | `gzs-repository-hygiene` | Begins read-only; cleanup requires authorization from the request or project workflow. |
 | Diagnose a bug, failing test, regression, or unexplained slowness | `gzs-root-cause-debugging` | Establishes root cause from reproducible evidence and yields to active project-owned workflows. |
@@ -111,6 +113,9 @@ varies is whether a project surface should take precedence over it.
 - Architecture alignment: `gzs-hexagonal-architecture-audit` for boundary and
   dependency-direction analysis; add `gzs-plan-audit` only when the broader
   plan also needs intent, scope, and completeness review.
+- Pythonic pattern refactoring: `gzs-pythonic-pattern-detect` to assess
+  candidates, then `gzs-pythonic-pattern-apply` for one authorized change.
+  Use `gzs-hexagonal-architecture-audit` when boundary direction is in doubt.
 - Pre-publication confidence: `gzs-quality-gate` → `gzs-git-sync` when no broader
   maintenance workflow already ran the complete gate.
 - Test-first delivery: `gzs-test-driven-change` → `gzs-change-review` when the

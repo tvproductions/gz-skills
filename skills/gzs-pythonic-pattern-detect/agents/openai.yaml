@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Pythonic Pattern Detection"
+  short_description: "Review Python design-pattern refactor candidates"
+  default_prompt: "Use $gzs-pythonic-pattern-detect to review this Python scope for concrete pattern refactor candidates."
+policy:
+  allow_implicit_invocation: true

@@ -25,6 +25,8 @@
     "./skills/gzs-intent-audit",
     "./skills/gzs-plan-audit",
     "./skills/gzs-project-setup",
+    "./skills/gzs-pythonic-pattern-apply",
+    "./skills/gzs-pythonic-pattern-detect",
     "./skills/gzs-quality-gate",
     "./skills/gzs-repository-hygiene",
     "./skills/gzs-root-cause-debugging",

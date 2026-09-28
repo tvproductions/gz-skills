@@ -1,7 +1,8 @@
 # Dependency and tool inventory
 
-Use this checklist for discovery, not as a requirement to add or update a
-technology the repository does not already use.
+Use this checklist for discovery. An adopted project profile may require
+adding a missing tool; otherwise do not add technology the repository does not
+already use.
 
 ## Project manifests and lockfiles
 

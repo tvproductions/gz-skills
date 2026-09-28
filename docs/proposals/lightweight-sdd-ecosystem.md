@@ -30,11 +30,11 @@ behavior and tests as migration input, then replace that implementation with
 Python rather than maintaining parallel cores. SP-BP owns its exact Python
 runtime and packaging policy.
 
-For Python adopting heavy projects, use the [Python environment baseline](../guides/heavy-python-environment.md)
-to declare interpreter support, isolate and lock dependencies, and make the
-project's verification commands reproducible. The adopting project selects
-its exact versions and tools during adoption rather than inheriting this
-repository's local interpreter pin.
+For Python adopting heavy projects, use the [Python environment standard](../guides/heavy-python-environment.md)
+to choose the normal 3.13.x or XPPython3-oriented 3.12.x profile, provision
+the common development assortment, isolate and lock dependencies, and make
+verification reproducible. The adopting project selects its exact compatible
+versions and gate during adoption.
 
 ## Profiles and adoption
 
@@ -95,6 +95,17 @@ in small verified steps through SP-BP and SP. The existing
 `gzs-hexagonal-architecture-audit` can identify boundary problems and coach
 refactoring but does not implement it. [Incremental displacement](https://martinfowler.com/bliki/StranglerFigApplication.html)
 and expand-contract are guides where they fit.
+
+Pythonic refactoring is a separate concern. The pending portable curations
+`gzs-pythonic-pattern-detect` and `gzs-pythonic-pattern-apply` respectively
+review concrete candidates and apply one authorized change with a behavior
+test that passes before and after. Assess whether the proposed Python
+construct simplifies the code without obscuring the domain model or weakening
+hexagonal boundaries. Keep gzkit's scanner,
+example archive, chores, receipts, and project thresholds in gzkit; portable
+skills must work from source and project-owned checks when those aids are
+absent. These skills complement the hexagonal audit and the attributed MPAS
+architecture curation; they do not replace either.
 
 Heavy projects also favor TDD, BDD, and DDD as proportional working practices.
 Relevant specs and plans show how they apply, or explain a material departure.

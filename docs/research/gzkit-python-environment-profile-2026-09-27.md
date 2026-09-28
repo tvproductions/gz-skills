@@ -29,3 +29,15 @@ are plausible defaults. Behave, PyInstaller, documentation generators,
 security scanners, and code-metric tools depend on the adopter's product and
 risk. gzkit's exact versions, prohibition on pytest, and governance-specific
 checks are not automatically inherited.
+
+## Later user-supplied upgrade snapshot
+
+The user supplied a newer gzkit upgrade report on 2026-09-27 than the local
+checkout inspected above. It reports uv 0.12.19 and these updated locked
+development versions: Ruff 0.16.9, ty 0.0.84, unittest-parallel 1.8.6,
+Coverage 7.16.2, Lizard 1.24.0, and PyInstaller 6.22.3. It also reports
+Pydantic 2.13.5 and NetworkX 3.7 in runtime dependencies. The user's
+reported manifest floors for ty, unittest-parallel, Coverage, Lizard, and
+NetworkX are newer than the locally visible `pyproject.toml` recorded in the
+table above. Treat the report as a later snapshot, not as a verification of
+this older checkout. The set of tool roles remains the same.

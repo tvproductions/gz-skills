@@ -8,24 +8,40 @@ fleet updates.
 
 ### Added
 
-- `gzs-project-setup` 0.1.0 creates minimal `.gz-skills/settings.json` on
+- `gzs-project-setup` 0.2.0 creates minimal `.gz-skills/settings.json` on
   first project setup, asks for lite or heavy, blocks projects with `.gzkit/`,
   and supports lite-to-heavy promotion without claiming that other plugins are
   installed. Its Python helper lives inside the skill. Its heavy-profile
-  guidance names the Python SP-BP project and keeps attributed MPAS adaptations
-  inside this catalog. The new capability advances the pending bundle version
+  guidance names the Python SP-BP project, carries and reconciles the agreed
+  Python tool assortment, and keeps attributed MPAS adaptations inside this
+  catalog. The new capability advances the pending bundle version
   to 0.6.0.
+- `gzs-pythonic-pattern-detect` 0.1.0 reviews bounded Python pattern
+  candidates without mutating code or requiring gzkit's scanner or corpus.
+- `gzs-pythonic-pattern-apply` 0.1.0 applies one authorized refactor with
+  unchanged before/after behavior evidence and project-owned verification.
 
 ### Changed
 
-- `gzs-router` 0.3.2 routes project-profile setup to the new skill.
+- `gzs-router` 0.4.0 routes project setup and the Pythonic review/application
+  pair without substituting them for architecture auditing.
+- `gzs-update-dependencies` 0.2.0 reconciles missing or stale tools,
+  interpreter pins, and lock/CI state against an adopted heavy Python profile
+  during a dependency refresh. It preserves project-owned exceptions and yields
+  to an active gzkit workflow.
 - Pin this repository's local development interpreter to Python 3.13.15 and
   raise the Python package compatibility floor from 3.11 to 3.13. This
   incompatible 0.x packaging change is covered by the pending 0.6.0 minor
   bundle version; standalone skill helper compatibility is unchanged.
-- Document a candidate Python environment baseline for adopting heavy projects;
-  interpreter support, dependency management, and verification remain
-  project-owned choices.
+- Define the reviewed normal Python and XPPython3-oriented install profiles
+  for adopting heavy projects, grounded in the agents, va, and xp manifests.
+  The shared development assortment covers Astral tools, code quality, tests,
+  metrics, docs, and packaging; runtime dependencies remain capability-based.
+  Interpreter support, exact versions, host compatibility, and verification
+  remain project-owned decisions.
+- Clarify the adopting-project plan for separate, portable Pythonic candidate
+  review and behavior-preserving application, alongside hexagonal architecture
+  auditing and the planned MPAS architecture curation.
 
 ## 0.5.0 - 2026-09-20
 
