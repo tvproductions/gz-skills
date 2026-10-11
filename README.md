@@ -36,7 +36,7 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The latest immutable bundle release is `v0.5.0`; `v0.2.0` was the first. The
+The latest immutable bundle release is `v0.6.0`; `v0.2.0` was the first. The
 catalog remains in the SemVer 0.x development series while the one-by-one
 behavioral review matures toward 1.0.0.
 
@@ -103,13 +103,13 @@ plugin caches remain upstream-owned; locally modified vendored skills block
 automatic replacement until reconciled. Setup does not implement an application
 configuration loader or an automatic baseline merge.
 
-The pending `gzs-update-dependencies` supports both freshness review and an
+`gzs-update-dependencies` supports both freshness review and an
 authorized update. Review leaves pins, locks, and installed environments unchanged
 and reports current releases, compatibility evidence, and adopt/defer decisions.
 Its inventory includes evidenced starter/template and agent plugin revisions as
 well as runtime packages and development tools. Updates preserve project release
 families, extra dependencies, reviewed overrides, and deferred plugins. These
-capabilities are part of the pending 0.6.0 bundle, not the released v0.5.0 plugin.
+capabilities are included in the 0.6.0 bundle.
 
 ## Candidate adopting-project ecosystem
 
@@ -164,7 +164,7 @@ over the same canonical `skills/` tree.
 - Codex can install the released bundle from this repository marketplace:
 
   ```text
-  codex plugin marketplace add tvproductions/gz-skills@v0.5.0
+  codex plugin marketplace add tvproductions/gz-skills@v0.6.0
   codex plugin add gz-skills@gz-skills
   ```
 
@@ -179,7 +179,7 @@ over the same canonical `skills/` tree.
   /plugin install gz-skills@gz-skills
   ```
 
-- OpenCode v2 can install the `v0.5.0` Git package per project. The
+- OpenCode v2 can install the `v0.6.0` Git package per project. The
   earlier `v0.4.0` package uses the OpenCode v1 adapter.
 
   In each adopting repository, add this to its `opencode.jsonc`:
@@ -188,7 +188,7 @@ over the same canonical `skills/` tree.
   {
     "$schema": "https://opencode.ai/config.json",
     "plugins": [
-      "git+https://github.com/tvproductions/gz-skills.git#v0.5.0"
+      "git+https://github.com/tvproductions/gz-skills.git#v0.6.0"
     ]
   }
   ```
@@ -207,7 +207,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.6.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -237,14 +237,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.6.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.6.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -253,9 +253,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.6.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.5.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.6.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 
@@ -321,7 +321,7 @@ become portable merely because several projects copied it.
 
 ## Validate
 
-Local development uses Python 3.13.15 from `.python-version`. The pending Python
+Local development uses Python 3.13.15 from `.python-version`. The Python
 package requires Python 3.13 or newer.
 
 ```powershell

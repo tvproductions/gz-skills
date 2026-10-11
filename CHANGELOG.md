@@ -6,6 +6,25 @@ fleet updates.
 
 ## Unreleased
 
+## 0.6.0 - 2026-10-11
+
+Version decisions against v0.5.0:
+
+| Skill | Released | This release | Classification |
+| --- | --- | --- | --- |
+| `gzs-project-setup` | Absent | 0.2.0 | New setup and profile guidance, including customization. |
+| `gzs-pythonic-pattern-detect` | Absent | 0.1.0 | New bounded Pythonic pattern review. |
+| `gzs-pythonic-pattern-apply` | Absent | 0.1.0 | New authorized Pythonic refactor workflow. |
+| `gzs-router` | 0.3.1 | 0.4.0 | New catalog routes and freshness-review routing. |
+| `gzs-update-dependencies` | 0.1.1 | 0.2.0 | New profile reconciliation, review mode, and template/plugin inventory. |
+
+Other skill versions are unchanged. The bundle minor covers the new capabilities
+and incompatible Python CLI floor change. Python CLI consumers need Python 3.13
+or newer; standalone setup helpers still support 3.11. Bare dependency-skill
+invocation now starts with review unless update intent is established; explicitly
+request upgrades to apply them. Existing template and plugin pins require a
+deliberate consumer update; heavy profile integration remains candidate work.
+
 ### Added
 
 - `gzs-project-setup` 0.2.0 creates minimal `.gz-skills/settings.json` on
@@ -14,7 +33,7 @@ fleet updates.
   installed. Its Python helper lives inside the skill. Its heavy-profile
   guidance names the Python SP-BP project, carries and reconciles the agreed
   Python tool assortment, and keeps attributed MPAS adaptations inside this
-  catalog. The new capability advances the pending bundle version
+  catalog. The new capability advances the bundle version
   to 0.6.0.
 - `gzs-pythonic-pattern-detect` 0.1.0 reviews bounded Python pattern
   candidates without mutating code or requiring gzkit's scanner or corpus.
@@ -23,25 +42,23 @@ fleet updates.
 
 ### Changed
 
-- Extend pending `gzs-update-dependencies` 0.2.0 with a freshness-only mode
+- Extend `gzs-update-dependencies` 0.2.0 with a freshness-only mode
   that queries current releases without changing dependency state, and an
   inventory of evidenced starter/template and agent plugin revisions alongside
   packages and tools. Distinguish support floors, tested pins, selected release
   families, compatible targets, and newer upstream families. Update mode keeps
   native source catalogs and provenance consistent while preserving local
   customizations and deferred components. `gzs-router` 0.4.0 routes both modes.
-  These new capabilities share the existing pending skill minors and bundle
-  0.6.0; no additional increment is required before release.
-- Clarify project customization in pending `gzs-project-setup` 0.2.0 and
+  These new capabilities share the accumulated skill minors and bundle 0.6.0.
+- Clarify project customization in `gzs-project-setup` 0.2.0 and
   `gzs-update-dependencies` 0.2.0: preserve application dependencies, optional
   features, development groups, settings, and local workflow extensions;
   honor an approved project or starter baseline before environment defaults.
   Runtime refreshes stay within the adopted family, and retired baseline tools
   are not silently restored. Keep the setup helper's two-field schema unchanged.
-  These edits share the existing pending versions: setup is new since v0.5.0,
+  These edits share the accumulated versions: setup is new since v0.5.0,
   and the updater's new profile capability already requires its 0.2.0 minor.
-  The pending 0.6.0 bundle minor covers the accumulated capability changes;
-  the immutable v0.5.0 release and marketplace pins remain unchanged.
+  The 0.6.0 bundle minor covers the accumulated capability changes.
 - `gzs-router` 0.4.0 routes project setup and the Pythonic review/application
   pair without substituting them for architecture auditing.
 - `gzs-update-dependencies` 0.2.0 reconciles missing or stale tools,
@@ -50,7 +67,7 @@ fleet updates.
   to an active gzkit workflow.
 - Pin this repository's local development interpreter to Python 3.13.15 and
   raise the Python package compatibility floor from 3.11 to 3.13. This
-  incompatible 0.x packaging change is covered by the pending 0.6.0 minor
+  incompatible 0.x packaging change is covered by the 0.6.0 minor
   bundle version; standalone skill helper compatibility is unchanged.
 - Define the reviewed normal Python and XPPython3-oriented install profiles
   for adopting heavy projects, grounded in the agents, va, and xp manifests.
@@ -61,6 +78,9 @@ fleet updates.
 - Clarify the adopting-project plan for separate, portable Pythonic candidate
   review and behavior-preserving application, alongside hexagonal architecture
   auditing and the planned MPAS architecture curation.
+- Advance both marketplace source refs and current installation examples to
+  the immutable v0.6.0 release tag. Existing consumers update deliberately;
+  this release does not change their locks, pins, or installed trees.
 
 ## 0.5.0 - 2026-09-20
 
