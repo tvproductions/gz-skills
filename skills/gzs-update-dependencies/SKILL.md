@@ -3,7 +3,7 @@ name: gzs-update-dependencies
 description: Assess freshness or update project-managed dependencies, runtime pins, tools, adopted templates, and agent plugins against project policy. Use for dependency freshness checks, outdated-version reviews, package/tool upgrades, lockfile refreshes, or bringing a project's toolchain current; a freshness-only request leaves dependency state unchanged.
 compatibility: Requires network access to authoritative package and tool sources plus the package managers used by the target repository.
 metadata:
-  govzero-version: "0.2.0"
+  govzero-version: "0.3.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -38,6 +38,31 @@ An on-demand review does not create schedules, hooks, or new CI gates. Use
 `gzs-dependency-risk-audit` when the requested result is a broader vulnerability,
 support, license, or supply-chain assessment; release age alone is not evidence
 of abandonment.
+
+## Project Python version and policy
+
+For Python work, read project instructions and adopted policy before selecting
+idioms, APIs or runtime targets. Resolve version evidence from the relevant
+project's `.python-version` first, `pyproject.toml` second, and `.venv` third.
+The version file records an execution selection; `requires-python` declares a
+support range; the environment supplies an observed installed version. Use later
+signals for fallback and consistency checks, not to override declared policy.
+Inspect `pyvenv.cfg` and the environment interpreter when available; do not
+create, activate or update an environment just to discover its version.
+
+Reconcile these signals with tool/CI targets and the actual validation
+interpreter. Report absent, ambiguous or conflicting evidence; do not infer
+freshness from an installed version or a minimum supported version from one pin.
+For host-bound code, inspect the host runtime separately; a development
+interpreter does not establish the host's version or installed packages.
+
+Within this skill's existing task scope, observe the selected family's current
+Python idioms, stdlib advances and deprecations using versioned official
+documentation. Preserve the project's tested support range and public behavior;
+record concrete benefits, risks and adopt/defer/retain decisions. Follow project
+policy over upstream defaults. A runtime upgrade alone does not establish code
+currency, and this guidance does not authorize a broad modernization campaign or
+turn this skill into a comprehensive Python-version audit.
 
 ## Discovery and fallback
 

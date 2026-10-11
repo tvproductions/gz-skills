@@ -7,6 +7,22 @@ does not install tools or prove that the environment is ready. The standard is
 informed by the [cross-repository inventory](../research/python-install-profile-evidence-2026-09-27.md)
 and the [gzkit tool inventory](../research/gzkit-python-environment-profile-2026-09-27.md).
 
+## Project runtime evidence and code currency
+
+The 0.7.0 Python workflows resolve runtime evidence from the consuming
+project's `.python-version`, then `pyproject.toml`, then `.venv`. Distinguish
+execution selection, support range and installed observation; report conflicts,
+verify the actual validation interpreter and inspect a host runtime separately.
+Later evidence supplies fallback and consistency checks, not permission to
+replace project policy. Discovery alone never installs or updates an environment.
+
+Existing Python pattern, portability, setup and maintenance workflows use the
+project's selected version and adopted engineering policy for scoped assessment
+of current idioms, stdlib advances and deprecations. They do not establish a
+comprehensive version audit or authorize a codebase-wide rewrite. Ordinary
+runtime defaults below apply only where approved project policy leaves the choice
+open; a consuming starter's stronger policy remains its own binding.
+
 ## Two interpreter profiles, one tool assortment
 
 These are default recommendations for adopters without a different approved

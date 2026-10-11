@@ -6,6 +6,47 @@ fleet updates.
 
 ## Unreleased
 
+## 0.7.0 - 2026-10-11
+
+Bundle **0.7.0**; new project-version-aware Python guidance extends the
+five existing workflows without adding a skill or changing their activation
+scope. Version decisions against v0.6.0:
+
+| Skill | Released | This release | Classification |
+| --- | --- | --- | --- |
+| `gzs-pythonic-pattern-detect` | 0.1.0 | 0.2.0 | Runtime evidence and version-aware pattern review |
+| `gzs-pythonic-pattern-apply` | 0.1.0 | 0.2.0 | Runtime evidence and version-aware authorized refactoring |
+| `gzs-cross-platform-python` | 0.2.0 | 0.3.0 | Runtime evidence and version-aware OS-seam review |
+| `gzs-project-setup` | 0.2.0 | 0.3.0 | Project runtime/policy discovery before environment guidance |
+| `gzs-update-dependencies` | 0.2.0 | 0.3.0 | Project runtime/policy discovery and scoped code-currency assessment |
+
+Resolve project version evidence from `.python-version`, then `pyproject.toml`,
+then `.venv`, distinguishing selected execution patch, declared support range and
+observed installed interpreter. Report missing/conflicting evidence and verify
+host runtimes separately. Respect adopted project/starter family and engineering
+policy over defaults. Within the existing task scope, assess relevant current
+idioms, stdlib advances and deprecations against versioned official documentation;
+record benefits, risks and adopt/defer/retain decisions. Do not equate a runtime
+upgrade with current code or authorize a broad modernization campaign.
+
+No project-specific Python family, tool assortment, gate or template identity is
+introduced. Existing environment defaults, profile schema, installer behavior,
+read-only/update boundaries and catalog membership remain intact. Bundle/skill
+minors cover the added workflow requirements; all other skill versions are
+unchanged. Both marketplace refs select v0.7.0. Consumer updates remain explicit; this
+release does not migrate installed plugins or consumer pins.
+
+Verification: 28 unittest tests pass on the repository's Python 3.13.15; all
+nineteen skills pass Agent Skills specification validation. The 0.7.0 wheel and
+source archive build successfully; both contain nineteen canonical skills and
+the five changed wheel instruction bodies match source. Claude strict plugin
+and marketplace validation passed; Codex's native loader accepted the 0.7.0
+candidate. Disposable HTTPS marketplace installs of the preceding v0.6.0 passed
+in both hosts. Published-tag installs are verified separately after publication;
+fresh-session workflow execution and combined SP/SP-BP readiness remain distinct
+from installation evidence. Artifact SHA-256 values accompany the GitHub release.
+
+
 ## 0.6.0 - 2026-10-11
 
 Version decisions against v0.5.0:

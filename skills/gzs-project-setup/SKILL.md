@@ -3,7 +3,7 @@ name: gzs-project-setup
 description: Initialize or inspect a repository's GovZero skills profile. Use on first GovZero skill use in a project, when choosing lite or heavy, or when promoting an existing lite project to heavy; stop if the project uses gzkit.
 compatibility: Requires Python 3.11 or newer for the setup helper.
 metadata:
-  govzero-version: "0.2.0"
+  govzero-version: "0.3.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -14,6 +14,31 @@ Keep the project's profile in `.gz-skills/settings.json`. The only initial
 fields are `schema_version` and `profile`. `profile` is `null` until the user
 chooses `lite` or `heavy`. The file is project configuration, not an installed
 skill copy or proof that other plugins are available.
+
+## Project Python version and policy
+
+For Python work, read project instructions and adopted policy before selecting
+idioms, APIs or runtime targets. Resolve version evidence from the relevant
+project's `.python-version` first, `pyproject.toml` second, and `.venv` third.
+The version file records an execution selection; `requires-python` declares a
+support range; the environment supplies an observed installed version. Use later
+signals for fallback and consistency checks, not to override declared policy.
+Inspect `pyvenv.cfg` and the environment interpreter when available; do not
+create, activate or update an environment just to discover its version.
+
+Reconcile these signals with tool/CI targets and the actual validation
+interpreter. Report absent, ambiguous or conflicting evidence; do not infer
+freshness from an installed version or a minimum supported version from one pin.
+For host-bound code, inspect the host runtime separately; a development
+interpreter does not establish the host's version or installed packages.
+
+Within this skill's existing task scope, observe the selected family's current
+Python idioms, stdlib advances and deprecations using versioned official
+documentation. Preserve the project's tested support range and public behavior;
+record concrete benefits, risks and adopt/defer/retain decisions. Follow project
+policy over upstream defaults. A runtime upgrade alone does not establish code
+currency, and this guidance does not authorize a broad modernization campaign or
+turn this skill into a comprehensive Python-version audit.
 
 ## Discovery and fallback
 

@@ -3,7 +3,7 @@ name: gzs-cross-platform-python
 description: Review or implement Python filesystem, text, subprocess, temporary-resource, and test behavior for Windows, macOS, and Linux portability. Use when Python code handles paths, files, encodings, processes, cleanup, platform branches, or failures seen on only one operating system.
 compatibility: Requires Python and the target repository's supported platform and version policy.
 metadata:
-  govzero-version: "0.2.0"
+  govzero-version: "0.3.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -69,6 +69,31 @@ mode and flip its return type.
 Exit status is 0 when clean, 1 when findings are reported, and 2 on a usage
 error. Scanning covers the whole repository by default; narrow it with repeated
 `--path` arguments when a project scopes its own gate to specific trees.
+
+## Project Python version and policy
+
+For Python work, read project instructions and adopted policy before selecting
+idioms, APIs or runtime targets. Resolve version evidence from the relevant
+project's `.python-version` first, `pyproject.toml` second, and `.venv` third.
+The version file records an execution selection; `requires-python` declares a
+support range; the environment supplies an observed installed version. Use later
+signals for fallback and consistency checks, not to override declared policy.
+Inspect `pyvenv.cfg` and the environment interpreter when available; do not
+create, activate or update an environment just to discover its version.
+
+Reconcile these signals with tool/CI targets and the actual validation
+interpreter. Report absent, ambiguous or conflicting evidence; do not infer
+freshness from an installed version or a minimum supported version from one pin.
+For host-bound code, inspect the host runtime separately; a development
+interpreter does not establish the host's version or installed packages.
+
+Within this skill's existing task scope, observe the selected family's current
+Python idioms, stdlib advances and deprecations using versioned official
+documentation. Preserve the project's tested support range and public behavior;
+record concrete benefits, risks and adopt/defer/retain decisions. Follow project
+policy over upstream defaults. A runtime upgrade alone does not establish code
+currency, and this guidance does not authorize a broad modernization campaign or
+turn this skill into a comprehensive Python-version audit.
 
 ## Discovery and fallback
 
