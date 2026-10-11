@@ -1,6 +1,6 @@
 ---
 name: gzs-update-dependencies
-description: Reconcile an adopted project profile and refresh project-managed dependencies, runtime pins, package-manager tooling, lockfiles, and development tools to current supported releases, then run full verification. Use when the user asks to update all dependencies and tools, upgrade packages, refresh lockfiles, bump runtimes, or bring a project's toolchain current.
+description: Assess freshness or update project-managed dependencies, runtime pins, tools, adopted templates, and agent plugins against project policy. Use for dependency freshness checks, outdated-version reviews, package/tool upgrades, lockfile refreshes, or bringing a project's toolchain current; a freshness-only request leaves dependency state unchanged.
 compatibility: Requires network access to authoritative package and tool sources plus the package managers used by the target repository.
 metadata:
   govzero-version: "0.2.0"
@@ -10,14 +10,34 @@ metadata:
 
 # GovZero Update Dependencies
 
-Refresh the complete project-managed dependency and toolchain surface as one
-reviewable maintenance change. Discover the repository's actual ecosystems and
-policy first; do not assume Python, Node, a particular runtime version, or a
-particular quality command.
+Assess or refresh the complete project-managed dependency and toolchain surface.
+Discover the repository's actual ecosystems and policy first; do not assume
+Python, Node, a particular runtime version, or a particular quality command.
 
 This skill covers versions recorded by the project. Updating unrelated global
 machine tools, operating-system packages, editor extensions, cloud resources, or
 deployed environments requires separate explicit authorization.
+
+## Choose the requested mode
+
+- **Freshness review:** Requests to check freshness, find outdated dependencies,
+  or assess whether versions need updating authorize assessment only. Inventory
+  and query authoritative sources, then recommend adopt or defer decisions.
+  Leave manifests, pins, locks, installed plugins, and environments unchanged;
+  use read-only queries rather than installs, synchronization, or lock generation.
+  Run workflow steps 1-4 and report findings with checked dates and evidence.
+  Verification of a proposed version remains pending unless it was actually
+  tested in an authorized isolated environment. Do not infer an upgrade request
+  from this skill's invocation alone; if no mode is established, review first.
+- **Update:** Requests to upgrade or refresh dependencies authorize the scoped
+  maintenance change and verification in steps 1-9. Preserve the approved release
+  families, project additions, and exceptions. A reviewed recommendation from an
+  earlier assessment does not itself authorize applying it.
+
+An on-demand review does not create schedules, hooks, or new CI gates. Use
+`gzs-dependency-risk-audit` when the requested result is a broader vulnerability,
+support, license, or supply-chain assessment; release age alone is not evidence
+of abandonment.
 
 ## Discovery and fallback
 
@@ -40,12 +60,23 @@ rather than guessing a version.
 If the repository has selected `heavy` in `.gz-skills/settings.json`, or has
 an equivalent approved Python environment standard, compare that profile with
 the actual manifests, `.python-version`, lock, CI, and installed development
-tooling. Profile reconciliation is part of this update: add missing required
-tools, correct dependency-group placement, refresh stale constraints and
-locks, and align CI and documentation. Do not limit the pass to packages
+tooling. In update mode, profile reconciliation includes adding missing required
+tools, correcting dependency-group placement, refreshing stale constraints and
+locks, and aligning CI and documentation. Do not limit the pass to packages
 already declared. Read project-specific exceptions before treating a difference
 as drift. A repository using `.gzkit/` has its own project workflow; yield
 execution to that workflow and report any standard mismatch to its owner.
+
+An approved project or adopted starter policy defines the effective baseline;
+the defaults below apply where that policy leaves a choice open. Preserve its
+selected runtime family, additional runtime packages, optional features,
+development groups, package sources, and reviewed constraints or overrides.
+Inventory and update those additions within the authorized scope alongside the
+baseline. Never replace the project's declarations with a baseline-only list or
+reintroduce a tool its approved policy has retired. Record compatibility evidence
+and reasons for intentional differences; unexplained drift remains a finding.
+Application settings and local workflow extensions retain their project-owned
+schemas and precedence. Do not put them in the minimal gz-skills profile file.
 
 For the GovZero heavy Python standard, use the same development assortment in
 both profiles:
@@ -60,8 +91,11 @@ both profiles:
   sdist, installed entry point, and resources before replacing a backend.
   PyInstaller is included only when shipping a standalone executable.
 
-Use the latest supported 3.13.x patch for ordinary Python and 3.12.x for
-XPPython3-oriented code. The `.python-version` file records the exact current
+Use the latest supported patch within the project's approved runtime family;
+the default guidance is 3.13.x for ordinary Python and 3.12.x for
+XPPython3-oriented code when no other family is adopted. A family change is a
+separate compatibility decision, not an automatic consequence of refreshing
+the patch. The `.python-version` file records the exact current
 development patch; a 3.12.x pin is a hint, so confirm host orientation from
 the code and project policy. Keep `requires-python` as the tested package
 compatibility range. The XPPython3 development environment is separate from
@@ -96,12 +130,18 @@ report the precise unresolved item; do not claim the profile is current.
    from an adopted profile. Identify the repository's stated compatibility
    floors, intentional pins, generated files, update commands, and complete
    verification command. Preserve an intentional compatibility range unless
-   current project policy says to advance it.
+   current project policy says to advance it. Keep the declared support floor,
+   tested exact pin, newest stable release in the selected family, and newest
+   upstream family distinct. Include optional/deferred components as such; a
+   recorded pin does not establish installation or readiness.
 4. Resolve target versions from authoritative live sources: official package
    registries, runtime release indexes, vendor release metadata, or the
    package-manager's own current-version command. Read release notes for major
    versions and for any release whose compatibility is uncertain. Record
-   unavailable or ambiguous evidence rather than guessing.
+   unavailable or ambiguous evidence rather than guessing. Compare within each
+   explicitly selected release family first; report newer families separately
+   with migration implications. A lock or installed interpreter is not evidence
+   of freshness. For a freshness review, stop mutations here and report.
 5. Update the package manager or project-pinned tool that performs resolution
    before using it to regenerate dependency state. Reconcile missing or misplaced
    adopted-profile tools, update declared manifests and exact runtime pins
@@ -137,8 +177,16 @@ report the precise unresolved item; do not claim the profile is current.
 
 ## Evidence
 
-Report each discovered ecosystem, adopted-profile mismatches and resolutions,
-before/after runtime and tool versions,
+State the requested mode and checked date. For each package, tool, template,
+or plugin, report the current pin/revision, declared support range or selected
+family, latest stable compatible target and upstream release, authoritative
+evidence, compatibility constraints, and adopt/defer decision. Distinguish
+unknown latest status, missing installation evidence, and untested compatibility
+from verified results. A freshness review reports recommendations and pending
+checks, not a completed upgrade or a claim that a new target is tested.
+
+For updates, also report each discovered ecosystem, adopted-profile mismatches
+and resolutions, before/after runtime and tool versions,
 manifest and direct-dependency changes, lockfile changes, constrained or skipped
 updates with reasons, vulnerability results, verification commands and results,
 and final worktree scope. Never describe the project as fully current when an

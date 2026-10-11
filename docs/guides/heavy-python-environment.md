@@ -9,6 +9,13 @@ and the [gzkit tool inventory](../research/gzkit-python-environment-profile-2026
 
 ## Two interpreter profiles, one tool assortment
 
+These are default recommendations for adopters without a different approved
+environment policy. An adopting project's constitution or starter binding owns
+its selected runtime family, tool assortment, and gate cadence. Preserve that
+policy during setup and maintenance, including retired tools and reviewed
+exceptions; selecting `heavy` alone does not authorize replacing it. Refresh
+within the approved family and review family changes separately.
+
 | Profile | Selection | Interpreter |
 | --- | --- | --- |
 | Normal Python | Python project without an XPPython3 host constraint | Use the latest supported 3.13.x patch for development. |
@@ -80,6 +87,21 @@ the profile appropriate to **its own** runtime even when it interacts with
 X-Plane.
 
 ## Adoption and migration
+
+The baseline is extensible. Preserve application runtime packages, optional
+features, development groups, package sources, and reviewed resolver overrides
+in project-owned manifests and locks. Update these alongside baseline tools
+when in scope, retaining the purpose and compatibility evidence for each
+exception. Additional packages are capability decisions, not baseline drift.
+
+Keep application settings in their existing TOML namespace or separate JSON
+file; the application loader defines precedence, merging, and validation.
+Keep workflow customization in project instructions, documented commands, or
+project-prefixed skills and adapters. The minimal `.gz-skills/settings.json`
+remains a profile declaration with only `schema_version` and `profile`, not a
+general extension registry. Any extension of that schema requires its own
+design, migration, and tests. Managed plugin updates and reviewed vendored
+snapshot reconciliation remain separate from application configuration.
 
 Inventory the adopting project's manifests, locks, interpreter pins, CI,
 existing tests, package outputs, documentation, and deployment requirements.

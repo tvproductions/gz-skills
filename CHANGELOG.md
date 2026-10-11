@@ -23,6 +23,25 @@ fleet updates.
 
 ### Changed
 
+- Extend pending `gzs-update-dependencies` 0.2.0 with a freshness-only mode
+  that queries current releases without changing dependency state, and an
+  inventory of evidenced starter/template and agent plugin revisions alongside
+  packages and tools. Distinguish support floors, tested pins, selected release
+  families, compatible targets, and newer upstream families. Update mode keeps
+  native source catalogs and provenance consistent while preserving local
+  customizations and deferred components. `gzs-router` 0.4.0 routes both modes.
+  These new capabilities share the existing pending skill minors and bundle
+  0.6.0; no additional increment is required before release.
+- Clarify project customization in pending `gzs-project-setup` 0.2.0 and
+  `gzs-update-dependencies` 0.2.0: preserve application dependencies, optional
+  features, development groups, settings, and local workflow extensions;
+  honor an approved project or starter baseline before environment defaults.
+  Runtime refreshes stay within the adopted family, and retired baseline tools
+  are not silently restored. Keep the setup helper's two-field schema unchanged.
+  These edits share the existing pending versions: setup is new since v0.5.0,
+  and the updater's new profile capability already requires its 0.2.0 minor.
+  The pending 0.6.0 bundle minor covers the accumulated capability changes;
+  the immutable v0.5.0 release and marketplace pins remain unchanged.
 - `gzs-router` 0.4.0 routes project setup and the Pythonic review/application
   pair without substituting them for architecture auditing.
 - `gzs-update-dependencies` 0.2.0 reconciles missing or stale tools,

@@ -48,17 +48,43 @@ Do not use the bundle's vendoring installer for this workflow.
    the complement is ready. Guide missing installs using that harness's
    project-scope plugin instructions; do not copy skill trees into the project.
 
+## Project customization
+
+Read the adopter's instructions, governing documents, and any starter's adopted
+policy before applying defaults. Keep application dependencies, optional features,
+development groups, settings, and project-owned skills or adapters. Extend the
+existing declarations for the requested work rather than replacing them with a
+closed baseline. Project-specific additions and reviewed exceptions belong in
+the project's guidance and manifests; an approved project policy takes precedence
+over this skill's environment recommendations.
+
+Keep application settings in the project's existing configuration namespace or
+separate settings file. Its loader owns defaults, override precedence, collection
+merging, and validation. `.gz-skills/settings.json` accepts only `schema_version`
+and `profile`; do not put application settings or customization keys there.
+Changing that contract requires a separately designed and tested schema migration.
+
+Customize workflows through project instructions, documented commands, or a
+separate project-prefixed skill that may compose a `gzs-*` primitive. Preserve
+upstream identifiers and managed plugin caches. A vendored skill with local edits
+requires reconciliation before its locked snapshot can be updated. Record which
+project policy supplies each departure so later maintenance preserves it.
+
 ## Heavy Python environment guidance
 
 When a heavy adopter implements in Python, inspect its `pyproject.toml`,
 `.python-version`, lockfile, CI, and actual host runtime before recommending
-changes. A 3.12.x pin hints at XPPython3 orientation; confirm whether code
-loads in XPPython3 or is shared with it. Recommend the latest supported
-3.12.x patch for that profile and 3.13.x for ordinary Python. Keep the exact
+changes. Discover the project's approved runtime family and tool assortment
+first, including any adopted starter policy. Where none is established, a 3.12.x
+pin hints at XPPython3 orientation; confirm whether code loads in XPPython3 or
+is shared with it. Recommend the latest supported 3.12.x patch for that profile
+and 3.13.x for ordinary Python as the default guidance. Preserve a different
+approved family and its compatibility constraints. Keep the exact
 development patch in `.python-version` and the tested support range in
 `requires-python`; update CI and the committed lock together.
 
-Guide both profiles toward one development assortment: uv, Ruff, ty; Bandit,
+Where the project has not adopted a different assortment, guide both profiles
+toward one development assortment: uv, Ruff, ty; Bandit,
 Vulture, Interrogate, detect-secrets; standard-library unittest, Coverage,
 Behave, unittest-parallel, Cosmic Ray; Radon, Xenon, Lizard, Cohesion; MkDocs
 and MkDocs Material. Prefer uv_build for pure-Python distributions, verifying

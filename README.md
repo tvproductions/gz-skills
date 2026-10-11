@@ -84,6 +84,33 @@ integration; installation and alignment still require native-harness checks.
 A user may promote lite to heavy; reversal is not yet supported. The settings
 file contains no installed-plugin inventory.
 
+## Extension and customization
+
+Adopters may extend the baseline with application dependencies, optional
+features, development groups, settings, and project-owned skills or adapters.
+Setup and dependency maintenance preserve those declarations and follow the
+project's approved policy, including a starter's selected runtime family and
+tool assortment. The default heavy Python guidance fills choices the adopter
+has not already made; it does not replace an approved project baseline.
+
+Keep durable workflow customization in project instructions, documented
+commands, or a separate project-prefixed skill that composes portable skills.
+Keep application configuration in its own namespace or settings file, with
+loader precedence and validation defined by the project. The profile helper
+accepts only `schema_version` and `profile` in `.gz-skills/settings.json`;
+additional fields require a designed and tested schema migration. Managed
+plugin caches remain upstream-owned; locally modified vendored skills block
+automatic replacement until reconciled. Setup does not implement an application
+configuration loader or an automatic baseline merge.
+
+The pending `gzs-update-dependencies` supports both freshness review and an
+authorized update. Review leaves pins, locks, and installed environments unchanged
+and reports current releases, compatibility evidence, and adopt/defer decisions.
+Its inventory includes evidenced starter/template and agent plugin revisions as
+well as runtime packages and development tools. Updates preserve project release
+families, extra dependencies, reviewed overrides, and deferred plugins. These
+capabilities are part of the pending 0.6.0 bundle, not the released v0.5.0 plugin.
+
 ## Candidate adopting-project ecosystem
 
 The [lightweight SDD ecosystem proposal](docs/proposals/lightweight-sdd-ecosystem.md)

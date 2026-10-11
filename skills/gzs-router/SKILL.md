@@ -100,7 +100,7 @@ varies is whether a project surface should take precedence over it.
 | Preserve or resume engineering state | `gzs-session-handoff` | Explicit-only; creates or consumes a durable continuity artifact. |
 | Survey and prioritize technical debt | `gzs-tech-debt-review` | Produces an evidenced report without fixing findings. |
 | Implement an explicitly test-first behavior change | `gzs-test-driven-change` | Runs a verified red-green-refactor loop inside the owning project workflow. |
-| Refresh project dependencies and pinned tools | `gzs-update-dependencies` | Covers project-managed versions, not machine-wide or deployed infrastructure. |
+| Assess dependency freshness or refresh project dependencies and tools | `gzs-update-dependencies` | Review leaves pins unchanged; updates cover packages, tools, and evidenced template/plugin revisions within project scope. |
 
 ## Common sequences
 
