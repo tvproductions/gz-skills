@@ -3,7 +3,7 @@ name: gzs-router
 description: Orient users to the GovZero portable skill catalog. Use when they need the right skill or sequence, ask how to discover, invoke, install, or update GovZero skills, or need help diagnosing skill availability or invocation behavior.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.4.0"
+  govzero-version: "0.5.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -95,6 +95,7 @@ varies is whether a project surface should take precedence over it.
 | Review Python design-pattern refactor candidates | `gzs-pythonic-pattern-detect` | Read-only review of concrete code shapes; scanner hits are leads, not findings. |
 | Apply one Pythonic pattern refactor | `gzs-pythonic-pattern-apply` | Requires an authorized candidate and passing before/after behavior evidence. |
 | Run the repository's complete verification | `gzs-quality-gate` | Uses project-owned commands and reports unavailable dimensions honestly. |
+| Recommend, prepare, or publish a release | `gzs-release` | Explicit-only; project policy determines versions and gates, and publication requires established authority. |
 | Audit or repair repository hygiene | `gzs-repository-hygiene` | Begins read-only; cleanup requires authorization from the request or project workflow. |
 | Diagnose a bug, failing test, regression, or unexplained slowness | `gzs-root-cause-debugging` | Establishes root cause from reproducible evidence and yields to active project-owned workflows. |
 | Preserve or resume engineering state | `gzs-session-handoff` | Explicit-only; creates or consumes a durable continuity artifact. |
@@ -108,6 +109,8 @@ varies is whether a project surface should take precedence over it.
   `gzs-update-dependencies` only when an upgrade is the authorized response.
 - Dependency maintenance: `gzs-update-dependencies` → `gzs-git-sync` when the
   verified update should be published.
+- Release delivery: `gzs-release` for version advice, preparation or authorized
+  publication; `gzs-git-sync` alone creates a remote save point, not a release.
 - Failure resolution: `gzs-root-cause-debugging` → `gzs-quality-gate` after an
   authorized fix, unless the active project workflow already owns verification.
 - Architecture alignment: `gzs-hexagonal-architecture-audit` for boundary and

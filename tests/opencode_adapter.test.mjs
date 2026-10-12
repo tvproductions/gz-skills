@@ -42,8 +42,8 @@ test("OpenCode v2 adapter registers each canonical skill with source content", a
     assert.ok(skill.name.startsWith("GovZero "));
     assert.ok(skill.description.length > 0);
     assert.ok(source.includes(skill.content));
-    assert.ok(skill.content.startsWith("\n# GovZero "));
-    assert.equal(skill.autoinvoke, !["gzs-git-sync", "gzs-session-handoff"].includes(id));
+    assert.match(skill.content, /^\r?\n# GovZero /);
+    assert.equal(skill.autoinvoke, !["gzs-git-sync", "gzs-release", "gzs-session-handoff"].includes(id));
   }
 });
 

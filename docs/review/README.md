@@ -6,8 +6,9 @@ portability, side effects, and behavioral scenarios; do not batch-approve the
 catalog from structural validation alone.
 
 This table contains only implemented skills. The promotion record for the
-latest additions is in [`docs/roadmap.md`](../roadmap.md); no further near-term
-additions are currently planned.
+latest additions is in [`docs/roadmap.md`](../roadmap.md). The release primitive
+is the latest implemented addition; see its
+[initial behavioral review](gzs-release-2026-10-11.md).
 
 | Order | Skill | Review status | Why this position |
 | ---: | --- | --- | --- |
@@ -27,6 +28,7 @@ additions are currently planned.
 | 14 | [`gzs-change-review`](../../skills/gzs-change-review/SKILL.md) | Pending | Must prioritize concrete defects without duplicating intent audit, debt review, or project-owned approval. |
 | 15 | [`gzs-dependency-risk-audit`](../../skills/gzs-dependency-risk-audit/SKILL.md) | Pending | Current external evidence, private-package handling, and ecosystem differences need realistic review. |
 | 16 | [`gzs-test-driven-change`](../../skills/gzs-test-driven-change/SKILL.md) | Pending | Explicit activation must preserve a meaningful red while adapting to difficult behavioral seams. |
+| 17 | [`gzs-release`](../../skills/gzs-release/SKILL.md) | Pending stable-contract review | Version recommendations, publication authority and partial-release recovery require behavioral evidence. |
 
 For each review, record:
 

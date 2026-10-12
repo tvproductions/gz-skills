@@ -1,6 +1,6 @@
 {
   "name": "gz-skills",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Portable GovZero engineering skills with a curator for choosing the right workflow.",
   "author": {
     "name": "GovZero",
@@ -28,6 +28,7 @@
     "./skills/gzs-pythonic-pattern-apply",
     "./skills/gzs-pythonic-pattern-detect",
     "./skills/gzs-quality-gate",
+    "./skills/gzs-release",
     "./skills/gzs-repository-hygiene",
     "./skills/gzs-root-cause-debugging",
     "./skills/gzs-router",

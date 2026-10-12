@@ -230,7 +230,7 @@ class RepositoryContractTests(unittest.TestCase):
             if name != "gzs-router":
                 self.assertIn(f"`{name}`", router)
 
-        for name in ("gzs-git-sync", "gzs-session-handoff"):
+        for name in ("gzs-git-sync", "gzs-release", "gzs-session-handoff"):
             metadata = (catalog[name].path / "agents" / "openai.yaml").read_text(
                 encoding="utf-8"
             )

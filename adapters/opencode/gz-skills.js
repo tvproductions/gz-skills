@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const pluginDirectory = path.dirname(fileURLToPath(import.meta.url));
 const skillsPath = path.resolve(pluginDirectory, "../../skills");
-const explicitOnly = new Set(["gzs-git-sync", "gzs-session-handoff"]);
+const explicitOnly = new Set(["gzs-git-sync", "gzs-release", "gzs-session-handoff"]);
 
 function skillFromFile(id, location, source) {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/.exec(source);

@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Release"
+  short_description: "Recommend, prepare, publish, and verify releases"
+  default_prompt: "Use $gzs-release to recommend the next version from project policy and changes, then report the preparation and publication steps."
+policy:
+  allow_implicit_invocation: false

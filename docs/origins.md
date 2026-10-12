@@ -254,3 +254,20 @@ and before/after evidence. The scanner, local third-party example corpus,
 chore runner, ARB receipts, hardcoded paths, and numeric gates remain in
 `gzkit`. The portable pair falls back to source inspection and the adopting
 project's own verification commands.
+
+## `gzs-release`
+
+Implemented October 11, 2026 after the user requested a reusable release
+primitive. Proven project policy/implementation precedents reviewed:
+
+- `tvproductions/gz-skills` v0.7.0: `docs/packaging.md`, synchronized bundle and
+  skill versions, immutable tags, artifacts and channel-specific verification.
+- `tvproductions/gz-skills-first-starter` at
+  `88928b2c6c663e37f739c80376dae42b5d8e5b4e`: `docs/versioning.md`, independent
+  template/component versions, policy-versus-pin notes and immutable publication.
+
+Retain version classification from the relevant release, explicit user choices,
+prepared-versus-published boundaries and verified remote identity. Keep project
+commands, runtime/tool choices, host adapters and numeric release rules local.
+The portable primitive supports an active SP-BP/gzkit workflow without owning
+its lifecycle, traceability, gates, ledgers or approvals.

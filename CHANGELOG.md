@@ -6,6 +6,45 @@ fleet updates.
 
 ## Unreleased
 
+## 0.8.0 - 2026-10-11
+
+Bundle **0.8.0**, compared with published v0.7.0: a new portable release
+capability requires a bundle minor under the 0.x policy. Four manifests and the
+source version fallback select 0.8.0; marketplace refs and installation examples
+select v0.8.0 for this authorized release.
+
+| Skill | Previously released | This release | Classification |
+| --- | --- | --- | --- |
+| `gzs-release` | Absent | 0.1.0 | New version recommendation, candidate preparation and authorized release publication primitive |
+| `gzs-router` | 0.4.0 | 0.5.0 | New release routing and distinction from ordinary Git synchronization |
+
+Add `gzs-release` to the canonical tree, Claude catalog and explicit-only Codex
+and OpenCode activation. Follow consumer policy for patch/minor/major decisions,
+0.x behavior, gates and publication channels. Bare invocation recommends only;
+preparation and publication require their respective request authority. Preserve
+explicit version choices, immutable published tags and existing project
+orchestrators. Verify remote release identities, artifacts and required channel
+acceptance; report partial publication rather than treating a push as a release.
+
+Consumer impact: the released catalog has twenty skills. Existing consumers
+update explicitly; publisher-side release work does not change their pins or
+installed caches. Validation and behavioral evidence are
+recorded in [the initial release-skill review](docs/review/gzs-release-2026-10-11.md).
+The OpenCode title assertion now accepts LF and CRLF without altering registered
+content or activation behavior.
+
+Verification: 28 unittest tests pass on the repository's actual Python 3.13.15,
+including canonical catalog, relative links, explicit-only activation and
+OpenCode adapter behavior. All twenty skills pass Agent Skills specification
+validation; Claude strict marketplace/plugin validation and offline lock
+consistency pass. The wheel and source archive contain all twenty canonical
+skills, and the new release/router wheel bodies match source. Five independent
+read-only forward scenarios found no demonstrated workflow defect. Native Codex marketplace loading passed in isolated
+configuration, and preceding v0.7.0 HTTPS installs passed in Codex/Claude.
+Fresh-session workflow execution remains unverified; tagged channel installs
+and publication are verified separately after tagging. The older skill-creator quick validator's incompatible frontmatter allowlist is
+recorded in the review evidence.
+
 ## 0.7.0 - 2026-10-11
 
 Bundle **0.7.0**; new project-version-aware Python guidance extends the

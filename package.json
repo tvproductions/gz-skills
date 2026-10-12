@@ -1,6 +1,6 @@
 {
   "name": "gz-skills",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Portable GovZero engineering skills with a curator for choosing the right workflow.",
   "type": "module",
   "main": "./index.js",
