@@ -6,6 +6,24 @@ fleet updates.
 
 ## Unreleased
 
+## 0.8.3 - 2026-10-25
+
+Bundle **0.8.3**, compared with released v0.8.2: promote the individually
+accepted `gzs-git-sync` contract from 0.1.1 to **1.0.0**. Its workflow,
+activation and authorization instructions are unchanged. The compatible
+stability-metadata change advances the bundle by one patch; no migration is
+needed. Other skill versions are unchanged, and the bundle remains pre-1.0
+until the catalog review completes. Both marketplace pins select v0.8.3.
+
+### Changed
+
+- Complete the individual `gzs-git-sync` stable-contract review against released
+  0.1.1 in v0.8.2. Record 22 native sessions across Codex, Claude and OpenCode,
+  including baseline, negative requests and retained fixture limitations.
+  Execution verifies post-rebase validation and project approval boundaries.
+  The evidence itself changes no workflow; this release promotes only the
+  accepted Git sync contract, not the catalog as a whole.
+
 ## 0.8.2 - 2026-10-25
 
 Bundle **0.8.2**, compared with released v0.8.1: compatible Git sync

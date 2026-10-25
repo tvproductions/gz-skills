@@ -15,7 +15,7 @@ is the latest implemented addition; see its
 | Order | Skill | Review status | Why this position |
 | ---: | --- | --- | --- |
 | 1 | [`gzs-router`](../../skills/gzs-router/SKILL.md) | Native inference verified; invocation robustness pending ([follow-up](gzs-router-2026-10-25-opencode-followup.md)) | Claude/Codex checks and OpenCode 2.1.4 inference pass in the tested configuration; review ungrounded user-syntax claims before stable acceptance. |
-| 2 | [`gzs-git-sync`](../../skills/gzs-git-sync/SKILL.md) | Corrections implemented; behavioral acceptance pending ([review](gzs-git-sync-2026-10-25.md)) | Candidate 0.1.1 requires gates on reconciled content and preserves active-project workflow authority. |
+| 2 | [`gzs-git-sync`](../../skills/gzs-git-sync/SKILL.md) | Stable contract accepted ([decision](gzs-git-sync-2026-10-25-acceptance.md)) | The unchanged 0.1.1 contract passed the bounded native execution matrix and is promoted to 1.0.0; all three harnesses revalidated after rebase and preserved project approval authority. |
 | 3 | [`gzs-update-dependencies`](../../skills/gzs-update-dependencies/SKILL.md) | Pending | One of the motivating workflows and the broadest maintenance surface. |
 | 4 | [`gzs-quality-gate`](../../skills/gzs-quality-gate/SKILL.md) | Pending | Shared completion contract used by other workflows. |
 | 5 | [`gzs-repository-hygiene`](../../skills/gzs-repository-hygiene/SKILL.md) | Pending | Includes conditional cleanup authority and artifact classification. |
@@ -45,6 +45,6 @@ For each review, record:
 6. A no-skill baseline and with-skill behavioral scenario.
 7. Observable completion evidence.
 
-The current `gzs-git-sync` review has candidate corrections and still needs behavioral evidence;
-the next unreviewed skill is `gzs-update-dependencies`. The router's provider blocker is
+The `gzs-git-sync` contract review is complete; the next unreviewed skill is
+`gzs-update-dependencies`. The router's provider blocker is
 resolved; its remaining invocation-guidance finding precedes stable acceptance.

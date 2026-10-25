@@ -1,5 +1,10 @@
 # Git sync contract review — October 25, 2026
 
+Current outcome: **stable contract accepted** after the corrections shipped in
+v0.8.2 and native Codex, Claude and OpenCode behavioral checks. See the
+[acceptance decision and evidence](gzs-git-sync-2026-10-25-acceptance.md).
+The initial diagnosis and correction record below are preserved as history.
+
 Reviewed released `gzs-git-sync` 0.1.0 in bundle 0.8.1. Outcome: **revise**;
 stable-contract acceptance remains pending. This review does not invoke git sync
 or authorize changes to the skill, commits, pushes or releases.

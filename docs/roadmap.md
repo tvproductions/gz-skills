@@ -7,7 +7,8 @@ It introduces no issue graph or adopting-project lifecycle.
 
 ## Delivered releases
 
-The `v0.8.1` patch retains twenty canonical skills. The
+The `v0.8.3` patch retains twenty canonical skills and promotes the accepted
+Git sync contract to skill 1.0.0. The
 [README catalog](../README.md) lists them and the [changelog](../CHANGELOG.md)
 records their release history. Implemented capabilities include project profile
 setup, Pythonic pattern detection/application, Python-version-aware guidance,
@@ -26,7 +27,7 @@ for publication, artifacts and channel-install evidence.
 
 | Order | Work | Status and owner | Next action and completion evidence |
 | ---: | --- | --- | --- |
-| 1 | One-by-one stable-contract reviews | In progress; gz-skills | Router 0.5.1 has selected native Claude, Codex and OpenCode inference evidence. The provider/privacy blocker is resolved; ungrounded host-invocation claims remain a separate review finding. `gzs-git-sync` is next queued. Cover all twenty skills in the [review queue](review/README.md); record individual decisions and behavioral evidence before claiming stable acceptance. |
+| 1 | One-by-one stable-contract reviews | In progress; gz-skills | Git sync 0.1.1 has [stable-contract acceptance](review/gzs-git-sync-2026-10-25-acceptance.md) with native execution evidence; `gzs-update-dependencies` is next unreviewed. Router 0.5.1 has selected native inference evidence; ungrounded host-invocation claims remain a separate finding. Cover all twenty skills in the [review queue](review/README.md); record individual decisions and behavioral evidence before claiming stable acceptance. |
 | 2 | First-use and heavy-profile integration | Candidate design; gz-skills with SP/SP-BP and adopter owners | Prove native discovery, direct/model-selected routing, hook-independent operation and task resumption on supported harnesses. Design and test any settings schema migration and publish a verified compatibility set. Selecting heavy alone is insufficient. |
 | 3 | Four attributed MPAS adaptations | Proposed catalog additions; gz-skills | Pin upstream sources, verify attribution/licenses, adapt the four named skills, define refresh maintenance and test interactions. Follow the [ecosystem proposal](proposals/lightweight-sdd-ecosystem.md); do not require a fourth installed plugin. |
 | 4 | Opt-in repository baseline | Discussion proposal; ownership undecided | Decide source ownership, accept a baseline specification and run read-only pilots before implementing audit/apply or delivery workflows. See the [baseline handoff](proposals/repository-baseline-bootstrap.md). |
