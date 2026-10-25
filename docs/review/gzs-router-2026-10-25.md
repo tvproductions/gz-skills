@@ -1,5 +1,10 @@
 # Router contract review — October 25, 2026
 
+Current follow-up: [OpenCode inference is now verified under the existing
+privacy policy](gzs-router-2026-10-25-opencode-followup.md). The record below
+preserves the earlier attempts; an ungrounded invocation-syntax claim remains
+a separate review finding rather than a provider blocker.
+
 Reviewed: `gzs-router` 0.5.0 at repository HEAD
 `c5703ef12061217a2866fbb9f482f168f768a193`. The initial findings below refer to
 that version. The follow-up applies candidate 0.5.1 in the worktree; the

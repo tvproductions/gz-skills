@@ -3,7 +3,7 @@ name: gzs-project-setup
 description: Initialize or inspect a repository's GovZero skills profile. Use on first GovZero skill use in a project, when choosing lite or heavy, or when promoting an existing lite project to heavy; stop if the project uses gzkit.
 compatibility: Requires Python 3.11 or newer for the setup helper.
 metadata:
-  govzero-version: "0.3.0"
+  govzero-version: "0.3.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---

@@ -113,6 +113,20 @@ GovZero skills.
   published based on a manifest or local cache.
   Do not install both a managed plugin and vendored copy into one discovery scope.
 
+## Python tooling
+
+- Use `uv` exclusively to manage Python environments, dependencies, and builds.
+- Invoke all Python code through `uv`: use `uv run python` for scripts,
+  modules, tests, inline code, and standard-input programs. Do not invoke
+  `python`, `python3`, `py`, or a virtual-environment interpreter directly.
+- Use Ruff exclusively for Python linting and formatting, and ty for Python
+  type checking. Run them through `uv run` when project-managed or `uvx` when
+  using an isolated tool environment. Do not substitute other tools.
+- Use `uvx` for isolated Python command-line tools and `uv build` for packages;
+  do not use `pip`, `pipx`, or manual virtual-environment activation.
+- Keep these commands and policies local to this repository; portable skills
+  must continue to discover and respect each consuming project's tooling.
+
 ## Validation
 
 Before handoff:

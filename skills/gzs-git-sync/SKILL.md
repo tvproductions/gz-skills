@@ -3,7 +3,7 @@ name: gzs-git-sync
 description: Create and publish a guarded Git save point after reviewing scope and passing the repository's own quality gates. Use only when the user explicitly asks to git sync, commit and push, publish the current work, or create a remote save point.
 compatibility: Requires Git, a configured repository remote, and permission to commit and push.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -17,6 +17,11 @@ remote, push, and prove local and remote are aligned.
 The user's explicit invocation authorizes the ordinary commit and push steps for
 the current repository. It does not authorize destructive history changes,
 unrelated cleanup, or bypassing repository safeguards.
+
+When a project-owned workflow is active, perform this save point within its
+scope, sequencing, approvals, locks, gates, and evidence requirements. That
+workflow retains lifecycle authority; explicit invocation does not waive its
+controls. Do not duplicate its state or declare the containing workflow complete.
 
 ## Workflow
 
@@ -42,7 +47,11 @@ unrelated cleanup, or bypassing repository safeguards.
    empty or misleading unit.
 7. Commit, fetch, and reconcile without rewriting published history. Use a
    fast-forward when available. Rebase only unpublished local commits when the
-   repository permits it. Stop on conflicts or ambiguous divergence.
+   repository permits it. Stop on conflicts or ambiguous divergence. If
+   reconciliation changes the validated content, rerun every applicable quality
+   gate on the resulting tree before pushing, even when reconciliation had no
+   conflicts. Correct an in-scope failure and rerun its owning gate; otherwise
+   stop. Completion means the tree to be pushed has passed its required gates.
 8. Push the current branch to its configured remote. When the remote branch does
    not exist, create it with upstream tracking if repository policy permits.
 9. Fetch once more and verify the final state. Completion requires the intended
@@ -77,4 +86,5 @@ prerequisite, so this workflow never degrades into having nothing to run.
 
 Report the branch, remote, changed-file scope, validation commands and results,
 commit SHA and message, reconciliation performed, push result, and final
-ahead/behind and worktree state. Name any skipped gate or unresolved warning.
+ahead/behind and worktree state. Identify validation performed after any
+content-changing reconciliation. Name any skipped gate or unresolved warning.

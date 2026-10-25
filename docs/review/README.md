@@ -14,8 +14,8 @@ is the latest implemented addition; see its
 
 | Order | Skill | Review status | Why this position |
 | ---: | --- | --- | --- |
-| 1 | [`gzs-router`](../../skills/gzs-router/SKILL.md) | Claude/Codex checks and OpenCode loading pass; behavioral acceptance pending ([review](gzs-router-2026-10-25.md)) | Version 0.5.1 corrects fallback, provenance and host invocation guidance; OpenCode inference still needs a privacy-compatible provider/model. |
-| 2 | [`gzs-git-sync`](../../skills/gzs-git-sync/SKILL.md) | Pending | Highest-risk remote mutation and explicit-invocation boundary. |
+| 1 | [`gzs-router`](../../skills/gzs-router/SKILL.md) | Native inference verified; invocation robustness pending ([follow-up](gzs-router-2026-10-25-opencode-followup.md)) | Claude/Codex checks and OpenCode 2.1.4 inference pass in the tested configuration; review ungrounded user-syntax claims before stable acceptance. |
+| 2 | [`gzs-git-sync`](../../skills/gzs-git-sync/SKILL.md) | Corrections implemented; behavioral acceptance pending ([review](gzs-git-sync-2026-10-25.md)) | Candidate 0.1.1 requires gates on reconciled content and preserves active-project workflow authority. |
 | 3 | [`gzs-update-dependencies`](../../skills/gzs-update-dependencies/SKILL.md) | Pending | One of the motivating workflows and the broadest maintenance surface. |
 | 4 | [`gzs-quality-gate`](../../skills/gzs-quality-gate/SKILL.md) | Pending | Shared completion contract used by other workflows. |
 | 5 | [`gzs-repository-hygiene`](../../skills/gzs-repository-hygiene/SKILL.md) | Pending | Includes conditional cleanup authority and artifact classification. |
@@ -45,5 +45,6 @@ For each review, record:
 6. A no-skill baseline and with-skill behavioral scenario.
 7. Observable completion evidence.
 
-The next queued review is `gzs-git-sync`. The router's native OpenCode
-behavioral evidence remains outstanding before its stable-contract acceptance.
+The current `gzs-git-sync` review has candidate corrections and still needs behavioral evidence;
+the next unreviewed skill is `gzs-update-dependencies`. The router's provider blocker is
+resolved; its remaining invocation-guidance finding precedes stable acceptance.

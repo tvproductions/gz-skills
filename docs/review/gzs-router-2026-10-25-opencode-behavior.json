@@ -1,0 +1,414 @@
+{
+  "observed_date": "2026-10-25",
+  "opencode_version": "2.1.4",
+  "released_bundle": "0.8.1",
+  "released_commit": "58c1b752307979b9d62e6247469176c0aa18005e",
+  "router_version": "0.5.1",
+  "canonical_router_sha256": "630f3c4fefc2ce1a4957d8e258a12022caa57833a00a38992c0b09be89ce3227",
+  "privacy_policy_changed": false,
+  "default_model_user_authorized": true,
+  "verified_default": {
+    "id": "kimi-k3.1-pro",
+    "providerID": "opencode-go",
+    "name": "Kimi K3.1 Pro",
+    "reasoningEffort": "low"
+  },
+  "privacy_reference": "https://dev.opencode.ai/v2/docs/console/go#privacy",
+  "native_skill_invocation_reference": "https://dev.opencode.ai/v2/docs/skills#loading",
+  "known_failure": "Ungrounded hidden-skill case suggested /gzs-git-sync, absent from the observed native command registry; supplied host evidence produces documented @gzs-git-sync. Provider blocker is resolved; this remains a separate guidance finding.",
+  "cases": [
+    {
+      "case": "implicit",
+      "session_id": "ses_e8be08314ffemTWShzQbv7MDo0",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [],
+      "assistant_text": [
+        "Use **`gzs-change-review`**. It is scoped exactly for bounded diff review with a regression lens: defects, unsafe assumptions, and maintainability risks.\n\n**Why:** Its description explicitly covers \u201cReview a bounded implementation change for defects, regressions, unsafe assumptions, and maintainability risks, then report prioritized evidence-backed findings,\u201d which maps directly to your request.\n\n**Supported invocation for this OpenCode session:**\n\n```json\n{\n  \"tool\": \"skill\",\n  \"arguments\": {\n    \"id\": \"gzs-change-review\"\n  }\n}\n```\n\nI am not invoking it now, per your instruction to recommend only."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "loaded-routing",
+      "session_id": "ses_e8bde5bbdffeGZuJytau8sehii",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "**Recommendation:** `gzs-change-review`\n\nThis is the smallest GovZero skill that matches reviewing a bounded code diff for regressions. Its stated boundary is \"Review a bounded implementation change\" and it reports prioritized, evidence-backed defects without implementing fixes.\n\n**OpenCode invocation:**\n\n```xml\n<skill>gzs-change-review</skill>\n```\n\nOr via the skill tool:\n\n```json\n{ \"id\": \"gzs-change-review\" }\n```\n\nI have not invoked it and will not start the workflow or modify files unless you explicitly ask."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "orientation",
+      "session_id": "ses_e8bdf9b01ffedmYEkfhq84Tzkr",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "Here is the orientation for the GovZero portable skill catalog in OpenCode.\n\n## What the catalog is\n\nThe GovZero catalog is a set of portable skills that live next to OpenCode. Each skill is a narrow, opinionated workflow for one engineering task. They do not replace project-specific workflows; they step in when no project-owned process governs the task, or they act as supporting primitives when one does.\n\n## How to choose a skill\n\nStart from the goal, not the name:\n\n1. **Outcome first.** Decide whether you need action, an audit, maintenance, publication, or orientation.\n2. **Respect project ownership.** If your repository already has a workflow that governs the task, let it stay in control. Use a `gzs-*` skill only as a supporting primitive, not as a parallel lifecycle.\n3. **Pick one primary skill.** Only add a second skill when it is a genuine next phase, not merely related.\n\nA few common routes:\n\n- **Bug or failing test** \u2192 `gzs-root-cause-debugging`\n- **New feature, test-first** \u2192 `gzs-test-driven-change`\n- **Code review of a completed change** \u2192 `gzs-change-review`\n- **Verify a change before handoff/merge** \u2192 `gzs-quality-gate`\n- **Check whether a plan matches intent and scope** \u2192 `gzs-plan-audit`\n- **Check whether delivered behavior matches its intent** \u2192 `gzs-intent-audit`\n- **Dependency risk** \u2192 `gzs-dependency-risk-audit`; authorized upgrade response \u2192 `gzs-update-dependencies`\n- **Hexagonal architecture boundaries** \u2192 `gzs-hexagonal-architecture-audit`\n- **Python that may be unportable** \u2192 `gzs-cross-platform-python`\n- **Reduce heavy agent instructions** \u2192 `gzs-agent-context-diet`\n\n## How to choose a sequence\n\nChain skills only when the output of one naturally authorizes the next. Avoid redundant verification.\n\nExamples:\n\n- `gzs-test-driven-change` \u2192 `gzs-change-review` when the implementation needs an independent semantic review.\n- `gzs-quality-gate` \u2192 `gzs-git-sync` when the verified change should be published.\n- `gzs-dependency-risk-audit` \u2192 `gzs-update-dependencies` only when an upgrade is the authorized response.\n- `gzs-plan-audit` before implementation; `gzs-intent-audit` after delivery when fulfillment is uncertain.\n\n## How to invoke a skill in OpenCode\n\nIn this environment the skills appear to be installed through OpenCode's npm plugin channel as a managed plugin. The harness discovers installed skill names and activation descriptions, then loads the skill body when needed.\n\nThere are two activation modes:\n\n1. **Model-invoked skills.** The harness may activate a skill automatically when your request matches its description. For example, asking \"review this change\" can trigger `gzs-change-review`.\n2. **Explicit-only skills.** Some skills require you to invoke them by exact name because they have side effects or need deliberate authority. Examples from the catalog include:\n   - `gzs-git-sync`\n   - `gzs-release`\n   - `gzs-session-handoff`\n\nFor explicit-only skills, or when you want a specific skill, use the harness's supported invocation syntax. The exact command depends on your OpenCode configuration and any plugin namespace. A reliable starting prompt is:\n\n> \"Use the `gzs-<skill-name>` skill to <task>.\"\n\nIf you want the exact command syntax, check the plugin manifest or OpenCode's command listing rather than assuming a universal `$gzs-*` form.\n\n## How to diagnose a missing skill\n\nBefore concluding that a skill is missing, distinguish four cases:\n\n1. **Not installed.** Check the plugin manager or lockfile in your OpenCode environment. Managed plugins are read-only subscriptions updated by the plugin manager.\n2. **Explicit-only.** Some skills intentionally do not appear in model-visible automatic discovery. You must invoke them by name.\n3. **Installed through the wrong channel or scope.** A skill may be available globally but not in the current workspace, or vice versa.\n4. **Duplicated through multiple channels.** A skill might be installed both as a managed plugin and as a vendored snapshot, which can cause unexpected behavior.\n\nDiagnostic steps:\n\n- Check the OpenCode plugin manifest or command listing for installed `gzs-*` skills.\n- If the skill is explicit-only, invoke it by exact name.\n- If it is absent from the manifest, check whether the GovZero plugin is installed and up to date through the plugin manager.\n- If your project uses a vendored snapshot instead of a managed plugin, look for `gz-skills.lock.json` and use the `gz-skills` Python CLI to inspect and update it.\n\nManaged plugins should not be edited directly. Vendored snapshots can be updated with `gz-skills`, but local modifications block safe replacement until reconciled.\n\n## Concrete next step\n\nIf you tell me the task you are trying to accomplish, I can route you to the smallest useful skill or sequence and show you the exact invocation supported by this OpenCode environment."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "hidden",
+      "session_id": "ses_e8bdf9ebbffejrenNd77CuOgTw",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "The skill is not missing; it is behaving as designed.\n\n**Diagnosis from the evidence:**\n\n- The plugin manifest lists `gzs-git-sync`, so it is installed and discoverable by the harness.\n- The native OpenCode registry has `autoinvoke: false` for it, which means it is **explicit-only**: the model will not surface it automatically or activate it from a matching request.\n- Its absence from the automatic model-visible skill list is therefore expected, not an installation failure. The catalog boundary for `gzs-git-sync` is also marked \"Explicit-only; commits and pushes after repository gates pass.\"\n\n**Explicit invocation supported by OpenCode:**\n\n```text\n@gzs-git-sync\n```\n\nYour colleague can invoke it directly by name. No installation, Git run, or implicit activation is required."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "precedence",
+      "session_id": "ses_e8bdf9cfeffecX2hXeCJKRbJHQ",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "Recommend `gzs-change-review`.\n\nIt is the smallest catalog match for a bounded diff review: it reads the change, reports prioritized defects/regressions with evidence, and stops there. It does not assign reviewer roles, run gates, grant approval, or modify files, so your active project-owned review workflow stays in control.\n\n**Invocation**\n\n```text\n@gzs-change-review\n```\n\nor, if invoking through the skill tool:\n\n```text\nfunctions.skill:0{\"id\": \"gzs-change-review\"}\n```\n\n**Starting prompt**\n\n> Review this bounded diff for defects, regressions, unsafe assumptions, and maintainability risks. Report findings only; do not implement fixes or assume approval authority.\n\nI have not started the review or changed any files."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "negative",
+      "session_id": "ses_e8bdf9b6effevtfWIaglP6OwPE",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [],
+      "assistant_text": [
+        "hola"
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "baseline",
+      "session_id": "ses_e8bde5f14ffe7Foh844RKX6LNL",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [
+        {
+          "tool": "read",
+          "input": {
+            "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\gz-router-opencode-behavior-20261025-baseline"
+          },
+          "status": "completed",
+          "router_body_loaded": false,
+          "discarded_candidate_text": false
+        },
+        {
+          "tool": "read",
+          "input": {
+            "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\gz-router-opencode-behavior-20261025-baseline\\opencode.json"
+          },
+          "status": "completed",
+          "router_body_loaded": false,
+          "discarded_candidate_text": false
+        },
+        {
+          "tool": "glob",
+          "input": {
+            "pattern": "**/AGENTS.md"
+          },
+          "status": "completed",
+          "router_body_loaded": false,
+          "discarded_candidate_text": false
+        },
+        {
+          "tool": "read",
+          "input": {
+            "path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\gz-router-opencode-behavior-20261025-baseline\\result.jsonl"
+          },
+          "status": "completed",
+          "router_body_loaded": false,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "No \u201cGovZero\u201d skill is registered in this OpenCode session, and none of the available skills are designed for code-diff regression review. The `sprint-and-drift` skill mentions GovZero concepts, but it is scoped to analytical/essay writing, not technical code review.\n\n**Recommendation:** Do not invoke a skill for this task. Instead, use the native tools this session supports:\n\n- `read` \u2014 inspect the diff and affected source/test files  \n- `grep` \u2014 locate call sites, tests, and related logic  \n- `execute` \u2014 run the project\u2019s test suite or linter  \n\nThere is no supported `skill` invocation for a bounded regression review in this session."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "candidate-routing",
+      "session_id": "ses_e8bdc7b65ffepZIAk54938764z",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": true
+        }
+      ],
+      "assistant_text": [
+        "**Recommendation:** `gzs-change-review`\n\nIt is the smallest GovZero skill that matches reviewing a bounded code diff for regressions. It reports prioritized, evidence-backed defects and regressions without implementing fixes or owning approval.\n\n**OpenCode invocation:**\n\n```json\n{\n  \"tool\": \"skill\",\n  \"arguments\": {\n    \"id\": \"gzs-change-review\"\n  }\n}\n```\n\nOr in shorthand form supported by the OpenCode skill tool:\n\n```text\nskill(\"gzs-change-review\")\n```\n\nI am not invoking it now per your instruction not to execute any destination workflow or modify files."
+      ],
+      "errors": [],
+      "scope": "Discarded instruction experiment; not shipped, no skill changes retained"
+    },
+    {
+      "case": "candidate-orientation",
+      "session_id": "ses_e8bdc7971ffeTs98uuB4Ej4ZdR",
+      "model": "opencode-go/kimi-k2.7-code",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": true
+        }
+      ],
+      "assistant_text": [
+        "Here is an orientation to the GovZero skill catalog for OpenCode.\n\n## How to choose a skill or sequence\n\nStart with your immediate outcome, then pick the **single smallest skill** that owns it:\n\n- **Reduce instruction bloat** \u2192 `gzs-agent-context-diet`\n- **Review a change** \u2192 `gzs-change-review`\n- **Audit hexagonal boundaries** \u2192 `gzs-hexagonal-architecture-audit`\n- **Find/fix a bug** \u2192 `gzs-root-cause-debugging`\n- **Run full project verification** \u2192 `gzs-quality-gate`\n- **Assess dependency risk** \u2192 `gzs-dependency-risk-audit`\n- **Update dependencies** \u2192 `gzs-update-dependencies`\n- **Test-first change** \u2192 `gzs-test-driven-change`\n- **Compare delivery to intent** \u2192 `gzs-intent-audit`\n- **Audit plan integrity** \u2192 `gzs-plan-audit`\n- **Clean up repo hygiene** \u2192 `gzs-repository-hygiene`\n\nBefore choosing, check whether an active **project-owned workflow** already governs the task. If so, keep it in control and use a GovZero skill only as a supporting primitive.\n\nUse a sequence only when a skill genuinely leads to a next phase. Common ones:\n\n- Dependency risk response: `gzs-dependency-risk-audit` \u2192 `gzs-update-dependencies`\n- Failure resolution: `gzs-root-cause-debugging` \u2192 fix \u2192 `gzs-quality-gate`\n- Pre-publication: `gzs-quality-gate` \u2192 `gzs-git-sync`\n- Pythonic refactor: `gzs-pythonic-pattern-detect` \u2192 `gzs-pythonic-pattern-apply`\n\n## How to invoke a skill in OpenCode\n\nIn this OpenCode harness there are two paths:\n\n1. **Natural-language trigger.** For model-invoked skills, describe your goal plainly. If the request matches the skill's activation description, the skill can be loaded automatically.\n2. **Explicit tool call.** Call the OpenCode `skill` tool with the exact skill ID, for example:\n\n```xml\n<function=skill>\n<parameter name=\"id\">gzs-router</parameter>\n</function>\n```\n\nUse explicit invocation for **explicit-only** skills (e.g., `gzs-git-sync`, `gzs-release`, `gzs-session-handoff`) or when you want to be sure a specific skill runs rather than relying on automatic matching.\n\n## How to diagnose missing skills\n\nIf a GovZero skill is not showing up or activating, distinguish four causes:\n\n| Symptom | Likely cause | Diagnostic step |\n|---|---|---|\n| Skill not in any list | Not installed | Check the OpenCode plugin manifest or the project's `gz-skills.lock.json`. |\n| Skill appears in a list but does not auto-activate | Explicit-only skill | Invoke it explicitly by ID via the `skill` tool. |\n| Skill appears in one scope but not another | Installed through the wrong channel or scope | Confirm whether it is a managed plugin, a vendored snapshot, or project-local. |\n| Same skill ID appears in multiple places | Duplicated through multiple channels | Inspect manifests/lockfiles and resolve to one source. |\n\nTwo installation channels matter:\n\n- **Managed plugins** are read-only subscriptions updated by OpenCode's plugin manager. Do not edit the plugin cache directly.\n- **Vendored snapshots** are installed with the `gz-skills` Python CLI and recorded in `gz-skills.lock.json`. Local modifications block safe replacement until you reconcile them.\n\nDo not conclude a skill is missing just because it is hidden from automatic invocation; inspect the manifest, catalog listing, or lockfile first.\n\n## Next step\n\nIf you have a concrete goal, tell me the task and I can route you to the smallest skill or sequence. If a specific skill is missing, share the plugin manifest or `gz-skills.lock.json` and I can help trace which channel it should come from."
+      ],
+      "errors": [],
+      "scope": "Discarded instruction experiment; not shipped, no skill changes retained"
+    },
+    {
+      "case": "current-model-routing",
+      "session_id": "ses_e8bdb0708ffe03gIrMF8bRe5oH",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "**Recommended skill:** `gzs-change-review` \u2014 the smallest fit for reviewing a bounded diff for defects and regressions. It reports evidence-backed findings without implementing fixes.\n\n**OpenCode invocation:** Use the `skill` tool with:\n```json\n{\"id\":\"gzs-change-review\"}\n```\n\n**Starting prompt:** \u201cReview this bounded diff for defects and regressions; report prioritized, evidence-backed findings without modifying files.\u201d"
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "current-model-orientation",
+      "session_id": "ses_e8bdb0c55ffeVV0kV9ATIOnd78",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "opencode"
+          },
+          "status": "completed",
+          "router_body_loaded": false,
+          "discarded_candidate_text": false
+        },
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "## Choosing a skill or sequence\n\nTreat GovZero as a catalog of focused primitives, not an automatic end-to-end workflow.\n\n1. **Check precedence:** an active project-owned workflow stays in control; then prefer a suitable project-local skill; otherwise use the portable `gzs-*` catalog.\n2. **Choose one primary skill from the immediate outcome:**\n   - Planning or delivery alignment: `gzs-plan-audit` before implementation, `gzs-intent-audit` afterward.\n   - Code assessment: `gzs-change-review`; use `gzs-root-cause-debugging` when the cause of a failure is still unknown.\n   - Verification: `gzs-quality-gate`.\n   - Dependencies: `gzs-dependency-risk-audit` for risk, or `gzs-update-dependencies` for freshness and authorized updates.\n   - Architecture or Python refactoring: `gzs-hexagonal-architecture-audit`, `gzs-pythonic-pattern-detect`, then `gzs-pythonic-pattern-apply` for one authorized refactor.\n3. **Add a subsequent skill only for a genuine next phase.** Examples:\n   - Diagnosis \u2192 authorized fix \u2192 `gzs-quality-gate`.\n   - `gzs-dependency-risk-audit` \u2192 `gzs-update-dependencies` only if upgrading is the authorized response.\n   - `gzs-test-driven-change` \u2192 `gzs-change-review` when independent review is needed.\n4. **State boundaries and side effects.** Say whether you want read-only analysis, implementation, cleanup, commits, or publication. Avoid redundant gates\u2014for example, do not repeat a complete quality gate unless the tree changed afterward.\n\n## Invoking skills in OpenCode\n\nIn this OpenCode session, the verified mechanism is to **name the skill in your prompt**; the agent loads it through the `skill` tool using its ID.\n\nFor example:\n\n> Use `gzs-plan-audit` to review this plan. Do not implement anything.\n\nAutomatic invocation can occur when your request matches a skill\u2019s activation description. Naming the skill removes ambiguity. Do not assume that `$gzs-*`, `/gzs-*`, or another plugin-qualified syntax is universal.\n\nThree skills are **explicit-only** and require you to name them:\n\n- `gzs-git-sync` \u2014 commits and pushes a guarded save point.\n- `gzs-release` \u2014 release advice, preparation, or authorized publication.\n- `gzs-session-handoff` \u2014 preserves or resumes durable session state.\n\n## Diagnosing missing automatic discovery\n\nFirst distinguish **not automatically visible** from **not installed**:\n\n1. **Check explicit-only status.** The three skills above may be absent from the model-visible automatic list while remaining installed and explicitly invocable.\n2. **Check installation channel and scope.** Determine whether the catalog is a managed OpenCode plugin, a project-local installation, or a vendored snapshot\u2014and whether it is installed for the relevant user or project.\n3. **Inspect evidence before declaring it missing.** Use the available plugin manifest or catalog listing for managed plugins. For vendored snapshots, inspect `gz-skills.lock.json` and the `gz-skills` CLI installation state.\n4. **Check for duplicates.** Installing the same catalog through multiple channels or scopes can produce collisions or conflicting revisions.\n5. **Check activation rather than installation.** If a skill is visible but does not activate, its description may not match the request. Invoke it by name instead.\n\nManaged plugins are read-only subscriptions: update them through OpenCode\u2019s plugin manager, **not by editing the plugin cache**. Vendored snapshots are managed through `gz-skills`; local modifications can block safe replacement until reconciled.\n\nIn this session, the router loaded from OpenCode\u2019s managed plugin cache, and the three explicit-only skills are absent from the automatic list. That is expected behavior, not evidence that they are missing.\n\n**Next step:** for a real task, either name the primary skill directly or ask `gzs-router` to route the outcome while stating your mutation and publication boundaries."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "current-model-no-match",
+      "session_id": "ses_e8bd9301fffeyW4FPMaMhd0hOu",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "No GovZero catalog skill translates poetry. For that goal, use ordinary agent work rather than forcing a catalog match."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "current-model-hidden",
+      "session_id": "ses_e8bd9306cffeOyG0Yl2SPULK05",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        },
+        {
+          "tool": "skill",
+          "input": {
+            "id": "opencode"
+          },
+          "status": "completed",
+          "router_body_loaded": false,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "**Diagnosis:** `gzs-git-sync` is **explicit-only, not missing**. Its presence in the manifest indicates registration; `native autoinvoke: false` deliberately keeps it out of the automatic model-visible skill list so the model cannot activate it on its own.\n\n**Explicit invocation in OpenCode:** In the TUI, enter:\n\n```text\n/gzs-git-sync\n```\n\nAlternatively, type `/` and select its entry from the command picker, preserving any plugin namespace shown there.\n\nOnly invoke it when you intentionally want its guarded commit-and-push workflow after repository gates pass. I did not install anything, run Git, or invoke `gzs-git-sync`."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "current-model-precedence",
+      "session_id": "ses_e8bd92f6fffeGIABNgrhwj19xo",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "**Recommended supporting skill:** `gzs-change-review`\n\n- **Fit:** Reviews a bounded implementation diff and reports prioritized, evidence-backed defects without implementing fixes.\n- **Ownership:** The active project workflow retains reviewer roles, gates, and approval; this skill is only a supporting review primitive.\n- **Prerequisites:** Provide the bounded diff and relevant review scope. No mutation or remote effects are required.\n- **Invocation in this harness:** Call the `skill` tool with `id: \"gzs-change-review\"`.\n- **Starting prompt:** \u201cReview this bounded diff for defects and regressions, reporting evidence-backed findings while leaving approval and gates to the project workflow.\u201d\n\nNo destination workflow was executed, and no files were modified."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "current-model-negative",
+      "session_id": "ses_e8bd9333cffe70zqCUhB0568eu",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [],
+      "assistant_text": [
+        "Hola"
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "current-model-baseline",
+      "session_id": "ses_e8bd92db1ffexBKFZ7DQnEchYh",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "opencode"
+          },
+          "status": "completed",
+          "router_body_loaded": false,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "**Recommendation: no GovZero skill invocation.**\n\nThis session exposes no GovZero code-review or regression-review skill. The GovZero-related `sprint-and-drift` skill is for analytical writing and explicitly excludes coding work, so it is not appropriate\u2014even as part of a sequence.\n\n**Supported invocation for this request:** none. Do not invoke `sprint-and-drift` or guess an unlisted GovZero skill name. A bounded diff review would need an ordinary review prompt or an appropriate skill added to the session."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "current-model-host-evidence",
+      "session_id": "ses_e8bd6c443ffe4uyqLtQcKHpVOi",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "**Diagnosis:** `gzs-git-sync` is **explicit-only** because native autoinvoke is `false`. Its manifest entry indicates it is installed; absence from automatic/model-visible invocation is expected, not evidence that it is missing.\n\n**User-facing invocation:**\n```text\n@gzs-git-sync Commit and push the reviewed changes as a guarded save point.\n```\n\nUse `@gzs-git-sync`, not `/gzs-git-sync`: the verified native command registry contains only `init` and `review`, with no `gzs` slash commands.\n\n**Warning:** This skill can **commit and push to a remote repository** after repository gates pass. Review the intended changes and confirm the destination branch/remote before invoking it."
+      ],
+      "errors": [],
+      "scope": "Released v0.8.1 tagged plugin, except no-plugin baseline cases"
+    },
+    {
+      "case": "default-smoke",
+      "session_id": "ses_e8bd64502ffelxF5TGzzviMmCD",
+      "model": "opencode-go/kimi-k3.1-pro#low",
+      "tool_calls": [
+        {
+          "tool": "skill",
+          "input": {
+            "id": "gzs-router"
+          },
+          "status": "completed",
+          "router_body_loaded": true,
+          "discarded_candidate_text": false
+        }
+      ],
+      "assistant_text": [
+        "No listed GovZero skill is designed for translating poetry. I recommend handling it as an ordinary translation task rather than forcing a catalog match. No files were modified."
+      ],
+      "errors": [],
+      "scope": "Fresh run without model override; saved default verified separately"
+    }
+  ]
+}

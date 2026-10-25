@@ -138,7 +138,9 @@ def check_gitattributes(root: Path) -> list[Finding]:
     """Fail when .gitattributes is absent or omits the LF directive."""
     path = root / ".gitattributes"
     if not path.is_file():
-        return [Finding("line-endings", ".gitattributes", GITATTRIBUTES_MISSING_MESSAGE)]
+        return [
+            Finding("line-endings", ".gitattributes", GITATTRIBUTES_MISSING_MESSAGE)
+        ]
     try:
         content = path.read_text(encoding="utf-8", errors="replace")
     except OSError:
@@ -244,7 +246,9 @@ def _subprocess_findings_in(tree: ast.Module, rel: str) -> list[Finding]:
         if "errors" in kwargs:
             continue
         findings.append(
-            Finding("subprocess-errors", f"{rel}:{node.lineno}", SUBPROCESS_ERRORS_MESSAGE)
+            Finding(
+                "subprocess-errors", f"{rel}:{node.lineno}", SUBPROCESS_ERRORS_MESSAGE
+            )
         )
     return findings
 
@@ -257,7 +261,9 @@ def audit_subprocess_errors(root: Path, scan_roots: list[Path]) -> list[Finding]
             tree = ast.parse(py_path.read_text(encoding="utf-8", errors="replace"))
         except (OSError, SyntaxError):
             continue
-        findings.extend(_subprocess_findings_in(tree, py_path.relative_to(root).as_posix()))
+        findings.extend(
+            _subprocess_findings_in(tree, py_path.relative_to(root).as_posix())
+        )
     return findings
 
 
@@ -334,7 +340,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.format == "json":
         payload = [
-            {"check": f.check, "artifact": f.artifact, "message": f.message} for f in findings
+            {"check": f.check, "artifact": f.artifact, "message": f.message}
+            for f in findings
         ]
         print(json.dumps(payload, indent=2))
     else:

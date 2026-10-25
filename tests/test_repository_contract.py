@@ -106,21 +106,28 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual(opencode["main"], "./index.js")
         self.assertEqual(opencode["exports"], {".": "./index.js"})
         self.assertIn(opencode["main"].removeprefix("./"), opencode["files"])
-        self.assertFalse((REPOSITORY_ROOT / ".opencode" / "plugins" / "gz-skills.js").exists())
+        self.assertFalse(
+            (REPOSITORY_ROOT / ".opencode" / "plugins" / "gz-skills.js").exists()
+        )
         self.assertEqual(opencode["type"], "module")
 
     def test_marketplace_entries_pin_each_harness_to_same_released_tag(self) -> None:
         changelog = (REPOSITORY_ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
-        released = re.search(r"^## (\d+\.\d+\.\d+) - \d{4}-\d{2}-\d{2}$", changelog, re.M)
+        released = re.search(
+            r"^## (\d+\.\d+\.\d+) - \d{4}-\d{2}-\d{2}$", changelog, re.MULTILINE
+        )
         self.assertIsNotNone(released, "CHANGELOG.md has no released bundle section")
+        assert released is not None
         tag = "v" + released.group(1)
         codex = json.loads(
-            (REPOSITORY_ROOT / ".agents" / "plugins" / "marketplace.json")
-            .read_text(encoding="utf-8")
+            (REPOSITORY_ROOT / ".agents" / "plugins" / "marketplace.json").read_text(
+                encoding="utf-8"
+            )
         )
         claude = json.loads(
-            (REPOSITORY_ROOT / ".claude-plugin" / "marketplace.json")
-            .read_text(encoding="utf-8")
+            (REPOSITORY_ROOT / ".claude-plugin" / "marketplace.json").read_text(
+                encoding="utf-8"
+            )
         )
 
         self.assertEqual(codex["name"], "gz-skills")
@@ -179,9 +186,7 @@ class RepositoryContractTests(unittest.TestCase):
             configuration = tomllib.load(stream)
 
         excluded = set(
-            configuration["tool"]["hatch"]["build"]["targets"]["sdist"][
-                "exclude"
-            ]
+            configuration["tool"]["hatch"]["build"]["targets"]["sdist"]["exclude"]
         )
         self.assertTrue(
             {
@@ -198,7 +203,11 @@ class RepositoryContractTests(unittest.TestCase):
             self.skipTest("Node is unavailable for the OpenCode adapter check")
 
         result = subprocess.run(
-            [node, "--test", str(REPOSITORY_ROOT / "tests" / "opencode_adapter.test.mjs")],
+            [
+                node,
+                "--test",
+                str(REPOSITORY_ROOT / "tests" / "opencode_adapter.test.mjs"),
+            ],
             cwd=REPOSITORY_ROOT,
             capture_output=True,
             text=True,

@@ -97,10 +97,10 @@ Remove the now-duplicated router-specific metadata assertion from
 `test_router_covers_catalog_and_explicit_skills_have_codex_policy`:
 
 ```python
-        router_metadata = (
-            catalog["gzs-router"].path / "agents" / "openai.yaml"
-        ).read_text(encoding="utf-8")
-        self.assertIn("allow_implicit_invocation: true", router_metadata)
+router_metadata = (catalog["gzs-router"].path / "agents" / "openai.yaml").read_text(
+    encoding="utf-8"
+)
+self.assertIn("allow_implicit_invocation: true", router_metadata)
 ```
 
 - [ ] **Step 2: Run the focused test and verify the intended red**

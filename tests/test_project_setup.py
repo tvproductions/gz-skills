@@ -6,7 +6,6 @@ import tempfile
 import unittest
 from pathlib import Path
 
-
 SCRIPT = (
     Path(__file__).resolve().parents[1]
     / "skills"
@@ -26,18 +25,28 @@ class ProjectSetupTests(unittest.TestCase):
             root = Path(temporary)
             path = root / ".gz-skills" / "settings.json"
             self.assertEqual(project_settings.run("inspect", root)["status"], "absent")
-            self.assertEqual(project_settings.run("initialize", root)["status"], "created")
-            self.assertEqual(project_settings.run("initialize", root)["status"], "present")
-            self.assertEqual(json.loads(path.read_text(encoding="utf-8")), {
-                "schema_version": 1,
-                "profile": None,
-            })
+            self.assertEqual(
+                project_settings.run("initialize", root)["status"], "created"
+            )
+            self.assertEqual(
+                project_settings.run("initialize", root)["status"], "present"
+            )
+            self.assertEqual(
+                json.loads(path.read_text(encoding="utf-8")),
+                {
+                    "schema_version": 1,
+                    "profile": None,
+                },
+            )
             project_settings.run("select", root, "lite")
             project_settings.run("select", root, "heavy")
-            self.assertEqual(json.loads(path.read_text(encoding="utf-8")), {
-                "schema_version": 1,
-                "profile": "heavy",
-            })
+            self.assertEqual(
+                json.loads(path.read_text(encoding="utf-8")),
+                {
+                    "schema_version": 1,
+                    "profile": "heavy",
+                },
+            )
             with self.assertRaisesRegex(project_settings.SettingsError, "reversal"):
                 project_settings.run("select", root, "lite")
             self.assertEqual(project_settings.run("inspect", root)["profile"], "heavy")

@@ -6,6 +6,34 @@ fleet updates.
 
 ## Unreleased
 
+## 0.8.2 - 2026-10-25
+
+Bundle **0.8.2**, compared with released v0.8.1: compatible Git sync
+contract corrections advance `gzs-git-sync` from 0.1.0 to 0.1.1 and the bundle
+by one patch. No migration or stable-contract promotion is included. Marketplace
+pins and installation examples select v0.8.2.
+
+### Fixed
+
+- Enforce uv-only Python execution, Ruff lint/format and ty checking in repository
+  guidance. Correct existing test lint/type issues and format packaged helpers.
+  `gzs-project-setup` 0.3.0 → 0.3.1 adds an explicit initialization type annotation;
+  `gzs-cross-platform-python` 0.3.0 → 0.3.1 formats its helper. Both are compatible,
+  behavior-preserving corrections covered by bundle 0.8.2.
+
+- Require applicable quality gates on reconciled content before Git sync pushes,
+  including conflict-free rebases, and explicitly retain the active project's
+  sequencing, approvals, locks, gates and lifecycle authority. Report any
+  post-reconciliation validation in completion evidence.
+
+- Record native OpenCode inference under the existing no-training policy,
+  replacing the contributor-model fallback with a tested non-training model.
+  The user authorized that model as their local default; workspace privacy
+  settings remain unchanged. Preserve prior failures and the separate
+  invocation-guidance finding instead of claiming universal behavioral success.
+  This evidence update itself changes no skill contract and grants no stable-version
+  promotion.
+
 ## 0.8.1 - 2026-10-25
 
 Bundle **0.8.1**, compared with released v0.8.0: compatible router and

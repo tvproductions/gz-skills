@@ -1,6 +1,6 @@
 # Install gz-skills for OpenCode v2
 
-The OpenCode v2 adapter is included in the v0.8.1 bundle. Install the
+The OpenCode v2 adapter is included in the v0.8.2 bundle. Install the
 immutable Git tag in each adopting repository.
 
 In each adopting repository, add the package to that repository's
@@ -10,7 +10,7 @@ In each adopting repository, add the package to that repository's
 {
   "$schema": "https://opencode.ai/config.json",
   "plugins": [
-    "git+https://github.com/tvproductions/gz-skills.git#v0.8.1"
+    "git+https://github.com/tvproductions/gz-skills.git#v0.8.2"
   ]
 }
 ```
