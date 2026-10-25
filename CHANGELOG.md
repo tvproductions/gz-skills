@@ -6,6 +6,16 @@ fleet updates.
 
 ## Unreleased
 
+### Fixed
+
+- Correct `gzs-quality-gate` final verification for repositories without an
+  aggregate gate (issue #1): run the complete sequence resolved during discovery,
+  require every command to succeed, and retain missing required commands as
+  explicit gaps that prevent a full-pass claim. Compared with released v0.8.0,
+  the skill advances from 0.1.1 to 0.1.2 and the pending bundle from 0.8.0 to
+  0.8.1 as compatible corrections. Bundle manifests, source fallback and lockfile
+  agree; released marketplace pins remain at v0.8.0. No migration is required.
+
 ## 0.8.0 - 2026-10-11
 
 Bundle **0.8.0**, compared with published v0.7.0: a new portable release

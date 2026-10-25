@@ -3,7 +3,7 @@ name: gzs-quality-gate
 description: Run and evidence the repository's complete required quality gate for the current change. Use for pre-handoff, pre-merge, pre-release, or explicit full-verification requests; use the project's declared commands rather than assuming a language or toolchain.
 compatibility: Requires the target repository's documented verification tools.
 metadata:
-  govzero-version: "0.1.1"
+  govzero-version: "0.1.2"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -49,9 +49,11 @@ than reporting a pass that covered fewer of them.
    caused by the current work, then rerun from the first affected gate. Preserve
    unrelated user changes and do not weaken thresholds or suppress findings to
    manufacture a pass.
-6. Run the final canonical aggregate gate on the unchanged candidate tree.
-   Completion requires its observed exit status to be successful and every
-   required artifact or report to exist.
+6. Run the final canonical aggregate gate or, when none exists, the complete
+   verification sequence resolved during discovery on the unchanged candidate
+   tree. Completion requires every command's observed exit status to be
+   successful and every required artifact or report to exist. Missing required
+   commands remain explicit gaps and prevent a full-pass claim.
 
 ## Evidence
 
