@@ -1,0 +1,82 @@
+{
+  "observed_date": "2026-10-25",
+  "codex_cli_version": "0.164.0",
+  "channel": "Temporary project-scoped .agents/skills candidate snapshot; not managed-plugin or tagged installation",
+  "router_sha256": "e5cbbe1fd08a6ab45311ddb17f8ae367e3107ca704e30bdbcac29e27153fbd2f",
+  "sandbox": "read-only; ignore-user-config; subsequent implicit and diagnostic runs restore existing windows.sandbox=unelevated process override",
+  "initial_implicit_limit": "Skill-body read blocked by policy when Windows sandbox setting was omitted; exit 0 alone was not accepted as body validation",
+  "cases": [
+    {
+      "case": "implicit",
+      "thread_id": "01a1740a-c64f-72a0-9a68-8f6bad1c7c60",
+      "turn_completed": true,
+      "command_executions": [],
+      "messages": [
+        "I’ll use the gzs-router skill to identify the right review skill and the invocation available in this session.",
+        "Use **`gzs-change-review`**. It specifically covers bounded diffs, regressions, and prioritized, evidence-backed findings.\n\nInvoke it in this session with:\n\n```text\n$gzs-change-review Review the diff <base>..<head> for defects and regressions. Report prioritized findings with file and line evidence. Do not implement fixes.\n```\n\nFor first GovZero use in a repository, start with `$gzs-project-setup`; then run the review. Add `$gzs-quality-gate` only if you also want complete automated verification.\n\nThe router’s local file read was blocked by execution policy, so this recommendation relies on the session’s supplied skill descriptions. No review was executed or files modified."
+      ]
+    },
+    {
+      "case": "implicit-configured-sandbox",
+      "thread_id": "01a1740b-fdb0-7af0-8e84-e28bd23bb035",
+      "turn_completed": true,
+      "command_executions": [
+        {
+          "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-Content .agents/skills/gzs-router/SKILL.md'",
+          "exit_code": 0,
+          "status": "completed",
+          "output_characters": 9864
+        },
+        {
+          "command": "\"C:\\\\Program Files\\\\PowerShell\\\\7\\\\pwsh.exe\" -Command 'Get-ChildItem -Name -Force; Get-Content .agents/skills/gzs-change-review/SKILL.md'",
+          "exit_code": 0,
+          "status": "completed",
+          "output_characters": 4665
+        }
+      ],
+      "messages": [
+        "I’ll read the GovZero router guidance to identify the skill and invocation supported by this session.",
+        "Use **`gzs-change-review`** alone. It fits a bounded diff review for regressions and produces prioritized, evidence-backed findings. Add `gzs-quality-gate` only if you separately need complete repository verification.\n\nThis session supports invoking the skill by name:\n\n> Use gzs-change-review to review the diff against `<base>` for regressions. Report prioritized findings with file/line evidence. Do not modify files or publish comments.\n\nPrerequisites: a readable diff, a clear comparison base, and relevant repository context. Any project-owned review workflow takes precedence. The review is read-only and requires no remote actions.\n\nNo review was executed and no files were modified."
+      ]
+    },
+    {
+      "case": "explicit",
+      "thread_id": "01a1740b-87ec-7971-92be-33de2ae915ef",
+      "turn_completed": true,
+      "command_executions": [],
+      "messages": [
+        "I’m using the gzs-router skill to check the catalog for a fit.",
+        "No GovZero catalog skill covers poem translation. Use ordinary agent work.\n\nSuggested prompt: “Translate this poem into [language], preserving its imagery, tone, and rhythm: [poem].”\n\nNo skill invocation or file changes are needed."
+      ]
+    },
+    {
+      "case": "negative",
+      "thread_id": "01a1740b-885c-7b52-87e2-a9286b07f0ab",
+      "turn_completed": true,
+      "command_executions": [],
+      "messages": [
+        "Hola"
+      ]
+    },
+    {
+      "case": "hidden",
+      "thread_id": "01a1740c-ba4a-7132-a9cb-1dac35835a87",
+      "turn_completed": true,
+      "command_executions": [],
+      "messages": [
+        "I’m using gzs-router to distinguish automatic visibility from explicit invocation, based on the evidence you provided.",
+        "That evidence points to **explicit-only, not missing**: the manifest lists `gzs-git-sync`, and `allow_implicit_invocation: false` explains its absence from the automatic model-visible list.\n\nThis session demonstrates `$skill-name` invocation through `$gzs-router`. The corresponding invocation is:\n\n`$gzs-git-sync Create a guarded save point after the repository gates pass.`\n\nHowever, `gzs-git-sync` is not exposed in this session’s available-skills list, so its successful activation here is unverified. The concrete next step is to check the harness’s explicit skill picker for `gzs-git-sync`, preserving any namespace it displays.\n\nInvoking that workflow can commit and push. Nothing was installed, no git commands were run, and no files were modified."
+      ]
+    },
+    {
+      "case": "precedence",
+      "thread_id": "01a1740c-b386-7a42-877a-febaa69c7580",
+      "turn_completed": true,
+      "command_executions": [],
+      "messages": [
+        "I’m using `gzs-router` to recommend the smallest supporting skill while preserving your project workflow’s control.",
+        "Use **`gzs-change-review`** as the supporting primitive for the bounded diff review. It reports prioritized, evidence-backed findings; your active project workflow retains reviewer roles, gates, state, and approval authority.\n\nPrerequisite: a defined diff and the owning workflow’s review instructions. The review is read-only, with no fixes or remote effects. Explicit invocation is supported here but isn’t required by its activation description.\n\nSuggested invocation:\n\n`$gzs-change-review Review this bounded diff under the active project-owned workflow; preserve its reviewer roles, gates, state, and approval authority, and report findings only.`\n\nNo review was executed or files modified."
+      ]
+    }
+  ]
+}

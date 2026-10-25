@@ -5,14 +5,16 @@ stable release. Review the skill body, activation boundary, provenance,
 portability, side effects, and behavioral scenarios; do not batch-approve the
 catalog from structural validation alone.
 
-This table contains only implemented skills. The promotion record for the
-latest additions is in [`docs/roadmap.md`](../roadmap.md). The release primitive
+This table covers all twenty implemented skills as of 2026-10-25. The current
+backlog and historical promotion record are in [`docs/roadmap.md`](../roadmap.md).
+Pending means stable-contract acceptance has not been recorded; a release or
+structural validation alone does not complete that review. The release primitive
 is the latest implemented addition; see its
 [initial behavioral review](gzs-release-2026-10-11.md).
 
 | Order | Skill | Review status | Why this position |
 | ---: | --- | --- | --- |
-| 1 | [`gzs-router`](../../skills/gzs-router/SKILL.md) | Pending | Establishes the catalog map and review vocabulary. |
+| 1 | [`gzs-router`](../../skills/gzs-router/SKILL.md) | Claude/Codex checks and OpenCode loading pass; behavioral acceptance pending ([review](gzs-router-2026-10-25.md)) | Version 0.5.1 corrects fallback, provenance and host invocation guidance; OpenCode inference still needs a privacy-compatible provider/model. |
 | 2 | [`gzs-git-sync`](../../skills/gzs-git-sync/SKILL.md) | Pending | Highest-risk remote mutation and explicit-invocation boundary. |
 | 3 | [`gzs-update-dependencies`](../../skills/gzs-update-dependencies/SKILL.md) | Pending | One of the motivating workflows and the broadest maintenance surface. |
 | 4 | [`gzs-quality-gate`](../../skills/gzs-quality-gate/SKILL.md) | Pending | Shared completion contract used by other workflows. |
@@ -29,6 +31,9 @@ is the latest implemented addition; see its
 | 15 | [`gzs-dependency-risk-audit`](../../skills/gzs-dependency-risk-audit/SKILL.md) | Pending | Current external evidence, private-package handling, and ecosystem differences need realistic review. |
 | 16 | [`gzs-test-driven-change`](../../skills/gzs-test-driven-change/SKILL.md) | Pending | Explicit activation must preserve a meaningful red while adapting to difficult behavioral seams. |
 | 17 | [`gzs-release`](../../skills/gzs-release/SKILL.md) | Pending stable-contract review | Version recommendations, publication authority and partial-release recovery require behavioral evidence. |
+| 18 | [`gzs-project-setup`](../../skills/gzs-project-setup/SKILL.md) | Pending | Review first-use selection, preservation of settings, gzkit exclusion, promotion boundaries and honest heavy-readiness claims. |
+| 19 | [`gzs-pythonic-pattern-detect`](../../skills/gzs-pythonic-pattern-detect/SKILL.md) | Pending | Review concrete candidate evidence, project-version policy and read-only scope without requiring an external scanner or corpus. |
+| 20 | [`gzs-pythonic-pattern-apply`](../../skills/gzs-pythonic-pattern-apply/SKILL.md) | Pending | Review one authorized refactor with before/after behavior evidence, project-owned gates and preserved architecture boundaries. |
 
 For each review, record:
 
@@ -40,4 +45,5 @@ For each review, record:
 6. A no-skill baseline and with-skill behavioral scenario.
 7. Observable completion evidence.
 
-The next review is `gzs-router`.
+The next queued review is `gzs-git-sync`. The router's native OpenCode
+behavioral evidence remains outstanding before its stable-contract acceptance.

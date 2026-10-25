@@ -1,0 +1,175 @@
+{
+  "observed_date": "2026-10-25",
+  "scope": "Claude session-only candidate loading; raw thinking and unrelated host metadata excluded",
+  "initial_cases": "implicit-retry, explicit-retry and negative-retry precede the host-syntax wording correction",
+  "final_router_sha256": "e5cbbe1fd08a6ab45311ddb17f8ae367e3107ca704e30bdbcac29e27153fbd2f",
+  "cases": [
+    {
+      "case": "implicit-retry",
+      "session_id": "0129b467-e68f-4526-8658-09f8d5b03160",
+      "model": "claude-opus-5-5",
+      "claude_code_version": "2.1.302",
+      "candidate_plugins": [
+        {
+          "name": "gz-skills",
+          "version": "0.8.1",
+          "source": "gz-skills@inline"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "Skill",
+          "input": {
+            "skill": "gz-skills:gzs-router",
+            "args": "Recommend the right GovZero skill or sequence to review a bounded code diff for regressions. Recommend only; do not execute the review or modify files."
+          }
+        }
+      ],
+      "is_error": false,
+      "num_turns": 3,
+      "permission_denials": [],
+      "result": "Use **`gzs-change-review`** by itself. Your goal matches its purpose exactly: it reviews a bounded diff for defects, regressions and unsafe assumptions, and returns prioritized findings with evidence.\n\n**Why not something else:**\n- `gzs-quality-gate` only runs the repository's automated checks. It doesn't do a semantic review.\n- `gzs-tech-debt-review` surveys debt broadly, not one specific diff.\n- `gzs-root-cause-debugging` is for regressions you've already seen and need to diagnose. It isn't for finding them in advance.\n\n**If you want a sequence:**\n- Add `gzs-quality-gate` after the review only if you also need evidence that tests and lint pass. The review won't produce that.\n- Use `gzs-root-cause-debugging` only if the review turns up a suspected regression whose cause hasn't been shown yet.\n\n**Before you start:**\n- **Define the diff.** This directory isn't a git repository, so there's no working-tree diff to pick up automatically. Point the review at a patch file, two directories or specific files.\n- **Check for a project workflow.** If the project has its own review process (for example, rules in AGENTS.md or CLAUDE.md), that process stays in charge and this skill supports it.\n- **Side effects:** the review is read-only. It reports findings and doesn't fix anything. You can ask for it in plain words or invoke it explicitly.\n\n**How to invoke it:**\n\n```\n$gzs-change-review\n```\n\nStarting prompt: *\"Review the changes in `<patch file or paths>` against `<baseline>` for regressions and unsafe assumptions, and report prioritized, evidence-backed findings without making fixes.\"*"
+    },
+    {
+      "case": "explicit-retry",
+      "session_id": "12582bff-5eec-4e93-9c21-98cea801cc2c",
+      "model": "claude-opus-5-5",
+      "claude_code_version": "2.1.302",
+      "candidate_plugins": [
+        {
+          "name": "gz-skills",
+          "version": "0.8.1",
+          "source": "gz-skills@inline"
+        }
+      ],
+      "tool_calls": [],
+      "is_error": false,
+      "num_turns": 1,
+      "permission_denials": [],
+      "result": "None of the GovZero catalog skills translates poems. The catalog only covers engineering work: code review, dependencies, architecture, quality gates, releases, debugging, handoffs and similar tasks. Nothing in it does translation or creative writing, and none of the other skills installed in this session do either.\n\n**My suggestion:** don't use a skill for this. Ask for the translation directly, for example: \"Translate this poem from [source language] into [target language], keeping its meter and imagery where possible.\"\n\nThere's no skill to invoke, nothing to install, and no files to change. I haven't translated anything or touched any files."
+    },
+    {
+      "case": "negative-retry",
+      "session_id": "20f6873f-810a-46e4-8d4f-a06f8beb7ae5",
+      "model": "claude-opus-5-5",
+      "claude_code_version": "2.1.302",
+      "candidate_plugins": [
+        {
+          "name": "gz-skills",
+          "version": "0.8.1",
+          "source": "gz-skills@inline"
+        }
+      ],
+      "tool_calls": [],
+      "is_error": false,
+      "num_turns": 1,
+      "permission_denials": [],
+      "result": "Hola"
+    },
+    {
+      "case": "syntax-corrected",
+      "session_id": "905d2e12-6459-459c-ae0f-c4921247b4ec",
+      "model": "claude-opus-5-5",
+      "claude_code_version": "2.1.302",
+      "candidate_plugins": [
+        {
+          "name": "gz-skills",
+          "version": "0.8.1",
+          "source": "gz-skills@inline"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "Skill",
+          "input": {
+            "skill": "gz-skills:gzs-router",
+            "args": "Recommend only: which GovZero skill or sequence to review a bounded diff for regressions, with exact command syntax for this Claude Code session. Do not execute any review or modify files."
+          }
+        }
+      ],
+      "is_error": false,
+      "num_turns": 3,
+      "permission_denials": [],
+      "result": "**Use `gzs-change-review`.** It's the catalog skill for reviewing a bounded change for defects, regressions, unsafe assumptions and maintainability risks. It reports prioritized findings with evidence and doesn't fix anything.\n\n**Command for this Claude Code session** (it's a plugin skill, so keep the `gz-skills:` prefix):\n\n```\n/gz-skills:gzs-change-review <scope and focus>\n```\n\nFor example:\n\n```\n/gz-skills:gzs-change-review Review the diff of <files / commit range / patch path> for regressions and report prioritized findings; do not modify files.\n```\n\n**Before you run it:**\n- **Give it a diff it can read.** This working directory (`...\\gz-router-acceptance-20261025-syntax-corrected`) isn't a git repository, so there's no local diff to pick up. Point the review at a patch file, a commit range in another repo, or a specific set of before/after files.\n- **It doesn't change anything.** The review only reads and reports. Fixes need a separate request.\n- **Project workflows come first.** If the target project has its own review workflow, that workflow stays in charge and this skill works under it.\n\n**Optional next steps, only if you need them:**\n- `/gz-skills:gzs-root-cause-debugging`: if the review finds a regression whose cause isn't proven yet.\n- `/gz-skills:gzs-quality-gate`: if you also want the project's automated checks run as evidence. The change review doesn't run them.\n\n**Not the same thing:** the built-in `/code-review` (e.g. `/code-review high`) is Claude Code's own bug-focused diff review, not the GovZero skill. Its `--fix` flag edits files, so leave it off if you want a review only.\n\nI haven't run a review or changed any files."
+    },
+    {
+      "case": "hidden-corrected",
+      "session_id": "e16b75f3-1e17-4fb4-8de0-63983d6cd60c",
+      "model": "claude-opus-5-5",
+      "claude_code_version": "2.1.302",
+      "candidate_plugins": [
+        {
+          "name": "gz-skills",
+          "version": "0.8.1",
+          "source": "gz-skills@inline"
+        }
+      ],
+      "tool_calls": [],
+      "is_error": false,
+      "num_turns": 1,
+      "permission_denials": [],
+      "result": "**Diagnosis: the skill isn't missing. It's set to explicit-only.**\n\n- **It is installed.** The plugin manifest lists `gzs-git-sync`, so this isn't a \"not installed\" case.\n- **It is hidden from automatic invocation on purpose.** `agents/openai.yaml` sets `allow_implicit_invocation: false`. That tells an OpenAI/Codex-style harness to leave the skill out of the list the model chooses from on its own. A skill that commits and pushes should only run when someone explicitly asks for it.\n- **Not showing up in that list is expected.** It doesn't mean the skill is absent. This evidence doesn't point to a wrong channel or scope, or to a duplicate install. I haven't run git, installed anything, or changed any files.\n\n**Invocation in this Claude session:** this session lists the skill with its plugin namespace, so the command is:\n\n```\n/gz-skills:gzs-git-sync\n```\n\nStarting prompt: *\"Review the current changes, run the repository's quality gates, and commit and push a save point if they pass.\"* This commits and pushes to the remote, so run it only when you actually want to publish.\n\n**Next step for your colleague:** they should check their own harness's command or skill listing for the exact name, including any plugin namespace, and invoke it explicitly from there. Don't assume `$gzs-git-sync` or the Claude slash form works in their harness. If it isn't in the explicit listing either, check whether the plugin was installed through a different channel or scope before reinstalling."
+    },
+    {
+      "case": "precedence-corrected",
+      "session_id": "f7146fdf-28c5-4c3a-9776-a3817dcfa4b5",
+      "model": "claude-opus-5-5",
+      "claude_code_version": "2.1.302",
+      "candidate_plugins": [
+        {
+          "name": "gz-skills",
+          "version": "0.8.1",
+          "source": "gz-skills@inline"
+        }
+      ],
+      "tool_calls": [],
+      "is_error": false,
+      "num_turns": 1,
+      "permission_denials": [],
+      "result": "## Use `gzs-change-review` inside your workflow's review step\n\n**Recommendation:** use `gzs-change-review`, and only that skill. It's in the catalog for reviewing a bounded implementation change. It reports prioritized findings with evidence. It doesn't implement fixes or own approval, so your workflow keeps its reviewer roles, gates and sign-off.\n\n**Sequence:** none. Don't add `gzs-quality-gate` or `gzs-intent-audit`, because your workflow already owns the gates and approval.\n\n**Before you start:**\n- Run it from the review step your workflow assigns, under whichever reviewer role the workflow gives it.\n- Define the diff precisely: base and head refs, or the exact files or commits in scope.\n- Give the findings to the workflow's approval gate. The skill's report doesn't decide the outcome.\n- This directory isn't a Git repository, so run it in the repository that holds the diff.\n\n**Side effects:** it only reads and reports. It doesn't modify files, push anything or approve the change.\n\n**Invocation:** `/gz-skills:gzs-change-review`. That namespace is how it appears in this session's skill listing. It can also start on its own when a request matches.\n\n**Starting prompt:**\n> \"Within [workflow name]'s [reviewer role] step, review the diff from `<base>` to `<head>` and report prioritized, evidence-backed findings for the workflow's approval gate. Don't fix anything or approve the change.\"\n\n**Next action:** at your workflow's review gate, run that command with the diff range filled in.\n\nThe built-in `/code-review` is a separate option. I'd avoid it here because its `--fix` and `--comment` flags can change files or post to a PR, which would bypass your workflow."
+    },
+    {
+      "case": "baseline",
+      "session_id": "0bdeca15-9991-4c46-aab2-7a012a61ac27",
+      "model": "claude-opus-5-5",
+      "claude_code_version": "2.1.302",
+      "candidate_plugins": [],
+      "tool_calls": [
+        {
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\gz-router-acceptance-20261025-baseline\\CLAUDE.md"
+          }
+        },
+        {
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\gz-router-acceptance-20261025-baseline\\AGENTS.md"
+          }
+        },
+        {
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\gz-router-acceptance-20261025-baseline\\README.md"
+          }
+        },
+        {
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\Jeff\\.claude\\projects\\C--Users-Jeff-AppData-Local-Temp-gz-router-acceptance-20261025-baseline\\memory\\MEMORY.md"
+          }
+        },
+        {
+          "name": "Read",
+          "input": {
+            "file_path": "C:\\Users\\Jeff\\AppData\\Local\\Temp\\gz-router-acceptance-20261025-baseline\\.claude\\skills"
+          }
+        }
+      ],
+      "is_error": false,
+      "num_turns": 6,
+      "permission_denials": [],
+      "result": "I can't give you a reliable GovZero skill recommendation yet, because I can't find any GovZero skill definitions in this session. I checked for:\n\n- `CLAUDE.md`, `AGENTS.md` and `README.md` in the working directory. None of them exist.\n- `.claude\\skills\\` in the working directory. It doesn't exist.\n- Project memory (`MEMORY.md`). It's empty.\n\nNone of the tools or skills available to me here are GovZero skills. If I named any, I'd be making them up. The directory also isn't a git repo, so there's no branch diff to use as context.\n\n**Send me one of these and I'll name the exact skill or sequence:**\n1. The path to the GovZero skills directory or catalog (for example, a `skills/` folder with `SKILL.md` files, or a registry file)\n2. The skill list pasted here\n3. The path to the diff or patch file, so I can match the skill to what the change actually touches\n\n**Until then, here's the sequence I'd look for in the catalog, in this order:**\n1. **Scope / intake.** A skill that fixes the review boundary: which files and hunks are in scope and which are explicitly out. This keeps the review bounded.\n2. **Diff review.** A skill aimed at regression risk, not style. It should look at changed behavior, callers of modified functions, changed contracts or signatures, removed checks, and error-handling paths.\n3. **Test-impact check.** A skill that maps changed code to existing tests and flags changed paths with no coverage.\n4. **Findings report.** A read-only output step that lists regressions by severity with `file:line` references and makes no edits.\n\nIf the catalog has one combined \"review\" skill with a read-only or report-only mode, use that for a bounded diff instead of the full sequence. I'd avoid any skill that auto-applies fixes, since you asked for a review only."
+    }
+  ]
+}

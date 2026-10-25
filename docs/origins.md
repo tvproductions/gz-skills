@@ -148,8 +148,11 @@ or repository-owned seams, and test representative path and process behavior.
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
   `src/gzkit/skills/gz-skill-router/SKILL.md`
 
-The portable invariant is a user-invoked curator that maps an immediate goal to
-the smallest useful skill or sequence without executing the selected workflow.
+The extraction record began with a user-invoked curator. The current portable
+router supports both user and model invocation for read-only orientation, as
+reflected in its OpenAI metadata and OpenCode registration. Its invariant is to
+map an immediate goal to the smallest useful skill or sequence, or state that no
+catalog skill fits, without executing the selected workflow.
 The source router's decision-tree pattern credits `using-agent-skills` from
 `addyosmani/agent-skills` under MIT; the portable catalog and routing text here
 were rewritten for GovZero's independently authored skills.

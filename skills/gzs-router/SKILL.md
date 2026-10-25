@@ -3,7 +3,7 @@ name: gzs-router
 description: Orient users to the GovZero portable skill catalog. Use when they need the right skill or sequence, ask how to discover, invoke, install, or update GovZero skills, or need help diagnosing skill availability or invocation behavior.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.5.0"
+  govzero-version: "0.5.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -35,9 +35,10 @@ Prefer, in order:
 2. A project-local skill that already covers the goal.
 3. The catalog in this bundle.
 
-The third rung is the floor and ships with the router itself, so this skill is
-never unable to answer. Routing to a portable skill is always possible; what
-varies is whether a project surface should take precedence over it.
+The third rung is the floor and ships with the router itself, so an orientation
+answer remains possible without a project surface. When no catalog skill fits,
+say so and recommend ordinary agent work. When one fits, check whether a project
+surface should take precedence over it.
 
 ## Route a task
 
@@ -50,7 +51,11 @@ varies is whether a project surface should take precedence over it.
    a genuine next phase, not merely related.
 4. State prerequisites, mutation or remote effects, and whether explicit user
    invocation is required.
-5. Give the exact `$skill-name` invocation and a one-sentence starting prompt.
+5. Give the exact invocation supported by the observed harness, preserving any
+   plugin namespace shown in its command listing, and a one-sentence starting
+   prompt. Do not assume `$skill-name` works in every harness. If the syntax is
+   unverified, name the skill and give a discovery step instead of claiming an
+   exact command.
 6. When no skill fits, say so. Recommend ordinary agent work rather than forcing
    a catalog match.
 
@@ -64,7 +69,9 @@ varies is whether a project surface should take precedence over it.
    - Harnesses discover installed skill names and activation descriptions, then
      load a matching skill's body when needed.
    - Model-invoked skills may activate when the request matches. Explicit-only
-     skills require the user to invoke their exact `$gzs-*` name.
+     skills require explicit user invocation in the harness's supported syntax;
+     preserve any plugin namespace rather than assuming a universal `$gzs-*`
+     command.
    - Managed plugins are read-only subscriptions updated by the harness's plugin
      manager. Do not direct users to edit an installed plugin cache.
    - Vendored snapshots are installed and updated with the `gz-skills` Python

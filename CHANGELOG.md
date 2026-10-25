@@ -6,15 +6,58 @@ fleet updates.
 
 ## Unreleased
 
+## 0.8.1 - 2026-10-25
+
+Bundle **0.8.1**, compared with released v0.8.0: compatible router and
+quality-gate corrections require a patch. All bundle manifests, source fallback
+and lock select 0.8.1; marketplace refs and installation examples select v0.8.1.
+No consumer migration or stable-contract promotion is included.
+
+| Skill | Previously released | This release | Classification |
+| --- | --- | --- | --- |
+| `gzs-router` | 0.5.0 | 0.5.1 | Compatible fallback and host-invocation wording corrections |
+| `gzs-quality-gate` | 0.1.1 | 0.1.2 | Compatible final-verification fallback correction |
+
 ### Fixed
+
+- Correct the router fallback to allow an explicit no-match orientation answer,
+  and reconcile extraction provenance with current user/model invocation.
+  Native Claude validation also exposed a hard-coded dollar invocation; prefer
+  the observed harness command syntax and plugin namespace, or report it as
+  unverified instead of presenting an assumed exact command.
+  Compared with released v0.8.0, `gzs-router` advances from 0.5.0 to 0.5.1 as a
+  compatible wording correction, covered by bundle 0.8.1. No activation
+  policy or migration changes. The review records correction evidence.
+  Seven authorized native Claude sessions provide selected positive,
+  negative, no-match, host-syntax, diagnostic and workflow-precedence evidence,
+  including a no-skill control. Earlier authentication/approval blockers were
+  resolved. Selected native Codex snapshot checks also pass after restoring its
+  existing Windows sandbox implementation for the isolated process. OpenCode
+  authentication and its launcher were restored. OpenCode 2.1.4 loads the
+  candidate skill tree; provider privacy restrictions still block behavioral
+  inference. Full cross-harness stable acceptance remains pending.
+
+- Reconcile the roadmap with the twenty-skill catalog, pending patch publication,
+  closed issue #1 and remaining proposals; complete the stable-contract review
+  queue with project setup and both Pythonic pattern skills. Keep SP-BP work
+  with its owner and integrated heavy readiness explicitly unproven. This is
+  repository-only planning documentation; skill and bundle versions are unchanged.
 
 - Correct `gzs-quality-gate` final verification for repositories without an
   aggregate gate (issue #1): run the complete sequence resolved during discovery,
   require every command to succeed, and retain missing required commands as
   explicit gaps that prevent a full-pass claim. Compared with released v0.8.0,
-  the skill advances from 0.1.1 to 0.1.2 and the pending bundle from 0.8.0 to
+  the skill advances from 0.1.1 to 0.1.2 and the bundle from 0.8.0 to
   0.8.1 as compatible corrections. Bundle manifests, source fallback and lockfile
-  agree; released marketplace pins remain at v0.8.0. No migration is required.
+  agree; marketplace pins select v0.8.1. No migration is required.
+
+Validation: all 28 unittest cases and all twenty Agent Skills specification
+checks pass. Claude strict plugin/marketplace validation and Codex native
+candidate loading pass. Codex and Claude HTTPS marketplace installs from the
+preceding immutable v0.8.0 pass in disposable configurations. OpenCode 2.1.4
+loads the local candidate through its native skill registry; this is distinct
+from inference. Artifact digests and tagged-channel acceptance are recorded
+with the GitHub release after publication.
 
 ## 0.8.0 - 2026-10-11
 

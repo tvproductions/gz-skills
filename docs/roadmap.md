@@ -1,13 +1,58 @@
-# Skill roadmap
+# Skill roadmap and backlog
 
-This roadmap records the three additions promoted into the `0.3.0`
-catalog. They extend the portable-primitives layer established by
-`gzs-root-cause-debugging`; they do not introduce an alternate planning,
-execution, review, or closeout lifecycle. No further near-term additions are
-currently planned.
+Reconciled: 2026-10-25. This is the repository's planning index; detailed
+contracts and evidence remain in the linked records. The order below is the
+recommended next-work order, not approval to implement or publish a proposal.
+It introduces no issue graph or adopting-project lifecycle.
 
-These contracts are now installable, independently versioned, represented in
-provenance and review records, and available through `gzs-router`.
+## Delivered releases
+
+The `v0.8.1` patch retains twenty canonical skills. The
+[README catalog](../README.md) lists them and the [changelog](../CHANGELOG.md)
+records their release history. Implemented capabilities include project profile
+setup, Pythonic pattern detection/application, Python-version-aware guidance,
+and the release primitive. Implementation does not establish stable-contract
+acceptance or integrated heavy-profile readiness.
+
+[Issue #1](https://github.com/tvproductions/gz-skills/issues/1) is closed.
+Discovery/fallback declarations and their regression check shipped in v0.4.0;
+the remaining quality-gate final-step contradiction was corrected in
+`c5703ef12061217a2866fbb9f482f168f768a193`. The `0.8.1` release includes that
+correction (quality-gate skill `0.1.2`) and router `0.5.1`; see the
+[release record](https://github.com/tvproductions/gz-skills/releases/tag/v0.8.1)
+for publication, artifacts and channel-install evidence.
+
+## Current backlog
+
+| Order | Work | Status and owner | Next action and completion evidence |
+| ---: | --- | --- | --- |
+| 1 | One-by-one stable-contract reviews | In progress; gz-skills | Router 0.5.1 has selected native Claude and Codex scenario evidence. OpenCode 2.1.4 loads the candidate; inference still needs a privacy-compatible provider/model. `gzs-git-sync` is next queued. Cover all twenty skills in the [review queue](review/README.md); record individual decisions and behavioral evidence before claiming stable acceptance. |
+| 2 | First-use and heavy-profile integration | Candidate design; gz-skills with SP/SP-BP and adopter owners | Prove native discovery, direct/model-selected routing, hook-independent operation and task resumption on supported harnesses. Design and test any settings schema migration and publish a verified compatibility set. Selecting heavy alone is insufficient. |
+| 3 | Four attributed MPAS adaptations | Proposed catalog additions; gz-skills | Pin upstream sources, verify attribution/licenses, adapt the four named skills, define refresh maintenance and test interactions. Follow the [ecosystem proposal](proposals/lightweight-sdd-ecosystem.md); do not require a fourth installed plugin. |
+| 4 | Opt-in repository baseline | Discussion proposal; ownership undecided | Decide source ownership, accept a baseline specification and run read-only pilots before implementing audit/apply or delivery workflows. See the [baseline handoff](proposals/repository-baseline-bootstrap.md). |
+
+Backlog reconciliation itself is complete in this documentation update: the
+review queue includes all twenty implemented skills, shipped additions are
+separate from proposals, and closed issue #1 is retained as resolution history.
+No other open GitHub issues or PRs were found in the preceding 2026-10-25 check;
+that observation is a dated snapshot, not a continuously synchronized view.
+
+## External dependencies and ownership
+
+The [ecosystem proposal's remaining work](proposals/lightweight-sdd-ecosystem.md#remaining-design-and-proof-work)
+also depends on SP-BP's issue-kind/relationship schema, reconciliation,
+traceability and V&V, snapshot-derived views, release gate and migration pilots.
+Those contracts, Python implementation, ADRs and tests belong in SP-BP; this
+index neither approves them nor establishes their current implementation state.
+Superpowers retains feature specification and execution ownership. Adopters own
+governing-document approval, runtime choices and project verification.
+
+## Completed 0.3.0 promotion history
+
+The sections below preserve the promotion contracts for `gzs-change-review`,
+`gzs-dependency-risk-audit` and `gzs-test-driven-change`. They are implemented
+catalog members, not future additions. They extend the portable-primitives layer
+without introducing an alternate planning, execution, review or closeout lifecycle.
 
 ## Shared architecture
 
@@ -23,14 +68,14 @@ Every roadmap skill must satisfy the same composition rules:
 - Diagnosis or review does not silently expand into implementation. External or
   remote mutation requires authority from the request or governing workflow.
 
-## Promotion order
+## Historical promotion order
 
 1. `gzs-change-review`
 2. `gzs-dependency-risk-audit`
 3. `gzs-test-driven-change`
 
-The order reflects current readiness, not importance. A later skill may move
-forward first if its portable contract and provenance become clearer sooner.
+This was the promotion order for the completed 0.3.0 additions, not the current
+backlog priority or stable-contract review order.
 
 ## `gzs-change-review`
 

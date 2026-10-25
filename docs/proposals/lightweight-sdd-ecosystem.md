@@ -3,6 +3,10 @@
 Status: candidate for review, not an implementation or release approval.
 Recorded: 2026-09-27. This continues the [session handoff](../handoffs/2026-09-27-lightweight-sdd-ecosystem.md).
 
+Reconciliation note (2026-10-25): project setup and the Pythonic pattern pair
+have shipped; see the [current roadmap and backlog](../roadmap.md). The integrated
+heavy workflow, first-use proof and four MPAS adaptations remain candidate work.
+
 ## Purpose and ownership
 
 Give adopting repositories a choice between standalone portable skills (`lite`)
@@ -96,7 +100,7 @@ in small verified steps through SP-BP and SP. The existing
 refactoring but does not implement it. [Incremental displacement](https://martinfowler.com/bliki/StranglerFigApplication.html)
 and expand-contract are guides where they fit.
 
-Pythonic refactoring is a separate concern. The pending portable curations
+Pythonic refactoring is a separate concern. The released portable skills
 `gzs-pythonic-pattern-detect` and `gzs-pythonic-pattern-apply` respectively
 review concrete candidates and apply one authorized change with a behavior
 test that passes before and after. Assess whether the proposed Python

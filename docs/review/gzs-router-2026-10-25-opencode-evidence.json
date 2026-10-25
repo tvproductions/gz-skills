@@ -1,0 +1,23 @@
+{
+  "observed_date": "2026-10-25",
+  "opencode_version": "2.0.11",
+  "candidate_config": "Local candidate package directory configured in temporary project; mutation actions denied",
+  "configured_plugins": [
+    "-gz-skills",
+    "U:/repos/agents/gz-skills"
+  ],
+  "native_skill_loading_verified": false,
+  "inference_completed": false,
+  "exit_code": 1,
+  "error": {
+    "type": "provider.auth",
+    "message": "This API key has expired. Create a new API key in OpenCode Console and replace it in your client or secret store. Signing in again will not renew this key.",
+    "status": 401
+  },
+  "authenticated_retry_error": {
+    "type": "provider.invalid-request",
+    "message": "Upstream request failed: This Go model trains on request data. Allow paid endpoints that train on request data in your workspace's Privacy settings to use it.",
+    "status": 400
+  },
+  "launcher_followup": "Previously discovered npm opencode launcher no longer exists; awaiting completed user setup before retry."
+}
