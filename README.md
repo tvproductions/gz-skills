@@ -50,6 +50,13 @@ language, host or lifecycle requirement. `gzs-git-sync` still handles ordinary
 commit/push save points. The release adds the skill to the tagged canonical
 catalog. Native installation and fresh-session workflow execution are separate acceptance evidence.
 
+For this repository's own releases, [the policy binding](docs/release-policy.md)
+adopts gz-skills-first-starter as the authoritative alignment source, including
+new PRDs for future major releases and recurring source consistency checks.
+[Backplane owns lite/heavy mode definitions](https://github.com/tvproductions/superpowers-backplane/blob/main/docs/superpowers-backplane/modes.md)
+and product continuity. The setup helper records an explicit choice; it does
+not establish Backplane readiness. Portable skills still follow consumer policy.
+
 ## Python-version-aware workflows
 
 Release 0.7.0 reinforces project-policy obedience in the existing Python

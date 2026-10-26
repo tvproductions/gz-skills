@@ -35,9 +35,12 @@ GovZero skills.
   release logic, CLI/helpers, and tests belong in Python. Keep host adapters
   minimal and delegated to that core. Do not infer Go from the vendor-neutral
   skill boundary. SP-BP owns its exact Python runtime and packaging policy.
-- Carry the heavy profile's constitution, PRD, architecture, ADR, TDD, BDD, DDD,
-  and proportionate hexagonal preferences into adopting-project guidance. Do not
-  impose them on this skill library or require blanket rewrites of existing code.
+- Carry the approved heavy profile's constitution, PRD, architecture, ADR, TDD,
+  BDD, DDD and proportionate hexagonal preferences into adopting-project guidance
+  under Backplane's mode authority. Do not impose those architecture/workflow
+  preferences on this skill library or require blanket rewrites. This repository
+  separately adopts the starter's major-release PRD requirement through its
+  release-policy binding.
 - Use `docs/guides/heavy-python-environment.md` for the reviewed normal
   Python 3.13 and XPPython3-oriented 3.12 heavy-project profiles. Provide
   the common tool assortment through `gzs-project-setup` and reconcile it on
@@ -45,6 +48,24 @@ GovZero skills.
   compatibility, and verification.
 - Preserve the implemented setup helper's narrow `schema_version` and `profile`
   contract until a schema extension and migration are designed and tested.
+
+## Template policy alignment
+
+- The maintainer's authoritative engineering and release policy source is
+  [gz-skills-first-starter](https://github.com/tvproductions/gz-skills-first-starter).
+  Follow this repository's binding in [docs/release-policy.md](docs/release-policy.md).
+  Check the source before release preparation, at scoped policy/tooling maintenance,
+  and when notified of relevant changes; record the reviewed revision, decisions,
+  gaps and approved exceptions. Local summaries do not supersede that source.
+- Adopt its SemVer, coherent minor-release bundling and prospective new-PRD rule
+  for every bundle or independently versioned skill major, including 1.0.0.
+  Preserve historical releases and the additional individual/catalog review gates.
+- Backplane owns requirements tracking, labels, backlog/release monitoring,
+  handoffs and lite/heavy mode definitions. Refer to its mode authority; keep
+  the existing setup settings contract and explicit profile choices intact.
+- This is repository governance, not formal template adoption. Do not bootstrap
+  the starter bundle here or impose these policies on unrelated skill consumers.
+  Portable skills continue to discover and obey each consumer's policy.
 
 ## Skill contract
 

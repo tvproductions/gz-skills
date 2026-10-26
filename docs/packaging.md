@@ -92,6 +92,15 @@ They remain intentionally in progress during the 0.x development series.
 
 ## Release governance
 
+Read [the repository release-policy binding](release-policy.md) and its canonical
+starter source before preparing a release. The starter owns shared policy;
+this document owns gz-skills publication details. Complete the source consistency
+check and record applicable differences before claiming alignment. Every future
+bundle or independently versioned skill major, including 1.0.0, requires a newly
+written PRD under that policy as well as the existing stable-contract review.
+Select coherent minor-release bundles; compatible patches add no new baseline
+obligations. Published versions and historical evidence remain unchanged.
+
 A version in `main` is a candidate, not a release. The remote immutable tag
 identifies the released catalog. A plugin cache or a manifest's version string
 does not prove that a release exists. Check each harness's publication and

@@ -6,6 +6,16 @@ fleet updates.
 
 ## Unreleased
 
+- Align repository release governance with gz-skills-first-starter as the
+  authoritative policy source: source consistency checks, coherent minor bundles,
+  and newly written PRDs for future bundle and individual-skill majors, including
+  1.0.0. Refer lite/heavy mode and product-continuity ownership to Backplane.
+  This pending repository-policy change modifies no shipped skill tree or
+  consumer settings and does not retrospectively change release acceptance.
+  See [the policy binding](docs/release-policy.md), reconciled to starter commit
+  `35ac0578dab0c7b603a9545d9b6b630ee006e551`. Repository verification passes all
+  28 unittests and source/wheel builds; no GitHub Actions workflow is configured.
+
 ## 0.8.3 - 2026-10-25
 
 Bundle **0.8.3**, compared with released v0.8.2: promote the individually
