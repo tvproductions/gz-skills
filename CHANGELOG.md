@@ -6,7 +6,12 @@ fleet updates.
 
 ## Unreleased
 
-- Prepare candidate bundle 0.9.0: `gzs-project-setup` 0.3.1 → 0.4.0 and
+## 0.9.0 - 2026-11-07
+
+Release verification and consumer impact are recorded in the
+[0.9.0 receipt](docs/evidence/2026-11-07-0.9.0-release.md).
+
+- Release bundle 0.9.0: `gzs-project-setup` 0.3.1 → 0.4.0 and
   `gzs-update-dependencies` 0.3.0 → 0.4.0 retire the competing Python family,
   tool assortment and package-policy defaults. Resolve the consuming project's
   adopted authority and preserve explicit choices; missing/unavailable policy
@@ -23,7 +28,7 @@ fleet updates.
   authoritative policy source: source consistency checks, coherent minor bundles,
   and newly written PRDs for future bundle and individual-skill majors, including
   1.0.0. Refer lite/heavy mode and product-continuity ownership to Backplane.
-  This pending repository-policy change modifies no shipped skill tree or
+  This repository-policy change modifies no shipped skill tree or
   consumer settings and does not retrospectively change release acceptance.
   See [the policy binding](docs/release-policy.md), reconciled to starter commit
   `35ac0578dab0c7b603a9545d9b6b630ee006e551`. Repository verification passes all

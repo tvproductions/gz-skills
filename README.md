@@ -37,7 +37,7 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The latest immutable bundle release is `v0.8.3`; `v0.2.0` was the first. The
+The latest immutable bundle release is `v0.9.0`; `v0.2.0` was the first. The
 catalog remains in the SemVer 0.x development series while the one-by-one
 behavioral review matures toward 1.0.0.
 
@@ -167,7 +167,7 @@ adopting project verifies only the harnesses it uses. The present setup helper
 records only `schema_version` and `profile`.
 
 The standalone setup helper supports Python 3.11 or newer. Installing this
-candidate bundle's Python CLI requires the Python 3.14 family (`>=3.14,<3.15`). A missing interpreter is
+bundle's Python CLI requires the Python 3.14 family (`>=3.14,<3.15`). A missing interpreter is
 reported without changing the repository. The plugin managers own plugin
 installation; the project profile is not a request to copy skill trees.
 
@@ -191,7 +191,7 @@ over the same canonical `skills/` tree.
 - Codex can install the released bundle from this repository marketplace:
 
   ```text
-  codex plugin marketplace add tvproductions/gz-skills@v0.8.3
+  codex plugin marketplace add tvproductions/gz-skills@v0.9.0
   codex plugin add gz-skills@gz-skills
   ```
 
@@ -206,7 +206,7 @@ over the same canonical `skills/` tree.
   /plugin install gz-skills@gz-skills
   ```
 
-- OpenCode v2 can install the `v0.8.3` Git package per project. The
+- OpenCode v2 can install the `v0.9.0` Git package per project. The
   earlier `v0.4.0` package uses the OpenCode v1 adapter.
 
   In each adopting repository, add this to its `opencode.jsonc`:
@@ -215,7 +215,7 @@ over the same canonical `skills/` tree.
   {
     "$schema": "https://opencode.ai/config.json",
     "plugins": [
-      "git+https://github.com/tvproductions/gz-skills.git#v0.8.3"
+      "git+https://github.com/tvproductions/gz-skills.git#v0.9.0"
     ]
   }
   ```
@@ -234,7 +234,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.8.3 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -264,14 +264,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.8.3 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.8.3 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -280,9 +280,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.8.3 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.8.3 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.8.3 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 
@@ -351,8 +351,8 @@ become portable merely because several projects copied it.
 Local development uses managed Python 3.14.10 from `.python-version`. This
 ordinary Python project declares `>=3.14,<3.15` and accepts uv >=0.13.5 without
 an upper bound. These repository-owned choices do not set consumer runtimes.
-Candidate 0.9.0 raises the Python CLI floor from the published 0.8.3 baseline;
-existing tagged installation examples still identify that published release.
+Release 0.9.0 raises the Python CLI floor from the 0.8.3 baseline.
+Use Python 3.14 for the snapshot CLI; native skill plugins do not require it.
 
 ```powershell
 uv run --locked python -m unittest discover -s tests -v
