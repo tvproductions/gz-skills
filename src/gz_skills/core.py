@@ -232,7 +232,7 @@ def source_revision(source_root: Path | None = None) -> str:
             capture_output=True,
             text=True,
         )
-    except (OSError, subprocess.CalledProcessError):
+    except OSError, subprocess.CalledProcessError:
         return _distribution_vcs_revision() or f"package:{__version__}"
     revision = head.stdout.strip()
     if not revision:

@@ -1,10 +1,10 @@
 [project]
 name = "govzero-skills"
-version = "0.8.3"
+version = "0.9.0"
 description = "Portable GovZero agent skills and their pinned installer"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.13"
+requires-python = ">=3.14,<3.15"
 authors = [
     { name = "GovZero" }
 ]
@@ -33,3 +33,20 @@ packages = ["src/gz_skills"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "skills" = "gz_skills/bundled"
+
+[tool.uv]
+required-version = ">=0.13.5"
+python-preference = "only-managed"
+
+[tool.ruff]
+target-version = "py314"
+
+# Portable helper compatibility is distinct from this publisher's CLI runtime.
+[tool.ruff.per-file-target-version]
+"skills/**/*.py" = "py311"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ty.environment]
+python-version = "3.14"

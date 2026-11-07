@@ -3,7 +3,7 @@ name: gzs-update-dependencies
 description: Assess freshness or update project-managed dependencies, runtime pins, tools, adopted templates, and agent plugins against project policy. Use for dependency freshness checks, outdated-version reviews, package/tool upgrades, lockfile refreshes, or bringing a project's toolchain current; a freshness-only request leaves dependency state unchanged.
 compatibility: Requires network access to authoritative package and tool sources plus the package managers used by the target repository.
 metadata:
-  govzero-version: "0.3.0"
+  govzero-version: "0.4.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -92,52 +92,41 @@ already declared. Read project-specific exceptions before treating a difference
 as drift. A repository using `.gzkit/` has its own project workflow; yield
 execution to that workflow and report any standard mismatch to its owner.
 
-An approved project or adopted starter policy defines the effective baseline;
-the defaults below apply where that policy leaves a choice open. Preserve its
-selected runtime family, additional runtime packages, optional features,
-development groups, package sources, and reviewed constraints or overrides.
-Inventory and update those additions within the authorized scope alongside the
-baseline. Never replace the project's declarations with a baseline-only list or
-reintroduce a tool its approved policy has retired. Record compatibility evidence
-and reasons for intentional differences; unexplained drift remains a finding.
-Application settings and local workflow extensions retain their project-owned
-schemas and precedence. Do not put them in the minimal gz-skills profile file.
+An approved project or adopted starter policy defines the effective baseline.
+Resolve the recorded authority and applicable revision before selecting runtime
+families, tools, package permissions or gate cadence. Preserve its approved
+exceptions, additional packages, optional features, development groups, sources
+and compatibility constraints. A mode selection does not itself adopt a starter
+or supply an environment standard.
 
-For the GovZero heavy Python standard, use the same development assortment in
-both profiles:
+Record authority, selected family, exact execution pin, supported range, host
+constraints, required tools and verification commands as separate findings.
+Where governing policy is missing, unavailable or contradictory, report that
+requirement UNKNOWN and request the missing decision. Do not substitute an
+internal default, infer policy from the installed runtime, or interpret an
+unavailable adopted source as permission to choose another baseline. Continue
+independent authorized inventory while leaving dependent changes unresolved.
 
-- Astral: uv, Ruff, ty.
-- Code quality: Bandit, Vulture, Interrogate, detect-secrets.
-- Tests: standard-library unittest, Coverage, Behave, unittest-parallel,
-  Cosmic Ray.
-- Complexity: Radon, Xenon, Lizard, Cohesion.
-- Documentation: MkDocs, MkDocs Material.
-- Packaging: uv_build is the target for pure-Python packages; inspect wheel,
-  sdist, installed entry point, and resources before replacing a backend.
-  PyInstaller is included only when shipping a standalone executable.
+Use the project's required assortment when reconciling missing tools. This
+portable skill owns no fallback Python family, fixed tool list or runtime-package
+allow/deny policy. Never replace a project's declarations with a library-owned
+baseline or reintroduce tools the project has retired. Keep application settings
+in their owning schema, not the minimal gz-skills profile file.
 
-Use the latest supported patch within the project's approved runtime family;
-the default guidance is 3.13.x for ordinary Python and 3.12.x for
-XPPython3-oriented code when no other family is adopted. A family change is a
-separate compatibility decision, not an automatic consequence of refreshing
-the patch. The `.python-version` file records the exact current
-development patch; a 3.12.x pin is a hint, so confirm host orientation from
-the code and project policy. Keep `requires-python` as the tested package
-compatibility range. The XPPython3 development environment is separate from
-the host interpreter. Pydantic is an approved, optional runtime dependency
-for ordinary Python and excluded by policy from the XPPython3 profile; do not
-add it merely because it is permitted. Start runtime dependencies from the
-standard library and add others only for shipped capabilities. Development
-tools must not enter the runtime unless the product actually uses them as
-libraries.
+Refresh patches within the approved runtime family unless the user authorizes
+a family migration. Distinguish package support from development execution and
+host interpreter compatibility. Inspect actual host-bound loading behavior;
+a development pin alone does not establish that a project loads in a host.
+Keep development tools outside shipped runtime dependencies unless the product
+uses them as libraries. Preserve project manager compatibility requirements
+separately from an exact tested CI version; do not impose a matching-version
+rule the governing policy does not require.
 
-The project defines quality commands, thresholds, accepted exceptions, and
-mutation scope. Bring missing standard packages into its development group
-and lock, but do not invent a numeric gate, impose a repo-wide mutation score,
-remove an approved dependency, or change a published compatibility claim
-without evidence. If package-layout parity, host compatibility, or another
-binding constraint prevents reconciliation, preserve the working state and
-report the precise unresolved item; do not claim the profile is current.
+The project defines quality commands, thresholds, exceptions and mutation scope.
+Reconcile required packages in their existing groups and lock without inventing
+new numeric gates, removing approved dependencies or expanding public support
+claims without evidence. If a binding constraint prevents reconciliation,
+preserve the working state and name the unresolved item; do not claim readiness.
 
 ## Workflow
 

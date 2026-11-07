@@ -6,6 +6,19 @@ fleet updates.
 
 ## Unreleased
 
+- Prepare candidate bundle 0.9.0: `gzs-project-setup` 0.3.1 → 0.4.0 and
+  `gzs-update-dependencies` 0.3.0 → 0.4.0 retire the competing Python family,
+  tool assortment and package-policy defaults. Resolve the consuming project's
+  adopted authority and preserve explicit choices; missing/unavailable policy
+  stays UNKNOWN. Heavy selection does not supply another baseline. This changes
+  the pre-1.0 fallback contract and needs minor reconciliation, not a patch.
+- Independently bind this repository to the maintainer's ordinary Python 3.14
+  family (`>=3.14,<3.15`), managed exact 3.14.10 and minimum-only uv >=0.13.5.
+  The Python CLI support change requires migration from published 0.8.3;
+  portable standalone helper compatibility remains distinct. Package backend,
+  dependencies, published marketplace refs and installed plugins are unchanged.
+  See [alignment evidence](docs/evidence/2026-11-07-python-policy-alignment.md).
+
 - Align repository release governance with gz-skills-first-starter as the
   authoritative policy source: source consistency checks, coherent minor bundles,
   and newly written PRDs for future bundle and individual-skill majors, including

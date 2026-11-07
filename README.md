@@ -152,11 +152,11 @@ and delegate to that core; Go is not an implementation language for SP-BP.
 Adopting projects own approved
 constitution, PRD, architecture, and material ADRs. Existing project documents
 are mapped into those shapes and approved, not silently replaced.
-The [heavy Python environment standard](docs/guides/heavy-python-environment.md)
-uses the same reviewed development assortment with Python 3.13 for ordinary
-projects and Python 3.12 for code oriented to XPPython3. The
-[cross-repository inventory](docs/research/python-install-profile-evidence-2026-09-27.md)
-records the evidence; each adopter approves its exact environment and gate.
+The [Python authority guide](docs/guides/heavy-python-environment.md) explains
+how setup and maintenance consume each project's governing standard, including
+its adopted starter revision. gz-skills supplies no competing runtime family,
+fixed tool assortment or package policy. Missing authority remains unresolved;
+selecting heavy does not adopt a starter or authorize unrelated installation.
 
 The proposal favors proportionate TDD, BDD, DDD, and hexagonal architecture in
 adopting heavy projects. It calls for incremental refactoring guidance rather
@@ -167,7 +167,7 @@ adopting project verifies only the harnesses it uses. The present setup helper
 records only `schema_version` and `profile`.
 
 The standalone setup helper supports Python 3.11 or newer. Installing this
-bundle's Python CLI requires Python 3.13 or newer. A missing interpreter is
+candidate bundle's Python CLI requires the Python 3.14 family (`>=3.14,<3.15`). A missing interpreter is
 reported without changing the repository. The plugin managers own plugin
 installation; the project profile is not a request to copy skill trees.
 
@@ -348,11 +348,14 @@ become portable merely because several projects copied it.
 
 ## Validate
 
-Local development uses Python 3.13.15 from `.python-version`. The Python
-package requires Python 3.13 or newer.
+Local development uses managed Python 3.14.10 from `.python-version`. This
+ordinary Python project declares `>=3.14,<3.15` and accepts uv >=0.13.5 without
+an upper bound. These repository-owned choices do not set consumer runtimes.
+Candidate 0.9.0 raises the Python CLI floor from the published 0.8.3 baseline;
+existing tagged installation examples still identify that published release.
 
 ```powershell
-uv run python -m unittest discover -s tests -v
+uv run --locked python -m unittest discover -s tests -v
 
 Get-ChildItem .\skills -Directory | ForEach-Object {
     uvx --from skills-ref agentskills.exe validate $_.FullName

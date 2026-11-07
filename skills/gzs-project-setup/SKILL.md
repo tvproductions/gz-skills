@@ -3,7 +3,7 @@ name: gzs-project-setup
 description: Initialize or inspect a repository's GovZero skills profile. Use on first GovZero skill use in a project, when choosing lite or heavy, or when promoting an existing lite project to heavy; stop if the project uses gzkit.
 compatibility: Requires Python 3.11 or newer for the setup helper.
 metadata:
-  govzero-version: "0.3.1"
+  govzero-version: "0.4.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -97,40 +97,31 @@ project policy supplies each departure so later maintenance preserves it.
 
 ## Heavy Python environment guidance
 
-When a heavy adopter implements in Python, inspect its `pyproject.toml`,
-`.python-version`, lockfile, CI, and actual host runtime before recommending
-changes. Discover the project's approved runtime family and tool assortment
-first, including any adopted starter policy. Where none is established, a 3.12.x
-pin hints at XPPython3 orientation; confirm whether code loads in XPPython3 or
-is shared with it. Recommend the latest supported 3.12.x patch for that profile
-and 3.13.x for ordinary Python as the default guidance. Preserve a different
-approved family and its compatibility constraints. Keep the exact
-development patch in `.python-version` and the tested support range in
-`requires-python`; update CI and the committed lock together.
+Resolve the consuming project's governing runtime and engineering authority
+before selecting a family, tool assortment or package policy. If the project
+has adopted a starter, read its recorded revision and applicable baseline;
+that authority supplies the standards. Preserve approved local exceptions.
+A mode selection does not adopt a starter or establish a Python/tool baseline.
 
-Where the project has not adopted a different assortment, guide both profiles
-toward one development assortment: uv, Ruff, ty; Bandit,
-Vulture, Interrogate, detect-secrets; standard-library unittest, Coverage,
-Behave, unittest-parallel, Cosmic Ray; Radon, Xenon, Lizard, Cohesion; MkDocs
-and MkDocs Material. Prefer uv_build for pure-Python distributions, verifying
-wheel/sdist content and installed resources during migration. PyInstaller is
-available when a project ships a standalone executable. The project's
-quality gate defines scan scopes, thresholds, mutation targets, and commands;
-do not copy gzkit's numeric floors. Refresh current compatible versions through
-the project's update workflow or `gzs-update-dependencies` when available.
+Report the effective authority, selected family, exact development pin, declared
+support range, host constraints and required verification separately. A stored
+pin is execution evidence, not the source of policy. If governing policy is
+missing, inaccessible or contradictory, keep that decision unresolved and ask
+for the missing authority; do not fill it with a library-maintained default.
+The rest of a bounded settings operation may proceed where independent of it.
 
-Start shipped code with the standard library. Pydantic is an approved runtime
-option for the ordinary Python profile, not for the XPPython3-oriented profile.
-Other runtime packages need a product capability and verification under the
-actual interpreter. Keep development tools out of the shipped runtime unless
-the product explicitly uses one as a library. For XPPython3-loaded code,
-test plugin startup against the real host and do not mistake the development
-environment for the host's site-packages. After the user selects `heavy`,
-reconcile missing or stale standard tools, interpreter pin, development group,
-lock, and CI through the project's own update workflow or
-`gzs-update-dependencies` when installed. A profile selection does not prove
-the checks run: report completed work and any unresolved compatibility or
-packaging migration before claiming environment readiness.
+Use only the consuming project's required tools and package choices. Do not
+supply a second standard assortment, reintroduce retired analyzers or impose
+runtime-package exclusions. Selecting heavy does not authorize unrelated tool
+installation, a family change or replacement of approved project dependencies.
+Use the project's update workflow or `gzs-update-dependencies` for authorized
+reconciliation, preserving its managed-file, environment and verification rules.
+
+For host-bound code, determine the actual loading boundary and inspect the host
+interpreter separately. A version pin alone does not prove host orientation.
+Verify startup and packages in the real host; the standalone development
+environment cannot establish host compatibility. Keep development tools out of
+shipped runtime dependencies unless the product actually uses them as libraries.
 
 On demand, a user may promote `lite` to `heavy` with `select`. The helper
 rejects `heavy` to `lite`; reversal is not part of this version. Never edit

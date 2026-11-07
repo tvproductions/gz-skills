@@ -34,11 +34,11 @@ behavior and tests as migration input, then replace that implementation with
 Python rather than maintaining parallel cores. SP-BP owns its exact Python
 runtime and packaging policy.
 
-For Python adopting heavy projects, use the [Python environment standard](../guides/heavy-python-environment.md)
-to choose the normal 3.13.x or XPPython3-oriented 3.12.x profile, provision
-the common development assortment, isolate and lock dependencies, and make
-verification reproducible. The adopting project selects its exact compatible
-versions and gate during adoption.
+For Python adopting heavy projects, use the [authority-resolution guide](../guides/heavy-python-environment.md)
+to identify the governing project/adopted starter baseline, required tools,
+managed environment and verification. The older library-owned runtime/tool
+defaults are retired; the consuming authority supplies those choices. Missing
+authority remains unresolved rather than falling back to a library standard.
 
 ## Profiles and adoption
 

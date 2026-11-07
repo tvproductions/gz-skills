@@ -41,11 +41,11 @@ GovZero skills.
   preferences on this skill library or require blanket rewrites. This repository
   separately adopts the starter's major-release PRD requirement through its
   release-policy binding.
-- Use `docs/guides/heavy-python-environment.md` for the reviewed normal
-  Python 3.13 and XPPython3-oriented 3.12 heavy-project profiles. Provide
-  the common tool assortment through `gzs-project-setup` and reconcile it on
-  later `gzs-update-dependencies` runs; each adopter owns exact versions, host
-  compatibility, and verification.
+- Use `docs/guides/heavy-python-environment.md` to resolve each consumer's
+  governing policy, including its adopted starter revision. Setup and dependency
+  maintenance follow that authority; keep no competing runtime/tool/package
+  baseline in portable skills. Missing or unavailable authority stays unresolved.
+  Do not impose this repository's own Python selection on unrelated consumers.
 - Preserve the implemented setup helper's narrow `schema_version` and `profile`
   contract until a schema extension and migration are designed and tested.
 
@@ -135,6 +135,17 @@ GovZero skills.
   Do not install both a managed plugin and vendored copy into one discovery scope.
 
 ## Python tooling
+
+- This repository independently binds the maintainer's current Python policy:
+  ordinary projects use 3.14.x; X-Plane/XPPython3-bound projects use the supported
+  3.12.x host exception. gz-skills itself is ordinary Python: its declared family
+  is `>=3.14,<3.15`, with managed 3.14.10 recorded in `.python-version`.
+- Use minimum-only uv >=0.13.5 without an upper bound. Record the actual manager
+  and runtime; do not force supported callers to match a tested uv patch.
+- These are repository-development decisions under the starter source binding,
+  not formal template adoption or blanket constraints on skill consumers.
+- Use direct `git` and `gh` for routine repository/GitHub operations. Use
+  `uv run --locked python` for project scripts, tests and substantive processing.
 
 - Use `uv` exclusively to manage Python environments, dependencies, and builds.
 - Invoke all Python code through `uv`: use `uv run python` for scripts,

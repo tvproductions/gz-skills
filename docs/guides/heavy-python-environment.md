@@ -1,150 +1,65 @@
-# Python environment standard for adopting heavy projects
+# Python environment authority for adopting projects
 
-Status: agreed guidance for the Python implementation of the heavy profile.
-A consuming project's constitution and quality gate make its adopted choices
-binding. This is guidance; selecting `heavy` in `.gz-skills/settings.json`
-does not install tools or prove that the environment is ready. The standard is
-informed by the [cross-repository inventory](../research/python-install-profile-evidence-2026-09-27.md)
-and the [gzkit tool inventory](../research/gzkit-python-environment-profile-2026-09-27.md).
+The consuming project owns its runtime, tool assortment, package choices and
+verification gates. gz-skills discovers and applies that authority; it does not
+maintain a competing Python standard. This guide replaces the former ordinary
+3.13/XPPython3 profile and shared tool assortment. Historical receipts retain
+what they actually tested.
 
-## Project runtime evidence and code currency
+## Resolve authority before environment choices
 
-The 0.7.0 Python workflows resolve runtime evidence from the consuming
-project's `.python-version`, then `pyproject.toml`, then `.venv`. Distinguish
-execution selection, support range and installed observation; report conflicts,
-verify the actual validation interpreter and inspect a host runtime separately.
-Later evidence supplies fallback and consistency checks, not permission to
-replace project policy. Discovery alone never installs or updates an environment.
+1. Read the project's governing instructions and adopted policy. If a starter
+   is adopted, identify its recorded version/revision and applicable baseline.
+   Read that source before selecting a family or calling a difference drift.
+2. Record the authority, selected runtime family, exact execution pin, package
+   support range, host constraints and gate/tool requirements separately.
+   `.python-version`, `pyproject.toml` and the actual environment supply distinct
+   evidence; a stored pin cannot override the governing policy.
+3. Reconcile explicit local exceptions through their recorded owner and evidence.
+   A mode choice does not adopt a starter or prove integrated readiness.
+4. If authority is missing, unavailable or contradictory, report the dependent
+   decision UNKNOWN and obtain the missing source/decision. Do not treat an
+   inaccessible starter as a policy gap that library defaults may fill. Continue
+   independent inventory or settings work without inventing a runtime policy.
 
-Existing Python pattern, portability, setup and maintenance workflows use the
-project's selected version and adopted engineering policy for scoped assessment
-of current idioms, stdlib advances and deprecations. They do not establish a
-comprehensive version audit or authorize a codebase-wide rewrite. Ordinary
-runtime defaults below apply only where approved project policy leaves the choice
-open; a consuming starter's stronger policy remains its own binding.
+The maintainer's [starter baseline](https://github.com/tvproductions/gz-skills-first-starter/blob/main/docs/baseline-policy.md)
+is the authority where that starter governs a project. Read the project's
+reviewed adopted revision, not an assumed latest value from this guide.
+Unrelated consumers retain their own approved policy. This repository's own
+Python choice is recorded in AGENTS and its [source binding](../release-policy.md),
+not exported as a portable skill requirement.
 
-## Two interpreter profiles, one tool assortment
+## Apply the selected policy
 
-These are default recommendations for adopters without a different approved
-environment policy. An adopting project's constitution or starter binding owns
-its selected runtime family, tool assortment, and gate cadence. Preserve that
-policy during setup and maintenance, including retired tools and reviewed
-exceptions; selecting `heavy` alone does not authorize replacing it. Refresh
-within the approved family and review family changes separately.
+- Preserve the approved family, supported range, additional packages, sources,
+  retired tools, settings and explicit profile. Refresh the authorized patch
+  within that family; family migration needs its own reviewed scope.
+- Reconcile only the project's required tools. No library-owned default list,
+  analyzer selection, Pydantic permission/exclusion or packaging preference can
+  override it. Selecting heavy does not authorize unrelated installation.
+- Keep actual manager provenance separate from CI's tested selection and its
+  compatibility requirement. Enforce only the matching/version rules that the
+  governing project declares. A supported manager need not be the freshest one.
+- Preserve the existing dependency manager and generated lock contract. Use its
+  owning tooling for authorized updates; keep package/backend compatibility
+  claims separate from development interpreter selection.
+- Verify applicable project gates and installed artifacts. Record actual inputs,
+  checks, exceptions and missing evidence; installed versions and a profile
+  declaration alone do not establish readiness or freshness.
 
-| Profile | Selection | Interpreter |
-| --- | --- | --- |
-| Normal Python | Python project without an XPPython3 host constraint | Use the latest supported 3.13.x patch for development. |
-| XPPython3-oriented Python | Code loaded by XPPython3 or shared with that code | Use the latest supported 3.12.x patch for development and verify against the installed XPPython3 host. |
+## Host-bound projects
 
-Use `.python-version` to record the exact development patch. A 3.12.x pin is
-the discovery hint for the XPPython3 profile, not proof by itself; inspect the
-project's runtime and architecture. Declare the actual package support range
-with `[project].requires-python`. A multi-minor claim needs verification on
-each claimed minor. Update the patch pin, CI interpreter, tool constraints, and
-lock together. `gzs-update-dependencies` can discover current compatible
-releases and carry out that refresh; daily installs use the committed lock.
-Preserve an adopting project's existing supported range until a migration is
-deliberately reviewed.
+Identify code that actually loads in, or is shared with, an embedded host.
+Inspect the installed host's interpreter and packages separately. A development
+pin is a discovery signal, not proof of host orientation or compatibility.
+Follow the project's host-supported family and verify plugin startup in the
+real host. An external development interpreter does not replace an embedded one.
 
-Both profiles use the same **development assortment**:
+## Migration from the retired defaults
 
-| Category | Standard tools | Installation and use |
-| --- | --- | --- |
-| Astral | `uv`, `ruff`, `ty` | uv is the project manager; Ruff and ty belong to development dependencies. Keep the current compatible versions in project-managed constraints and `uv.lock`. |
-| Code quality | `bandit`, `vulture`, `interrogate`, `detect-secrets` | Install as development tools. Define source scope, reviewed exclusions, docstring policy, and secret baseline handling. |
-| Testing | `unittest`, `coverage`, `behave`, `unittest-parallel`, `cosmic-ray` | `unittest` is in the standard library; install the other four for development. Keep unit, BDD, coverage, parallel, and mutation commands explicit. |
-| Complexity | `radon`, `xenon`, `lizard`, `cohesion` | Install as development tools when used to inspect adopter code. Record thresholds, scope, and response to findings. |
-| Documentation | `mkdocs`, `mkdocs-material` | Maintain repository documentation and a reproducible site build, ready for subsequent Read the Docs publication when chosen. |
-| Packaging | `uv_build`; `pyinstaller` when shipping an executable | Prefer uv_build for pure-Python distributions. PyInstaller is in the standard assortment but is installed and gated only when the product delivers a standalone executable. |
-
-`uv_build` is the target backend for both gzkit and gz-skills, subject to
-package-content parity. Existing adopters migrate rather than replacing a
-working backend in one unverified edit. In particular, gz-skills authors skills
-only under top-level `skills/` and its installed CLI reads
-`gz_skills/bundled`; any backend change must preserve one authored tree and
-that wheel resource contract. Verify the wheel, sdist, installed entry point,
-and bundled resources. A project with native extension or unsupported build
-requirements records a justified backend exception.
-
-The assortment names what a heavy Python project should provision or make
-available. It does not require every expensive check on every local edit:
-`unittest`, Ruff, ty, coverage, static scans, documentation, and package checks
-can be part of the ordinary gate; Behave runs the applicable acceptance
-scenarios; Cosmic Ray runs selected consequential modules against a passing
-baseline. Classify killed, survived, invalid, and inconclusive mutants
-separately. Do not declare a universal mutation score or copy gzkit's coverage
-threshold. `unittest-parallel` is available in the standard environment, but
-only run suites concurrently after shared fixtures are made safe. The project
-owns its precise commands, thresholds, and cadence.
-
-## Runtime boundary
-
-Start with the Python standard library. Add a runtime package when a shipped
-capability needs it, declare it under `[project].dependencies`, and keep
-development-only tools out of the shipped runtime. A tool can legitimately be a
-runtime dependency when the product uses it as a library, as gzkit does for
-Radon, Lizard, and Cohesion; record that purpose explicitly.
-
-**Pydantic is an approved runtime option for the normal 3.13 profile**, for
-modeling and validation where it helps. It is not mandatory in every package.
-Do not add Pydantic to the XPPython3-oriented 3.12 profile. This is the
-profile's policy, not a claim that Pydantic cannot run on Python 3.12. Other
-packages such as Jinja2, JSON Schema, PyYAML, Rich, Structlog, NetworkX, and
-Tree-sitter remain capability-justified rather than universally installed.
-
-For XPPython3-loaded code, keep development tools in the separate uv-managed
-environment. Prefer a standard-library-only shared core. Verify any other
-approved runtime package under the host's own interpreter and on supported
-platforms; a development `.venv` does not populate XPPython3's site-packages.
-Add a plugin load/startup or functional host test to the ordinary Python gate.
-An external Web API client, supervisor, scenery generator, or telemetry UI uses
-the profile appropriate to **its own** runtime even when it interacts with
-X-Plane.
-
-## Adoption and migration
-
-The baseline is extensible. Preserve application runtime packages, optional
-features, development groups, package sources, and reviewed resolver overrides
-in project-owned manifests and locks. Update these alongside baseline tools
-when in scope, retaining the purpose and compatibility evidence for each
-exception. Additional packages are capability decisions, not baseline drift.
-
-Keep application settings in their existing TOML namespace or separate JSON
-file; the application loader defines precedence, merging, and validation.
-Keep workflow customization in project instructions, documented commands, or
-project-prefixed skills and adapters. The minimal `.gz-skills/settings.json`
-remains a profile declaration with only `schema_version` and `profile`, not a
-general extension registry. Any extension of that schema requires its own
-design, migration, and tests. Managed plugin updates and reviewed vendored
-snapshot reconciliation remain separate from application configuration.
-
-Inventory the adopting project's manifests, locks, interpreter pins, CI,
-existing tests, package outputs, documentation, and deployment requirements.
-Map existing tools and checks into these categories, add missing capabilities
-incrementally, and keep behavior working. Project setup and a later
-`gzs-update-dependencies` run both reconcile missing required tools and stale
-pins against the adopted heavy profile; approved exceptions remain project-owned.
-Record the profile, supported Python
-range, current patch pin, tool assortment, runtime exceptions, complete gate,
-and any deferred migration with an owner and completion condition in the
-project's approved guidance. Material architecture or packaging departures
-get an ADR. Do not rewrite an existing project just to make adoption look
-complete.
-
-## Primary references
-
-- [Python Packaging User Guide: `pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
-  and [dependency groups](https://packaging.python.org/en/latest/specifications/dependency-groups/)
-  define package and development dependency surfaces.
-- [uv Python version requests](https://docs.astral.sh/uv/concepts/python-versions/),
-  [project configuration](https://docs.astral.sh/uv/concepts/projects/config/),
-  [dependency management](https://docs.astral.sh/uv/concepts/projects/dependencies/),
-  and [build backend](https://docs.astral.sh/uv/concepts/build-backend/)
-  document the interpreter pin, lock, and package builder.
-- [XPPython3 installation](https://xppython3.readthedocs.io/en/latest/usage/installation_plugin.html)
-  shows the embedded Python 3.12 layout;
-  [XPPython3 package installation](https://xppython3.readthedocs.io/en/latest/development/modules/xp_pip.html)
-  documents its separate interpreter.
-- [Cosmic Ray](https://cosmic-ray.readthedocs.io/en/stable/)
-  documents the mutation-testing engine.
+Existing projects retain their approved choices. The removed fallback family,
+tool assortment and package restrictions do not justify rewriting an adopter.
+Projects governed by a starter follow that adopted standard; projects without
+one must establish their own explicit decisions. Keep the two-field settings
+schema unchanged and report unresolved authority instead of silently selecting
+another baseline.

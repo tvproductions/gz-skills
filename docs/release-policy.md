@@ -93,3 +93,39 @@ The five policy inputs above retain their recorded hashes in that commit;
 the initial working-tree review is reconciled to this immutable source identity.
 Development version 0.7.0 remains unreleased. This record verifies source-policy
 alignment; release acceptance, installation and native readiness remain separate.
+
+## Python authority correction — November 7, 2026
+
+The maintainer explicitly authorized cross-repository alignment and reaffirmed
+current policy: 3.14 for ordinary projects, 3.12 for X-Plane/XPPython3-bound code.
+Reviewed starter source is `4f8bb09633655473cd6aab9e1ddc60963c487bb1`, including
+baseline, Python engineering, versioning, mapping, AGENTS and changelog. This
+adds the previously missing explicit runtime binding for this repository; the
+earlier release-governance-only scope is historical, not current permission
+to retain an unexplained 3.13 development baseline.
+
+This ordinary Python repository selects managed 3.14.10 and declares the 3.14
+family. uv uses the source's minimum-only compatibility rule. The portable setup
+and update workflows instead read each consuming project's governing source;
+they maintain no competing family, analyzer assortment or package restrictions.
+Starter-governed projects follow their reviewed starter baseline. Unrelated
+consumers preserve their own approved policies, and an absent/unavailable
+source leaves dependent choices unresolved. No circular adoption, blanket
+consumer runtime mandate, plugin installation or full conformance claim follows.
+
+The [correction receipt](evidence/2026-11-07-python-policy-alignment.md) records
+baseline failure cases, migration/version classification and scoped proof.
+This working-tree correction is unpublished; recheck committed source identities
+and applicable candidate evidence before any release-alignment claim.
+
+## Committed authority reconciliation for authorized sync
+
+The maintainer subsequently authorized ordinary Git synchronization of this
+correction. The reviewed starter authority is now committed and verified on
+origin/main at `a483e382146c6082e590e31494c07d1812645014`. This reconciles the earlier working-tree review to an
+immutable source; its runtime/ownership declarations are unchanged from the
+accepted correction. Preserve published 0.8.3 refs and installed copies. This
+candidate remains unreleased; no tag or plugin propagation is authorized.
+Local tests, schema/resource and isolated-artifact results above remain the
+applicable scope. This repository has no configured quality CI; report remote
+arrival separately from unavailable exact-commit hosted quality evidence.
