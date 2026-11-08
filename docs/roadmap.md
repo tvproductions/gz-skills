@@ -7,8 +7,8 @@ It introduces no issue graph or adopting-project lifecycle.
 
 ## Delivered releases
 
-Release `v0.10.1` is the authorized uv_build packaging correction; publication
-and channel results are tracked in its [release receipt](evidence/2026-11-08-0.10.1-release.md).
+The latest published and verified release, `v0.10.1`, corrects uv_build packaging;
+publication and channel results are recorded in its [release receipt](evidence/2026-11-08-0.10.1-release.md).
 The preceding release is `v0.10.0`, removing the gzkit installer surface and
 integration examples; see the [release receipt](evidence/2026-11-08-0.10.0-release.md)
 for its publication and channel status. The earlier release is `v0.9.0`:
@@ -36,7 +36,7 @@ for publication, artifacts and channel-install evidence.
 | Order | Work | Status and owner | Next action and completion evidence |
 | ---: | --- | --- | --- |
 | 1 | One-by-one stable-contract reviews | In progress; gz-skills | Git sync has [stable-contract acceptance](review/gzs-git-sync-2026-10-25-acceptance.md). The [dependency-update initial review](review/gzs-update-dependencies-2026-11-08.md) is complete: keep corrected candidate 0.4.1, with the initial finding closed. Native baseline and execution evidence are next for stable acceptance. Quality gate is next without an initial review. Router invocation-guidance findings remain separate. Cover all twenty skills in the [review queue](review/README.md). |
-| 2 | Migrate Hatchling to uv_build | Implemented candidate 0.10.1; gz-skills | Backend and resource lookup migrated; package and CLI verification recorded in the [migration receipt](evidence/2026-11-08-uv-build-migration.md). Publication remains separately authorized. |
+| 2 | Migrate Hatchling to uv_build | Delivered in v0.10.1; gz-skills | Backend and resource lookup migrated; package/CLI proof is in the [migration receipt](evidence/2026-11-08-uv-build-migration.md), and publication/tagged channel checks are in the [release receipt](evidence/2026-11-08-0.10.1-release.md). |
 | 3 | First-use and heavy-profile integration | Candidate design; gz-skills with SP/SP-BP and adopter owners | Prove native discovery, direct/model-selected routing, hook-independent operation and task resumption on supported harnesses. Design and test any settings schema migration and publish a verified compatibility set. Selecting heavy alone is insufficient. |
 | 4 | Four attributed MPAS adaptations | Proposed catalog additions; gz-skills | Pin upstream sources, verify attribution/licenses, adapt the four named skills, define refresh maintenance and test interactions. Follow the [ecosystem proposal](proposals/lightweight-sdd-ecosystem.md); do not require a fourth installed plugin. |
 | 5 | Opt-in repository baseline | Discussion proposal; ownership undecided | Decide source ownership, accept a baseline specification and run read-only pilots before implementing audit/apply or delivery workflows. See the [baseline handoff](proposals/repository-baseline-bootstrap.md). |
@@ -75,7 +75,7 @@ implementation or byte-for-byte equality between the two backends:
    version; record migration evidence and any demonstrated exception.
 
 The maintainer subsequently authorized implementation on November 8, 2026.
-The selected pending patch is 0.10.1 against published v0.10.0: a compatible
+The selected patch shipped as 0.10.1 against published v0.10.0: a compatible
 packaging-policy correction that preserves public CLI, lock and skill behavior.
 Its finite scope includes uv_build configuration, installed resource lookup,
 regression/package checks and evidence. No skill tree changes, new capabilities,
