@@ -6,6 +6,10 @@ fleet updates.
 
 ## Unreleased
 
+- Clarify existing release planning: PRDs guide majors, selected work and
+  requirements drive minors, and fixes drive patches. Require explicit scope,
+  version rationale and acceptance evidence; preserve current release gates.
+
 ## 0.9.0 - 2026-11-07
 
 Release verification and consumer impact are recorded in the
