@@ -6,6 +6,33 @@ fleet updates.
 
 ## Unreleased
 
+## 0.10.0 - 2026-11-08
+
+Scope and prepublication checks are recorded in the
+[preparation receipt](docs/evidence/2026-11-08-0.10.0-preparation.md); exact
+release identity and channel verification are recorded in the
+[0.10.0 release receipt](docs/evidence/2026-11-08-0.10.0-release.md).
+
+- Release bundle 0.10.0 against released 0.9.0 to enforce the separate,
+  lightweight-alternative boundary: no designed gzkit interoperability.
+  Remove the `--surface gzkit` installer option (incompatible pre-1.0 installer
+  change, requiring a minor). Existing installations are not migrated or deleted;
+  choose one ecosystem per project and explicitly reconcile old installs before
+  installing into a supported agent surface. Keep the setup exclusion guard.
+- Compatible skill corrections: `gzs-update-dependencies` 0.4.0 → 0.4.1
+  replaces the named orchestrator case with standalone use and general project
+  workflow precedence; `gzs-git-sync` 1.0.0 → 1.0.1 and
+  `gzs-cross-platform-python` 0.3.1 → 0.3.2 remove named `gz` adapter examples;
+  `gzs-release` 0.1.0 → 0.1.1 removes the interoperability example and confirms
+  standalone use. Preserve invocation, authorization and verification boundaries.
+  No stable promotion or existing consumer update is included.
+
+- Complete the initial `gzs-update-dependencies` contract review: keep corrected
+  candidate 0.4.1 and close the initial precedence finding by static inspection.
+  Record activation, provenance, thirteen analytical scenarios and validation;
+  native baseline/execution evidence remains next for stable acceptance.
+  Preserve the separate stable-acceptance backlog and release-scope record.
+
 - Clarify existing release planning: PRDs guide majors, selected work and
   requirements drive minors, and fixes drive patches. Require explicit scope,
   version rationale and acceptance evidence; preserve current release gates.

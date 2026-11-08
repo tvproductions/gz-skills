@@ -13,6 +13,8 @@ Give adopting repositories a choice between standalone portable skills (`lite`)
 and a deliberately opinionated but lighter-than-gzkit SDD ecosystem (`heavy`).
 This proposal concerns adopting projects, not the architecture of `gz-skills`
 itself. A repository with `.gzkit/` remains incompatible with this profile.
+This is a separate lightweight alternative/cousin, not an interoperability
+design: no shared runtime, adapter, command or lifecycle integration with gzkit.
 
 | Owner | Responsibility |
 | --- | --- |

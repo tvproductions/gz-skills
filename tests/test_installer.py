@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+import io
 import json
 import subprocess
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
 from unittest.mock import Mock, patch
 
+from gz_skills.cli import main
 from gz_skills.core import (
     SkillInstallError,
     install,
@@ -21,6 +24,23 @@ SOURCE_SKILLS = REPOSITORY_ROOT / "skills"
 
 
 class InstallerTests(unittest.TestCase):
+    def test_gzkit_surface_is_rejected_before_writing(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory)
+            with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
+                main(
+                    [
+                        "install",
+                        "gzs-git-sync",
+                        "--project",
+                        str(project),
+                        "--surface",
+                        "gzkit",
+                    ]
+                )
+            self.assertEqual(error.exception.code, 2)
+            self.assertEqual(list(project.iterdir()), [])
+
     def test_source_revision_uses_pep610_git_commit_for_uvx_install(self) -> None:
         commit = "a" * 40
         installed_distribution = Mock()

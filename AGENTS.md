@@ -10,17 +10,19 @@ GovZero skills.
   ceremonies in the consuming project.
 - Preserve the invariant and completion criteria shared by proven project
   implementations.
-- Treat `.agents/skills`, `.claude/skills`, `.github/skills`, and `.gzkit/skills`
+- Treat `.agents/skills`, `.claude/skills`, `.codex/skills`, and `.github/skills`
   as consumer installation surfaces. Do not add generated mirrors here.
-- Keep `gzkit` runtime behavior in `gzkit`; a portable skill may use a documented
-  `gz` command when present but must state a safe discovery or fallback path.
+- This is a lightweight alternative/cousin to `gzkit`, not an integration layer.
+  Do not design interoperability, adapters, installation surfaces or command
+  dependencies for `gzkit`. Historical extraction provenance is not integration.
+  Preserve the setup guard that prevents mixing the ecosystems in one project.
 - Prefer portable primitives beneath project orchestrators. This repository owns
-  standalone horizontal disciplines; consuming systems such as `gzkit` own
+  standalone horizontal disciplines; adopting project workflows own
   lifecycle stages, governance state, gates, receipts, locks, and attestation.
-- Keep composition one-way: a `gzs-*` skill must remain useful without `gzkit`,
-  while `gzkit` or another project workflow may invoke or wrap it. When such a
-  workflow is active, the portable skill must yield to it rather than duplicate,
-  bypass, or create parallel lifecycle state.
+- Each `gzs-*` skill works standalone. When an adopting project workflow is
+  already active, the portable skill must respect it rather than duplicate,
+  bypass, or create parallel lifecycle state. This general precedence rule
+  establishes no interoperability contract with another ecosystem.
 
 ## Adopting-project ecosystem direction
 

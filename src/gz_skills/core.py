@@ -25,7 +25,6 @@ SURFACES = {
     "claude": Path(".claude/skills"),
     "codex": Path(".codex/skills"),
     "github": Path(".github/skills"),
-    "gzkit": Path(".gzkit/skills"),
 }
 TRANSIENT_DIRECTORIES = frozenset(
     {".git", "__pycache__", ".mypy_cache", ".pytest_cache", ".ruff_cache"}

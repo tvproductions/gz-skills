@@ -37,7 +37,7 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The latest immutable bundle release is `v0.9.0`; `v0.2.0` was the first. The
+The latest immutable bundle release is `v0.10.0`; `v0.2.0` was the first. The
 catalog remains in the SemVer 0.x development series while the one-by-one
 behavioral review matures toward 1.0.0.
 
@@ -71,8 +71,8 @@ adds no universal runtime choice or comprehensive modernization audit.
 
 The `0.3.0` release promotes `gzs-change-review`,
 `gzs-dependency-risk-audit`, and `gzs-test-driven-change`. They remain
-horizontal disciplines beneath project-owned workflows, not replacements for
-`gzkit` lifecycle orchestration. Their contracts, boundaries, and promotion
+horizontal disciplines that respect project-owned workflows. Their contracts,
+boundaries, and promotion
 record are described in [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Boundary
@@ -86,7 +86,8 @@ The `gzs-` prefix identifies skills whose canonical source and release contract
 belong to this repository. Project-local skills use a project or domain prefix;
 third-party skills retain their upstream names.
 
-- `gzkit` owns its own project lifecycle and control surfaces. A project with
+- This ecosystem is a lightweight alternative/cousin to `gzkit`, with no
+  designed interoperability, shared runtime or command dependency. A project with
   `.gzkit/` must not initialize `.gz-skills/`; choose one ecosystem.
 - `gz-skills` owns portable horizontal disciplines and project profile setup;
   it does not provide a central project lifecycle.
@@ -95,8 +96,8 @@ third-party skills retain their upstream names.
   receipts, or human decisions.
 - A consuming project owns its `AGENTS.md`, verification commands, and any local
   adaptation of a skill.
-- `.agents/skills`, `.claude/skills`, `.codex/skills`, `.github/skills`, and
-  `.gzkit/skills` are installation surfaces, not authored copies here.
+- `.agents/skills`, `.claude/skills`, `.codex/skills`, and `.github/skills`
+  are installation surfaces, not authored copies here.
 
 ## Project profile
 
@@ -191,7 +192,7 @@ over the same canonical `skills/` tree.
 - Codex can install the released bundle from this repository marketplace:
 
   ```text
-  codex plugin marketplace add tvproductions/gz-skills@v0.9.0
+  codex plugin marketplace add tvproductions/gz-skills@v0.10.0
   codex plugin add gz-skills@gz-skills
   ```
 
@@ -206,7 +207,7 @@ over the same canonical `skills/` tree.
   /plugin install gz-skills@gz-skills
   ```
 
-- OpenCode v2 can install the `v0.9.0` Git package per project. The
+- OpenCode v2 can install the `v0.10.0` Git package per project. The
   earlier `v0.4.0` package uses the OpenCode v1 adapter.
 
   In each adopting repository, add this to its `opencode.jsonc`:
@@ -215,7 +216,7 @@ over the same canonical `skills/` tree.
   {
     "$schema": "https://opencode.ai/config.json",
     "plugins": [
-      "git+https://github.com/tvproductions/gz-skills.git#v0.9.0"
+      "git+https://github.com/tvproductions/gz-skills.git#v0.10.0"
     ]
   }
   ```
@@ -234,7 +235,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -254,7 +255,7 @@ uv run gz-skills install `
   gzs-git-sync gzs-quality-gate
 ```
 
-Other supported surfaces are `claude`, `codex`, `github`, and `gzkit`;
+Other supported surfaces are `claude`, `codex`, and `github`;
 `--target` accepts an exact skills directory. Prefer native plugins for Codex,
 Claude Code, and OpenCode unless the repository specifically requires
 checked-in snapshots.
@@ -264,14 +265,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -280,9 +281,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 

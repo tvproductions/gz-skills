@@ -3,7 +3,7 @@ name: gzs-git-sync
 description: Create and publish a guarded Git save point after reviewing scope and passing the repository's own quality gates. Use only when the user explicitly asks to git sync, commit and push, publish the current work, or create a remote save point.
 compatibility: Requires Git, a configured repository remote, and permission to commit and push.
 metadata:
-  govzero-version: "1.0.0"
+  govzero-version: "1.0.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -64,7 +64,7 @@ Treat the portable skill as the invariant and the project surface as the
 adapter. Prefer, in order:
 
 1. A repo-local `gzs-git-sync` or `git-sync` skill with a deterministic helper.
-2. A documented `gz git-sync` or equivalent project command.
+2. A documented project sync command.
 3. The repository's documented quality commands followed by ordinary Git.
 
 The third rung is the floor, and it always exists: any repository with a remote

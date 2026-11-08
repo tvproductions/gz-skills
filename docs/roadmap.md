@@ -1,14 +1,20 @@
 # Skill roadmap and backlog
 
-Reconciled: 2026-10-25. This is the repository's planning index; detailed
+Reconciled: 2026-11-08. This is the repository's planning index; detailed
 contracts and evidence remain in the linked records. The order below is the
 recommended next-work order, not approval to implement or publish a proposal.
 It introduces no issue graph or adopting-project lifecycle.
 
 ## Delivered releases
 
-The `v0.8.3` patch retains twenty canonical skills and promotes the accepted
-Git sync contract to skill 1.0.0. The
+The current release scope is 0.10.0, removing the gzkit installer surface and
+integration examples; see the [release receipt](evidence/2026-11-08-0.10.0-release.md)
+for its publication and channel status. The preceding release is `v0.9.0`:
+project setup and dependency update follow
+consumer-owned Python policy, while this publisher independently selects Python
+3.14. The [release receipt](evidence/2026-11-07-0.9.0-release.md) records its scope
+and verification. Twenty canonical skills remain; the `v0.8.3` patch previously
+promoted the accepted Git sync contract to skill 1.0.0. The
 [README catalog](../README.md) lists them and the [changelog](../CHANGELOG.md)
 records their release history. Implemented capabilities include project profile
 setup, Pythonic pattern detection/application, Python-version-aware guidance,
@@ -27,7 +33,7 @@ for publication, artifacts and channel-install evidence.
 
 | Order | Work | Status and owner | Next action and completion evidence |
 | ---: | --- | --- | --- |
-| 1 | One-by-one stable-contract reviews | In progress; gz-skills | Git sync 0.1.1 has [stable-contract acceptance](review/gzs-git-sync-2026-10-25-acceptance.md) with native execution evidence; `gzs-update-dependencies` is next unreviewed. Router 0.5.1 has selected native inference evidence; ungrounded host-invocation claims remain a separate finding. Cover all twenty skills in the [review queue](review/README.md); record individual decisions and behavioral evidence before claiming stable acceptance. |
+| 1 | One-by-one stable-contract reviews | In progress; gz-skills | Git sync has [stable-contract acceptance](review/gzs-git-sync-2026-10-25-acceptance.md). The [dependency-update initial review](review/gzs-update-dependencies-2026-11-08.md) is complete: keep corrected candidate 0.4.1, with the initial finding closed. Native baseline and execution evidence are next for stable acceptance. Quality gate is next without an initial review. Router invocation-guidance findings remain separate. Cover all twenty skills in the [review queue](review/README.md). |
 | 2 | First-use and heavy-profile integration | Candidate design; gz-skills with SP/SP-BP and adopter owners | Prove native discovery, direct/model-selected routing, hook-independent operation and task resumption on supported harnesses. Design and test any settings schema migration and publish a verified compatibility set. Selecting heavy alone is insufficient. |
 | 3 | Four attributed MPAS adaptations | Proposed catalog additions; gz-skills | Pin upstream sources, verify attribution/licenses, adapt the four named skills, define refresh maintenance and test interactions. Follow the [ecosystem proposal](proposals/lightweight-sdd-ecosystem.md); do not require a fourth installed plugin. |
 | 4 | Opt-in repository baseline | Discussion proposal; ownership undecided | Decide source ownership, accept a baseline specification and run read-only pilots before implementing audit/apply or delivery workflows. See the [baseline handoff](proposals/repository-baseline-bootstrap.md). |
@@ -37,6 +43,25 @@ review queue includes all twenty implemented skills, shipped additions are
 separate from proposals, and closed issue #1 is retained as resolution history.
 No other open GitHub issues or PRs were found in the preceding 2026-10-25 check;
 that observation is a dated snapshot, not a continuously synchronized view.
+
+## Selected pending 0.10.0 scope
+
+Baseline: published v0.9.0. Outcome: enforce the maintainer's separate lightweight
+alternative boundary, with no designed gzkit interoperability. Included work:
+remove `--surface gzkit`, replace integration-specific skill examples with
+standalone/general project guidance, and reconcile review and boundary records.
+The removed installer option is incompatible during 0.x, requiring minor
+0.10.0; the four affected skills receive compatible patch increments detailed
+in the changelog. All bundle mirrors and generated lock metadata agree.
+
+Acceptance: the CLI must reject the removed surface before writing; remaining
+installer behavior and setup exclusion must pass the repository tests; all
+skill specification, identity, prompt and link checks and package builds must
+pass. Existing consumer installs and release refs remain untouched. Full native
+stable-contract acceptance, heavy integration, MPAS additions and baseline
+proposals are deferred. The maintainer subsequently authorized release of this
+selected scope; the release receipt records its status. The scope does not
+claim stable acceptance.
 
 ## External dependencies and ownership
 
@@ -59,7 +84,8 @@ without introducing an alternate planning, execution, review or closeout lifecyc
 
 Every roadmap skill must satisfy the same composition rules:
 
-- It solves one horizontal engineering goal and remains useful without `gzkit`.
+- It solves one horizontal engineering goal and works standalone; this ecosystem
+  is a lightweight alternative to gzkit, with no designed interoperability.
 - It discovers repository-owned commands and policies instead of embedding a
   project toolchain, branch model, or governance ceremony.
 - An active project-owned workflow retains control of scope, ordering, state,
@@ -119,7 +145,7 @@ specification, survey repository-wide technical debt, or implement a feature.
   concrete defect or risk.
 - `gzs-tech-debt-review` surveys a scoped surface for accumulated debt;
   `gzs-change-review` stays anchored to a particular change and its regressions.
-- A gzkit review stage may compose this discipline, but gzkit continues to own
+- An active adopting-project review workflow continues to own
   reviewer roles, independence requirements, receipts, verdicts, and gates.
 
 ### Promotion basis
@@ -241,7 +267,7 @@ solely to perform the ceremony.
 - `gzs-quality-gate` verifies the completed repository change;
   `gzs-test-driven-change` supplies focused incremental evidence and does not
   replace the full gate.
-- gzkit continues to own task dispatch, allowed paths, stage transitions,
+- An active adopting-project workflow continues to own task dispatch, allowed paths, stage transitions,
   independent review, receipts, attestation, and closeout around the loop.
 
 ### Promotion basis

@@ -3,7 +3,7 @@ name: gzs-cross-platform-python
 description: Review or implement Python filesystem, text, subprocess, temporary-resource, and test behavior for Windows, macOS, and Linux portability. Use when Python code handles paths, files, encodings, processes, cleanup, platform branches, or failures seen on only one operating system.
 compatibility: Requires Python and the target repository's supported platform and version policy.
 metadata:
-  govzero-version: "0.3.1"
+  govzero-version: "0.3.2"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -102,9 +102,8 @@ as the invariant rather than the implementation. In order:
 
 1. A repository-local portability check or lint rule that already covers the
    seam under review. Run it and read its scope before adding anything.
-2. A documented project command that aggregates verification, such as
-   `gz check` in a GovZero project, where a portability scope may already be
-   registered and fail closed on every push.
+2. A documented project command that aggregates verification and includes the
+   portability scope under review.
 3. `scripts/audit_portability.py` in this skill, which needs nothing but Python
    and, for the line-ending arm, a git work tree.
 

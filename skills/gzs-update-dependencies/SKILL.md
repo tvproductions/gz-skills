@@ -3,7 +3,7 @@ name: gzs-update-dependencies
 description: Assess freshness or update project-managed dependencies, runtime pins, tools, adopted templates, and agent plugins against project policy. Use for dependency freshness checks, outdated-version reviews, package/tool upgrades, lockfile refreshes, or bringing a project's toolchain current; a freshness-only request leaves dependency state unchanged.
 compatibility: Requires network access to authoritative package and tool sources plus the package managers used by the target repository.
 metadata:
-  govzero-version: "0.4.0"
+  govzero-version: "0.4.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -17,6 +17,12 @@ Python, Node, a particular runtime version, or a particular quality command.
 This skill covers versions recorded by the project. Updating unrelated global
 machine tools, operating-system packages, editor extensions, cloud resources, or
 deployed environments requires separate explicit authorization.
+
+This skill works standalone and requires no project orchestrator. When a
+project-owned workflow is already active, preserve its scope, sequencing,
+approvals, locks, gates and evidence requirements in either mode. Stop before
+mutations whose required approval is absent. Do not create parallel lifecycle
+state or declare the containing workflow complete.
 
 ## Choose the requested mode
 
@@ -89,8 +95,7 @@ tooling. In update mode, profile reconciliation includes adding missing required
 tools, correcting dependency-group placement, refreshing stale constraints and
 locks, and aligning CI and documentation. Do not limit the pass to packages
 already declared. Read project-specific exceptions before treating a difference
-as drift. A repository using `.gzkit/` has its own project workflow; yield
-execution to that workflow and report any standard mismatch to its owner.
+as drift.
 
 An approved project or adopted starter policy defines the effective baseline.
 Resolve the recorded authority and applicable revision before selecting runtime

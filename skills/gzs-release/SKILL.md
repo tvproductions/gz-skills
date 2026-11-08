@@ -3,7 +3,7 @@ name: gzs-release
 description: Recommend a release version, prepare a release candidate, or publish and verify an authorized release under project policy. Use only when explicitly asked for release management or version-bump advice; ordinary commit/push requests belong to gzs-git-sync.
 compatibility: Requires repository history and project release policy; publication also requires the selected host or registry tools and credentials.
 metadata:
-  govzero-version: "0.1.0"
+  govzero-version: "0.1.1"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -12,8 +12,9 @@ metadata:
 
 Carry a release from an evidence-backed version decision through the requested
 completion boundary. The consumer owns its versioning policy, gates, release
-channels and lifecycle. Follow an active project workflow, including Backplane
-or gzkit, rather than creating parallel release state or bypassing its approvals.
+channels and lifecycle. Follow an active project workflow rather than creating
+parallel release state or bypassing its approvals. No project orchestrator is
+required for standalone use.
 
 ## Establish mode and authority
 

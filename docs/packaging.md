@@ -5,6 +5,12 @@ contracts. The managed plugin is the primary product; Python vendoring is for
 repositories that require pinned, reviewable copies. Choose one contract per
 agent scope.
 
+gzkit is a separate ecosystem, with no designed interoperability. The
+0.10.0 installer removes `--surface gzkit`; supported vendoring surfaces are
+`agents`, `claude`, `codex` and `github` (or an explicitly chosen target).
+Existing installations are not automatically moved or removed. Reconcile any
+old copy explicitly and choose one ecosystem per adopting project.
+
 | Contract | Owner of installed files | Update mechanism | Local edits |
 | --- | --- | --- | --- |
 | Native managed plugin | Publisher/harness | Harness plugin manager | Unsupported in the installed cache. |
@@ -66,7 +72,7 @@ Install from a tagged Git revision with `uvx`; Node is not part of the supported
 consumer toolchain:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.9.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.0 `
   gz-skills install --project C:\path\to\project gzs-git-sync
 ```
 
