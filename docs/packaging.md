@@ -58,6 +58,13 @@ permission for an implicitly selected skill to perform a remote mutation.
 
 ## 2. Python vendored snapshots
 
+The 0.10.1 package uses `uv_build` with `purelib` data sourced directly
+from root `skills/`. Installed `gzs-*` resource directories live beside
+`gz_skills`; catalog discovery selects only this distribution's recorded skill
+manifests. Editable installations read the canonical checkout tree. This
+internal layout replaces Hatchling's `gz_skills/bundled` remapping without
+authored copies or custom build hooks. See the [migration evidence](evidence/2026-11-08-uv-build-migration.md).
+
 The Python distribution bundles the canonical skill trees and exposes:
 
 ```text
@@ -68,11 +75,19 @@ gz-skills update
 gz-skills propagate
 ```
 
+For package acceptance, build to `dist/uv-build-migration/first` and `second`
+with `uv build --no-sources --out-dir <directory>`, then build a direct wheel to
+`dist/uv-build-migration/direct` with `uv build --no-sources --wheel --out-dir
+<directory>`. Run `uv run --locked python scripts/check_package.py --artifacts
+dist/uv-build-migration`. The checker compares archive/resource hashes and runs
+the installed CLI in a disposable environment outside the checkout. It prints
+the candidate version, resource counts and SHA-256 digests; it publishes nothing.
+
 Install from a tagged Git revision with `uvx`; Node is not part of the supported
 consumer toolchain:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.1 `
   gz-skills install --project C:\path\to\project gzs-git-sync
 ```
 

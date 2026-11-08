@@ -6,6 +6,18 @@ fleet updates.
 
 ## Unreleased
 
+## 0.10.1 - 2026-11-08
+
+- Release bundle 0.10.1 against published v0.10.0: replace Hatchling with
+  `uv_build>=0.13.7,<0.14` and adapt installed resource discovery to the wheel's
+  distribution-owned skill directories. This is a compatible packaging-policy
+  correction: CLI, snapshot/lock contracts and canonical skill contents remain
+  unchanged. No skill version advances; existing consumer updates remain
+  separate. Package/resource and reproducibility evidence is recorded
+  in the [migration receipt](docs/evidence/2026-11-08-uv-build-migration.md).
+  Publication and channel evidence are recorded in the
+  [release receipt](docs/evidence/2026-11-08-0.10.1-release.md).
+
 - Record the maintainer's strict Astral/uv alignment preference and backlog the
   Hatchling-to-`uv_build` migration with package/resource, installed CLI and
   reproducibility acceptance criteria. Existing Hatchling is migration debt;

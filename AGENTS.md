@@ -143,8 +143,8 @@ GovZero skills.
   `uv_build` is the preferred pure-Python backend; Ruff owns lint/format and ty
   owns type checking. Retain a different backend only for a demonstrated need,
   with evidence, maintainer approval, an owner and a dated revisit condition.
-  The existing Hatchling backend is tracked migration debt, not an approved
-  permanent exception. See the migration acceptance criteria in `docs/roadmap.md`.
+  The uv_build packaging follows the acceptance criteria and evidence
+  linked in `docs/roadmap.md`; retain its canonical-resource packaging behavior.
 - This repository independently binds the maintainer's current Python policy:
   ordinary projects use 3.14.x; X-Plane/XPPython3-bound projects use the supported
   3.12.x host exception. gz-skills itself is ordinary Python: its declared family

@@ -44,6 +44,13 @@ authorize a backend migration or new consumer requirement by itself.
 
 ## Check in with the source
 
+The November 8 backend migration rechecked starter main at
+`a483e382146c6082e590e31494c07d1812645014`, unchanged from the clarification.
+The authorized candidate now uses uv_build with package-behavior evidence;
+the [migration receipt](evidence/2026-11-08-uv-build-migration.md) records the
+supported data-layout decision and limits. This closes the Hatchling backend
+debt in the candidate, without claiming full engineering-policy conformance.
+
 Before release preparation, during scoped policy/tooling maintenance, and when
 notified of relevant starter changes:
 

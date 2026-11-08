@@ -11,7 +11,6 @@ import tempfile
 import uuid
 from collections.abc import Iterable
 from dataclasses import dataclass
-from importlib import resources
 from importlib.metadata import PackageNotFoundError, distribution
 from pathlib import Path
 from typing import TypedDict, cast
@@ -141,25 +140,52 @@ def tree_sha256(skill_root: Path) -> str:
     return digest.hexdigest()
 
 
+def _installed_skill_paths() -> list[Path]:
+    """Resolve only skill directories owned by this installed distribution."""
+
+    try:
+        installed = distribution("govzero-skills")
+    except PackageNotFoundError as error:
+        raise SkillInstallError(
+            "the installed distribution contains no bundled skills"
+        ) from error
+    paths = sorted(
+        Path(str(installed.locate_file(resource))).parent
+        for resource in installed.files or []
+        if len(resource.parts) == 2
+        and resource.parts[0].startswith("gzs-")
+        and resource.parts[1] == "SKILL.md"
+    )
+    if not paths:
+        raise SkillInstallError("the installed distribution contains no bundled skills")
+    for path in paths:
+        if not (path / "SKILL.md").is_file():
+            raise SkillInstallError(
+                f"missing installed skill resource: {path / 'SKILL.md'}"
+            )
+    return paths
+
+
 def catalog_root() -> Path:
     """Resolve authored skills in a checkout or bundled skills in a wheel."""
 
     checkout = Path(__file__).resolve().parents[2] / "skills"
     if checkout.is_dir():
         return checkout
-    bundled = resources.files("gz_skills").joinpath("bundled")
-    path = Path(str(bundled))
-    if not path.is_dir():
-        raise SkillInstallError("the installed distribution contains no bundled skills")
-    return path
+    return _installed_skill_paths()[0].parent
 
 
 def load_catalog(source_root: Path | None = None) -> dict[str, CatalogSkill]:
     """Load and validate the distributable skill catalog."""
 
-    root = (source_root or catalog_root()).resolve()
+    checkout = Path(__file__).resolve().parents[2] / "skills"
+    if source_root is not None or checkout.is_dir():
+        root = (source_root or checkout).resolve()
+        skill_directories = sorted(root.iterdir())
+    else:
+        skill_directories = _installed_skill_paths()
     catalog: dict[str, CatalogSkill] = {}
-    for skill_dir in sorted(root.iterdir()):
+    for skill_dir in skill_directories:
         skill_file = skill_dir / "SKILL.md"
         if not skill_dir.is_dir() or not skill_file.is_file():
             continue

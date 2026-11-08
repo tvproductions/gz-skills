@@ -1,6 +1,6 @@
 [project]
 name = "govzero-skills"
-version = "0.10.0"
+version = "0.10.1"
 description = "Portable GovZero agent skills and their pinned installer"
 readme = "README.md"
 license = "MIT"
@@ -17,22 +17,30 @@ gz-skills = "gz_skills.cli:main"
 Repository = "https://github.com/tvproductions/gz-skills"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.13.7,<0.14"]
+build-backend = "uv_build"
 
-[tool.hatch.build.targets.sdist]
-exclude = [
+[tool.uv.build-backend]
+module-name = "gz_skills"
+source-include = [
+    "tests/**", "scripts/**", "schemas/**", "docs/**", "adapters/**",
+    ".agents/plugins/**", ".codex-plugin/**", ".claude-plugin/**",
+    "package.json", "index.js", "CHANGELOG.md", "AGENTS.md", "uv.lock",
+    ".python-version",
+]
+source-exclude = [
     "/.opencode/.gitignore",
     "/.opencode/node_modules",
     "/.opencode/package-lock.json",
     "/.opencode/package.json",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".mypy_cache",
+    ".git",
+    ".venv",
+    "node_modules",
 ]
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/gz_skills"]
-
-[tool.hatch.build.targets.wheel.force-include]
-"skills" = "gz_skills/bundled"
+data = { purelib = "skills" }
 
 [tool.uv]
 required-version = ">=0.13.5"

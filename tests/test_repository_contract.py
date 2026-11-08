@@ -185,9 +185,9 @@ class RepositoryContractTests(unittest.TestCase):
         with (REPOSITORY_ROOT / "pyproject.toml").open("rb") as stream:
             configuration = tomllib.load(stream)
 
-        excluded = set(
-            configuration["tool"]["hatch"]["build"]["targets"]["sdist"]["exclude"]
-        )
+        excluded = set(configuration["tool"]["uv"]["build-backend"]["source-exclude"])
+
+        self.assertEqual(configuration["build-system"]["build-backend"], "uv_build")
         self.assertTrue(
             {
                 "/.opencode/.gitignore",

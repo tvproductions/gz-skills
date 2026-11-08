@@ -6,12 +6,14 @@ import subprocess
 import tempfile
 import unittest
 from contextlib import redirect_stderr
+from importlib.metadata import PackagePath
 from pathlib import Path
 from unittest.mock import Mock, patch
 
 from gz_skills.cli import main
 from gz_skills.core import (
     SkillInstallError,
+    catalog_root,
     install,
     load_catalog,
     source_revision,
@@ -24,6 +26,55 @@ SOURCE_SKILLS = REPOSITORY_ROOT / "skills"
 
 
 class InstallerTests(unittest.TestCase):
+    def test_installed_catalog_uses_only_distribution_owned_resources(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            site = Path(directory) / "site-packages"
+            owned = site / "gzs-example"
+            owned.mkdir(parents=True)
+            (owned / "SKILL.md").write_text(
+                "---\nname: gzs-example\ndescription: Example\nmetadata:\n"
+                '  govzero-version: "0.1.0"\n---\n',
+                encoding="utf-8",
+            )
+            unrelated = site / "gzs-unrelated"
+            unrelated.mkdir()
+            (unrelated / "SKILL.md").write_text("invalid", encoding="utf-8")
+            installed = Mock()
+            installed.files = [PackagePath("gzs-example/SKILL.md")]
+            installed.locate_file.side_effect = lambda path: site / str(path)
+            with (
+                patch("gz_skills.core.__file__", str(site / "gz_skills/core.py")),
+                patch("gz_skills.core.distribution", return_value=installed),
+            ):
+                self.assertEqual(catalog_root(), site)
+                self.assertEqual(set(load_catalog()), {"gzs-example"})
+
+    def test_installed_catalog_reports_missing_recorded_resource(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            site = Path(directory) / "site-packages"
+            installed = Mock()
+            installed.files = [PackagePath("gzs-missing/SKILL.md")]
+            installed.locate_file.side_effect = lambda path: site / str(path)
+            with (
+                patch("gz_skills.core.__file__", str(site / "gz_skills/core.py")),
+                patch("gz_skills.core.distribution", return_value=installed),
+                self.assertRaisesRegex(SkillInstallError, "missing.*gzs-missing"),
+            ):
+                load_catalog()
+
+    def test_installed_catalog_reports_absent_resource_records(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            installed = Mock(files=None)
+            with (
+                patch(
+                    "gz_skills.core.__file__",
+                    str(Path(directory) / "gz_skills/core.py"),
+                ),
+                patch("gz_skills.core.distribution", return_value=installed),
+                self.assertRaisesRegex(SkillInstallError, "no bundled skills"),
+            ):
+                load_catalog()
+
     def test_gzkit_surface_is_rejected_before_writing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             project = Path(directory)
