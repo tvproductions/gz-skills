@@ -6,6 +6,11 @@ fleet updates.
 
 ## Unreleased
 
+- Record the maintainer's strict Astral/uv alignment preference and backlog the
+  Hatchling-to-`uv_build` migration with package/resource, installed CLI and
+  reproducibility acceptance criteria. Existing Hatchling is migration debt;
+  documentation only, with no backend, skill or version change.
+
 ## 0.10.0 - 2026-11-08
 
 Scope and prepublication checks are recorded in the

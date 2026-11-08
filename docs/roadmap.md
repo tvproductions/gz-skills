@@ -34,15 +34,50 @@ for publication, artifacts and channel-install evidence.
 | Order | Work | Status and owner | Next action and completion evidence |
 | ---: | --- | --- | --- |
 | 1 | One-by-one stable-contract reviews | In progress; gz-skills | Git sync has [stable-contract acceptance](review/gzs-git-sync-2026-10-25-acceptance.md). The [dependency-update initial review](review/gzs-update-dependencies-2026-11-08.md) is complete: keep corrected candidate 0.4.1, with the initial finding closed. Native baseline and execution evidence are next for stable acceptance. Quality gate is next without an initial review. Router invocation-guidance findings remain separate. Cover all twenty skills in the [review queue](review/README.md). |
-| 2 | First-use and heavy-profile integration | Candidate design; gz-skills with SP/SP-BP and adopter owners | Prove native discovery, direct/model-selected routing, hook-independent operation and task resumption on supported harnesses. Design and test any settings schema migration and publish a verified compatibility set. Selecting heavy alone is insufficient. |
-| 3 | Four attributed MPAS adaptations | Proposed catalog additions; gz-skills | Pin upstream sources, verify attribution/licenses, adapt the four named skills, define refresh maintenance and test interactions. Follow the [ecosystem proposal](proposals/lightweight-sdd-ecosystem.md); do not require a fourth installed plugin. |
-| 4 | Opt-in repository baseline | Discussion proposal; ownership undecided | Decide source ownership, accept a baseline specification and run read-only pilots before implementing audit/apply or delivery workflows. See the [baseline handoff](proposals/repository-baseline-bootstrap.md). |
+| 2 | Migrate Hatchling to uv_build | Backlogged; gz-skills; maintainer-directed Astral/uv alignment | Replace the build backend and resource-copy configuration; prove the existing package behavior using the [acceptance criteria below](#uv_build-migration-acceptance). No demonstrated blocker or approved permanent Hatchling exception is recorded. |
+| 3 | First-use and heavy-profile integration | Candidate design; gz-skills with SP/SP-BP and adopter owners | Prove native discovery, direct/model-selected routing, hook-independent operation and task resumption on supported harnesses. Design and test any settings schema migration and publish a verified compatibility set. Selecting heavy alone is insufficient. |
+| 4 | Four attributed MPAS adaptations | Proposed catalog additions; gz-skills | Pin upstream sources, verify attribution/licenses, adapt the four named skills, define refresh maintenance and test interactions. Follow the [ecosystem proposal](proposals/lightweight-sdd-ecosystem.md); do not require a fourth installed plugin. |
+| 5 | Opt-in repository baseline | Discussion proposal; ownership undecided | Decide source ownership, accept a baseline specification and run read-only pilots before implementing audit/apply or delivery workflows. See the [baseline handoff](proposals/repository-baseline-bootstrap.md). |
 
 Backlog reconciliation itself is complete in this documentation update: the
 review queue includes all twenty implemented skills, shipped additions are
 separate from proposals, and closed issue #1 is retained as resolution history.
 No other open GitHub issues or PRs were found in the preceding 2026-10-25 check;
 that observation is a dated snapshot, not a continuously synchronized view.
+
+## uv_build migration acceptance
+
+Added November 8, 2026 at the maintainer's direction. gz-skills has a strict
+Astral/uv alignment preference, consistent with the canonical starter policy.
+The intended default for this pure-Python package is `uv_build`. Earlier
+release-scope deferrals are history, not a technical blocker or permanent waiver.
+
+The migration preserves supported package behavior, not Hatchling's
+implementation or byte-for-byte equality between the two backends:
+
+1. Replace Hatchling configuration with a verified, appropriately constrained
+   `uv_build` requirement. Resolve how the canonical root `skills/` tree reaches
+   the installed package without adding separately authored skill copies.
+2. Verify wheel and sdist contain all twenty current skill trees and their
+   44 canonical resources, with file contents matching the selected source.
+   Preserve bundled-resource lookup, package imports and the `gz-skills` entry point.
+3. From outside the checkout, verify installed catalog discovery and public
+   install/update behavior, lock provenance and local-modification protection.
+   Preserve supported surfaces, invocation contracts and the ecosystem boundary.
+4. Verify editable installation and source-independent `uv build --no-sources`;
+   exclude generated caches and unrelated development files. Two builds from
+   the same source must be reproducible; archives from different backends need
+   not be byte-identical.
+5. Run the repository's required gates and package checks. Classify actual
+   compatibility impact against published v0.10.0 before selecting a pending
+   version; record migration evidence and any demonstrated exception.
+
+This entry authorizes backlog recording, not implementation or publication.
+No next release scope, date, backend constraint or version is selected here.
+If another backend proves necessary, record the concrete need, evidence,
+maintainer approval, owner and dated revisit condition. Do not infer a blocker
+merely from the existing resource-copy layout. This repository preference does
+not impose an Astral backend on unrelated portable-skill consumers.
 
 ## Selected pending 0.10.0 scope
 

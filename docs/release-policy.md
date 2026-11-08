@@ -24,6 +24,24 @@ scoped maintenance. This release-policy alignment does not certify broader
 Python/tooling conformance or authorize dependency/runtime changes.
 Local departures require evidence, maintainer approval, an owner and dated revisit.
 
+### Astral/uv alignment clarification — November 8, 2026
+
+The maintainer explicitly reaffirmed a strict Astral/uv alignment preference for
+gz-skills, consistent with gz-skills-first-starter. Rechecked canonical source
+main at `a483e382146c6082e590e31494c07d1812645014`, unchanged from the 0.10.0
+review, and read `docs/engineering/astral-alignment.md` at that revision. Its
+pure-Python backend choice is `uv_build`; another backend requires a concrete
+need and verified package behavior. Adopt that preference for this repository
+and track the existing Hatchling backend as migration debt in the
+[roadmap](roadmap.md#uv_build-migration-acceptance). No current incompatibility
+or approved permanent backend exception has been established.
+
+Record any justified departure with evidence, maintainer approval, an owner and
+a dated revisit. Prior releases' bounded-scope deferrals remain historical;
+they do not establish continuing alignment. This clarification does not certify
+full conformance, formally adopt the starter, change a published release, or
+authorize a backend migration or new consumer requirement by itself.
+
 ## Check in with the source
 
 Before release preparation, during scoped policy/tooling maintenance, and when
