@@ -7,7 +7,7 @@ It introduces no issue graph or adopting-project lifecycle.
 
 ## Delivered releases
 
-The current release scope is 0.10.0, removing the gzkit installer surface and
+The latest release is `v0.10.0`, removing the gzkit installer surface and
 integration examples; see the [release receipt](evidence/2026-11-08-0.10.0-release.md)
 for its publication and channel status. The preceding release is `v0.9.0`:
 project setup and dependency update follow
@@ -45,6 +45,10 @@ No other open GitHub issues or PRs were found in the preceding 2026-10-25 check;
 that observation is a dated snapshot, not a continuously synchronized view.
 
 ## Selected pending 0.10.0 scope
+
+The scope selected below has shipped as v0.10.0; its title preserves the original
+planning anchor. Publication and all required tagged channel checks are verified
+in the release receipt. The next minor number is 0.11.0, with scope unselected.
 
 Baseline: published v0.9.0. Outcome: enforce the maintainer's separate lightweight
 alternative boundary, with no designed gzkit interoperability. Included work:
