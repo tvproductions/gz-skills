@@ -1,6 +1,6 @@
 # Skill roadmap and backlog
 
-Reconciled: 2026-11-08. This is the repository's planning index; detailed
+Reconciled: 2026-11-13. This is the repository's planning index; detailed
 contracts and evidence remain in the linked records. The order below is the
 recommended next-work order, not approval to implement or publish a proposal.
 It introduces no issue graph or adopting-project lifecycle.
@@ -32,6 +32,18 @@ correction (quality-gate skill `0.1.2`) and router `0.5.1`; see the
 for publication, artifacts and channel-install evidence.
 
 ## Current backlog
+
+Selected patch **0.10.2** corrects pre-implementation gate applicability in Git
+sync and quality gate. Its finite scope is the reported empty-suite deadlock,
+complete-tree/authority diagnosis, honest inapplicability evidence and authorized
+gate-repair guidance. Acceptance: the [case matrix](review/gate-applicability-2026-11-13.md),
+README test/specification/build sequence, Ruff/ty and repository contract checks.
+Invocation, project gate authority and snapshot/lock contracts are preserved;
+no new runtime helper, test runner, lifecycle state or setup schema is included.
+Starter/adopter hook changes, consumer upgrades, publication and the remaining
+stable-review backlog are outside this patch. Candidate instruction corrections
+do not establish native behavioral qualification or clear GZYoke's installed
+gate. The next minor remains unselected at 0.11.0.
 
 | Order | Work | Status and owner | Next action and completion evidence |
 | ---: | --- | --- | --- |

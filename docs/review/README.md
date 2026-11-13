@@ -47,6 +47,9 @@ For each review, record:
 
 The `gzs-git-sync` contract review is complete; `gzs-update-dependencies` now
 has an initial review and portability correction and remains next for behavioral evidence.
+The [pre-implementation applicability correction](gate-applicability-2026-11-13.md)
+adds a bounded static case review for Git sync and quality gate; it does not
+extend the historical native execution evidence or accept quality gate as stable.
 The next skill without an initial review is `gzs-quality-gate`.
 The router's provider blocker is
 resolved; its remaining invocation-guidance finding precedes stable acceptance.

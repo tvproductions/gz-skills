@@ -3,7 +3,7 @@ name: gzs-git-sync
 description: Create and publish a guarded Git save point after reviewing scope and passing the repository's own quality gates. Use only when the user explicitly asks to git sync, commit and push, publish the current work, or create a remote save point.
 compatibility: Requires Git, a configured repository remote, and permission to commit and push.
 metadata:
-  govzero-version: "1.0.1"
+  govzero-version: "1.0.2"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -34,14 +34,17 @@ controls. Do not duplicate its state or declare the containing workflow complete
    and name the boundary.
 3. Discover the repository's canonical sync command per the order in
    § Discovery and fallback. Do not substitute remembered commands for
-   documented ones.
+   documented ones. Resolve gate applicability from the project stage and
+   actual tree as described in § Stage-aware verification.
 4. Preview mutations when the selected adapter supports a dry run. Fetch current
    remote state before trusting ahead/behind counts. Completion means the plan
    identifies the branch, remote, changed-file scope, validation, commit, remote
    reconciliation, and push.
 5. Run every quality gate required for the changed scope. Keep commit hooks
-   enabled. Fix an in-scope failure and rerun its owning gate; stop on a failure
-   that cannot be resolved within the requested work.
+   enabled. Diagnose a zero-test result before classifying it as a failed
+   behavioral gate. Fix an in-scope failure or authorized applicability mismatch
+   and rerun its owning gate; stop on a failure that cannot be resolved within
+   the requested work.
 6. Stage only the intended save point and inspect the staged diff. Compose a
    concise commit message that describes the whole staged unit. Do not commit an
    empty or misleading unit.
@@ -71,6 +74,45 @@ The third rung is the floor, and it always exists: any repository with a remote
 can be synced with Git alone. A project surface above it is enrichment, never a
 prerequisite, so this workflow never degrades into having nothing to run.
 
+## Stage-aware verification
+
+Planning, research, documentation and instruction repositories are valid save
+points before runtime implementation exists. A configured test runner does not
+by itself make behavioral tests applicable. Inspect the governing project stage,
+the complete tree (including scripts and untracked files), existing test assets,
+discovery configuration, hooks and CI. A documentation-only diff does not excuse
+required tests for an existing implementation or executable tooling.
+
+Where project policy permits it and there is no implemented behavior or test
+suite to exercise, record behavioral testing as **not applicable: pre-implementation**
+with the inspected scope and reason. Run the checks applicable to the actual
+artifacts, such as configured document/link checks, configuration validation,
+skill-contract checks and whitespace checks. Do not invent a test requirement,
+write placeholder tests or claim a passing test suite to save planning work.
+
+Zero discovered tests require diagnosis, regardless of the runner's exit code.
+If tests or implementation exist, investigate discovery paths, naming, imports,
+environment and missing coverage; an empty discovery result is not evidence of
+inapplicability. Inspect the actual command and output rather than assuming what
+a numeric status means across tools or versions.
+
+If an unconditional bootstrap hook contradicts the project's permitted
+pre-implementation scope, identify the owning gate as a configuration mismatch.
+When repairing that mismatch is authorized, correct its project-owned command,
+hook, CI and guidance together as applicable. The condition must report why
+tests are inapplicable and automatically require real tests when implementation,
+executable tooling or test assets appear; a permanent allow-empty switch or
+manual phase label alone is insufficient. Rerun the complete canonical gate
+with hooks enabled before committing. Preserve required thresholds and genuine
+test/discovery failures; do not use hook skips or blanket exit-code suppression.
+
+An ordinary sync request does not authorize changing an explicit project test
+requirement. If policy requires tests unconditionally or forbids gate edits,
+name that precise conflict and the smallest policy/configuration correction
+needed. A request to correct this mismatch permits the bounded repair where
+project authority allows it; complete that repair instead of repeatedly rerunning
+the same empty suite. No portable skill waives an active project approval rule.
+
 ## Safety invariants
 
 - Preserve published history: no force push or destructive reset.
@@ -87,4 +129,7 @@ prerequisite, so this workflow never degrades into having nothing to run.
 Report the branch, remote, changed-file scope, validation commands and results,
 commit SHA and message, reconciliation performed, push result, and final
 ahead/behind and worktree state. Identify validation performed after any
-content-changing reconciliation. Name any skipped gate or unresolved warning.
+content-changing reconciliation. Distinguish passed checks, justified
+inapplicable dimensions and unresolved failures; include the project authority
+and evidence for each applicability decision or gate repair. Name any skipped
+gate or unresolved warning.

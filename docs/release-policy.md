@@ -208,6 +208,20 @@ A selected target does not assert readiness or authorize publication. Use the
 canonical policy's required-version-decision-procedure; keep the record in
 existing project authorities rather than creating another tracker.
 
+### November 13, 2026 scoped applicability correction
+
+Checked canonical starter main at `77bce3bdeb77c5679cb6eed3e569a2b32a412df1`
+against its clean local checkout. Reviewed versioning, changelog, baseline and
+Python engineering guidance for the pre-implementation empty-suite defect.
+The [case review](review/gate-applicability-2026-11-13.md) records applicability,
+decisions and limits. Preserve the source's project-owned unittest/pre-commit
+requirements; add no portable bypass or competing baseline. Classify the two
+instruction corrections as patches under the existing scope-dependent gate
+contract: bundle v0.10.1 → candidate 0.10.2, Git sync 1.0.1 → 1.0.2 and quality
+gate 0.1.2 → 0.1.3. Starter candidate 0.10.0's ADR delivery and dependency-migration
+binding remain separate work, not evidence of implemented companion conformance.
+No installed consumer policy or published release changes in this correction.
+
 ### November 1, 2026 local release-accounting review
 
 Published baseline is v0.8.3, commit d6acc26e28ca1c4f43e5bb46d8973021d7d006c3.

@@ -6,6 +6,22 @@ fleet updates.
 
 ## Unreleased
 
+Pending **0.10.2**, from published v0.10.1: correct gate applicability for
+pre-implementation planning, research, documentation and instruction work.
+
+- `gzs-git-sync` 1.0.1 → 1.0.2 and `gzs-quality-gate` 0.1.2 → 0.1.3 clarify
+  the existing project-owned, scope-dependent verification contract. Inspect the
+  complete tree and project authority before treating an empty test run as a
+  required behavioral failure. Report justified pre-implementation testing as
+  not applicable, validate the actual artifacts, and repair authorized
+  hook/CI applicability mismatches before rerunning the full gate. Preserve
+  unconditional project requirements, approval controls, hooks, thresholds and
+  real discovery/test failures; never manufacture tests or suppress exit codes.
+  These are compatible instruction corrections, requiring skill and bundle
+  patches. Invocation and authorization boundaries do not change. See the
+  [case review](docs/review/gate-applicability-2026-11-13.md) for acceptance and
+  propagation limits. Publication and consumer configuration updates are separate.
+
 ## 0.10.1 - 2026-11-08
 
 - Release bundle 0.10.1 against published v0.10.0: replace Hatchling with
