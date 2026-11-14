@@ -1,90 +1,102 @@
 ---
 name: gzs-router
-description: Orient users to the GovZero portable skill catalog. Use when they need the right skill or sequence, ask how to discover, invoke, install, or update GovZero skills, or need help diagnosing skill availability or invocation behavior.
+description: Select and enter the appropriate workflow for an engineering task using standalone GovZero skills or complementary skills alongside installed Superpowers. Use when choosing how to start or continue work, explaining typical workflows, or diagnosing skill discovery. Execute an authorized task through its owner; recommendation-only questions remain read-only.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.5.1"
+  govzero-version: "0.6.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
 
 # GovZero Skill Router
 
-Act as the curator and usage guide for this catalog. Route a user's goal to the
-smallest useful skill or sequence, or explain how the catalog is discovered,
-invoked, installed, and updated. This is a map, not an orchestrator: recommend
-skills and next actions but do not silently start workflows, install or update
-packages, or change configuration.
+Route the user's outcome to its owning workflow and carry authorized work into
+that workflow. Explain the selection briefly, load the applicable instructions,
+and continue to the requested completion boundary. A request for a recommendation
+or catalog explanation remains read-only. Routing does not grant new authority.
 
-## Choose the mode
+Use the [adopter workflow guide](references/workflows.md) when establishing a
+workflow, explaining what happens next, or deciding how gz-skills complements
+installed Superpowers. It covers typical requests, ownership, handoffs and done
+conditions. Read only the relevant recipe after selecting the installation case.
 
-- **Task routing:** The user needs the right skill or sequence for an immediate
-  goal.
-- **Catalog guidance:** The user asks how GovZero skills work, how they are
-  installed or updated, or why an expected skill is not visible or activating.
+## Establish ownership
 
-Answer only the mode asked for. Do not reproduce the full catalog when a focused
-answer is enough.
+- With gz-skills alone, choose the applicable standalone discipline. Ordinary
+  engineering work fills gaps the catalog does not cover; no additional plugin
+  is required to complete a bounded task.
+- When Superpowers is installed and applicable, follow its installed entry and
+  process guidance. It owns its feature, debugging, test, review and branch
+  workflows. Add a GovZero discipline for a distinct supporting need; do not
+  rerun a second debugging, planning, review or verification workflow by default.
+- An active project-owned workflow takes precedence in either case. Preserve
+  its approvals, stages, state, locks, evidence and release/handoff ownership.
+  If Backplane governs the project, retain its authority. Do not introduce
+  another lifecycle, tracking file or mandatory orchestration dependency.
+
+Discover actual availability through the harness and project instructions;
+do not infer installation from a profile, a directory name or this guide.
+Unknown availability is an explicit gap, not a reason to install another plugin
+or stop an independent standalone task. Presence of Superpowers selects neither
+lite nor heavy and grants no architecture, publication or setup approval.
 
 ## Discovery and fallback
 
 Prefer, in order:
 
-1. An active project-owned workflow that governs the task, which stays in
-   control while a portable skill serves as a supporting primitive.
-2. A project-local skill that already covers the goal.
+1. An active project-owned workflow, which stays in control while a portable
+   skill serves as a supporting primitive.
+2. The project's selected workflow or local skill, including installed
+   Superpowers where applicable to development work.
 3. The catalog in this bundle.
 
-The third rung is the floor and ships with the router itself, so an orientation
-answer remains possible without a project surface. When no catalog skill fits,
-say so and recommend ordinary agent work. When one fits, check whether a project
-surface should take precedence over it.
+The third rung is the floor and ships with the router itself. When no catalog
+skill fits, explain or perform ordinary agent work according to the request;
+a routing answer does not require a matching skill or another plugin.
 
 ## Route a task
 
-1. Identify the user's immediate outcome and whether they want action, an audit,
-   maintenance, publication, or orientation.
-2. Check for an active project-owned workflow. When one governs the task, keep
-   it in control and recommend a `gzs-*` skill only as a supporting primitive;
-   do not create a parallel lifecycle or bypass its gates and state.
-3. Choose one primary skill from the catalog below. Add another only when it is
-   a genuine next phase, not merely related.
-4. State prerequisites, mutation or remote effects, and whether explicit user
-   invocation is required.
-5. Give the exact invocation supported by the observed harness, preserving any
-   plugin namespace shown in its command listing, and a one-sentence starting
-   prompt. Do not assume `$skill-name` works in every harness. If the syntax is
-   unverified, name the skill and give a discovery step instead of claiming an
-   exact command.
-6. When no skill fits, say so. Recommend ordinary agent work rather than forcing
-   a catalog match.
+1. Identify the requested outcome. Distinguish action from a recommendation,
+   diagnosis from a fix, review from revision, and Git sync from publication.
+   Carry established authority through handoffs and corrections.
+2. Resolve the owner from project instructions, active workflow and actual
+   installed capabilities. Consult the relevant installation case and recipe in
+   the guide. Keep a running workflow in control rather than starting it again.
+3. Select one primary workflow. Add another only for a distinct missing concern
+   or actual next phase. Do not duplicate gates or collect every related skill.
+4. For an action request, name the owner briefly and load/invoke its instructions
+   through the observed harness. Continue within the authorized scope instead of
+   stopping at a skill menu or asking the user to repeat the request with another
+   invocation. Preserve the destination's required approvals. Explicit-only
+   operations need explicit authority for their effect, such as commit/push,
+   release publication or durable handoff; router activation alone supplies none.
+   If invocation is unavailable, read the workflow where supported or identify
+   the limitation and continue independent work. Never claim an unperformed step.
+5. For a recommendation or usage question, give the exact invocation supported
+   by the observed harness, preserving its plugin namespace, and a short starting
+   prompt. Do not assume a universal dollar, slash or at-sign command. If syntax
+   is unverified, name the skill and give a native discovery step. Do not execute
+   the recommended workflow merely to explain it.
+6. Preserve the original outcome across transitions. Reuse applicable evidence
+   for an unchanged tree, obey actual approval points, and report the achieved
+   result and remaining blockers. Routing alone does not complete an action task
+   or its containing project workflow.
 
-## Explain catalog usage
+## Explain discovery and adoption
 
-1. Establish the relevant harness and installation channel from available
-   evidence. Do not assume that a managed plugin and a vendored snapshot behave
-   the same way.
-2. Explain the smallest relevant part of the catalog contract:
+Establish the harness and installation channel before diagnosing visibility or
+suggesting installation commands. Model-selected skills can activate when the
+request matches; explicit-only skills still require the user's authorization
+for their operation. Skill registration and automatic session-start loading are
+separate observations; do not promise bootstrap behavior from an installed file.
 
-   - Harnesses discover installed skill names and activation descriptions, then
-     load a matching skill's body when needed.
-   - Model-invoked skills may activate when the request matches. Explicit-only
-     skills require explicit user invocation in the harness's supported syntax;
-     preserve any plugin namespace rather than assuming a universal `$gzs-*`
-     command.
-   - Managed plugins are read-only subscriptions updated by the harness's plugin
-     manager. Do not direct users to edit an installed plugin cache.
-   - Vendored snapshots are installed and updated with the `gz-skills` Python
-     CLI and recorded in `gz-skills.lock.json`; local modifications block safe
-     replacement until reconciled.
-3. For availability problems, distinguish among not installed, explicit-only
-   and therefore absent from a model-visible list, installed through the wrong
-   channel or scope, and duplicated through multiple channels. Do not report a
-   skill missing solely because it is hidden from automatic invocation; inspect
-   an available plugin manifest, catalog listing, or lock before concluding.
-4. Give the exact invocation or next diagnostic step supported by the observed
-   environment. Explain commands without executing installation, update, or
-   configuration changes unless the user's request separately authorizes them.
+Managed plugins use the native manager; do not edit their cache. Vendored
+snapshots use their project lock and complete tree hashes; preserve local edits.
+Distinguish absent, hidden explicit-only, wrong scope, duplicate installation and
+unavailable host syntax. Installation, updates, setup and configuration changes
+need authority from the user's request or project policy. Explain them read-only
+when that is all the user asked. Profile selection and integrated heavy readiness
+remain with their owning setup/project workflow and evidence.
 
 ## Catalog
 
@@ -108,42 +120,36 @@ surface should take precedence over it.
 | Preserve or resume engineering state | `gzs-session-handoff` | Explicit-only; creates or consumes a durable continuity artifact. |
 | Survey and prioritize technical debt | `gzs-tech-debt-review` | Produces an evidenced report without fixing findings. |
 | Implement an explicitly test-first behavior change | `gzs-test-driven-change` | Runs a verified red-green-refactor loop inside the owning project workflow. |
-| Assess dependency freshness or refresh project dependencies and tools | `gzs-update-dependencies` | Review leaves pins unchanged; updates cover packages, tools, and evidenced template/plugin revisions within project scope. |
+| Update project dependencies and tools, or explicitly review freshness | `gzs-update-dependencies` | Direct invocation requests completed scoped updates; an explicit check leaves pins unchanged. |
 
 ## Common sequences
 
-- Dependency risk response: `gzs-dependency-risk-audit` →
-  `gzs-update-dependencies` only when an upgrade is the authorized response.
-- Dependency maintenance: `gzs-update-dependencies` → `gzs-git-sync` when the
-  verified update should be published.
-- Release delivery: `gzs-release` for version advice, preparation or authorized
-  publication; `gzs-git-sync` alone creates a remote save point, not a release.
-- Failure resolution: `gzs-root-cause-debugging` → `gzs-quality-gate` after an
-  authorized fix, unless the active project workflow already owns verification.
-- Architecture alignment: `gzs-hexagonal-architecture-audit` for boundary and
-  dependency-direction analysis; add `gzs-plan-audit` only when the broader
-  plan also needs intent, scope, and completeness review.
-- Pythonic pattern refactoring: `gzs-pythonic-pattern-detect` to assess
-  candidates, then `gzs-pythonic-pattern-apply` for one authorized change.
-  Use `gzs-hexagonal-architecture-audit` when boundary direction is in doubt.
-- Pre-publication confidence: `gzs-quality-gate` → `gzs-git-sync` when no broader
-  maintenance workflow already ran the complete gate.
-- Test-first delivery: `gzs-test-driven-change` → `gzs-change-review` when the
-  completed implementation needs an independent semantic review.
-- Plan integrity: `gzs-plan-audit` before implementation; `gzs-intent-audit` after
-  delivery when fulfillment is uncertain.
-- Repository maintenance: `gzs-repository-hygiene` → `gzs-quality-gate` when the
-  hygiene workflow did not already include the full final gate.
-- Session continuity: `gzs-session-handoff` at a stopping boundary; invoke it
-  again to resume from the artifact.
+The guide describes each transition and completion boundary. These are useful
+compositions when no active owner already supplies the same work:
 
-Avoid redundant sequences. A skill that already requires the complete quality
-gate does not need a second quality invocation unless the tree changed afterward.
+- Bug fix: diagnosis through `gzs-root-cause-debugging`, authorized correction,
+  then project verification. A diagnosis-only request stops before the fix.
+- Dependency maintenance: `gzs-update-dependencies` through update and validation;
+  `gzs-git-sync` follows only when commit/push is authorized.
+- Release: `gzs-release` through the requested advice, preparation or publication
+  boundary. `gzs-git-sync` follows pending versions through that owning workflow
+  only when publication authority is already established.
+- Refactoring: `gzs-pythonic-pattern-detect` for requested candidate review, then
+  `gzs-pythonic-pattern-apply` for an authorized candidate. Use
+  `gzs-hexagonal-architecture-audit` for a distinct boundary question.
+- Explicit test-first change: `gzs-test-driven-change`, with an appropriate
+  `gzs-change-review` when requested or project-required.
+- Plan/fulfillment uncertainty: `gzs-plan-audit` before execution or
+  `gzs-intent-audit` after delivery; neither is a mandatory extra stage for every
+  small task. Keep technical-debt and dependency-risk surveys read-only unless
+  corrective work is separately authorized.
+- Save or resume state: use the active owner's handoff mechanism; otherwise
+  `gzs-session-handoff` handles an explicit continuity request.
 
 ## Output
 
-For task routing, return the primary recommendation, optional sequence,
-rationale, prerequisites or side effects, and exact invocation. For catalog
-guidance, state the relevant channel or invocation mode, answer the question,
-and give one concrete next step. Keep either response short enough to function
-as orientation rather than reproducing another skill or the installation docs.
+For an action request, briefly name the selected owner and proceed; report
+results after the requested work, its verification and applicable handoffs.
+For guidance, give the smallest useful recommendation or sequence, rationale,
+actual invocation/discovery step and material side effects. Explain only the
+workflow or catalog question asked; do not reproduce the entire catalog.

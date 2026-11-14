@@ -148,14 +148,21 @@ or repository-owned seams, and test representative path and process behavior.
   `5dcb96f2bb8d5c0fd5777fad8449b5200c1d67a4`:
   `src/gzkit/skills/gz-skill-router/SKILL.md`
 
-The extraction record began with a user-invoked curator. The current portable
-router supports both user and model invocation for read-only orientation, as
-reflected in its OpenAI metadata and OpenCode registration. Its invariant is to
-map an immediate goal to the smallest useful skill or sequence, or state that no
-catalog skill fits, without executing the selected workflow.
+The extraction record began with a user-invoked curator. Released router 0.5.1
+supported user/model invocation for read-only orientation. Router 0.6.0 keeps
+recommendation questions read-only and enters the selected owner when the user
+has requested action. It distinguishes standalone use from complementary use
+alongside installed Superpowers while preserving active project authority.
+
 The source router's decision-tree pattern credits `using-agent-skills` from
 `addyosmani/agent-skills` under MIT; the portable catalog and routing text here
-were rewritten for GovZero's independently authored skills.
+were rewritten for GovZero's independently authored skills. The November 14
+workflow guide additionally learns from `obra/superpowers` at
+`22f0b463e7a5e579904dd6211a520321035526f7`: its README's basic workflow and
+`skills/using-superpowers/SKILL.md`. These are design references with attribution,
+not copied skill implementations or a required plugin dependency. The packaged
+[guide](../skills/gzs-router/references/workflows.md) and
+[case review](review/adopter-workflows-2026-11-14.md) record ownership and limits.
 
 ## `gzs-root-cause-debugging`
 

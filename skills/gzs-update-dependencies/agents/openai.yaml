@@ -1,6 +1,6 @@
 interface:
   display_name: "GovZero Update Dependencies"
-  short_description: "Review freshness or update dependencies and tools"
-  default_prompt: "Use $gzs-update-dependencies to complete and verify dependency maintenance in the established scope and mode, honoring prior user instructions and project policy; leave dependency state unchanged for a freshness-only review."
+  short_description: "Update dependencies and verify the result"
+  default_prompt: "Use $gzs-update-dependencies to update this project's dependencies and tools to current stable versions and verify the result under project policy; perform only a review if I explicitly request a check or no changes."
 policy:
   allow_implicit_invocation: true

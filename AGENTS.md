@@ -26,6 +26,12 @@ GovZero skills.
 
 ## Adopting-project ecosystem direction
 
+- Teach both capability cases: gz-skills independently present, and gz-skills
+  complementing installed Superpowers. Select from actual installed guidance;
+  do not equate plugin presence with a lite/heavy choice or integrated readiness.
+  Route authorized action into its owner and continue to completion. Preserve
+  advice-only requests and existing approvals; avoid duplicate development
+  processes, verification, tracking or handoffs.
 - Read `docs/proposals/lightweight-sdd-ecosystem.md` before work on the lite or
   heavy project profiles or their integration. It records the candidate design,
   ownership boundaries, and unresolved proof work; do not describe it as shipped.
@@ -149,6 +155,12 @@ GovZero skills.
 
 ## Python tooling
 
+- Invoking `gzs-update-dependencies` requests completed maintenance, including
+  when the invocation is the entire message. Update the project-managed scope
+  to current stable versions and verify it; do not stop at a version table or
+  ask again to apply. Review only when the user explicitly requests a check,
+  assessment or no changes. Preserve runtime-family policy and separately
+  required approvals. This also overrides older installed skill fallbacks.
 - Apply the maintainer's strict Astral/uv alignment preference to this
   repository: uv manages environments, dependencies and build execution;
   `uv_build` is the preferred pure-Python backend; Ruff owns lint/format and ty

@@ -281,3 +281,23 @@ upgrade. Reviewed `docs/versioning.md` SHA-256:
 `templates/AGENTS.skills-first.md` SHA-256:
 `0383bc3330756600b2d9e0ae2393af0143836b7e6bc3b5b8d407e39f361b51b4`.
 No adoption lock, component pin, plugin activation or product version is changed.
+
+
+### November 14, 2026 direct update invocation and tool maintenance
+
+The maintainer explicitly rejected stopping after a version table: the imperative
+`gzs-update-dependencies` invocation requests completed updates. Bind that
+behavior locally, including when an older installed skill supplies a review
+fallback, and update the portable direct-invocation contract. Explicit review
+requests and consumer project constraints remain controlling. Reviewed starter
+remote main and clean source `0d60d0dc6b6a4a695135a9e1bbcc4e7830171dd2`:
+baseline maintenance, Python, Astral alignment, verification, versioning and
+changelog guidance. No formal starter/heavy adoption is introduced.
+
+Select 0.12.0 from published v0.11.0 and dependency skill 0.5.0 from 0.4.2;
+the new invocation default requires a minor during 0.x. Include the current-tool
+refresh and project-owned locked development checks in that finite scope.
+Preserve Python 3.14.10 and uv >=0.13.5 compatibility. See the
+[maintenance receipt](evidence/2026-11-14-dependency-maintenance.md) for targets,
+compatibility, verification and exclusions. No commit, publication or installed
+consumer propagation follows from this maintenance request.

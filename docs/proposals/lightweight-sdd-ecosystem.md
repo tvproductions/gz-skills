@@ -5,7 +5,11 @@ Recorded: 2026-09-27. This continues the [session handoff](../handoffs/2026-09-2
 
 Reconciliation note (2026-10-25): project setup and the Pythonic pattern pair
 have shipped; see the [current roadmap and backlog](../roadmap.md). The integrated
-heavy workflow, first-use proof and four MPAS adaptations remain candidate work.
+heavy workflow, first-use proof and four MPAS adaptations remain candidate work. Router 0.6.0
+adds [adopter workflow guidance](../../skills/gzs-router/references/workflows.md)
+for standalone use and use alongside installed Superpowers. That guidance and
+workflow entry do not implement the first-use settings checks, hooks, schema
+extensions or integrated heavy readiness proposed below.
 
 ## Purpose and ownership
 

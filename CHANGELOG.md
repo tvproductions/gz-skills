@@ -6,6 +6,42 @@ fleet updates.
 
 ## Unreleased
 
+## 0.12.0 - 2026-11-14
+
+Release **0.12.0**, from published v0.11.0: make authorized engineering
+requests proceed through completion, teach standalone/complementary adopter
+workflows, and refresh the existing Python tools. `gzs-update-dependencies`
+0.4.2 → 0.5.0 changes direct invocation to completed updates; `gzs-router`
+0.5.1 → 0.6.0 enters an authorized task's workflow instead of stopping at advice.
+Both changes require minors during 0.x; bundle 0.12.0 covers
+the expanded coherent scope. No major or stable promotion is proposed. See the
+[maintenance receipt](docs/evidence/2026-11-14-dependency-maintenance.md) and
+[adopter workflow case review](docs/review/adopter-workflows-2026-11-14.md).
+
+- `gzs-router` 0.6.0 selects and enters the user's authorized workflow, with
+  recommendation-only requests remaining read-only. A packaged adopter guide
+  teaches typical requests, expected results and actual decision points for
+  gz-skills alone and alongside installed Superpowers. Preserve Superpowers'
+  applicable development ownership, active project/Backplane authority and
+  destination approvals; avoid duplicate processes, gates and handoffs. No
+  profile, schema, hook, tracking state or required plugin is added. Adopters
+  wanting advice should ask for a recommendation; a bare router without an
+  outcome must establish the task before acting. Automatic activation and
+  integrated heavy readiness still require native proof.
+
+- A direct `gzs-update-dependencies` invocation now authorizes scoped updates and
+  verification without a second go-ahead. Review only when explicitly requested;
+  automatic selection follows the surrounding task. Preserve project scope,
+  runtime families, approvals and separate publication/consumer boundaries.
+  Refresh its description and default prompt; add this repository's binding so
+  older installed instructions cannot reinstate the review fallback.
+- Refresh the build-backend minimum to uv_build 0.13.8 and lock the already-used
+  Ruff 0.17.5, ty 0.0.104 and skills-ref 0.1.1 in the development group. Keep
+  runtime dependencies empty, Python 3.14.10 and uv >=0.13.5 support. Update uv
+  execution to 0.13.8 and document project-owned locked verification commands.
+  Package/resource and current-tool verification passed; publication is separate.
+
+
 ## 0.11.0 - 2026-11-14
 
 Release **0.11.0**, from published v0.10.1: add release follow-through to Git

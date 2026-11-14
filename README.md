@@ -4,6 +4,34 @@
 workflows that should behave consistently across projects without belonging to
 one project's architecture, runtime, vendor, or agent harness.
 
+## How work proceeds
+
+Start with the outcome: “Fix this failure,” “Update dependencies,” “Review this
+change,” or “Commit and push this work.” The agent selects the appropriate
+workflow, loads its instructions and completes the authorized task and
+verification. You do not need to invoke each internal step. A question asking
+which skill to use receives guidance without executing the recommendation.
+
+| Available capabilities | How work proceeds |
+| --- | --- |
+| gz-skills independently present | Use the relevant standalone discipline and the project's normal development practices. Complete a bounded task without requiring another plugin. |
+| gz-skills alongside Superpowers | Follow the installed Superpowers development process. Add GovZero maintenance, analysis, verification or publication disciplines for distinct supporting needs, then continue under the same owner. |
+
+An active project workflow retains its approvals, state, gates and release or
+handoff ownership in either case. Avoid running a second plan, debugger, review
+or verification sequence over the same unchanged work. These capability cases
+do not select lite/heavy or establish integrated heavy readiness.
+
+The [adopter workflow guide](skills/gzs-router/references/workflows.md) explains
+typical requests, decision points, expected results and completion. It ships
+with `gzs-router`, so agents can read it from an installed plugin or snapshot.
+If automatic selection has not been verified in your harness, ask the agent to
+use `gzs-router` for your task through its native skill picker/loading mechanism.
+Installing a plugin alone does not prove session-start activation. The guide
+also supplies an optional entry rule for the adopter's own project instructions.
+
+## Skill catalog
+
 The catalog contains twenty workflows distilled primarily from `gzkit`, with
 corroborating implementations from other `tvproductions` repositories:
 
@@ -37,7 +65,7 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The latest immutable bundle release is `v0.11.0`; `v0.2.0` was the first. The
+The latest immutable bundle release is `v0.12.0`; `v0.2.0` was the first. The
 catalog remains in the SemVer 0.x development series while the one-by-one
 behavioral review matures toward 1.0.0.
 
@@ -46,8 +74,10 @@ behavioral review matures toward 1.0.0.
 The 0.8.0 bundle adds `gzs-release` for explicit version recommendations,
 release preparation and authorized publication with remote verification. It
 follows the consumer's release policy and active orchestrator; it adds no
-language, host or lifecycle requirement. `gzs-git-sync` still handles ordinary
-commit/push save points. The release adds the skill to the tagged canonical
+language, host or lifecycle requirement. `gzs-git-sync` handles ordinary
+commit/push save points and, from 0.11.0, follows pending versions through the
+owning release procedure when publication authority is established. The release
+adds the skill to the tagged canonical
 catalog. Native installation and fresh-session workflow execution are separate acceptance evidence.
 
 For this repository's own releases, [the policy binding](docs/release-policy.md)
@@ -117,9 +147,9 @@ file contains no installed-plugin inventory.
 Adopters may extend the baseline with application dependencies, optional
 features, development groups, settings, and project-owned skills or adapters.
 Setup and dependency maintenance preserve those declarations and follow the
-project's approved policy, including a starter's selected runtime family and
-tool assortment. The default heavy Python guidance fills choices the adopter
-has not already made; it does not replace an approved project baseline.
+project's approved policy, including any adopted starter revision, runtime
+family and tool assortment. Profile selection supplies no fallback environment
+baseline; missing governing authority remains an explicit unresolved decision.
 
 Keep durable workflow customization in project instructions, documented
 commands, or a separate project-prefixed skill that composes portable skills.
@@ -131,9 +161,10 @@ plugin caches remain upstream-owned; locally modified vendored skills block
 automatic replacement until reconciled. Setup does not implement an application
 configuration loader or an automatic baseline merge.
 
-`gzs-update-dependencies` supports both freshness review and an
-authorized update. Review leaves pins, locks, and installed environments unchanged
-and reports current releases, compatibility evidence, and adopt/defer decisions.
+Invoking `gzs-update-dependencies` requests completed updates and verification.
+An explicit check, freshness review or no-changes request instead leaves pins,
+locks and installed environments unchanged and reports current releases and
+compatibility evidence.
 Its inventory includes evidenced starter/template and agent plugin revisions as
 well as runtime packages and development tools. Updates preserve project release
 families, extra dependencies, reviewed overrides, and deferred plugins. These
@@ -192,7 +223,7 @@ over the same canonical `skills/` tree.
 - Codex can install the released bundle from this repository marketplace:
 
   ```text
-  codex plugin marketplace add tvproductions/gz-skills@v0.11.0
+  codex plugin marketplace add tvproductions/gz-skills@v0.12.0
   codex plugin add gz-skills@gz-skills
   ```
 
@@ -207,7 +238,7 @@ over the same canonical `skills/` tree.
   /plugin install gz-skills@gz-skills
   ```
 
-- OpenCode v2 can install the `v0.11.0` Git package per project. The
+- OpenCode v2 can install the `v0.12.0` Git package per project. The
   earlier `v0.4.0` package uses the OpenCode v1 adapter.
 
   In each adopting repository, add this to its `opencode.jsonc`:
@@ -216,7 +247,7 @@ over the same canonical `skills/` tree.
   {
     "$schema": "https://opencode.ai/config.json",
     "plugins": [
-      "git+https://github.com/tvproductions/gz-skills.git#v0.11.0"
+      "git+https://github.com/tvproductions/gz-skills.git#v0.12.0"
     ]
   }
   ```
@@ -235,7 +266,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.11.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -265,14 +296,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.11.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.11.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -281,9 +312,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.11.0 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.11.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.11.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 
@@ -357,13 +388,20 @@ Use Python 3.14 for the snapshot CLI; native skill plugins do not require it.
 
 ```powershell
 uv run --locked python -m unittest discover -s tests -v
+uv run --locked ruff check .
+uv run --locked ruff format --check .
+uv run --locked ty check
 
 Get-ChildItem .\skills -Directory | ForEach-Object {
-    uvx --from skills-ref agentskills.exe validate $_.FullName
+    uv run --locked agentskills validate $_.FullName
 }
 
 uv build
 ```
+
+Ruff, ty and the Agent Skills reference validator are development dependencies
+resolved in `uv.lock`. `uv sync --locked` installs the selected versions; the
+commands above use those project tools even when older global tools exist.
 
 ## License
 

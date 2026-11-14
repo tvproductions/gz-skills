@@ -60,6 +60,43 @@ model behavioral qualification and the remaining stable-review backlog stay
 separate. All release gates and tagged channel checks passed; the selected
 scope is complete. No further minor scope is selected.
 
+## Selected 0.12.0 release scope
+
+Selected minor **0.12.0**, against published v0.11.0, serves reliable task
+initiation and completion. The maintainer expanded the completed dependency
+maintenance scope to include adopter workflow guidance learned from Superpowers.
+Direct dependency invocation completes updates; router action requests enter the
+owning workflow, while explicit checks/recommendations remain read-only.
+
+The guide must teach both gz-skills independently present and complementary use
+alongside installed Superpowers. It must explain typical requests, outputs,
+transitions, decision points and completion; preserve active project/Backplane
+ownership and avoid redundant processes, gates or handoffs. Neither installation
+case chooses a profile or proves integrated heavy readiness. The existing
+first-use/hook/schema proof work below remains separate.
+
+Included: dependency skill 0.4.2 → 0.5.0, router 0.5.1 → 0.6.0, its packaged
+workflow reference, prominent adopter README guidance and locked current Python
+tools. Both changed contracts require minors during 0.x; reuse adequate pending
+bundle 0.12.0 across its existing mirrors. No major PRD or stable promotion is
+required. Runtime family, installer/lock/setup contracts and optional components
+remain unchanged. No new required orchestrator or authored harness mirror.
+
+Acceptance: standalone and complementary scenario review, preserved advice-only
+and consequential-operation boundaries, metadata/activation/link checks, full
+required repository checks, native candidate loading and installed package proof
+including the new reference. Native model execution, automatic session bootstrap
+and heavy compatibility qualification must be reported separately. The
+[maintenance receipt](evidence/2026-11-14-dependency-maintenance.md) retains its
+original completed scope/evidence; the
+[workflow case review](review/adopter-workflows-2026-11-14.md) records the extension
+and final candidate checks. The subsequent explicit Git sync authorizes 0.12.0
+publication under AGENTS.md. Release finalization advances marketplace pins and
+installation examples together; publication/channel results are recorded in the
+[release receipt](evidence/2026-11-14-0.12.0-release.md). Existing-consumer
+propagation remains separate.
+
+
 ## Current backlog
 
 | Order | Work | Status and owner | Next action and completion evidence |

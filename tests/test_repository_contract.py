@@ -217,7 +217,7 @@ class RepositoryContractTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
-    def test_read_only_catalog_guides_have_implicit_codex_policy(self) -> None:
+    def test_review_and_routing_skills_have_implicit_codex_policy(self) -> None:
         catalog = load_catalog(REPOSITORY_ROOT / "skills")
 
         for name in (
