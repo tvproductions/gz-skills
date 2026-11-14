@@ -5,7 +5,7 @@ stable release. Review the skill body, activation boundary, provenance,
 portability, side effects, and behavioral scenarios; do not batch-approve the
 catalog from structural validation alone.
 
-This table covers all twenty implemented skills as of 2026-10-25. The current
+This table covers all twenty implemented skills, reconciled on 2026-11-14. The current
 backlog and historical promotion record are in [`docs/roadmap.md`](../roadmap.md).
 Pending means stable-contract acceptance has not been recorded; a release or
 structural validation alone does not complete that review. The release primitive
@@ -15,8 +15,8 @@ is the latest implemented addition; see its
 | Order | Skill | Review status | Why this position |
 | ---: | --- | --- | --- |
 | 1 | [`gzs-router`](../../skills/gzs-router/SKILL.md) | 0.6.0 workflow-entry review ([cases](adopter-workflows-2026-11-14.md)); stable acceptance pending | Historical [0.5.1 inference](gzs-router-2026-10-25-opencode-followup.md) covers orientation, not the new action contract. Qualify standalone/complementary behavior and invocation robustness before stable acceptance. |
-| 2 | [`gzs-git-sync`](../../skills/gzs-git-sync/SKILL.md) | Stable contract accepted ([decision](gzs-git-sync-2026-10-25-acceptance.md)) | The unchanged 0.1.1 contract passed the bounded native execution matrix and is promoted to 1.0.0; all three harnesses revalidated after rebase and preserved project approval authority. |
-| 3 | [`gzs-update-dependencies`](../../skills/gzs-update-dependencies/SKILL.md) | Initial review complete: keep corrected 0.4.1; stable acceptance pending ([review](gzs-update-dependencies-2026-11-08.md)) | The initial finding is closed in 0.4.1, released with bundle 0.10.0. Collect native baseline and execution evidence next; the skill works standalone. |
+| 2 | [`gzs-git-sync`](../../skills/gzs-git-sync/SKILL.md) | 1.0.0 baseline stable contract accepted ([decision](gzs-git-sync-2026-10-25-acceptance.md)); current 1.1.0 additions need qualification | Preserve the accepted baseline. The later release checkpoint and applicability corrections have case/process evidence; do not extend the original native matrix to untested behavior. |
+| 3 | [`gzs-update-dependencies`](../../skills/gzs-update-dependencies/SKILL.md) | Initial 0.4.1 review complete ([review](gzs-update-dependencies-2026-11-08.md)); current 0.5.0 behavioral qualification pending | The direct-update contract changed in [0.12.0 maintenance](../evidence/2026-11-14-dependency-maintenance.md). Keep historical review evidence; qualify current authority, execution and handback. |
 | 4 | [`gzs-quality-gate`](../../skills/gzs-quality-gate/SKILL.md) | Pending | Shared completion contract used by other workflows. |
 | 5 | [`gzs-repository-hygiene`](../../skills/gzs-repository-hygiene/SKILL.md) | Pending | Includes conditional cleanup authority and artifact classification. |
 | 6 | [`gzs-session-handoff`](../../skills/gzs-session-handoff/SKILL.md) | Pending | Explicit continuity workflow with durable artifact choices. |
@@ -44,9 +44,19 @@ For each review, record:
 5. Mutation, authorization, and stopping boundaries.
 6. A no-skill baseline and with-skill behavioral scenario.
 7. Observable completion evidence.
+8. Lifecycle contribution: the need/trigger, consumed inputs, concrete result,
+   receiving owner and skip condition; show independent use and complementary
+   use alongside Superpowers without duplicating the owning process.
 
-The `gzs-git-sync` contract review is complete; `gzs-update-dependencies` now
-has an initial review and portability correction and remains next for behavioral evidence.
+The [catalog lifecycle contribution review](lifecycle-fit-2026-11-14.md) maps all
+twenty skills and recommends the assurance cluster (plan audit, intent audit,
+change review and quality gate) as the next bounded composition review. These
+disciplines answer different questions inside a lifecycle; they are not four
+mandatory new stages. The queue above retains individual review history rather
+than treating the role map as batch acceptance.
+
+The `gzs-git-sync` 1.0.0 baseline review is complete; its current additions and
+`gzs-update-dependencies` 0.5.0 still need appropriately scoped behavioral evidence.
 The [pre-implementation applicability correction](gate-applicability-2026-11-13.md)
 adds a bounded static case review for Git sync and quality gate; it does not
 extend the historical native execution evidence or accept quality gate as stable.
