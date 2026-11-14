@@ -222,6 +222,48 @@ gate 0.1.2 → 0.1.3. Starter candidate 0.10.0's ADR delivery and dependency-mig
 binding remain separate work, not evidence of implemented companion conformance.
 No installed consumer policy or published release changes in this correction.
 
+### November 14, 2026 release follow-through and source reconciliation
+
+Reviewed the clean starter checkout and remote main at
+`c8f286e32dff54164b5c80c91133fee2f1f8ec7d`: `docs/versioning.md`,
+`docs/baseline-policy.md`, `docs/engineering/verification-policy.md` and
+`CHANGELOG.md`. The GitHub connector verified remote identity while local DNS
+was unavailable; subsequent Git/gh queries used a temporary loopback CONNECT
+tunnel with DNS-over-HTTPS and ordinary TLS certificate verification. No system
+DNS, trust settings or existing consumer configuration was changed.
+
+The newly reviewed risk-based verification guidance preserves a full gate at
+release acceptance, applicable here; ordinary-edit cadence and broader starter
+ADR delivery remain separate from this release. No competing portable tooling
+baseline or new mandatory adopter workflow is introduced. Starter 0.10.0 remains
+unreleased, and this bounded policy check is not formal starter adoption or full
+companion conformance.
+
+The maintainer requested sync/publication and reliable publication after version
+increments. Add a portable release-authority checkpoint to Git sync and record
+standing publication authority only in this repository's AGENTS.md. This new
+compatible capability advances stable Git sync to 1.1.0 and the 0.x bundle to
+0.11.0, superseding unpublished 0.10.2 while including both pending corrections.
+The roadmap and [release receipt](evidence/2026-11-14-0.11.0-release.md) define
+the coherent finite scope and acceptance. No major or stable promotion requires
+a new PRD here. Explicit deferral, gates, release ownership and separate consumer
+propagation remain controlling. Prior 0.10.2 selections below are historical.
+
+### November 14, 2026 dependency-update authority correction
+
+Rechecked the clean local starter checkout at
+`77bce3bdeb77c5679cb6eed3e569a2b32a412df1`: versioning, changelog, baseline
+and the dependency-maintenance handoff. Its unreleased 0.10.0 policy binds its
+adopters to completed updates while preserving unrelated consumers' defaults.
+Clarify the portable skill's existing user/project-authority precedence and carry
+established authority through handoffs and workflow corrections. Keep explicit
+review-only requests and project approvals controlling. Skill 0.4.1 → 0.4.2
+shares pending bundle 0.10.2 as a compatible correction; no starter-specific
+default is exported. The [case review](review/dependency-update-authority-2026-11-14.md)
+records scope and acceptance limits. Remote identity could not be refreshed
+because github.com DNS resolution failed; current remote alignment is unverified.
+No full conformance, publication or consumer propagation is claimed.
+
 ### November 1, 2026 local release-accounting review
 
 Published baseline is v0.8.3, commit d6acc26e28ca1c4f43e5bb46d8973021d7d006c3.

@@ -127,6 +127,17 @@ identifies the released catalog. A plugin cache or a manifest's version string
 does not prove that a release exists. Check each harness's publication and
 installation state separately.
 
+### Follow version changes through publication
+
+Git sync checks pending version changes against the last published release,
+including changes already committed on `main`. This repository's standing
+publication authority is recorded in [AGENTS.md](../AGENTS.md): sync requests
+covering such changes continue through the release procedure below unless the
+user explicitly defers publication. Report Git alignment and release completion
+separately. A blocked release remains outstanding; a version bump or successful
+push cannot close it. The portable Git sync skill discovers this policy and
+keeps the release workflow as the owner of publication.
+
 ### Decide versions from the last released tag
 
 Compare each changed skill with its version at the last release tag. The skill

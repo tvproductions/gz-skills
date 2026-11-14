@@ -1,6 +1,6 @@
 # Skill roadmap and backlog
 
-Reconciled: 2026-11-13. This is the repository's planning index; detailed
+Reconciled: 2026-11-14. This is the repository's planning index; detailed
 contracts and evidence remain in the linked records. The order below is the
 recommended next-work order, not approval to implement or publish a proposal.
 It introduces no issue graph or adopting-project lifecycle.
@@ -33,17 +33,28 @@ for publication, artifacts and channel-install evidence.
 
 ## Current backlog
 
-Selected patch **0.10.2** corrects pre-implementation gate applicability in Git
-sync and quality gate. Its finite scope is the reported empty-suite deadlock,
-complete-tree/authority diagnosis, honest inapplicability evidence and authorized
-gate-repair guidance. Acceptance: the [case matrix](review/gate-applicability-2026-11-13.md),
-README test/specification/build sequence, Ruff/ty and repository contract checks.
-Invocation, project gate authority and snapshot/lock contracts are preserved;
-no new runtime helper, test runner, lifecycle state or setup schema is included.
-Starter/adopter hook changes, consumer upgrades, publication and the remaining
-stable-review backlog are outside this patch. Candidate instruction corrections
-do not establish native behavioral qualification or clear GZYoke's installed
-gate. The next minor remains unselected at 0.11.0.
+Selected minor **0.11.0** adds Git sync release follow-through and includes
+both pending corrections: pre-implementation gate applicability and dependency
+update authority. It supersedes unpublished 0.10.2 because the release checkpoint
+is compatible new capability. The maintainer requested sync and publication and
+asked for version increments to lead reliably to new releases.
+
+Requirements: identify unpublished package/component versions against actual
+remote releases, including committed pending work; discover publication authority;
+complete authorized releases through their owning workflow; honor explicit
+no-release instructions and report deferred or blocked publication. Bind that
+standing authority only in this repository. Preserve project gates, immutable
+release identity, explicit invocation and consumer-owned publication policy.
+
+Acceptance: static scenario review for authorized publication, ordinary sync,
+explicit deferral, committed pending versions, no version bump and unavailable
+remote evidence; the existing full repository/skill/native-plugin/package gates;
+then an immutable GitHub release and tagged installs in each supported channel.
+The [release receipt](evidence/2026-11-14-0.11.0-release.md) records classification,
+checks and actual publication boundaries. No new runtime helper, lifecycle state,
+setup schema, registry channel or automatic consumer update is included. Native
+model behavioral qualification and the remaining stable-review backlog stay
+separate. No further minor scope is selected.
 
 | Order | Work | Status and owner | Next action and completion evidence |
 | ---: | --- | --- | --- |

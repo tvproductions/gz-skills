@@ -3,7 +3,7 @@ name: gzs-git-sync
 description: Create and publish a guarded Git save point after reviewing scope and passing the repository's own quality gates. Use only when the user explicitly asks to git sync, commit and push, publish the current work, or create a remote save point.
 compatibility: Requires Git, a configured repository remote, and permission to commit and push.
 metadata:
-  govzero-version: "1.0.2"
+  govzero-version: "1.1.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -35,7 +35,8 @@ controls. Do not duplicate its state or declare the containing workflow complete
 3. Discover the repository's canonical sync command per the order in
    § Discovery and fallback. Do not substitute remembered commands for
    documented ones. Resolve gate applicability from the project stage and
-   actual tree as described in § Stage-aware verification.
+   actual tree as described in § Stage-aware verification. Check version changes
+   and release authority as described in § Release follow-through.
 4. Preview mutations when the selected adapter supports a dry run. Fetch current
    remote state before trusting ahead/behind counts. Completion means the plan
    identifies the branch, remote, changed-file scope, validation, commit, remote
@@ -113,6 +114,31 @@ needed. A request to correct this mismatch permits the bounded repair where
 project authority allows it; complete that repair instead of repeatedly rerunning
 the same empty suite. No portable skill waives an active project approval rule.
 
+## Release follow-through
+
+Check the intended scope for unpublished package or independently versioned
+component versions, including already committed pending changes rather than
+only the current diff. Compare them with the last published release. Check the
+project's changelog, release policy and remote publication evidence; a version
+string or pushed commit alone does not
+establish a release. Resolve unavailable evidence as unknown.
+
+If the user's request, established instructions or explicit project policy also
+authorizes publication, continue through the owning release workflow and its
+gates. Use `gzs-release` when available and appropriate, or the project's documented
+release procedure. Preserve the release owner's sequencing, including preparation
+before the save-point commit when required. Complete and verify the authorized
+publication instead of ending with an offer to release. Do not duplicate release
+mechanics or lifecycle state in this skill.
+
+A version increment alone grants no publication authority. Honor an explicit
+prepare-only, no-release or deferred-release instruction. When publication is
+outside the established authority, complete the authorized Git save point and
+report the pending version and remaining publication step. When an authorized
+release is blocked or partial, name the completed effects and blocker; Git
+alignment does not establish release completion. A sync with no pending version
+change does not require inventing a release.
+
 ## Safety invariants
 
 - Preserve published history: no force push or destructive reset.
@@ -132,4 +158,6 @@ ahead/behind and worktree state. Identify validation performed after any
 content-changing reconciliation. Distinguish passed checks, justified
 inapplicable dimensions and unresolved failures; include the project authority
 and evidence for each applicability decision or gate repair. Name any skipped
-gate or unresolved warning.
+gate or unresolved warning. For changed versions, report the last published and
+pending versions, publication authority or explicit deferral, and the owning
+release workflow's verified result or remaining publication step.

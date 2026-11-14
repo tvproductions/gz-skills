@@ -6,10 +6,35 @@ fleet updates.
 
 ## Unreleased
 
-Pending **0.10.2**, from published v0.10.1: correct gate applicability for
-pre-implementation planning, research, documentation and instruction work.
+Pending **0.11.0**, from published v0.10.1: add release follow-through to Git
+sync, with the pending gate-applicability and dependency-update authority fixes.
+The compatible new Git sync capability selects a bundle minor and supersedes
+unpublished candidate 0.10.2. No published version or tag is changed.
 
-- `gzs-git-sync` 1.0.1 → 1.0.2 and `gzs-quality-gate` 0.1.2 → 0.1.3 clarify
+- `gzs-git-sync` 1.0.1 → 1.1.0 adds a release checkpoint for pending package
+  and component versions, including already committed changes. Discover the
+  project's publication authority and complete authorized publication through
+  its owning release workflow; otherwise report the deferred release explicitly.
+  A version bump alone grants no authority. This repository separately binds
+  sync requests covering unpublished version changes to completed publication,
+  unless explicitly deferred. Consumer propagation remains separate. The new
+  capability requires a skill and bundle minor; the compatible gate correction
+  below shares this Git sync version. Scope and acceptance are recorded in the
+  [release receipt](docs/evidence/2026-11-14-0.11.0-release.md).
+
+- `gzs-update-dependencies` 0.4.1 → 0.4.2 corrects mode selection: honor the
+  user's established request and applicable project bindings before using the
+  review fallback. Carry authorized maintenance through handoffs and workflow
+  corrections, complete the scoped update and verification, and honor an
+  authorized family migration rather than treating old pins as policy. Explicit
+  review/no-changes requests and separately required project approvals remain
+  controlling. This is a compatible instruction/UI-prompt correction under the
+  existing user/project-authority contract, included in bundle 0.11.0.
+  See the [case review](docs/review/dependency-update-authority-2026-11-14.md)
+  for static acceptance, source identity and verification limits. Publication
+  and installed-consumer updates remain separate.
+
+- `gzs-git-sync` 1.1.0 and `gzs-quality-gate` 0.1.2 → 0.1.3 clarify
   the existing project-owned, scope-dependent verification contract. Inspect the
   complete tree and project authority before treating an empty test run as a
   required behavioral failure. Report justified pre-implementation testing as
@@ -17,8 +42,9 @@ pre-implementation planning, research, documentation and instruction work.
   hook/CI applicability mismatches before rerunning the full gate. Preserve
   unconditional project requirements, approval controls, hooks, thresholds and
   real discovery/test failures; never manufacture tests or suppress exit codes.
-  These are compatible instruction corrections, requiring skill and bundle
-  patches. Invocation and authorization boundaries do not change. See the
+  These are compatible instruction corrections; the new release checkpoint
+  above determines the combined Git sync and bundle minor. Gate authority and
+  explicit invocation remain unchanged. See the
   [case review](docs/review/gate-applicability-2026-11-13.md) for acceptance and
   propagation limits. Publication and consumer configuration updates are separate.
 

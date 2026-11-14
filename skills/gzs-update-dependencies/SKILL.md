@@ -3,7 +3,7 @@ name: gzs-update-dependencies
 description: Assess freshness or update project-managed dependencies, runtime pins, tools, adopted templates, and agent plugins against project policy. Use for dependency freshness checks, outdated-version reviews, package/tool upgrades, lockfile refreshes, or bringing a project's toolchain current; a freshness-only request leaves dependency state unchanged.
 compatibility: Requires network access to authoritative package and tool sources plus the package managers used by the target repository.
 metadata:
-  govzero-version: "0.4.1"
+  govzero-version: "0.4.2"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -26,6 +26,15 @@ state or declare the containing workflow complete.
 
 ## Choose the requested mode
 
+Resolve the mode from the user's request, established conversation instructions
+and applicable project policy before applying a default. A handoff can record
+that existing authority; it does not independently grant new permission. Carry
+an authorized update through handoffs and workflow corrections unless the user
+stops, narrows or changes it. A correction to how the work proceeds is not by
+itself a request to stop or return to review. Continue the authorized work
+without another permission round for ordinary resolution, configuration,
+compatibility fixes and verification within that scope.
+
 - **Freshness review:** Requests to check freshness, find outdated dependencies,
   or assess whether versions need updating authorize assessment only. Inventory
   and query authoritative sources, then recommend adopt or defer decisions.
@@ -33,12 +42,21 @@ state or declare the containing workflow complete.
   use read-only queries rather than installs, synchronization, or lock generation.
   Run workflow steps 1-4 and report findings with checked dates and evidence.
   Verification of a proposed version remains pending unless it was actually
-  tested in an authorized isolated environment. Do not infer an upgrade request
-  from this skill's invocation alone; if no mode is established, review first.
-- **Update:** Requests to upgrade or refresh dependencies authorize the scoped
-  maintenance change and verification in steps 1-9. Preserve the approved release
-  families, project additions, and exceptions. A reviewed recommendation from an
-  earlier assessment does not itself authorize applying it.
+  tested in an authorized isolated environment.
+- **Update:** Requests to maintain, update, upgrade or refresh dependencies
+  authorize the scoped maintenance change and verification in steps 1-9.
+  Complete the update rather than ending with recommendations or an offer to
+  apply them. Follow the governing compatibility and release-family policy,
+  including migration to newer stable families when that authority calls for it;
+  an old pin or allowed range alone does not override an authorized migration.
+  Preserve project additions and approved exceptions. A reviewed recommendation
+  from an earlier assessment does not itself authorize applying it.
+
+An applicable project binding may select update mode for a bare skill invocation.
+Use freshness review as the fallback only when neither the request, established
+instructions nor project policy selects a mode. An explicit review-only or
+no-changes request selects freshness review even when project policy defaults to
+updates. Keep separately required project approvals and the user's scope intact.
 
 An on-demand review does not create schedules, hooks, or new CI gates. Use
 `gzs-dependency-risk-audit` when the requested result is a broader vulnerability,
@@ -118,10 +136,11 @@ allow/deny policy. Never replace a project's declarations with a library-owned
 baseline or reintroduce tools the project has retired. Keep application settings
 in their owning schema, not the minimal gz-skills profile file.
 
-Refresh patches within the approved runtime family unless the user authorizes
-a family migration. Distinguish package support from development execution and
-host interpreter compatibility. Inspect actual host-bound loading behavior;
-a development pin alone does not establish that a project loads in a host.
+Refresh patches within the approved runtime family unless governing project
+policy or the user authorizes a family migration. Distinguish package support
+from development execution and host interpreter compatibility. Inspect actual
+host-bound loading behavior; a development pin alone does not establish that a
+project loads in a host.
 Keep development tools outside shipped runtime dependencies unless the product
 uses them as libraries. Preserve project manager compatibility requirements
 separately from an exact tested CI version; do not impose a matching-version

@@ -135,6 +135,17 @@ GovZero skills.
   claiming availability. Do not call a Codex, Claude Code, or OpenCode plugin
   published based on a manifest or local cache.
   Do not install both a managed plugin and vendored copy into one discovery scope.
+- In this repository, a Git sync request covering unpublished bundle or skill
+  version changes also authorizes publication of the selected coherent bundle
+  through `docs/packaging.md`. Include already committed pending changes when
+  comparing with the last published release. Complete release preparation,
+  ordinary release commits/pushes, immutable tagging, GitHub publication and
+  disposable channel acceptance without another permission round. An explicit
+  no-release, prepare-only or deferral instruction controls. Without a pending
+  version change, sync requires no new release. Preserve all release gates and
+  report blocked or partial publication honestly; consumer propagation and public-directory or
+  registry publication remain separate. This standing authority is local to
+  gz-skills and does not become a portable skill default.
 
 ## Python tooling
 
