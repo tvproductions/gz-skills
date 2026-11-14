@@ -3,9 +3,9 @@
 ## Authority
 
 The operator designated
-[gz-skills-first-starter](https://github.com/tvproductions/gz-skills-first-starter)
+[GZ Starter](https://github.com/tvproductions/gz-starter)
 as the authoritative shared engineering and release policy alignment source.
-Its [versioning policy](https://github.com/tvproductions/gz-skills-first-starter/blob/main/docs/versioning.md)
+Its [versioning policy](https://github.com/tvproductions/gz-starter/blob/main/docs/versioning.md)
 owns SemVer classification, 0.x treatment, coherent minor-release bundles,
 compatible patches, newly written PRDs for every major including 1.0.0,
 independent component versions and immutable release identities.

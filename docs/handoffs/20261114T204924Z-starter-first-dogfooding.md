@@ -1,5 +1,60 @@
 # Evening three-repository continuation — November 14, 2026
 
+## Canonical gz-starter migration — November 14 follow-up
+
+The maintainer explicitly chose execution of the rename/migration tonight.
+GitHub is now `tvproductions/gz-starter`, verified to retain the same repository
+ID and history. The checkout is relocated to `gz-starter`. GZ Starter is the
+display name. Pending distribution/CLI is `gz-starter` at **0.10.0**, from
+published 0.9.0; no extra per-task version bump or release publication occurs.
+
+The old `skills-first-starter` command remains an equivalent alias. The Python
+import `skills_first_starter`, marketplace/plugin IDs and `.skills-first/`
+provenance directory remain intentional compatibility interfaces. New source
+URLs/provenance use the canonical repository; historical adoption records and
+immutable receipts remain intact. Source detection accepts old and new origins.
+The update skill remains `update-gz-template`. See the starter's
+`docs/rename-gz-starter.md` for reviewed downstream migration guidance; no blanket
+downstream edits or native cache/user-scope activation were performed.
+
+The paired designs remain drafts. Their format examples now use
+`gz-starter-records/v1` and `gz-starter-commit/v1`, not activated schemas.
+Current draft SHA-256: starter 951a78aa9ddfdce7bfe88b38888deafaa0f0bf32d968142e180a47c3029aea61; Backplane f680c70202138c77d34a881f0e081c32f17847b1bf34c9390ad6d0ddd9b8e0e6.
+Earlier hashes below identify the pre-rename drafts and remain historical.
+No sidecar/ledger/Backplane workflow implementation is authorized by naming work.
+
+The relocated starter environment and four normal hooks were rebuilt from the
+same locked dependency selections on Python 3.14.10; the new and legacy commands
+both report 0.10.0. The desktop app's primary-folder binding requires the user:
+Computer Use cannot control the app, and no project-folder edit API is exposed.
+The old folder contains only a temporary relocation notice for the active chat,
+not a second checkout. Remove that placeholder after the desktop task/project
+has been rebound and no active runtime depends on it.
+
+Companion names, versions and remotes are unchanged. All three repositories must
+receive follow-up commits/sync and exact-final CI observation where configured.
+No tag/release is authorized. The original wrap-up commits below remain valid
+save points, not the final renamed-candidate identities.
+
+Verified canonical starter migration is pushed at
+`5845e8fb488f0674636a6c1748e3f0a97e1d8c08` on `origin/main`.
+[Exact-commit CI](https://github.com/tvproductions/gz-starter/actions/runs/43647770059)
+passes both configured jobs: the four routine checks, catalog validation,
+source-independent build/installed verification and separate X-Plane baseline.
+Canonical and legacy CLI checks pass; external dependency selections are
+unchanged. This is sync/rename evidence, not release acceptance or publication.
+
+Backplane companion migration is pushed at
+`c1b63d8f72fba9996f0857120f8c97e9e8d5700d`; its four normal hooks pass.
+[Exact-commit three-platform CI](https://github.com/tvproductions/superpowers-backplane/actions/runs/43647870548)
+is observed through completion by the coordinating sync before its final report.
+All 32 gz-skills repository unittest tests pass again after these documentation
+changes. Earlier unchanged-source Ruff/format/ty and 20-skill checks remain
+applicable; no hosted workflow is configured here. Final transport identities
+and CI results belong to the final sync response, without receipt-only commits.
+
+## Prior wrap-up save point (superseded by the migration above)
+
 The maintainer explicitly requested handoffs and ordinary Git synchronization
 for **all three** coordinated repositories: GZ Starter, gz-skills and Backplane.
 Keep designs as drafts, implement nothing and publish no release. This current

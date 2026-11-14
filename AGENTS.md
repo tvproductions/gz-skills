@@ -60,7 +60,7 @@ GovZero skills.
 ## Template policy alignment
 
 - The maintainer's authoritative engineering and release policy source is
-  [gz-skills-first-starter](https://github.com/tvproductions/gz-skills-first-starter).
+  [GZ Starter](https://github.com/tvproductions/gz-starter).
   Follow this repository's binding in [docs/release-policy.md](docs/release-policy.md).
   Check the source before release preparation, at scoped policy/tooling maintenance,
   and when notified of relevant changes; record the reviewed revision, decisions,

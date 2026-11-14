@@ -6,6 +6,11 @@ fleet updates.
 
 ## Unreleased
 
+- Follow the canonical starter repository rename to `tvproductions/gz-starter`
+  in active policy links and the coordinated handoff. Preserve this project's
+  independent identity/version and historical source evidence; no workflow or
+  native installation is changed.
+
 - Preserve the three-repository GZ Starter/gz-skills/Backplane design discussion
   in the [continuation handoff](docs/handoffs/20261114T204924Z-starter-first-dogfooding.md).
   Record draft authority/storage/commit boundaries and the next assurance review;
