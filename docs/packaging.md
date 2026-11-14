@@ -87,7 +87,7 @@ Install from a tagged Git revision with `uvx`; Node is not part of the supported
 consumer toolchain:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.10.1 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.11.0 `
   gz-skills install --project C:\path\to\project gzs-git-sync
 ```
 

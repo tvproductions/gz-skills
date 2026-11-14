@@ -6,7 +6,9 @@ fleet updates.
 
 ## Unreleased
 
-Pending **0.11.0**, from published v0.10.1: add release follow-through to Git
+## 0.11.0 - 2026-11-14
+
+Release **0.11.0**, from published v0.10.1: add release follow-through to Git
 sync, with the pending gate-applicability and dependency-update authority fixes.
 The compatible new Git sync capability selects a bundle minor and supersedes
 unpublished candidate 0.10.2. No published version or tag is changed.
