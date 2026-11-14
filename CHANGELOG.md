@@ -6,6 +6,11 @@ fleet updates.
 
 ## Unreleased
 
+- Preserve the three-repository GZ Starter/gz-skills/Backplane design discussion
+  in the [continuation handoff](docs/handoffs/20261114T204924Z-starter-first-dogfooding.md).
+  Record draft authority/storage/commit boundaries and the next assurance review;
+  no skill, helper, runtime, version or native activation changes are delivered.
+
 ## 0.12.0 - 2026-11-14
 
 Release **0.12.0**, from published v0.11.0: make authorized engineering

@@ -1,3 +1,80 @@
+# Evening three-repository continuation — November 14, 2026
+
+The maintainer explicitly requested handoffs and ordinary Git synchronization
+for **all three** coordinated repositories: GZ Starter, gz-skills and Backplane.
+Keep designs as drafts, implement nothing and publish no release. This current
+instruction supersedes earlier cross-repository authorization limits below and
+controls the repository's conditional sync/publication standing rule. GZ Starter
+is the short conversational name; canonical identifiers remain unchanged.
+
+The shared discussion is preserved in the starter's
+`docs/handoffs/2026-11-14-opinionated-cli-design-discussion.md` and paired drafts:
+
+- Starter repository `tvproductions/gz-skills-first-starter`:
+  `docs/superpowers/specs/2026-11-14-lite-record-and-commit-contract-draft.md`.
+- Backplane repository `tvproductions/superpowers-backplane`:
+  `docs/superpowers-backplane/specs/2026-11-14-lite-record-and-commit-alignment-design.md`.
+
+Read those candidates before dependent design changes. Starter sidecars follow
+Backplane semantic cues; they do not redefine its authority. JSON structured
+facts, Markdown narrative/generated views, a hand-written changelog, Git history
+and bounded recovery are selected. No SQLite, Dolt, permanent ledger or gzkit
+integration is selected. A small typed per-commit JSON record in a Git trailer
+is proposed for the project binding, not implemented in portable skills or
+imposed on unrelated consumers. Preserve four routine checks where adopted.
+Superpowers remains the feature inner loop. No cloud execution is requested.
+
+Starter cognitive qualification is explicitly deferred across its two lanes,
+retaining ceiling 15, eventual qualification, UNKNOWN measurement and conditional
+acceptance without strict-conformance claims. A separately maintained gzkit-derived
+engine is future project work: small Python API/CLI with eventual PyPI/uv
+distribution, MCP/plugins deferred. This is starter policy/direction, not a
+blanket exception imposed on unrelated gz-skills consumers or a delivered engine.
+
+gz-skills remains at published v0.12.0, with no pending skill/bundle behavior or
+version changes. This handoff/changelog-only save point requires no release or
+version bump. No skills, helpers, profiles, runtime pins, locks, native settings
+or published tags are changed. Existing standalone helper and published-dogfood
+proposals remain as recorded below; do not remove helpers before a reviewed
+ownership/migration decision or implement the unapproved dogfood proposal.
+
+Next work here remains the assurance-role review (plan audit, intent audit,
+change review, quality gate), under the reconciled shared design and published
+development-tooling decision. Keep standalone and active-owner use, evidence
+reuse, native discovery and actual behavioral qualification distinct. The
+starter's draft commit contract grants no new portable lifecycle ownership.
+
+Use existing locked validation and preserve hooks if present. This repository
+currently has no configured hosted quality CI; report that limitation rather
+than inventing exact-commit CI success. Confirm final remote/main alignment and
+clean worktree in the sync response. Previous observations below remain history.
+
+Observed evening checks: fresh fetch gives main ahead/behind 0/0; actual
+manager is uv 0.13.8 on managed Python 3.14.10. All 32 unittest tests pass;
+Ruff check, format (84 Python files), ty and all 20 Agent Skills validations
+pass. The unchanged skill identities, relative links and explicit OpenAI
+prompts are covered by repository tests; activation descriptions remain exactly
+the published v0.12.0 descriptions. No current model-workflow qualification is
+inferred. These are local checks; hosted quality CI is not configured here.
+
+Companion save points now verified on their respective origin/main branches:
+
+- GZ Starter: `454c59643013bd9aea4c5e3f4760ab873b86934e`;
+  [immutable draft](https://github.com/tvproductions/gz-skills-first-starter/blob/454c59643013bd9aea4c5e3f4760ab873b86934e/docs/superpowers/specs/2026-11-14-lite-record-and-commit-contract-draft.md).
+  Both exact-commit jobs pass in
+  [run 43645889085](https://github.com/tvproductions/gz-skills-first-starter/actions/runs/43645889085),
+  including the full four-check gate, catalogs, build/installed proof and the
+  separate X-Plane baseline. These are sync checks, not strict release acceptance.
+- Backplane: `5822c6b78acd08d7f90faefaf984f257c625d7a4`;
+  [immutable paired draft](https://github.com/tvproductions/superpowers-backplane/blob/5822c6b78acd08d7f90faefaf984f257c625d7a4/docs/superpowers-backplane/specs/2026-11-14-lite-record-and-commit-alignment-design.md).
+  All four normal commit hooks pass and local adapter checks pass 9/9.
+  Exact-commit three-platform CI is observed separately in the final sync response.
+
+Their designs remain drafts after committing. No release was published. The
+maintainer's unnamed additional final item was never specified; do not infer
+another requirement. GZ Starter naming is included with canonical IDs preserved.
+No gz-skills source/version changes are needed to save these coordination facts.
+
 # Starter-first dogfooding and lifecycle review handoff
 
 Observed November 14, 2026, 20:49:24 UTC; local macOS arm64 checkout
