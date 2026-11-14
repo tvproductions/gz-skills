@@ -7,9 +7,12 @@ It introduces no issue graph or adopting-project lifecycle.
 
 ## Delivered releases
 
-The latest published and verified release, `v0.10.1`, corrects uv_build packaging;
-publication and channel results are recorded in its [release receipt](evidence/2026-11-08-0.10.1-release.md).
-The preceding release is `v0.10.0`, removing the gzkit installer surface and
+The latest published and verified release, `v0.11.0`, adds Git sync release
+follow-through and corrects gate applicability and dependency-update authority.
+Its [release receipt](evidence/2026-11-14-0.11.0-release.md) records publication,
+artifact identities and all four tagged installation checks. Release `v0.10.1`
+corrected uv_build packaging; see its [receipt](evidence/2026-11-08-0.10.1-release.md).
+Release `v0.10.0` removed the gzkit installer surface and
 integration examples; see the [release receipt](evidence/2026-11-08-0.10.0-release.md)
 for its publication and channel status. The earlier release is `v0.9.0`:
 project setup and dependency update follow
@@ -31,10 +34,10 @@ correction (quality-gate skill `0.1.2`) and router `0.5.1`; see the
 [release record](https://github.com/tvproductions/gz-skills/releases/tag/v0.8.1)
 for publication, artifacts and channel-install evidence.
 
-## Current backlog
+## Completed 0.11.0 scope
 
-Selected minor **0.11.0** adds Git sync release follow-through and includes
-both pending corrections: pre-implementation gate applicability and dependency
+Published minor **0.11.0** adds Git sync release follow-through and includes
+both corrections: pre-implementation gate applicability and dependency
 update authority. It supersedes unpublished 0.10.2 because the release checkpoint
 is compatible new capability. The maintainer requested sync and publication and
 asked for version increments to lead reliably to new releases.
@@ -54,7 +57,10 @@ The [release receipt](evidence/2026-11-14-0.11.0-release.md) records classificat
 checks and actual publication boundaries. No new runtime helper, lifecycle state,
 setup schema, registry channel or automatic consumer update is included. Native
 model behavioral qualification and the remaining stable-review backlog stay
-separate. No further minor scope is selected.
+separate. All release gates and tagged channel checks passed; the selected
+scope is complete. No further minor scope is selected.
+
+## Current backlog
 
 | Order | Work | Status and owner | Next action and completion evidence |
 | ---: | --- | --- | --- |
