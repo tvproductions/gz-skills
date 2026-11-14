@@ -17,6 +17,8 @@ Both changes require minors during 0.x; bundle 0.12.0 covers
 the expanded coherent scope. No major or stable promotion is proposed. See the
 [maintenance receipt](docs/evidence/2026-11-14-dependency-maintenance.md) and
 [adopter workflow case review](docs/review/adopter-workflows-2026-11-14.md).
+Publication and tagged-channel results are recorded in the
+[release receipt](docs/evidence/2026-11-14-0.12.0-release.md).
 
 - `gzs-router` 0.6.0 selects and enters the user's authorized workflow, with
   recommendation-only requests remaining read-only. A packaged adopter guide

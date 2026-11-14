@@ -7,8 +7,13 @@ It introduces no issue graph or adopting-project lifecycle.
 
 ## Delivered releases
 
-The latest published and verified release, `v0.11.0`, adds Git sync release
-follow-through and corrects gate applicability and dependency-update authority.
+The latest published and verified release, `v0.12.0`, adds actionable routing,
+standalone/Superpowers-complementary workflow guidance and direct dependency
+updates, with current locked development tools. Its
+[release receipt](evidence/2026-11-14-0.12.0-release.md) records immutable source,
+artifacts and all four tagged installation checks. Release `v0.11.0` added Git
+sync release follow-through and corrected gate applicability and dependency-update
+authority.
 Its [release receipt](evidence/2026-11-14-0.11.0-release.md) records publication,
 artifact identities and all four tagged installation checks. Release `v0.10.1`
 corrected uv_build packaging; see its [receipt](evidence/2026-11-08-0.10.1-release.md).
@@ -60,9 +65,9 @@ model behavioral qualification and the remaining stable-review backlog stay
 separate. All release gates and tagged channel checks passed; the selected
 scope is complete. No further minor scope is selected.
 
-## Selected 0.12.0 release scope
+## Completed 0.12.0 scope
 
-Selected minor **0.12.0**, against published v0.11.0, serves reliable task
+Published minor **0.12.0**, against baseline v0.11.0, serves reliable task
 initiation and completion. The maintainer expanded the completed dependency
 maintenance scope to include adopter workflow guidance learned from Superpowers.
 Direct dependency invocation completes updates; router action requests enter the
@@ -77,9 +82,9 @@ first-use/hook/schema proof work below remains separate.
 
 Included: dependency skill 0.4.2 → 0.5.0, router 0.5.1 → 0.6.0, its packaged
 workflow reference, prominent adopter README guidance and locked current Python
-tools. Both changed contracts require minors during 0.x; reuse adequate pending
-bundle 0.12.0 across its existing mirrors. No major PRD or stable promotion is
-required. Runtime family, installer/lock/setup contracts and optional components
+tools. Both changed contracts require minors during 0.x; bundle 0.12.0 covers
+the complete coherent scope across its mirrors. No major PRD or stable
+promotion is required. Runtime family, installer/lock/setup contracts and optional components
 remain unchanged. No new required orchestrator or authored harness mirror.
 
 Acceptance: standalone and complementary scenario review, preserved advice-only
@@ -90,11 +95,12 @@ and heavy compatibility qualification must be reported separately. The
 [maintenance receipt](evidence/2026-11-14-dependency-maintenance.md) retains its
 original completed scope/evidence; the
 [workflow case review](review/adopter-workflows-2026-11-14.md) records the extension
-and final candidate checks. The subsequent explicit Git sync authorizes 0.12.0
-publication under AGENTS.md. Release finalization advances marketplace pins and
-installation examples together; publication/channel results are recorded in the
-[release receipt](evidence/2026-11-14-0.12.0-release.md). Existing-consumer
-propagation remains separate.
+and final candidate checks. The subsequent explicit Git sync authorized 0.12.0
+publication under AGENTS.md; all release gates, GitHub asset verification and
+four tagged installation checks passed. Marketplace pins and examples name
+v0.12.0. The [release receipt](evidence/2026-11-14-0.12.0-release.md) records
+source, artifacts, publication and limits. The selected scope is complete; no
+next minor scope is selected. Existing-consumer propagation remains separate.
 
 
 ## Current backlog
