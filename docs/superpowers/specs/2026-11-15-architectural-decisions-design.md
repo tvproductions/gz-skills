@@ -1,10 +1,14 @@
 # Portable architectural decisions: owning design
 
-Status: DRAFT for maintainer review, November 15, 2026. No design or architectural
-approval is recorded. This draft authorizes no implementation or publication.
-The user directed completion of the approved starter release prerequisites and
-delegated implementation approach; the recommendation below is the agent's
-proposal, not human approval of this document or its separate ADR edition.
+Status: DESIGN APPROVED, November 15, 2026. The main conversation approved the
+original design at `f847de530acb3e1ef0716b18b09a2ea48c2fdcae` (reply: “yes”),
+then reviewed the remote GZKit naming precedent and directed “proceed with that
+design”. The responsibility split and H5 naming clarification are retained.
+Separate actual architectural approval is captured in
+[Current ADR-0001 edition 1](../../decisions/ADR-0001-001-standalone-architectural-decision-procedure.md)
+with its original reviewed bytes and exact human response. Design assent is not
+substituted for that architectural response. Implementation-plan review remains
+pending; no implementation or qualification is claimed by this status.
 
 ## Intent, authority and inputs
 
@@ -19,6 +23,31 @@ Reviewed gz-skills base: `4a7abd79f483c6c9abfc8f9470694be847f1347d`, equal to re
 [policy](https://github.com/tvproductions/gz-starter/blob/f42e6f186f062493c09fc2c2dc935e9a64310e33/docs/engineering/architectural-decisions.md)
 and ADR-0001-001 at that revision. They establish shared requirements, not approval of companion internals. Preserve COB lightweight-source provenance
 `dd1ab883c04e884678ed723959b17c5c364263d1` and its final audience guidance.
+
+## Naming precedent: remote GZKit drydock
+
+Reviewed the remote [classic ADR change order](https://github.com/tvproductions/gzkit/blob/8208381d149b8b8704bd012849332ed3a1f2fb38/docs/governance/harbor-classic-adr-change-order.md) at
+`8208381d149b8b8704bd012849332ed3a1f2fb38`, especially the settled design and
+H5 ruling of November 8. Reuse its decision/edition grammar rather than presenting
+this contribution as inventing a naming scheme:
+
+- Stable identity: `ADR-[0-9]{4,}`, starting with `ADR-0001` in a new collection.
+- Edition file: `ADR-[0-9]{4,}-[0-9]{3,}-<slug>.md`; number and edition are
+  zero-padded to minimum widths four and three, with no overflow rename or cap.
+- Slug uses the stated `[a-z0-9-]+` grammar. Keep the readable kebab-case title;
+  do not silently substitute a stricter parser contract.
+- A revision changes the edition/filename, not the stable decision identity.
+  Neither number is a product/release version. Preserve prior editions/history.
+- Preserve suitable existing conventions and legacy records; an actual migration
+  needs an explicit crossover and reconciliation, not a blanket rename.
+
+The starter already uses `ADR-0001-001-title-in-kebab-case.md` from the shared
+lightweight source. The precise width/slug rules above were reviewed in the main conversation
+and accepted when the maintainer directed proceeding with this design.
+GZKit records this as ratified planning; it is not proof of landed implementation.
+Its drydock orders, resolver, ledger/event machinery, operator identity and
+GZKit-specific crossover are outside this contribution. No GZKit dependency or
+integration follows. Existing consumer policy retains authority.
 
 ## Approaches and proposed decision
 
@@ -144,7 +173,7 @@ Drafting occurs in a registered detached worktree at the reviewed base. Preserve
 the original dirty main and user settings. Before integration, review divergence
 and reconcile only approved scope. Rollback unapproved drafts without resetting
 main or changing installs; later release rollback preserves published identities.
-A fresh builder checks this draft, then the maintainer reviews both approvals.
-Remaining product questions: none identified; the proposed boundary/names and
-both exact approval decisions remain reviewable, pending choices. Do not claim
-implementation readiness, native discovery, behavioral acceptance or publication.
+A fresh builder checked the design and found nothing important left unresolved.
+Actual design/architectural approval evidence is recorded above and in the Current
+ADR. Remaining gates are implementation-plan review, execution, qualification and
+release evidence; do not claim those results from the approvals.

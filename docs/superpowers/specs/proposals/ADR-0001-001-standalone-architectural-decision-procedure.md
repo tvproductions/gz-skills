@@ -26,6 +26,15 @@ that direction does not approve this identified ADR edition or the owning design
 See the [owning design](../2026-11-15-architectural-decisions-design.md) for exact
 source identities, deliverables, finite scope and behavioral acceptance.
 
+## Naming precedent: remote GZKit drydock
+
+Reuse the [ratified classic-ADR naming plan](https://github.com/tvproductions/gzkit/blob/8208381d149b8b8704bd012849332ed3a1f2fb38/docs/governance/harbor-classic-adr-change-order.md),
+including H5, as detailed in the owning design: stable `ADR-[0-9]{4,}` identity,
+minimum three-digit edition and `[a-z0-9-]+` slug. Preserve existing conventions
+and independent decision/edition/release identities. This is a proposed naming
+clarification for review, not GZKit implementation proof or adoption of its
+resolver, ledger, drydock or crossover machinery.
+
 ## Credible alternatives
 
 1. **Focused supporting skill with template and existing router integration.**
