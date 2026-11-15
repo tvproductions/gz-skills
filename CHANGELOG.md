@@ -6,7 +6,9 @@ fleet updates.
 
 ## Unreleased
 
-- Pending bundle 0.13.0 adds `gzs-architectural-decisions` 0.1.0 and router
+## 0.13.0 - 2026-11-15
+
+- Bundle 0.13.0 adds `gzs-architectural-decisions` 0.1.0 and router
   0.7.0 support at design, execution and review checkpoints. Preserve consumer
   policy, separate explicit edition approval, original reviewed content,
   editorial edition history and independent authorized continuation. Add the

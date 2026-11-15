@@ -10,7 +10,7 @@ In each adopting repository, add the package to that repository's
 {
   "$schema": "https://opencode.ai/config.json",
   "plugins": [
-    "git+https://github.com/tvproductions/gz-skills.git#v0.10.0"
+    "git+https://github.com/tvproductions/gz-skills.git#v0.13.0"
   ]
 }
 ```

@@ -446,3 +446,11 @@ Windows OpenCode acceptance remains UNVERIFIED. Keep 0.13.0 unreleased and both
 marketplaces on v0.12.0; no tag/release. See the existing
 [release record](evidence/2026-11-15-0.13.0-release.md) for exact evidence and limits.
 The planned starter CLI remains outside this contribution.
+
+Resumption: the owning packaging sequence and approved Task 3 put candidate
+exact-tag channel observations after immutable publication. The earlier hold is
+preserved as historical evidence, not an additional pre-tag gate. Preceding-tag
+Codex/Claude smoke checks already pass. Release-commit preparation is active;
+OpenCode remains UNVERIFIED pending its exact-tag observation. Require clean
+release gates and review, publication, then every tagged channel before completion.
+No native activation, changed architecture or starter propagation is implied.
