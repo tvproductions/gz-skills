@@ -301,3 +301,17 @@ Preserve Python 3.14.10 and uv >=0.13.5 compatibility. See the
 [maintenance receipt](evidence/2026-11-14-dependency-maintenance.md) for targets,
 compatibility, verification and exclusions. No commit, publication or installed
 consumer propagation follows from this maintenance request.
+
+### November 15, 2026 architectural-decision contribution
+
+Reviewed current starter `e18c06448ad411668c33777eb7e5e49df4c97ff9` against
+selected governing source `f42e6f186f062493c09fc2c2dc935e9a64310e33`.
+Versioning, baseline selection and architectural-decision policy are unchanged.
+Retain the deliberately selected immutable policy and exact-companion qualification
+boundary. Finite scope and 0.12.0 -> 0.13.0 decision are in the existing roadmap;
+new skill 0.1.0 and router 0.7.0 add capability. Current seven locked registry
+packages, uv/uv_build 0.13.8 and approved-family Python 3.14.10 need no update;
+see the candidate-specific [freshness receipt](evidence/2026-11-15-0.13.0-freshness.json).
+No universal consumer runtime, release lifecycle or CLI is added. Final review,
+package/publication/channel gates and starter propagation stay explicit in the
+[implementation checkpoint](review/architectural-decisions-2026-11-15.md).

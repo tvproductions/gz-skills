@@ -1,0 +1,90 @@
+{
+  "checked_at": "2026-11-15T19:31:52.448007+00:00",
+  "candidate_commit": "d65460efeba1cba8a3907b3b3e33c46c3fb9c650",
+  "inputs_sha256": {
+    "pyproject.toml": "6f8b6be237acca039c40b8515d5ed69b060138a89632ea9fd208052c66eb91dc",
+    "uv.lock": "513b1dc3a8290ef9149a9c5b1bd32b2ac1dfb97e91b472c50abb6e2b891c0e17",
+    ".python-version": "4f4c88910b6d485ae689143880e5e81b595a48a51ecb391b2f14feaec106d180"
+  },
+  "mode": "read-only release freshness review; no pin/lock/environment changes",
+  "packages": [
+    {
+      "name": "click",
+      "selected": "8.5.1",
+      "latest_stable": "8.5.1",
+      "selected_yanked": false,
+      "evidence": "https://pypi.org/pypi/click/json",
+      "decision": "retain exact current stable pin"
+    },
+    {
+      "name": "python-dateutil",
+      "selected": "4.0.0",
+      "latest_stable": "4.0.0",
+      "selected_yanked": false,
+      "evidence": "https://pypi.org/pypi/python-dateutil/json",
+      "decision": "retain exact current stable pin"
+    },
+    {
+      "name": "ruff",
+      "selected": "0.17.5",
+      "latest_stable": "0.17.5",
+      "selected_yanked": false,
+      "evidence": "https://pypi.org/pypi/ruff/json",
+      "decision": "retain exact current stable pin"
+    },
+    {
+      "name": "skills-ref",
+      "selected": "0.1.1",
+      "latest_stable": "0.1.1",
+      "selected_yanked": false,
+      "evidence": "https://pypi.org/pypi/skills-ref/json",
+      "decision": "retain exact current stable pin"
+    },
+    {
+      "name": "strictyaml",
+      "selected": "1.7.3",
+      "latest_stable": "1.7.3",
+      "selected_yanked": false,
+      "evidence": "https://pypi.org/pypi/strictyaml/json",
+      "decision": "retain exact current stable pin"
+    },
+    {
+      "name": "ty",
+      "selected": "0.0.104",
+      "latest_stable": "0.0.104",
+      "selected_yanked": false,
+      "evidence": "https://pypi.org/pypi/ty/json",
+      "decision": "retain exact current stable pin"
+    },
+    {
+      "name": "tzdata",
+      "selected": "2026.6",
+      "latest_stable": "2026.6",
+      "selected_yanked": false,
+      "evidence": "https://pypi.org/pypi/tzdata/json",
+      "decision": "retain exact current stable pin"
+    }
+  ],
+  "execution": {
+    "uv": "0.13.8",
+    "uv_source": "https://github.com/astral-sh/uv/releases/tag/0.13.8",
+    "python": "managed 3.14.10; approved N-1 family retained",
+    "python_source": "https://www.python.org/downloads/release/python-31410/",
+    "uv_build": "0.13.8 latest verified; declared compatible >=0.13.8,<0.14"
+  },
+  "audit": {
+    "command": "uv audit --locked --output-format json",
+    "audited_packages": 7,
+    "vulnerabilities": 0,
+    "adverse_statuses": 0,
+    "warnings": [
+      "audit command and JSON schema experimental; retained, not suppressed"
+    ]
+  },
+  "outdated": [],
+  "owner": "gz-skills maintainer",
+  "upgrade_batch": "none; all existing selections current stable",
+  "unknowns": [
+    "actual native model identifier not exposed; host/channel qualification recorded separately"
+  ]
+}
