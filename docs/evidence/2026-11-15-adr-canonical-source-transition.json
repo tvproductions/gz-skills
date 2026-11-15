@@ -1,0 +1,32 @@
+{
+  "skills/gzs-architectural-decisions/SKILL.md": {
+    "before": "3d09b1fc263f7e2ca6966fb1dca59857ccb54986b3846c9e73a156adc1c05cb5",
+    "after": "a85b8a48fc700da52d65b5b61fa4ee525a1c0b7ffd303f02f753a26d5cf2339a",
+    "only_crlf_to_lf": true
+  },
+  "skills/gzs-architectural-decisions/references/adr-template.md": {
+    "before": "9c4a249f4b6140a235bd4deb484fb582bb2b0451ba72ca6b041f3a5f9c0bb2dc",
+    "after": "88fcf67e431e4df013b6c52b342361e9370adf15fc3f39b521d41f7aad706916",
+    "only_crlf_to_lf": true
+  },
+  "skills/gzs-architectural-decisions/agents/openai.yaml": {
+    "before": "51e29852ef3976671d78709b34f056a58fa558d8c437cdaa320ff6913168cd1a",
+    "after": "bdbbdae065d8a96ef79dadc5f8b10c3ab299857efa642e276c4680c71300555c",
+    "only_crlf_to_lf": true
+  },
+  "skills/gzs-router/SKILL.md": {
+    "before": "cf1051d2361e266d32f937f16121be48431b52f9c5cecb0ad4893a467c887e8c",
+    "after": "cf1051d2361e266d32f937f16121be48431b52f9c5cecb0ad4893a467c887e8c",
+    "only_crlf_to_lf": true
+  },
+  "skills/gzs-router/references/workflows.md": {
+    "before": "7a93439c2e424ec0c2d5fd8a049a597d7d520393bcd73eb20d8a78b0b9aa01fc",
+    "after": "0e12ea27866d02124528bdbb045dafee4ed3b6d4d3cd153d0a3811371db58c0c",
+    "only_crlf_to_lf": true
+  },
+  "AGENTS.md": {
+    "before": "0898f07aa380085d2291bc8595254cf6e06ad4f00fab91d7a6b55ef28d108a69",
+    "after": "383c5fca5b4bac52de6e8ded6964ddb14dfa2d8623f0d3b2b4da30fa42eddf59",
+    "only_crlf_to_lf": true
+  }
+}

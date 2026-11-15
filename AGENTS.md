@@ -202,3 +202,15 @@ Before handoff:
 5. Review activation descriptions for both intended and unintended triggers.
 
 Preserve user changes. Do not commit or push unless explicitly requested.
+
+## Architectural decisions
+
+During design, execution and review, follow the immutable selected
+[architectural-decision policy](https://github.com/tvproductions/gz-starter/blob/f42e6f186f062493c09fc2c2dc935e9a64310e33/docs/engineering/architectural-decisions.md),
+reuse approved records in `docs/decisions/`, and read the canonical
+[portable procedure](skills/gzs-architectural-decisions/SKILL.md).
+Require separate explicit human approval of an identified new/replacement edition
+before dependent implementation. Preserve actual approval and reviewed content;
+continue independent authorized work. This publisher binding adds no consumer
+runtime, release or lifecycle requirement. Qualification remains explicit in the
+owning design/plan and release evidence; a binding alone proves no availability.

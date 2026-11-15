@@ -190,3 +190,14 @@ and [entry guidance](https://github.com/obra/superpowers/blob/22f0b463e7a5e57990
 reviewed at that source revision. Superpowers retains its methodology; these
 recipes describe GovZero task routing and complementary ownership. Consumers
 follow their actual installed version and governing project policy.
+
+### Architectural choices during design, execution or review
+
+Use `gzs-architectural-decisions` when a consequential choice needs a decision,
+approval, amendment/replacement or alignment review. Read the consumer's selected
+policy and approved records, reuse applicable choices and pause only work that
+depends on a missing approval. Continue independent authorized work. A routine edit
+already covered by an approved decision needs no new ADR. With Superpowers or an
+active project workflow, supply this discipline at its existing checkpoints;
+do not restart planning or create a second lifecycle. Completion requires actual
+approval/content evidence and implementation alignment, not a generated proposal.

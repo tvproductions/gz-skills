@@ -1,0 +1,6 @@
+interface:
+  display_name: "GovZero Architectural Decisions"
+  short_description: "Keep architecture choices and approvals explicit"
+  default_prompt: "Use $gzs-architectural-decisions for this project's consequential architecture choice or ADR alignment review."
+policy:
+  allow_implicit_invocation: true

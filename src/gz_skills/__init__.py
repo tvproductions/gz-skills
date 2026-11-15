@@ -5,4 +5,4 @@ from importlib.metadata import PackageNotFoundError, version
 try:
     __version__ = version("govzero-skills")
 except PackageNotFoundError:  # Running directly from a source checkout.
-    __version__ = "0.12.0"
+    __version__ = "0.13.0"

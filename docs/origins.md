@@ -281,3 +281,18 @@ prepared-versus-published boundaries and verified remote identity. Keep project
 commands, runtime/tool choices, host adapters and numeric release rules local.
 The portable primitive supports an active SP-BP/gzkit workflow without owning
 its lifecycle, traceability, gates, ledgers or approvals.
+
+## `gzs-architectural-decisions`
+
+The approved starter contribution contract at `tvproductions/gz-starter`
+`f42e6f186f062493c09fc2c2dc935e9a64310e33`, its architectural-decision policy,
+and lightweight COB precedent `dd1ab883c04e884678ed723959b17c5c364263d1`
+supply the portable approval and record discipline. Remote GZKit's
+[classic ADR change order](https://github.com/tvproductions/gzkit/blob/8208381d149b8b8704bd012849332ed3a1f2fb38/docs/governance/harbor-classic-adr-change-order.md)
+supplies the ratified H5 naming precedent: stable identity, edition filenames,
+minimum widths and preserved history. It is planning evidence, not proof of a
+landed implementation. Retain consumer authority, explicit edition approval,
+independent authorized continuation and review alignment. Do not import GZKit
+runtime, ledger, resolver, drydock lifecycle or operator identity. See the owning
+[design](superpowers/specs/2026-11-15-architectural-decisions-design.md) for the
+source applicability and qualification boundaries.

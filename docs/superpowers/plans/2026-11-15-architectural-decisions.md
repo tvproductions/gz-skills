@@ -10,7 +10,7 @@
 
 **Spec:** [Owning design](../specs/2026-11-15-architectural-decisions-design.md) and [Current ADR-0001 edition 1](../../decisions/ADR-0001-001-standalone-architectural-decision-procedure.md), including its separate actual approval and preserved original bytes.
 
-**Status:** PLAN FOR MAIN-CONVERSATION REVIEW. This document does not approve itself or changed ADR bytes. Recommend **native execution** through `superpowers:executing-plans`: three sequential tasks share one cohesive instruction contract; use one fresh final reviewer. Preserve an execution choice the maintainer actually supplies.
+**Status:** APPROVED for Native execution; actual main-conversation approval is captured below. This document does not approve changed ADR bytes. Use **Native execution** through `superpowers:executing-plans`: three sequential tasks share one cohesive instruction contract; use one fresh final reviewer. Preserve an execution choice the maintainer actually supplies.
 
 ## Global Constraints
 
@@ -101,3 +101,32 @@ Expect every required command to pass. The existing package checker must report 
 Self-review: Task 1 covers ownership, naming/source provenance, all procedure/template semantics, metadata/catalogs and finite versions; Task 2 covers the complete shared matrix, native source distinctions, publisher controls and real use; Task 3 covers release tooling/artifacts/channels and exact starter handoff. The five Review Focus risks have explicit Task 1/2 checks. No new function/API/type or evaluation framework is introduced. External companion/adopter results remain owning prerequisites, not work silently claimed by this plan. Execution-time model/native capabilities, approval applicability and fresh release state must be observed; no evidence is invented now.
 
 Review this plan in the main conversation before execution. Native execution is recommended for its cohesive sequential work; preserve the maintainer's actual choice and current authority. Design assent does not approve this unwritten plan retrospectively, and plan assent does not create architectural approval.
+
+## Execution approval — November 15, 2026
+
+The maintainer approved this plan in the main conversation, responding
+“approve, are we sure "native" is the best term?” to the review of the immutable
+plan at `32a6673a34a5e06d502e5bdf9f953f59c85489f0`. Subsequent discussion confirmed retaining Superpowers'
+**Native** label rather than contradicting its owning skill; the maintainer
+then directed “so, we'll just move on”. Native means the controller implements
+in this session, with one fresh independent final review. No duplicate plan or
+architectural approval is requested. Original reviewed plan bytes remain in
+that immutable Git history; this section is administrative execution capture.
+
+## Execution checkpoint — November 15, 2026
+
+Task 1 source/catalog/binding implementation is present; the exact canonical
+procedure/template bytes are now LF under repository attributes. Existing Current
+ADR-0001 edition 1 and separate actual approval were reused without changing their
+bytes. No runtime, service, lifecycle or setup schema was added. Source gates:
+32 unittest checks, Ruff lint/format, ty, 21 Agent Skills validators and strict
+Claude validation PASS (nonblocking directory-icon warning).
+
+The first shared B01-B16 Windows-draft behavior run passed, preserving a genuine
+B08 baseline gap and two environment failures/reruns. Git byte reconciliation
+found CRLF draft versus LF release bytes. The canonical-source transition is
+newline-only; exact-source reruns are in progress and remain a release gate.
+See [preserved behavior evidence](../../evidence/2026-11-15-adr-behavior.md).
+Task 2 remains active; Task 3 publication has not started. Existing release target
+0.13.0 is unchanged. Native candidate discovery and publisher controls do not
+substitute for immutable tagged-channel acceptance or genuine alignment review.

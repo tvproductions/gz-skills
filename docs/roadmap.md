@@ -421,3 +421,19 @@ Each promoted skill:
 An [opt-in repository baseline handoff](proposals/repository-baseline-bootstrap.md)
 records maintainer direction and cross-project evidence from 2026-09-20.
 It is a proposal, not an approved implementation specification or catalog addition.
+
+## Pending 0.13.0: portable architectural decisions
+
+Published baseline: 0.12.0. Proposed minor: 0.13.0, governed by the approved
+[design](superpowers/specs/2026-11-15-architectural-decisions-design.md),
+[plan](superpowers/plans/2026-11-15-architectural-decisions.md) and
+[ADR-0001 edition 1](decisions/ADR-0001-001-standalone-architectural-decision-procedure.md).
+New skill 0.1.0 and router 0.6.0 -> 0.7.0 add capability during 0.x; no stable
+promotion or incompatible runtime/schema change is selected. The finite scope is
+the portable procedure/template, existing-router integration, publisher binding,
+21-skill catalogs and complete qualification/publication evidence. Exclude new
+services, lifecycle/schema changes, profile integration, consumer propagation and
+unrelated backlog. Implementation is in progress. Full B01-B16 behavior, native
+discovery, genuine publisher use/alignment, current freshness, package gates,
+fresh final review and four immutable tagged channels remain release gates.
+Do not infer qualification or publication from the pending version mirrors.

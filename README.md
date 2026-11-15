@@ -32,10 +32,11 @@ also supplies an optional entry rule for the adopter's own project instructions.
 
 ## Skill catalog
 
-The catalog contains twenty workflows distilled primarily from `gzkit`, with
+The catalog contains twenty-one workflows distilled primarily from `gzkit`, with
 corroborating implementations from other `tvproductions` repositories:
 
 - `gzs-agent-context-diet`
+- `gzs-architectural-decisions`
 - `gzs-change-review`
 - `gzs-cross-platform-python`
 - `gzs-dependency-risk-audit`

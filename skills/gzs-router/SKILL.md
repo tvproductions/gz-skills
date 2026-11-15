@@ -3,7 +3,7 @@ name: gzs-router
 description: Select and enter the appropriate workflow for an engineering task using standalone GovZero skills or complementary skills alongside installed Superpowers. Use when choosing how to start or continue work, explaining typical workflows, or diagnosing skill discovery. Execute an authorized task through its owner; recommendation-only questions remain read-only.
 compatibility: Works wherever the installed GovZero skills are discoverable by name.
 metadata:
-  govzero-version: "0.6.0"
+  govzero-version: "0.7.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -103,6 +103,7 @@ remain with their owning setup/project workflow and evidence.
 | Goal | Skill | Boundary |
 | --- | --- | --- |
 | Reduce persistent agent-instruction weight | `gzs-agent-context-diet` | Preserves binding rules while pruning or disclosing context. |
+| Surface, approve or review consequential architecture choices | `gzs-architectural-decisions` | Supports design, execution and review under consumer authority; owns no lifecycle or operation permission. |
 | Review a bounded implementation change | `gzs-change-review` | Reports prioritized, evidenced defects without implementing fixes or owning approval. |
 | Review Python for operating-system assumptions | `gzs-cross-platform-python` | Applies to Python portability, not general cross-platform product design. |
 | Assess dependency and supply-chain risk | `gzs-dependency-risk-audit` | Read-first portfolio evidence; does not update packages or own risk acceptance. |

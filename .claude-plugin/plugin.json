@@ -1,6 +1,6 @@
 {
   "name": "gz-skills",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Portable GovZero engineering skills with a curator for choosing the right workflow.",
   "author": {
     "name": "GovZero",
@@ -17,6 +17,7 @@
   ],
   "skills": [
     "./skills/gzs-agent-context-diet",
+    "./skills/gzs-architectural-decisions",
     "./skills/gzs-change-review",
     "./skills/gzs-cross-platform-python",
     "./skills/gzs-dependency-risk-audit",

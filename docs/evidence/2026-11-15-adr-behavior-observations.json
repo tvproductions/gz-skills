@@ -1,0 +1,326 @@
+{
+  "date": "2026-11-15",
+  "host": "Windows; PowerShell 7.6.10; codex-cli 0.169.0",
+  "model": "UNKNOWN: native events do not expose actual model selection",
+  "settings": {
+    "user_config": "ignored",
+    "windows.sandbox": "unelevated",
+    "sandbox": "workspace-write",
+    "single_turn": "ephemeral",
+    "continuation": "persisted exact thread UUID; explicit sandbox_mode restored on resume"
+  },
+  "source_sha256": {
+    "skills/gzs-architectural-decisions/SKILL.md": "3d09b1fc263f7e2ca6966fb1dca59857ccb54986b3846c9e73a156adc1c05cb5",
+    "skills/gzs-architectural-decisions/references/adr-template.md": "9c4a249f4b6140a235bd4deb484fb582bb2b0451ba72ca6b041f3a5f9c0bb2dc",
+    "skills/gzs-router/SKILL.md": "cf1051d2361e266d32f937f16121be48431b52f9c5cecb0ad4893a467c887e8c",
+    "skills/gzs-router/references/workflows.md": "7a93439c2e424ec0c2d5fd8a049a597d7d520393bcd73eb20d8a78b0b9aa01fc",
+    "AGENTS.md": "0898f07aa380085d2291bc8595254cf6e06ad4f00fab91d7a6b55ef28d108a69"
+  },
+  "fixture_notes": [
+    "All approvals in fixtures are staged fictional input, never genuine internal-use approval.",
+    "Baseline B01-B04 output includes an unapproved draft; subsequent matrix inputs preserve that draft explicitly in their hashes.",
+    "Input generators plus snapshots and archived baseline/final contents preserve fixture provenance. Final B01-B04 candidate also contains B05 continuation changes; its pre-approval unchanged-storage observation is retained in the B01-B04 action log.",
+    "B14 immutable link fetched by controller gh API at exact ref; child reads the preserved verified response cache, not fresh child network."
+  ],
+  "observations": [
+    {
+      "case": "B01-B04-baseline",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/decisions/ADR-0043-001-json-metrics-authority.md": {
+          "before": null,
+          "after": "7539b9a2007ddb562c5797f6d5c8545a14ed8fb8db97162a13bb8bf137e161fd"
+        }
+      }
+    },
+    {
+      "case": "B01-B04-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/decisions/ADR-0042-1000-one-metrics-store.md": {
+          "before": null,
+          "after": "7758ef50464c96a6002e3a73d61424c6aadb958255fc61852c0d20d93c5fc6c5"
+        },
+        "docs/decisions/ADR-0042-999-one-metrics-store.md": {
+          "before": "666a50dd26ffa8a2a500becc2a916eee947f3303c4d05905e1909f3ddbc76597",
+          "after": null
+        },
+        "docs/decisions/ADR-0043-001-json-metrics-authority.md": {
+          "before": null,
+          "after": "c1a2383a9c3853e85c41838dfbb9a5711aa33d0c1cb6bbf1ed3d7fab92d698d8"
+        },
+        "docs/decisions/history/ADR-0042-999-one-metrics-store.md": {
+          "before": null,
+          "after": "666a50dd26ffa8a2a500becc2a916eee947f3303c4d05905e1909f3ddbc76597"
+        },
+        "docs/decisions/history/ADR-0043-001-reviewed.md": {
+          "before": null,
+          "after": "f96d96081c9ef8e0196b64d20f90a2ab0bd5f7282a195b09b58397b6e5c47e6c"
+        },
+        "docs/decisions/history/approval-0043-001.txt": {
+          "before": null,
+          "after": "e020c618386df228035ad83c0245592d03e4cab07fd2cb9b14aad9d77e7bd46e"
+        },
+        "docs/design/ADR-0043-001-json-metrics-authority.md": {
+          "before": null,
+          "after": "f96d96081c9ef8e0196b64d20f90a2ab0bd5f7282a195b09b58397b6e5c47e6c"
+        },
+        "storage.json": {
+          "before": "f30500c2d23dc9d495af6626da845e24159ce152936041caa2844fd08afb8049",
+          "after": "12a685f8a3379d9118250364e9fe3aaba1f1180cd4a9e148a8b1edc865bb7209"
+        }
+      }
+    },
+    {
+      "case": "B02-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "storage.json": {
+          "before": "f30500c2d23dc9d495af6626da845e24159ce152936041caa2844fd08afb8049",
+          "after": "3d199921acc5bb000d6e3a6c288f017daae54e5e6f8dba3176c1f887499f52f2"
+        }
+      }
+    },
+    {
+      "case": "B03-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/design/ADR-0044-001-csv-metrics-authority.md": {
+          "before": null,
+          "after": "d9732c2e498bde2b1dcf010a2bd9b046b31182dd6c359392db056ddff2506eb6"
+        }
+      }
+    },
+    {
+      "case": "B06-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        }
+      }
+    },
+    {
+      "case": "B07-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/design/ADR-0044-001-anonymous-remote-metrics-writes.md": {
+          "before": null,
+          "after": "e9211c2baad3707164a9ce6961559a226614da89612011aa28a153c274564e6f"
+        },
+        "storage.json": {
+          "before": "f30500c2d23dc9d495af6626da845e24159ce152936041caa2844fd08afb8049",
+          "after": "3d199921acc5bb000d6e3a6c288f017daae54e5e6f8dba3176c1f887499f52f2"
+        }
+      }
+    },
+    {
+      "case": "B08-baseline",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/decisions/ADR-0042-999-one-metrics-store.md": {
+          "before": "666a50dd26ffa8a2a500becc2a916eee947f3303c4d05905e1909f3ddbc76597",
+          "after": "a2adcf12750485e0d80fe368042b34b5b4d17f88f34a1a5a6f17e00d90cfedb8"
+        }
+      }
+    },
+    {
+      "case": "B08-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/decisions/ADR-0042-1000-one-metrics-store.md": {
+          "before": null,
+          "after": "eff592d84729ad2d881b85ad40b208206c69bc3e86dfe997c5c2f204cbc5daca"
+        },
+        "docs/decisions/ADR-0042-999-one-metrics-store.md": {
+          "before": "666a50dd26ffa8a2a500becc2a916eee947f3303c4d05905e1909f3ddbc76597",
+          "after": null
+        },
+        "docs/decisions/history/ADR-0042-999-one-metrics-store.md": {
+          "before": null,
+          "after": "666a50dd26ffa8a2a500becc2a916eee947f3303c4d05905e1909f3ddbc76597"
+        }
+      }
+    },
+    {
+      "case": "B09-baseline",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/decisions/ADR-0043-csv-metrics-store.md": {
+          "before": null,
+          "after": "1be222e439f85bbd009be4195fd0612642b3930e254b4145c19fd3b915a7bf82"
+        }
+      }
+    },
+    {
+      "case": "B09-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/design/ADR-0043-001-csv-metrics-authority.md": {
+          "before": null,
+          "after": "7529e04ec65dde155cc109bebae1729d6cc79fa994147ef39026f7eb42a85ae9"
+        }
+      }
+    },
+    {
+      "case": "B10-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/design/ADR-0001-001-retain-csv-only-storage.md": {
+          "before": null,
+          "after": "2f58d05ce015f731f5cbf0a6459884906cd4488d42bc4bab95bbabd8967de87e"
+        }
+      }
+    },
+    {
+      "case": "B11-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "release-plan.md": {
+          "before": "285d7f411ea18ffd9a7ff3bc6688d8f6dec50ac5151f5cec43296fa79141630d",
+          "after": "c08c92ce4a717c373ef85f9d435ab1b71b22f62a14d686f022af2a1b8bd8898d"
+        }
+      }
+    },
+    {
+      "case": "B12-candidate",
+      "changes": {}
+    },
+    {
+      "case": "B13-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "storage.json": {
+          "before": "f30500c2d23dc9d495af6626da845e24159ce152936041caa2844fd08afb8049",
+          "after": "3d199921acc5bb000d6e3a6c288f017daae54e5e6f8dba3176c1f887499f52f2"
+        }
+      }
+    },
+    {
+      "case": "B14-approval-missing-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        }
+      }
+    },
+    {
+      "case": "B14-conflict-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        }
+      }
+    },
+    {
+      "case": "B14-link-candidate",
+      "changes": {
+        "README.md": {
+          "before": "9729939921504bacc1214a6486de8f160a8577f3610c6edbaaeb2a1161243b64",
+          "after": "c35ba438a0130f17e1e9d04151e65dfce87ab702c1211812f2bf02f0a4e0e861"
+        },
+        "storage.json": {
+          "before": "9cdc396bb6b4a7636bc76e1edfce31220805bfa216badb8fe6705d00738f276c",
+          "after": "faa5678bbe3ffff30d5bf139c3f7eb769c63ee8ee7963a8a66c267054ff7dea3"
+        }
+      }
+    },
+    {
+      "case": "B14-local-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "storage.json": {
+          "before": "f30500c2d23dc9d495af6626da845e24159ce152936041caa2844fd08afb8049",
+          "after": "3d199921acc5bb000d6e3a6c288f017daae54e5e6f8dba3176c1f887499f52f2"
+        }
+      }
+    },
+    {
+      "case": "B14-policy-missing-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        }
+      }
+    },
+    {
+      "case": "B14-workflow-missing-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        }
+      }
+    },
+    {
+      "case": "B15-candidate",
+      "changes": {
+        "docs/design/ADR-0001-001-use-sqlite-as-project-authority.md": {
+          "before": null,
+          "after": "16aec06416da52d7e480870a69055f694d920b70364da26a4f381e12f06bb01a"
+        }
+      }
+    },
+    {
+      "case": "B16-candidate",
+      "changes": {
+        "README.md": {
+          "before": "6bf92a1795be3d61337c13941de721aea515f8976618969810af1e1f45b9c8e3",
+          "after": "8afda88ffffde11f4f78141f4dd6c38d92c991370b588a8cd1b81d4d8a6f896d"
+        },
+        "docs/design/csv-recovery-assessment.md": {
+          "before": null,
+          "after": "14f71ab7577d748f683803728a208acd2cd20f61414bd74cc53d7bb920d87a6a"
+        }
+      }
+    }
+  ],
+  "remaining_gates": [
+    "per-case action/content review and verdict record",
+    "publisher targeted controls and genuine internal-use alignment",
+    "fresh native discovery; supported tagged distribution channels",
+    "final reviewer and release acceptance"
+  ]
+}

@@ -5,7 +5,7 @@ stable release. Review the skill body, activation boundary, provenance,
 portability, side effects, and behavioral scenarios; do not batch-approve the
 catalog from structural validation alone.
 
-This table covers all twenty implemented skills, reconciled on 2026-11-14. The current
+This table covers all twenty-one implemented skills, reconciled on 2026-11-15. The current
 backlog and historical promotion record are in [`docs/roadmap.md`](../roadmap.md).
 Pending means stable-contract acceptance has not been recorded; a release or
 structural validation alone does not complete that review. The release primitive
@@ -34,6 +34,7 @@ is the latest implemented addition; see its
 | 18 | [`gzs-project-setup`](../../skills/gzs-project-setup/SKILL.md) | Pending | Review first-use selection, preservation of settings, gzkit exclusion, promotion boundaries and honest heavy-readiness claims. |
 | 19 | [`gzs-pythonic-pattern-detect`](../../skills/gzs-pythonic-pattern-detect/SKILL.md) | Pending | Review concrete candidate evidence, project-version policy and read-only scope without requiring an external scanner or corpus. |
 | 20 | [`gzs-pythonic-pattern-apply`](../../skills/gzs-pythonic-pattern-apply/SKILL.md) | Pending | Review one authorized refactor with before/after behavior evidence, project-owned gates and preserved architecture boundaries. |
+| 21 | [`gzs-architectural-decisions`](../../skills/gzs-architectural-decisions/SKILL.md) | Pending stable-contract review | Qualify approval/content identity, editions, consumer authority and actual continuation independently of structural checks. |
 
 For each review, record:
 
