@@ -422,7 +422,7 @@ An [opt-in repository baseline handoff](proposals/repository-baseline-bootstrap.
 records maintainer direction and cross-project evidence from 2026-09-20.
 It is a proposal, not an approved implementation specification or catalog addition.
 
-## Pending 0.13.0: portable architectural decisions
+## Released 0.13.0: portable architectural decisions
 
 Published baseline: 0.12.0. Proposed minor: 0.13.0, governed by the approved
 [design](superpowers/specs/2026-11-15-architectural-decisions-design.md),
@@ -454,3 +454,9 @@ Codex/Claude smoke checks already pass. Release-commit preparation is active;
 OpenCode remains UNVERIFIED pending its exact-tag observation. Require clean
 release gates and review, publication, then every tagged channel before completion.
 No native activation, changed architecture or starter propagation is implied.
+
+Completion: v0.13.0 is published at 0bdab63fc503c6b36e2dd487932689b4e555e41a.
+Clean release gates, independent review, downloaded hashes and all four tagged
+channels PASS; the exact outcome is in the release record. Prior checkpoint
+statements above are historical. The finite owning scope is complete; starter/
+Backplane and actual combination qualification remain independently unfinished.

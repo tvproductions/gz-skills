@@ -14,10 +14,40 @@
     "A private loopback server was also observed for up to twelve seconds; skill count remained zero. Its recorded owned process was verified and stopped.",
     "Actual current-project identity could not be established from the inspected API response shape; no inferred project-ID claim is made."
   ],
-  "verdict": "UNVERIFIED: required native channel acceptance not demonstrated; no product/adapter root cause asserted",
-  "publication": "held; do not tag/release or describe the four-channel gate as passed",
+  "verdict": "PASS: exact-tag native installation/loading/resources; earlier local candidate probe remains unverified history",
+  "publication": "v0.13.0 published at 0bdab63fc503c6b36e2dd487932689b4e555e41a; current tagged native channel verified",
   "evidence_location": "ignored owned fixture under TEMP/g13o/p; no authentication or server-password logs copied into this public receipt",
   "owner": "gz-skills maintainer",
   "revisit": "before 0.13.0 publication, obtain supported project-native loading and compare every installed resource from the immutable released source; preserve current failures",
-  "limits": "Codex instruction behavior and Codex/Claude candidate install evidence do not qualify OpenCode. Installed machine OpenCode 2.1.4 was left unchanged; older 2.2.0 evidence is not current acceptance."
+  "limits": "Codex instruction behavior and Codex/Claude candidate install evidence do not qualify OpenCode. Installed machine OpenCode 2.1.4 was left unchanged; older 2.2.0 evidence is not current acceptance.",
+  "prior_verdict": "UNVERIFIED: required native channel acceptance not demonstrated; no product/adapter root cause asserted",
+  "prior_publication_assessment": "held; do not tag/release or describe the four-channel gate as passed",
+  "tagged_acceptance": {
+    "source": "0bdab63fc503c6b36e2dd487932689b4e555e41a",
+    "target": "git+https://github.com/tvproductions/gz-skills.git#v0.13.0",
+    "runtime": "official OpenCode v2.3.0 Windows x64; existing downloaded binary; machine installation unchanged",
+    "scope": "new disposable project/config/data/cache/state; explicit owned private loopback server; no normal native activation",
+    "observation": "initial plugin catalog empty; provider activation barrier returned ServiceUnavailableError; initial activation then completed and gz-skills became active. No config variants or adapter changes.",
+    "plugin_status": "active",
+    "source_version": "0bdab63fc503c6b36e2dd487932689b4e555e41a",
+    "registered_skills": 24,
+    "candidate_skills": 21,
+    "builtin_skills": [
+      "opencode",
+      "report",
+      "browser"
+    ],
+    "loaded_body_and_autoinvoke_comparisons": "all 21 candidate bodies and flags match canonical source exactly",
+    "canonical_resources": 48,
+    "resource_comparison": "all 48 installed package resources match release source SHA-256",
+    "explanation": "Catalog reads return current registrations without awaiting activation. Source comment and handler contracts predict the observed empty-before/active-after transition. This establishes the current probe mechanism, not every prior failed probe cause.",
+    "official_sources": [
+      "https://github.com/anomalyco/opencode/blob/v2.3.0/packages/cli/src/services/plugin-startup.ts",
+      "https://github.com/anomalyco/opencode/blob/v2.3.0/packages/server/src/handlers/plugin.ts",
+      "https://github.com/anomalyco/opencode/blob/v2.3.0/packages/server/src/location.ts",
+      "https://github.com/anomalyco/opencode/blob/v2.3.0/packages/core/src/plugin/supervisor.ts"
+    ],
+    "model_execution": "none; installation/loading does not qualify inference behavior",
+    "cleanup": "only the newly owned server process stopped in finally; prior fixtures and private logs preserved; no password copied into public evidence"
+  }
 }
