@@ -6,13 +6,15 @@ fleet updates.
 
 ## Unreleased
 
-- Pending bundle 0.13.0 adds `gzs-architectural-decisions` 0.1.0 and router
+## 0.13.0 - 2026-11-15
+
+- Bundle 0.13.0 adds `gzs-architectural-decisions` 0.1.0 and router
   0.7.0 support at design, execution and review checkpoints. Preserve consumer
   policy, separate explicit edition approval, original reviewed content,
   editorial edition history and independent authorized continuation. Add the
   publisher binding and twenty-first catalog entry without a runtime, service,
   schema or lifecycle addition. The existing roadmap records finite scope and
-  remaining qualification/publication gates; pending mirrors are not acceptance.
+  qualification and publication boundaries. See the 0.13.0 release receipt.
 
 - Follow the canonical starter repository rename to `tvproductions/gz-starter`
   in active policy links and the coordinated handoff. Preserve this project's

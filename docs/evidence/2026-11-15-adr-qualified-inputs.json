@@ -1,0 +1,39 @@
+{
+  "implementation_commit": "d65460efeba1cba8a3907b3b3e33c46c3fb9c650",
+  "qualified_sources": {
+    "gzs-architectural-decisions": {
+      "tree_sha256": "6ce58479c11af4fba158b9e2f4c69ab4454115b3679f4ac8cc3e39e05667fe29",
+      "files": {
+        "SKILL.md": "a85b8a48fc700da52d65b5b61fa4ee525a1c0b7ffd303f02f753a26d5cf2339a",
+        "agents/openai.yaml": "bdbbdae065d8a96ef79dadc5f8b10c3ab299857efa642e276c4680c71300555c",
+        "references/adr-template.md": "88fcf67e431e4df013b6c52b342361e9370adf15fc3f39b521d41f7aad706916"
+      }
+    },
+    "gzs-router": {
+      "tree_sha256": "9ab9a429165a4f111b742f3b9545e813d165f40504dbce5eb48e0837eb454f73",
+      "files": {
+        "SKILL.md": "cf1051d2361e266d32f937f16121be48431b52f9c5cecb0ad4893a467c887e8c",
+        "agents/openai.yaml": "211a42060a7a1415e4b1097a1e30beed4c48a97381a52d5c625fdda00117fa75",
+        "references/workflows.md": "0e12ea27866d02124528bdbb045dafee4ed3b6d4d3cd153d0a3811371db58c0c"
+      }
+    }
+  },
+  "binding_sha256": "383c5fca5b4bac52de6e8ded6964ddb14dfa2d8623f0d3b2b4da30fa42eddf59",
+  "approval_reviewed_sha256": "807749ec03853e673b4f2f431cf3c5b277615fedf9dd552016d98b655e72d7ff",
+  "preceding_tag_smoke": [
+    {
+      "host": "codex",
+      "tag": "v0.12.0",
+      "resources": 45,
+      "result": "all native HTTPS-installed resources match immutable Git blobs",
+      "scope": "disposable home; Claude project scope explicit"
+    },
+    {
+      "host": "claude",
+      "tag": "v0.12.0",
+      "resources": 45,
+      "result": "all native HTTPS-installed resources match immutable Git blobs",
+      "scope": "disposable home; Claude project scope explicit"
+    }
+  ]
+}
