@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-15",
+  "host": "Windows x64",
+  "runtime": "OpenCode v2.3.0, official stable v2 stream",
+  "runtime_source": "https://github.com/anomalyco/opencode/releases/tag/v2.3.0",
+  "archive_sha256": "2e14eee53f4abad803d55fdc472c1b12dc3802d687ae204f81e7908bd2ab1895",
+  "candidate_source": "d65460efeba1cba8a3907b3b3e33c46c3fb9c650; unchanged reviewed skill resources through 1af1b81",
+  "scope": "owned temporary project; isolated config/data/cache variables; private processes only; no normal plugin installation or activation changed",
+  "observations": [
+    "Native plugin listing reports no plugins and skill.list returns data=[], not the expected 21 candidate skills.",
+    "Single-file source was corrected to the documented directory source; result remains empty.",
+    "Effective config.get source records confirm the candidate directory selection is read from the owned project configuration.",
+    "Ordinary project settings, a contained Git repository and an invented fixture commit do not yield an observed candidate skill.",
+    "A private loopback server was also observed for up to twelve seconds; skill count remained zero. Its recorded owned process was verified and stopped.",
+    "Actual current-project identity could not be established from the inspected API response shape; no inferred project-ID claim is made."
+  ],
+  "verdict": "UNVERIFIED: required native channel acceptance not demonstrated; no product/adapter root cause asserted",
+  "publication": "held; do not tag/release or describe the four-channel gate as passed",
+  "evidence_location": "ignored owned fixture under TEMP/g13o/p; no authentication or server-password logs copied into this public receipt",
+  "owner": "gz-skills maintainer",
+  "revisit": "before 0.13.0 publication, obtain supported project-native loading and compare every installed resource from the immutable released source; preserve current failures",
+  "limits": "Codex instruction behavior and Codex/Claude candidate install evidence do not qualify OpenCode. Installed machine OpenCode 2.1.4 was left unchanged; older 2.2.0 evidence is not current acceptance."
+}

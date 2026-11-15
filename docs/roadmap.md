@@ -437,3 +437,12 @@ unrelated backlog. Implementation is in progress. Full B01-B16 behavior, native
 discovery, genuine publisher use/alignment, current freshness, package gates,
 fresh final review and four immutable tagged channels remain release gates.
 Do not infer qualification or publication from the pending version mirrors.
+
+November 15 reviewed checkpoint: canonical instruction behavior, publisher
+stop/continue, actual Codex discovery and Codex/Claude candidate resource checks
+PASS. Fresh independent review confirms real ADR-0001 implementation alignment
+with no defects. The clean prepared source and package gates pass, but current
+Windows OpenCode acceptance remains UNVERIFIED. Keep 0.13.0 unreleased and both
+marketplaces on v0.12.0; no tag/release. See the existing
+[release record](evidence/2026-11-15-0.13.0-release.md) for exact evidence and limits.
+The planned starter CLI remains outside this contribution.

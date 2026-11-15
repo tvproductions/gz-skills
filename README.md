@@ -66,7 +66,9 @@ The preserved raw-name summary and user-owned candidate ledger are under
 [`docs/inventory/`](docs/inventory/), and the one-by-one review queue is
 [`docs/review/README.md`](docs/review/README.md).
 Release-facing changes are maintained in [`CHANGELOG.md`](CHANGELOG.md).
-The latest immutable bundle release is `v0.13.0`; `v0.2.0` was the first. The
+The unreleased 0.13.0 candidate adds architectural-decision guidance and the twenty-first skill. Tagged 0.12.0 still contains twenty skills; candidate availability and release acceptance remain pending.
+
+The latest immutable bundle release is `v0.12.0`; `v0.2.0` was the first. The
 catalog remains in the SemVer 0.x development series while the one-by-one
 behavioral review matures toward 1.0.0.
 
@@ -224,7 +226,7 @@ over the same canonical `skills/` tree.
 - Codex can install the released bundle from this repository marketplace:
 
   ```text
-  codex plugin marketplace add tvproductions/gz-skills@v0.13.0
+  codex plugin marketplace add tvproductions/gz-skills@v0.12.0
   codex plugin add gz-skills@gz-skills
   ```
 
@@ -239,7 +241,7 @@ over the same canonical `skills/` tree.
   /plugin install gz-skills@gz-skills
   ```
 
-- OpenCode v2 can install the `v0.13.0` Git package per project. The
+- OpenCode v2 can install the `v0.12.0` Git package per project. The
   earlier `v0.4.0` package uses the OpenCode v1 adapter.
 
   In each adopting repository, add this to its `opencode.jsonc`:
@@ -248,7 +250,7 @@ over the same canonical `skills/` tree.
   {
     "$schema": "https://opencode.ai/config.json",
     "plugins": [
-      "git+https://github.com/tvproductions/gz-skills.git#v0.13.0"
+      "git+https://github.com/tvproductions/gz-skills.git#v0.12.0"
     ]
   }
   ```
@@ -267,7 +269,7 @@ snapshots. The consumer needs `uv`, not Node.js. Install directly from an
 immutable release tag:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.13.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills install `
   --project C:\path\to\project `
   gzs-git-sync gzs-quality-gate
@@ -297,14 +299,14 @@ checked-in snapshots.
 Preview one consumer:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.13.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills update --lock C:\path\to\project\gz-skills.lock.json
 ```
 
 Apply safe updates:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.13.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills update `
   --lock C:\path\to\project\gz-skills.lock.json `
   --apply
@@ -313,9 +315,9 @@ uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.13.0 `
 Preview or apply every consumer below a repository collection:
 
 ```powershell
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.13.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills propagate C:\Users\Jeff\source\repos
-uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.13.0 `
+uvx --from git+https://github.com/tvproductions/gz-skills.git@v0.12.0 `
   gz-skills propagate C:\Users\Jeff\source\repos --apply
 ```
 

@@ -63,3 +63,9 @@ missing approval/vague assent and material replacement. The legacy-convention
 and identity-overflow supplements were run after authorship as positive controls;
 they are not misrepresented as pre-authorship baseline observations. Their exact
 inputs and actual results are preserved separately.
+
+Independent final alignment review is now PASS; see the
+[faithful returned review](architectural-decisions-2026-11-15-final.md).
+No defects or fix pass. The genuine approved-decision reuse/alignment gate for
+this publisher is satisfied. Release remains held for current OpenCode native
+channel evidence, final immutable publication and tagged arrival; no CLI work.
