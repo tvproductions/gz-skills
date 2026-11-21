@@ -6,6 +6,17 @@ fleet updates.
 
 ## Unreleased
 
+## 0.14.0 - 2026-11-21
+
+- Bundle 0.14.0 adds a behavioral check to `gzs-agent-context-diet` 0.2.0
+  for changed or relocated binding guidance. Define fixed cases and grading
+  rules, validate the grader with controls, and compare original and revised
+  instructions under matched conditions. Record behavioral evidence gaps
+  explicitly and keep project acceptance with the consumer. The new required
+  workflow step advances both versions by a minor.
+- Refresh development pins to Ruff 0.17.6 and ty 0.0.107. The bundle
+  retains the same Python family, supported uv range and runtime dependencies.
+
 ## 0.13.0 - 2026-11-15
 
 - Bundle 0.13.0 adds `gzs-architectural-decisions` 0.1.0 and router

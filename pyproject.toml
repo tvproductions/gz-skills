@@ -1,6 +1,6 @@
 [project]
 name = "govzero-skills"
-version = "0.13.0"
+version = "0.14.0"
 description = "Portable GovZero agent skills and their pinned installer"
 readme = "README.md"
 license = "MIT"
@@ -61,7 +61,7 @@ python-version = "3.14"
 
 [dependency-groups]
 dev = [
-    "ruff==0.17.5",
+    "ruff==0.17.6",
     "skills-ref==0.1.1",
-    "ty==0.0.104",
+    "ty==0.0.107",
 ]

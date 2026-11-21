@@ -1,13 +1,37 @@
 # Skill roadmap and backlog
 
-Reconciled: 2026-11-14. This is the repository's planning index; detailed
+Reconciled: 2026-11-21. This is the repository's planning index; detailed
 contracts and evidence remain in the linked records. The order below is the
 recommended next-work order, not approval to implement or publish a proposal.
 It introduces no issue graph or adopting-project lifecycle.
 
+## Selected 0.14.0 scope — instruction compression evidence
+
+Published bundle **0.13.0** at `0bdab63fc503c6b36e2dd487932689b4e555e41a`
+→ pending **0.14.0 / minor**. The maintainer requested deterministic
+instruction-compression evals and a version bump. Add a required behavioral
+check for relocated or changed binding rules in `gzs-agent-context-diet`
+(**0.1.1 → 0.2.0 / minor**). The workflow covers fixed activation tasks and
+observable requirements, grader controls, paired trials, and explicit
+disclosure when behavior cannot be verified. Cosmetic edits continue to use
+the structural checks.
+
+Local acceptance requires a matched skill rehearsal, catalog and manifest
+validation, and an installed-artifact check. The
+[matched rehearsal](evidence/2026-11-21-context-diet-rehearsal.md) records the
+test request, exact skill inputs, results, and scope. Consumer projects own the
+cases, execution tools, and acceptance criteria. The scope adds no bundled
+evaluator, new skill, runtime dependency, or consumer activation change.
+Tagged channel acceptance and publication remain separate.
+The [release record](evidence/2026-11-21-0.14.0-release.md) owns the tool and
+policy check and the exact-tag acceptance evidence.
+
 ## Delivered releases
 
-The latest published and verified release, `v0.12.0`, adds actionable routing,
+The latest published and verified release, `v0.13.0`, adds the portable
+architectural-decision workflow and related router guidance. Its
+[release receipt](evidence/2026-11-15-0.13.0-release.md) records publication
+and the four tagged channel checks. Release `v0.12.0` adds actionable routing,
 standalone/Superpowers-complementary workflow guidance and direct dependency
 updates, with current locked development tools. Its
 [release receipt](evidence/2026-11-14-0.12.0-release.md) records immutable source,

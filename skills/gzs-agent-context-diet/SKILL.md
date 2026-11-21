@@ -3,7 +3,7 @@ name: gzs-agent-context-diet
 description: Reduce always-loaded agent instruction weight while preserving every binding invariant through progressive disclosure and precise context pointers. Use when AGENTS.md, CLAUDE.md, repository rules, or skill descriptions have accumulated duplicated rationale or exceed an enforced context budget.
 compatibility: Works with repositories that maintain durable agent guidance or generated instruction mirrors.
 metadata:
-  govzero-version: "0.1.1"
+  govzero-version: "0.2.0"
   govzero-portability: "portable"
   govzero-origin: "gz-skills"
 ---
@@ -53,9 +53,31 @@ command a maintainer must run. Never hand-edit a mirror to close the gap.
    no binding invariant disappeared or weakened.
 6. Rerun budget and repository documentation checks. Compare before and after
    measurements and review the semantic diff, not only the byte reduction.
+7. Run the behavioral check below when a binding rule moves behind a pointer
+   or its wording, trigger, required action, or exception changes.
+
+## Behavioral check
+
+- Map each affected rule to a task that activates it and an observable
+  requirement. Include applicable exceptions and actions the rule forbids.
+  For a moved rule, capture whether the agent retrieved it when needed.
+- Before running trials, fix the tasks, expected observations, and grading
+  rules. Use the project's evaluator when available. Verify the grading on
+  known compliant, violating, and missing-evidence cases. The same evidence
+  must yield the same verdict.
+- Replay the tasks with the original and revised instructions under matched
+  conditions. Record the model, harness, inputs, and repetitions. Grade
+  observed actions, resulting state, and the accuracy of the agent's report.
+  Report failures and missing evidence per rule. Successful final state
+  alone cannot establish that a required step happened in order.
+- When trials cannot run or evidence is incomplete, mark the checks that lack
+  evidence as unverified and retain observed failures. Link, mirror, and budget
+  checks support structural verification. Follow the project's acceptance
+  requirements.
 
 ## Evidence
 
 Report authored and generated surfaces, bytes and lines before/after, content
 moved or deleted by category, new pointers and their trigger conditions,
 invariant-retention evidence, mirror validation, and unresolved budget pressure.
+For triggered behavioral checks, include the cases, verdicts, and evidence gaps.
