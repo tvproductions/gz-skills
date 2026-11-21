@@ -5,10 +5,10 @@ contracts and evidence remain in the linked records. The order below is the
 recommended next-work order, not approval to implement or publish a proposal.
 It introduces no issue graph or adopting-project lifecycle.
 
-## Selected 0.14.0 scope — instruction compression evidence
+## Completed 0.14.0 scope — instruction compression evidence
 
 Published bundle **0.13.0** at `0bdab63fc503c6b36e2dd487932689b4e555e41a`
-→ pending **0.14.0 / minor**. The maintainer requested deterministic
+→ published **0.14.0 / minor**. The maintainer requested deterministic
 instruction-compression evals and a version bump. Add a required behavioral
 check for relocated or changed binding rules in `gzs-agent-context-diet`
 (**0.1.1 → 0.2.0 / minor**). The workflow covers fixed activation tasks and
@@ -22,14 +22,16 @@ validation, and an installed-artifact check. The
 test request, exact skill inputs, results, and scope. Consumer projects own the
 cases, execution tools, and acceptance criteria. The scope adds no bundled
 evaluator, new skill, runtime dependency, or consumer activation change.
-Tagged channel acceptance and publication remain separate.
+The authorized sync published the tagged release and completed all four
+channel checks. Consumer updates remain separate.
 The [release record](evidence/2026-11-21-0.14.0-release.md) owns the tool and
 policy check and the exact-tag acceptance evidence.
 
 ## Delivered releases
 
-The latest published and verified release, `v0.13.0`, adds the portable
-architectural-decision workflow and related router guidance. Its
+The latest published and verified release, `v0.14.0`, adds behavioral checks
+for instruction compression as recorded above. Release `v0.13.0` added the
+portable architectural-decision workflow and related router guidance. Its
 [release receipt](evidence/2026-11-15-0.13.0-release.md) records publication
 and the four tagged channel checks. Release `v0.12.0` adds actionable routing,
 standalone/Superpowers-complementary workflow guidance and direct dependency
